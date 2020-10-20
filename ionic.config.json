@@ -1,0 +1,7 @@
+{
+  "name": "FynGram",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
