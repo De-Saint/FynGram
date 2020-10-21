@@ -1,5 +1,5 @@
 .head {
-    // min-height: 28vh !important;
+    // min-height: 21vh !important;
 }
 .header-ios ion-toolbar:last-of-type {
     --border-width: 0 0 0 0;
@@ -9,6 +9,12 @@
     width: 180px;
     align-self: center;
     margin-bottom: 2em;
+}
+.small {
+    a{
+        font-size: 13px;
+        text-decoration: unset !important;
+    }
 }
 .input {
     background-color: rgb(240, 240, 240);
@@ -33,4 +39,11 @@
 }
 .logo {
     width: 1.25em !important;
+}
+.select {
+    background-color: rgb(240, 240, 240);
+    border-radius: 3px;
+    border: 1px solid rgb(210, 210, 210);
+    padding: 6px 12px;
+    min-width: 100%;
 }

@@ -1,0 +1,71 @@
+<ion-header ion-padding color="mytheme" class="mybg head">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title color="light">Register</ion-title>
+  </ion-toolbar>
+  <ion-row class="ion-justify-content-center ion-padding-top">
+    <ion-img src="assets/images/fyngram.png" class="ion-justify-content-center head-image ion-padding-top"></ion-img>
+  </ion-row>
+</ion-header>
+
+<ion-content ion-padding>
+  <ion-text>
+    <h3 class="title ion-no-margin ion-margin-bottom ion-margin-top ion-text-center">New Customer</h3>
+  </ion-text>
+  <ion-grid>
+    <ion-row>
+      <ion-select interface="action-sheet" class="select" [interfaceOptions]="customAlertOptions" [(ngModel)]='title'>
+        <ion-select-option value="Mr.">Mr.</ion-select-option>
+        <ion-select-option value="Mrs.">Mrs.</ion-select-option>
+        <ion-select-option value="Miss">Miss</ion-select-option>
+      </ion-select>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input type="text" placeholder="First Name" [(ngModel)]="first_name" class="input ion-padding-horizontal">
+        </ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input type="text" placeholder="Last Name" [(ngModel)]="last_name" class="input ion-padding-horizontal">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input ion-padding-horizontal">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password"
+          class="input ion-padding-horizontal"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-bottom">
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="signup()" color="mytheme"><strong class="white">Create an
+            Account</strong></ion-button>
+      </ion-col>
+    </ion-row>
+    <div class="line ion-margin"></div>
+    <ion-row class="ion-margin-top">
+      <ion-col>
+        <ion-button expand="block" fill="outline" color="mytheme" (click)="fun.navigate('login')"><strong>Have an
+            account? Sign in</strong></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text class="ion-text-center" color="medium">
+          <h6 class="small ion-no-margin"><a (click)="open_modal(true)">Terms of Use</a> and <a
+              (click)="open_modal(false)">Privacy Policy</a></h6>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

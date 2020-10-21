@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
   }
 
   listenToEvents() {
-    this.updateLoggedInStatus(true, "Customer");
+    this.updateLoggedInStatus(false, "");
     // this.events.subscribe('user:signup', () => {
     //   this.enableMenu(true, "");
     // });
@@ -97,54 +97,23 @@ export class AppComponent implements OnInit {
     //   this.enableMenu(true, usertype);
     // })
 
-    // window.addEventListener('user:login', () => {
-    //   this.enableMenu(true, '');
-    // });
+    window.addEventListener('user:login', () => {
+      this.updateLoggedInStatus(true, '');
+    });
 
-    // window.addEventListener('user:signup', () => {
-    //   this.enableMenu(true, '');
-    // });
+    window.addEventListener('user:signup', () => {
+      this.updateLoggedInStatus(true, '');
+    });
 
-    // window.addEventListener('user:logout', () => {
-    //   this.enableMenu(false, '');
-    // });
-    // this.enableMenu(true, "Customer");
+    window.addEventListener('user:logout', () => {
+      this.updateLoggedInStatus(false, '');
+    });
   }
-
-  // enableMenu(showmenu, usertype) {
-  //   if (usertype === "Customer") {
-  //     alert('hey');
-  //     this.menu.enable(showmenu, 'customerPages');
-  //     alert('hey');
-  //     this.menu.enable(!showmenu, 'sellerPages');
-  //     this.menu.enable(!showmenu, 'adminPages');
-  //     this.menu.enable(!showmenu, 'appPages');
-  //   } else if (usertype === "Admin") {
-  //     this.menu.enable(showmenu, 'adminPages');
-  //     this.menu.enable(!showmenu, 'sellerPages');
-  //     this.menu.enable(!showmenu, 'customerPages');
-  //     this.menu.enable(!showmenu, 'appPages');
-  //   } else if (usertype === "Seller") {
-  //     this.menu.enable(showmenu, 'sellerPages');
-  //     this.menu.enable(!showmenu, 'adminPages');
-  //     this.menu.enable(!showmenu, 'customerPages');
-  //     this.menu.enable(!showmenu, 'appPages');
-  //   } else {
-  //     alert("hey i'm here also");
-  // this.menu.enable(showmenu, 'appPages');
-  //     this.menu.enable(!showmenu, 'customerPages');
-  //     this.menu.enable(!showmenu, 'sellerPages');
-  //     this.menu.enable(!showmenu, 'adminPages');
-  //   }
-  // }
 
   logout() {
     // this.userData.logout().then(() => {
     //   return this.router.navigateByUrl('/app/tabs/schedule');
     // });
-  }
-  openTutorial() {
-
   }
 
   updateDarkMode(event) {

@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: AuthenticatePage
+  },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 
