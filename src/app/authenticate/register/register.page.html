@@ -1,4 +1,4 @@
-<ion-header ion-padding color="mytheme" class="mybg head">
+<ion-header ion-padding class="mybg head">
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
       <ion-buttons>
@@ -7,8 +7,8 @@
     </ion-buttons>
     <ion-title color="light">Register</ion-title>
   </ion-toolbar>
-  <ion-row class="ion-justify-content-center ion-padding-top">
-    <ion-img src="assets/images/fyngram.png" class="ion-justify-content-center head-image ion-padding-top"></ion-img>
+  <ion-row class="ion-justify-content-center">
+    <ion-img src="assets/images/fyngram.png" class="ion-justify-content-center head-image"></ion-img>
   </ion-row>
 </ion-header>
 
@@ -18,11 +18,15 @@
   </ion-text>
   <ion-grid>
     <ion-row>
-      <ion-select interface="action-sheet" class="select" [interfaceOptions]="customAlertOptions" [(ngModel)]='title'>
-        <ion-select-option value="Mr.">Mr.</ion-select-option>
-        <ion-select-option value="Mrs.">Mrs.</ion-select-option>
-        <ion-select-option value="Miss">Miss</ion-select-option>
-      </ion-select>
+      <ion-col>
+        <ion-select interface="action-sheet" placeholder="Select Title"
+          class="select input ion-padding-horizontal"
+          [interfaceOptions]="titlecustomAlertOptions" [(ngModel)]='title'>
+          <ion-select-option value="Mr.">Mr.</ion-select-option>
+          <ion-select-option value="Mrs.">Mrs.</ion-select-option>
+          <ion-select-option value="Miss">Miss</ion-select-option>
+        </ion-select>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -36,14 +40,42 @@
     </ion-row>
     <ion-row>
       <ion-col>
+        <ion-select interface="popover" placeholder="Select Gender"
+          class="select input ion-padding-horizontal ion-padding-vertical"
+          [interfaceOptions]="gendercustomAlertOptions" [(ngModel)]='gender'>
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
         <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input ion-padding-horizontal">
         </ion-input>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password"
-          class="input ion-padding-horizontal"></ion-input>
+        <ion-input clearInput type="tel" placeholder="Phone" [(ngModel)]="phone"
+          class="input ion-padding-horizontal "></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="password" class="input ion-padding-horizontal">
+        </ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="password2" class="input ion-padding-horizontal">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item style="border-bottom: none !important;">
+          <ion-checkbox color="mytheme" [(ngModel)]="terms" slot="start"></ion-checkbox>
+          <ion-label color="mytheme">I agree to the Terms & Conditions</ion-label>
+        </ion-item>
       </ion-col>
     </ion-row>
     <ion-row class="ion-margin-bottom">

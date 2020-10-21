@@ -15,12 +15,19 @@ export class RegisterPage implements OnInit {
   email = '';
   password = '';
   title = '';
-  customAlertOptions: any = {
+  gender = '';
+  phone = '';
+  password2 = '';
+  terms : boolean = false;
+  titlecustomAlertOptions: any = {
     header: 'Select Title',
+  };
+  gendercustomAlertOptions: any = {
+    header: 'Select Gender',
   };
 
   constructor(private fun: FunctionsService, private menuCtrl: MenuController, private modalController: ModalController, private data: DataService) {
-    
+
   }
 
   ngOnInit() {
