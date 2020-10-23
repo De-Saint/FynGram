@@ -14,6 +14,7 @@ export class FunctionsService {
     private nav: NavController, public alertController: AlertController) { }
 
   navigate(link, forward?) {
+    console.log(link);
     if (forward) {
       this.nav.navigateForward('/' + link);
     } else {

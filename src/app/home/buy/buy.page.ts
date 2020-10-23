@@ -10,7 +10,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class BuyPage implements OnInit {
   sponsored: Array<Product> = [];
-  
+
   constructor(private menuCtrl: MenuController,
     private fun: FunctionsService,
     private dataService: DataService) {
@@ -24,6 +24,7 @@ export class BuyPage implements OnInit {
   side_open() {
     this.menuCtrl.toggle('end');
   }
+
 
   slideOptsOne = {
     initialSlide: 0,

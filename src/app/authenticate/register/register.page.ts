@@ -1,5 +1,6 @@
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { DataService } from './../../data.service';
-import { MenuController, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { FunctionsService } from './../../functions.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,15 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  first_name = '';
-  last_name = '';
-  email = '';
-  password = '';
-  title = '';
-  gender = '';
-  phone = '';
-  password2 = '';
-  terms : boolean = false;
+  registerForm: FormGroup;
+
+  // first_name = '';
+  // last_name = '';
+  // email = '';
+  // password = '';
+  // title = '';
+  // gender = '';
+  // phone = '';
+  // password2 = '';
+  // terms: boolean = false;
   titlecustomAlertOptions: any = {
     header: 'Select Title',
   };
@@ -26,25 +29,53 @@ export class RegisterPage implements OnInit {
     header: 'Select Gender',
   };
 
-  constructor(private fun: FunctionsService, private menuCtrl: MenuController, private modalController: ModalController, private data: DataService) {
-
+  constructor(private fun: FunctionsService, private modalController: ModalController, private data: DataService) {
+    this.registerForm = new FormGroup({
+      first_name: new FormControl(null, { updateOn: 'blur', validators: [Validators.required] }),
+      last_name: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] }),
+      email: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] }),
+      password: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required, Validators.minLength(6)] }),
+      password2: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required, Validators.minLength(6)] }),
+      title: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] }),
+      gender: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] }),
+      phone: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required, Validators.minLength(11), Validators.maxLength(11)] }),
+      terms: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] })
+    });
   }
 
   ngOnInit() {
   }
 
-  ionViewDidEnter() {
-    // this.menuCtrl.enable(false, 'start');
-    // this.menuCtrl.enable(false, 'end');
-  }
 
-  signup() {
-    if (this.first_name != '' && this.last_name != '' && this.email != '' && this.password != '' && this.fun.validateEmail(this.email)) {
-      this.fun.navigate('home', false);
+  onSubmit() {
+    if (!this.registerForm.valid) {
+      this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
+      return false;
     }
-    else {
-      this.fun.presentToast('Wrong Input', true, 'bottom', 2100);
+    if (this.fun.validateEmail(this.registerForm.value.email)) {
+      if (this.registerForm.value.phone.length === 11) {
+        if (this.registerForm.value.password === this.registerForm.value.password2) {
+          this.fun.navigate('home/tabs/buy', false);
+
+        } else {
+          this.fun.presentToast('Password Mismatch!', true, 'bottom', 2100);
+        }
+      }else{
+        this.fun.presentToast('Phone must be 11 digits, start with 070xxxxxxxx!', true, 'bottom', 2100);
+      }
+
+    } else {
+      this.fun.presentToast('Invalid Email!', true, 'bottom', 2100);
     }
+
   }
 
   async open_modal(b) {

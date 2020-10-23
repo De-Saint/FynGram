@@ -5,16 +5,17 @@
         <ion-menu-button color="light"></ion-menu-button>
       </ion-buttons>
     </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="cart" slot="icon-only" ion-no-margin class="white top-btn"></ion-icon>
-      </ion-button>
-      <ion-button (click)="side_open()">
-        <ion-icon name="ellipsis-vertical-circle" slot="icon-only"  class="white top-btn ion-no-margin"></ion-icon>
-      </ion-button>
-    </ion-buttons>
     <ion-title class="white">Fyngram</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="fun.navigate('cart')" >
+        <ion-icon name="cart" slot="icon-only"  class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+      <!-- <ion-button (click)="side_open()">
+        <ion-icon name="ellipsis-vertical-circle" slot="icon-only"  class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
   </ion-toolbar>
+
   <ion-toolbar  color="mytheme">
     <ion-searchbar color="light" (click)="fun.navigate('search')"  placeholder="I'm shopping for..."></ion-searchbar>
   </ion-toolbar>

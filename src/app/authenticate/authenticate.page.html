@@ -30,7 +30,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-text float-end color="medium" (click)="fun.navigate('passwordreset', true)">
+        <ion-text float-end color="medium" (click)="fun.navigate('authenticate/forgot', true)">
           <h6 class="small ion-no-margin ion-text-end">Forgot Password?</h6>
         </ion-text>
       </ion-col>
@@ -44,15 +44,18 @@
     <div class="line ion-margin"></div>
     <ion-row class="ion-margin-top">
       <ion-col>
-        <ion-button expand="block" fill="outline" color="primary" (click)="fun.navigate('register')" color="mytheme">
+        <ion-button expand="block" fill="outline" (click)="fun.navigate('authenticate/register')" color="mytheme">
           <strong>New? Create an Account</strong></ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-text class="ion-text-center" color="medium">
-          <h6 class="small ion-no-margin"><a (click)="open_modal(true)">Terms of Use</a> and <a
-              (click)="open_modal(false)">Privacy Policy</a></h6>
+          <h6 class="small ion-no-margin" >
+            <a (click)="open_modal(true)" >Terms of Use</a> 
+            <span style="color: gray !important;"> and </span>
+            <a (click)="open_modal(false)">Privacy Policy</a>
+          </h6>
         </ion-text>
       </ion-col>
     </ion-row>

@@ -1,9 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>forgot</ion-title>
+<ion-header ion-padding color="mytheme" class="mybg head">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-row class="ion-justify-content-center">
+    <ion-img src="assets/images/fyngram.png" class="head-image"></ion-img>
+  </ion-row>
 </ion-header>
 
-<ion-content>
+<ion-content ion-padding>
+  <ion-text>
+    <h3 class="title ion-no-margin ion-margin-bottom ion-margin-top ion-text-center">Forgot your password?</h3>
+  </ion-text>
+  <form [formGroup]="forgotForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <ion-text class="small">Type your email address</ion-text>
+          </ion-label>
+          <ion-input clearInput type="email" placeholder="Email" formControlName="email"
+            class="input ion-padding-horizontal"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="onSubmit()" [disabled]="!forgotForm.valid" color="mytheme"><strong
+              class="white">Submit</strong></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 
 </ion-content>

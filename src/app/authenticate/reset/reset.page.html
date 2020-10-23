@@ -1,0 +1,54 @@
+<ion-header ion-padding color="mytheme" class="mybg head">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-row class="ion-justify-content-center">
+    <ion-img src="assets/images/fyngram.png" class="head-image"></ion-img>
+  </ion-row>
+</ion-header>
+
+<ion-content ion-padding>
+  <ion-text>
+    <h3 class="title ion-no-margin ion-margin-bottom ion-margin-top ion-text-center">Reset password</h3>
+  </ion-text>
+  <form [formGroup]="resetForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <ion-text class="small">Type the verification code</ion-text>
+          </ion-label>
+          <ion-input clearInput type="text" name="code" placeholder="Verification Code" formControlName="code"
+            class="input ion-padding-horizontal"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <ion-text class="small">New Password </ion-text><ion-text class="small" color="danger"><i> (Minimum: 6 characters)</i></ion-text>
+          </ion-label>
+          <ion-input clearInput type="password" name="password" placeholder="New Password" formControlName="password"
+            class="input ion-padding-horizontal"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <ion-text class="small">Confirm New Password <ion-text class="small" color="danger"><i> (Minimum: 6 characters)</i></ion-text></ion-text>
+          </ion-label>
+          <ion-input clearInput type="password" name="password2" placeholder="Confirm New Password"
+            formControlName="password2" class="input ion-padding-horizontal"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit" color="mytheme" (click)="onSubmit()"
+            [disabled]="!resetForm.valid"><strong class="white">Submit</strong>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

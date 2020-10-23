@@ -4,9 +4,22 @@
       <ion-menu-button  color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">Help & Support</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="cart" slot="icon-only" (click)="fun.navigate('cart')" class="white" margin></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding" color="light">
+  <ion-item  lines="none" *ngFor="let link of links; let i = index" class="card ion-margin-bottom ion-margin-top"
+  (click)="open(i, link)" >
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin" >{{link}}</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-icon name="arrow-redo-circle-outline" class="ion-float-right"></ion-icon>
+    </ion-col>
+  </ion-item>
 </ion-content>
