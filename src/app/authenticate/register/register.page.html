@@ -86,19 +86,20 @@
       </ion-col>
     </ion-row>
     <div class="line ion-margin"></div>
-    <ion-row class="ion-margin-top">
+    <ion-row class="">
       <ion-col>
-        <ion-button type="submit" expand="block" fill="outline" color="mytheme" (click)="fun.navigate('authenticate')"><strong>Have an
+        <ion-button type="submit" expand="block" color="mytheme" (click)="fun.navigate('authenticate')"><strong class="white">Have an
             account? Sign in</strong></ion-button>
       </ion-col>
     </ion-row>
+    <div class="line ion-margin"></div>
     <ion-row>
       <ion-col>
-        <ion-text class="ion-text-center">
-          <h6 class="small ion-no-margin" >
-            <a (click)="open_modal(true)" >Terms of Use</a> 
+        <ion-text class="ion-text-center ion-margin-top">
+          <h6 class="small ion-no-margin " >
+            <a (click)="open_modal(true)" ><strong>Terms of Use</strong></a> 
             <span style="color: gray !important;"> and </span>
-            <a (click)="open_modal(false)">Privacy Policy</a>
+            <a (click)="open_modal(false)"><strong>Privacy Policy</strong></a>
           </h6>
         </ion-text>
       </ion-col>

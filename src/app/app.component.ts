@@ -13,13 +13,18 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   loggedIn = false;
   dark = false;
-  userType = '';
+  userType = 'Admin';
   public appPages = [
     { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
     { title: 'Search', url: '/search', icon: 'search' },
-    { title: 'Carts', url: '/cart', icon: 'cart' }
+    { title: 'Carts', url: '/cart', icon: 'cart' },
+    { title: 'Login', url: '/authenticate', icon: 'log-in' },
+    { title: 'Register', url: '/authenticate/register', icon: 'person-add' }
   ];
   public sellerPages = [
+    { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+    { title: 'Search', url: '/search', icon: 'search' },
+    { title: 'Carts', url: '/cart', icon: 'cart' },
     { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
     { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'search' },
     { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'search' },
@@ -28,6 +33,9 @@ export class AppComponent implements OnInit {
     { title: 'LogOut', url: '/authenticate', icon: 'log-in' },
   ];
   public adminPages = [
+    { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+    { title: 'Search', url: '/search', icon: 'search' },
+    { title: 'Carts', url: '/cart', icon: 'cart' },
     { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
     { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'search' },
     { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'search' },
@@ -38,6 +46,9 @@ export class AppComponent implements OnInit {
     { title: 'LogOut', url: '/authenticate', icon: 'log-in' },
   ];
   public customerPages = [
+    { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+    { title: 'Search', url: '/search', icon: 'search' },
+    { title: 'Carts', url: '/cart', icon: 'cart' },
     { title: 'Dashboard', url: '/customerdashboard', icon: 'home' },
     { title: 'Profile', url: '/customerprofile/tabs/profile', icon: 'search' },
     { title: 'FynPay', url: '/customerwallet/tabs/fynpay', icon: 'search' },
@@ -76,7 +87,8 @@ export class AppComponent implements OnInit {
   }
 
   listenToEvents() {
-    this.updateLoggedInStatus(false, "");
+    this.updateLoggedInStatus(true, "Admin");
+    // this.updateLoggedInStatus(false, "");
     // this.events.subscribe('user:signup', () => {
     //   this.enableMenu(true, "");
     // });

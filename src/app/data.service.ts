@@ -283,13 +283,13 @@ export class DataService {
   }]
 
   faqs = {
-    'About Us': "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'Blog':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'Contact Us':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'Supports':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'FAQs':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'Privacy Policy':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'Terms & Conditions':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
-    'Return Policy':  "https://fyngram.com/FynGramShop/pages/user/general/register/register.jsp",
+    'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
+    'Blog':  "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
+    'Contact Us':  "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
+    'Supports':  "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
+    'FAQs':  "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
+    'Privacy Policy':  "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
+    'Terms & Conditions':  "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
+    'Return Policy':  "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
   };
 }

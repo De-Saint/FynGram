@@ -3,16 +3,16 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-header>
         <ion-toolbar color="mytheme">
-          <ion-row padding-horizontal align-items-center>
-            <ion-col size="3" padding-vertical align-items-center>
-              <ion-avatar margin-vertical>
+          <ion-row class="ion-padding-horizontal ion-align-items-center">
+            <ion-col size="4" class="ion-padding-vertical ion-align-items-center">
+              <ion-avatar class="ion-margin-vertical">
                 <img src="/assets/icon/logo.png">
               </ion-avatar>
             </ion-col>
-            <ion-col padding-vertical align-items-center>
-              <div margin-vertical>
-                <h4 no-margin margin-start class="medium white"><strong>Guest</strong></h4>
-                <h6 no-margin margin-start class="small white">Create An Account</h6>
+            <ion-col class="ion-padding-vertical ion-align-items-center">
+              <div class="ion-margin-vertical">
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Guest</strong></h4>
+                <h6  class="small white ion-no-margin ion-margin-start">Create An Account</h6>
               </div>
             </ion-col>
           </ion-row>
@@ -20,22 +20,9 @@
       </ion-header>
 
       <ion-content>
-        <ion-list class="ion-no-padding">
-          <ion-list-header>
-            Shop
-          </ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-              detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
         <ion-list *ngIf="loggedIn" lines="none">
           <ion-list-header>
-            Account
+            Shop & Account
           </ion-list-header>
           <div *ngIf="userType === 'Admin'">
             <ion-menu-toggle auto-hide="false" *ngFor="let p of adminPages; let i = index">
@@ -70,24 +57,14 @@
           <ion-list-header>
             Account
           </ion-list-header>
-
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="/authenticate" routerLinkActive="active" routerDirection="root" detail="false">
-              <ion-icon slot="start" name="log-in"></ion-icon>
-              <ion-label>
-                Login
-              </ion-label>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+              detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="/authenticate/register" routerLinkActive="active" routerDirection="root" detail="false">
-              <ion-icon slot="start" name="person-add"></ion-icon>
-              <ion-label>
-                Register
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+         
         </ion-list>
 
 
