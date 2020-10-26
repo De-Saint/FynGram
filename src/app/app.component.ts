@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   loggedIn = false;
   dark = false;
-  userType = 'Admin';
+  userType = '';
   public appPages = [
     { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
     { title: 'Search', url: '/search', icon: 'search' },
@@ -87,8 +87,8 @@ export class AppComponent implements OnInit {
   }
 
   listenToEvents() {
-    this.updateLoggedInStatus(true, "Admin");
-    // this.updateLoggedInStatus(false, "");
+    // this.updateLoggedInStatus(true, "Admin");
+    this.updateLoggedInStatus(false, "");
     // this.events.subscribe('user:signup', () => {
     //   this.enableMenu(true, "");
     // });
