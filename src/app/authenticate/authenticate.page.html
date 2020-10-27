@@ -15,49 +15,53 @@
   <ion-text>
     <h3 class="title ion-no-margin ion-margin-bottom ion-margin-top ion-text-center">Returning Customer</h3>
   </ion-text>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input ion-padding-horizontal">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password"
-          class="input ion-padding-horizontal"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-text float-end color="medium" (click)="fun.navigate('authenticate/forgot', true)">
-          <h6 class="small ion-no-margin ion-text-end">Forgot Password?</h6>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-margin-bottom">
-      <ion-col>
-        <ion-button expand="block" (click)="signin()" color="mytheme"><strong class="white">Sign In</strong>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <div class="line ion-margin"></div>
-    <ion-row class="ion-margin-top">
-      <ion-col>
-        <ion-button expand="block" fill="outline" (click)="fun.navigate('authenticate/register')" color="mytheme">
-          <strong>New? Create an Account</strong></ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-text class="ion-text-center" color="medium">
-          <h6 class="small ion-no-margin" >
-            <a (click)="open_modal(true)" >Terms of Use</a> 
-            <span style="color: gray !important;"> and </span>
-            <a (click)="open_modal(false)">Privacy Policy</a>
-          </h6>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <form [formGroup]="loginForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input clearInput type="email" placeholder="Email" name="email" formControlName="email"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input clearInput type="password" placeholder="Password" name="password" formControlName="password"
+            class="input ion-padding-horizontal"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text float-end color="medium" (click)="fun.navigate('authenticate/forgot', true)">
+            <h6 class="small ion-no-margin ion-text-end">Forgot Password?</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col>
+          <ion-button expand="block" (click)="signin()" color="mytheme"><strong class="white">Sign In</strong>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="line ion-margin"></div>
+      <ion-row class="ion-margin-top">
+        <ion-col>
+          <ion-button expand="block" fill="outline" (click)="fun.navigate('authenticate/register')" color="mytheme">
+            <strong>New? Create an Account</strong></ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text class="ion-text-center ion-margin-top">
+            <h6 class="small ion-no-margin ">
+              <a (click)="openLink('https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp')"><strong>Terms of Use</strong></a>
+              <span style="color: gray !important;"> and </span>
+              <a (click)="openLink('https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp')"><strong>Privacy Policy</strong></a>
+            </h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
 </ion-content>

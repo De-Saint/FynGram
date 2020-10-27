@@ -1,8 +1,10 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { DataService } from './../../data.service';
-import { ModalController } from '@ionic/angular';
 import { FunctionsService } from './../../functions.service';
 import { Component, OnInit } from '@angular/core';
+
+import { Plugins } from '@capacitor/core';
+const { Browser } = Plugins;
 
 @Component({
   selector: 'app-register',
@@ -13,15 +15,6 @@ export class RegisterPage implements OnInit {
 
   registerForm: FormGroup;
 
-  // first_name = '';
-  // last_name = '';
-  // email = '';
-  // password = '';
-  // title = '';
-  // gender = '';
-  // phone = '';
-  // password2 = '';
-  // terms: boolean = false;
   titlecustomAlertOptions: any = {
     header: 'Select Title',
   };
@@ -29,7 +22,7 @@ export class RegisterPage implements OnInit {
     header: 'Select Gender',
   };
 
-  constructor(private fun: FunctionsService, private modalController: ModalController, private data: DataService) {
+  constructor(private fun: FunctionsService,  private data: DataService) {
     this.registerForm = new FormGroup({
       first_name: new FormControl(null, { updateOn: 'blur', validators: [Validators.required] }),
       last_name: new FormControl(null,
@@ -78,21 +71,14 @@ export class RegisterPage implements OnInit {
 
   }
 
-  async open_modal(b) {
-    //   let modal;
-    //   if(b){
-    //     modal = await this.modalController.create({
-    //       component: InfomodalPage,
-    //       componentProps: { value: this.data.terms_of_use, title: 'Terms of Use' }
-    //     });
-    //   }
-    //   else{
-    //     modal = await this.modalController.create({
-    //       component: InfomodalPage,
-    //       componentProps: { value: this.data.privacy_policy, title: 'Privacy Policy' }
-    //     });
-    //   }
-    //   return await modal.present();
-  }
 
+  async openLink(link) {
+    console.log(link);
+    await Browser.open(
+      {
+        url: link,
+        toolbarColor: "#40A944"
+      }
+      );
+  }
 }

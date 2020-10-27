@@ -22,7 +22,7 @@ export class HelpPage implements OnInit {
   ngOnInit() {
   }
 
-  async open(i) {
+ open(i) {
     this.openLink(Object.values(this.faqs)[i]);
   }
   async openLink(link) {

@@ -1,8 +1,10 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from './../data.service';
 import { FunctionsService } from './../functions.service';
-import { Platform, MenuController, ModalController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-
+import { Plugins } from '@capacitor/core';
+const { Browser } = Plugins;
 @Component({
   selector: 'app-authenticate',
   templateUrl: './authenticate.page.html',
@@ -10,56 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticatePage implements OnInit {
 
-  email = '';
-  password = '';
+  loginForm: FormGroup;
 
   constructor(
     private platform: Platform,
-    // private splashScreen: SplashScreen,
     private fun: FunctionsService,
-    private menuCtrl: MenuController,
-    private modalController: ModalController,
     private data: DataService) {
+    this.loginForm = new FormGroup({
+      email: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] }),
+      password: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required, Validators.minLength(6)] }),
+    });
   }
 
   ngOnInit() {
   }
 
-  ionViewDidEnter() {
-    // this.menuCtrl.enable(false, 'start');
-    // this.menuCtrl.enable(false, 'end');
-    // this.splashScreen.hide();
-  }
 
   signin() {
-    this.platform.ready().then(() => {
-      if (this.platform.is('cordova')) {
-        if (this.fun.validateEmail(this.email) && this.password !== '') {
-          this.fun.navigate('home', false);
-        } else {
-          this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
-        }
-      } else {
-        this.fun.navigate('home', false);
-      }
-    });
+    if (this.fun.validateEmail(this.loginForm.value.email) && this.loginForm.value.password !== '') {
+      this.fun.navigate('home', false);
+    } else {
+      this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
+    }
 
   }
 
-  async open_modal(b) {
-    // let modal;
-    // if (b) {
-    //   modal = await this.modalController.create({
-    //     component: InfomodalPage,
-    //     componentProps: { value: this.data.terms_of_use, title: 'Terms of Use' }
-    //   });
-    // } else {
-    //   modal = await this.modalController.create({
-    //     component: InfomodalPage,
-    //     componentProps: { value: this.data.privacy_policy, title: 'Privacy Policy' }
-    //   });
-    // }
-    // return await modal.present();
+  async openLink(link) {
+    console.log(link);
+    await Browser.open(
+      {
+        url: link,
+        toolbarColor: "#40A944"
+      }
+      );
   }
 
 }

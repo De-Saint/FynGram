@@ -17,94 +17,101 @@
     <h3 class="title ion-no-margin ion-margin-bottom ion-margin-top ion-text-center">New Customer</h3>
   </ion-text>
   <form [formGroup]="registerForm">
-      <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-select interface="action-sheet" placeholder="Select Title"
-          class="select input ion-padding-horizontal ion-padding-vertical input"
-          [interfaceOptions]="titlecustomAlertOptions" formControlName='title'>
-          <ion-select-option value="Mr.">Mr.</ion-select-option>
-          <ion-select-option value="Mrs.">Mrs.</ion-select-option>
-          <ion-select-option value="Miss">Miss</ion-select-option>
-        </ion-select>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-input type="text" placeholder="First Name" formControlName="first_name" class="input ion-padding-horizontal">
-        </ion-input>
-      </ion-col>
-      <ion-col>
-        <ion-input type="text" placeholder="Last Name" formControlName="last_name" class="input ion-padding-horizontal">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-select interface="action-sheet" placeholder="Select Gender"
-          class="select input ion-padding-horizontal ion-padding-vertical input"
-          [interfaceOptions]="gendercustomAlertOptions" formControlName='gender'>
-          <ion-select-option value="Male">Male</ion-select-option>
-          <ion-select-option value="Female">Female</ion-select-option>
-        </ion-select>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-input clearInput type="email" placeholder="Email" formControlName="email" class="input ion-padding-horizontal">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-input clearInput type="tel" placeholder="Phone 070xxxxxxxx" formControlName="phone"
-          class="input ion-padding-horizontal "></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col> 
-        <ion-input type="password" placeholder="Password (Min:6)" formControlName="password" class="input ion-padding-horizontal">
-        </ion-input>
-      </ion-col>
-      <ion-col>
-        <ion-input type="password" placeholder="Confirm Password (Min:6)" formControlName="password2" class="input ion-padding-horizontal">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item style="border-bottom: none !important;">
-          <ion-checkbox color="mytheme" formControlName="terms" slot="start"></ion-checkbox>
-          <ion-label color="mytheme">I agree to the Terms & Conditions</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-margin-bottom">
-      <ion-col>
-        <ion-button expand="block" color="primary" (click)="onSubmit()" [disabled]="!registerForm.valid" color="mytheme"><strong class="white">Create an
-            Account</strong></ion-button>
-      </ion-col>
-    </ion-row>
-    <div class="line ion-margin"></div>
-    <ion-row class="">
-      <ion-col>
-        <ion-button type="submit" expand="block" color="mytheme" (click)="fun.navigate('authenticate')"><strong class="white">Have an
-            account? Sign in</strong></ion-button>
-      </ion-col>
-    </ion-row>
-    <div class="line ion-margin"></div>
-    <ion-row>
-      <ion-col>
-        <ion-text class="ion-text-center ion-margin-top">
-          <h6 class="small ion-no-margin " >
-            <a (click)="open_modal(true)" ><strong>Terms of Use</strong></a> 
-            <span style="color: gray !important;"> and </span>
-            <a (click)="open_modal(false)"><strong>Privacy Policy</strong></a>
-          </h6>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-select interface="action-sheet" placeholder="Select Title"
+            class="select input ion-padding-horizontal ion-padding-vertical input"
+            [interfaceOptions]="titlecustomAlertOptions" formControlName='title'>
+            <ion-select-option value="Mr.">Mr.</ion-select-option>
+            <ion-select-option value="Mrs.">Mrs.</ion-select-option>
+            <ion-select-option value="Miss">Miss</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input type="text" placeholder="First Name" formControlName="first_name"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="Last Name" formControlName="last_name"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-select interface="action-sheet" placeholder="Select Gender"
+            class="select input ion-padding-horizontal ion-padding-vertical input"
+            [interfaceOptions]="gendercustomAlertOptions" formControlName='gender'>
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input clearInput type="email" placeholder="Email" formControlName="email"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input clearInput type="tel" placeholder="Phone 070xxxxxxxx" formControlName="phone"
+            class="input ion-padding-horizontal "></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input type="password" placeholder="Password (Min:6)" formControlName="password"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input type="password" placeholder="Confirm Password (Min:6)" formControlName="password2"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item style="border-bottom: none !important;">
+            <ion-checkbox color="mytheme" formControlName="terms" slot="start"></ion-checkbox>
+            <ion-label color="mytheme">I agree to the Terms & Conditions</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col>
+          <ion-button expand="block" color="primary" (click)="onSubmit()" [disabled]="!registerForm.valid"
+            color="mytheme"><strong class="white">Create an
+              Account</strong></ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="line ion-margin"></div>
+      <ion-row class="">
+        <ion-col>
+          <ion-button type="submit" expand="block" color="mytheme" (click)="fun.navigate('authenticate')"><strong
+              class="white">Have an
+              account? Sign in</strong></ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="line ion-margin"></div>
+      <ion-row>
+        <ion-col>
+          <ion-text class="ion-text-center ion-margin-top">
+            <h6 class="small ion-no-margin ">
+              <a (click)="openLink('https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp')"><strong>Terms of Use</strong></a>
+              <span style="color: gray !important;"> and </span>
+              <a (click)="openLink('https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp')"><strong>Privacy Policy</strong></a>
+            </h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 
 </ion-content>
