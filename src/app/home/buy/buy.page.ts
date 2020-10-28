@@ -9,13 +9,13 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./buy.page.scss'],
 })
 export class BuyPage implements OnInit {
-  sponsored: Array<Product> = [];
+  products: Array<Product> = [];
 
   constructor(private menuCtrl: MenuController,
     private fun: FunctionsService,
     private dataService: DataService) {
-    this.sponsored = dataService.sponsored;
-    console.log(this.sponsored);
+    this.products = dataService.sponsored;
+
   }
 
   ngOnInit() {
@@ -30,5 +30,10 @@ export class BuyPage implements OnInit {
     initialSlide: 0,
     slidesPerView: 1,
     autoplay: true
-  };
+  }
+
+  open(product) {
+    this.fun.update(product);
+    this.fun.navigate('/home/tabs/buy/productdetails', false);
+  }
 }

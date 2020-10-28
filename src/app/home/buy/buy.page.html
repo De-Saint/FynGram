@@ -27,12 +27,12 @@
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let spon of sponsored" class="container-inner">
-        <img [src]="spon.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{spon.name}}</p>
+      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
+        <img [src]="product.image[0]" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><span class="inline">{{spon.currency}}{{spon.cost_price}}</span>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
               </span></ion-text>
           </ion-col>
         </ion-row>
@@ -61,13 +61,13 @@
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let spon of sponsored" class="container-inner">
-        <img [src]="spon.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{spon.name}}</p>
+      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
+        <img [src]="product.image[0]" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><span class="inline">{{spon.currency}}{{spon.cost_price}}</span>
-              </span></ion-text>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
+            </span></ion-text>
           </ion-col>
         </ion-row>
       </div>
@@ -81,13 +81,13 @@
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let spon of sponsored" class="container-inner">
-        <img [src]="spon.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{spon.name}}</p>
+      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
+        <img [src]="product.image[0]" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><span class="inline">{{spon.currency}}{{spon.cost_price}}</span>
-              </span></ion-text>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
+            </span></ion-text>
           </ion-col>
         </ion-row>
       </div>
@@ -101,13 +101,13 @@
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let spon of sponsored" class="container-inner">
-        <img [src]="spon.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{spon.name}}</p>
+      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
+        <img [src]="product.image[0]" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><span class="inline">{{spon.currency}}{{spon.cost_price}}</span>
-              </span></ion-text>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
+            </span></ion-text>
           </ion-col>
         </ion-row>
       </div>
@@ -124,7 +124,7 @@
         <ion-img src="/assets/images/slider12.jpg"></ion-img>
       </ion-card>
     </ion-slide>
-    <ion-slide>
+    <ion-slide> 
       <ion-card >
         <ion-img src="/assets/images/slider10.jpg"></ion-img>
       </ion-card>

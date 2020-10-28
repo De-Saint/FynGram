@@ -22,7 +22,7 @@ export class AuthenticatePage implements OnInit {
       email: new FormControl(null,
         { updateOn: 'blur', validators: [Validators.required] }),
       password: new FormControl(null,
-        { updateOn: 'blur', validators: [Validators.required, Validators.minLength(6)] }),
+        { updateOn: 'blur', validators: [Validators.required] }),
     });
   }
 

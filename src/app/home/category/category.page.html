@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
-      <ion-menu-button  color="light"></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">Categories</ion-title>
     <ion-buttons slot="end">
@@ -10,6 +10,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding" color="light">
+  
+  <ion-row>
+    <ion-col *ngFor="let data of categories;" size="6">
+      <ion-card class="card ion-no-margin" (click)="open(data)">
+        <img [src]="data.image[0]" [alt]="data.name">
+        <ion-card-content>
+          <ion-card-title>
+            <ion-row>
+              <ion-col class="ion-no-padding ">
+                <ion-text class="ion-text-left"><span class="price">
+                    <strong>{{data.name}}</strong>
+                  </span>
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Platform, MenuController } from '@ionic/angular';
@@ -61,6 +62,7 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
+    private router: Router,
     private menu: MenuController,
   ) {
     this.initializeApp();
@@ -141,5 +143,8 @@ export class AppComponent implements OnInit {
     } else {
       document.body.setAttribute('data-theme', 'light');
     }
+  }
+  onRegister(){
+   this.router.navigateByUrl('/authenticate/register');
   }
 }

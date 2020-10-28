@@ -5,14 +5,30 @@
         <ion-toolbar color="mytheme">
           <ion-row class="ion-padding-horizontal ion-align-items-center">
             <ion-col size="4" class="ion-padding-vertical ion-align-items-center">
-              <ion-avatar class="ion-margin-vertical">
-                <img src="/assets/icon/logo.png">
-              </ion-avatar>
+              <img src="/assets/icon/logo.png">
             </ion-col>
             <ion-col class="ion-padding-vertical ion-align-items-center">
               <div class="ion-margin-vertical">
                 <h4  class="medium white ion-no-margin ion-margin-start"><strong>Guest</strong></h4>
-                <h6  class="small white ion-no-margin ion-margin-start">Create An Account</h6>
+                <ion-menu-toggle autoHide="false">
+                  <a routerLink="/support"   class="small white ion-no-margin ion-margin-start" routerLinkActive="active" routerDirection="root" detail="false">Create An Account</a>
+                </ion-menu-toggle>
+                <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+              </div>
+              <div class="ion-margin-vertical" *ngIf="userType === 'Admin'">
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Fyngram Admin</strong></h4>
+                <h6  class="small white ion-no-margin ion-margin-start">Admin</h6>
+                <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+              </div>
+              <div class="ion-margin-vertical" *ngIf="userType === 'Customer'">
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Lemuel Charles</strong></h4>
+                <h6  class="small white ion-no-margin ion-margin-start">Seller</h6>
+                <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+              </div>
+              <div class="ion-margin-vertical" *ngIf="userType === 'Seller'">
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Saint Deemene</strong></h4>
+                <h6  class="small white ion-no-margin ion-margin-start">Customer</h6>
+                <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
               </div>
             </ion-col>
           </ion-row>
@@ -64,10 +80,7 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-         
         </ion-list>
-
-
         <ion-list lines="none">
           <ion-list-header>
             Theme
@@ -82,7 +95,9 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
 
+    
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+   
   </ion-split-pane>
 </ion-app>

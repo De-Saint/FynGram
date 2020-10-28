@@ -102,24 +102,6 @@ export class DataService {
 
   constructor() { }
 
-  terms_of_use = 'The Terms and Conditions agreement can act as a legal contract between you, the mobile app owner or developer, and the users of your app. Like a Terms and Conditions for a website, this agreement for a mobile app would set the rules and terms that users must follow in order to use your app.' +
-    'Here are a couple of reasons why you\'ll want to have a Terms and Conditions for a mobile app:' +
-    'You can stop abusive users from using your app.' +
-    'You can terminate or block accounts at your sole discretion.' +
-    'Liability to users will be limited.' +
-    'And many more.' +
-    'If you don\'t have this agreement for your mobile app yet, use the Generator to create it!';
-  privacy_policy = 'You\'ll need the Privacy Policy agreement even if you don\'t collect any personal data yourself through the mobile app you\'re building, but instead use third party tools such as:' +
-    '- Google Analytics Mobile' +
-    '- Flurry' +
-    '- Firebase' +
-    '- Mixpanel' +
-    'And so on' +
-    'If you use at least one third party tool that might collect personal data through your mobile app, you need this agreement in place.' +
-    'Each app store also requires you to have this agreement in place before submitting the mobile app:' +
-    '- Apple App Store' +
-    '- Google Play Store' +
-    '- Microsoft Windows Phone Store'
 
   card: NotificationsCard = {
     image: 'assets/images/products/1.jpg',
@@ -163,10 +145,10 @@ export class DataService {
   { title: 'Home Decor' }
   ];
 
-  item_tab: Array<HomeTab> = [{ title: 'Overview' },
-  { title: 'Related' },
-  { title: 'Product Reviews' },
-  { title: 'Store Reviews' }];
+  item_tab: Array<HomeTab> = [
+    { title: 'Overview' },
+    { title: 'Related' },
+    { title: 'Reviews' }];
 
   notifications_tab: Array<HomeTab> = [{ title: 'All' },
   { title: 'Deals' },
@@ -284,12 +266,12 @@ export class DataService {
 
   faqs = {
     'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
-    'Blog':  "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
-    'Contact Us':  "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
-    'Supports':  "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
-    'FAQs':  "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
-    'Privacy Policy':  "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
-    'Terms & Conditions':  "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
-    'Return Policy':  "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
+    'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
+    'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
+    'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
+    'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
+    'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
+    'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
+    'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
   };
 }

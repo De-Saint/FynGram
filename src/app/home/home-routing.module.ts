@@ -14,7 +14,11 @@ const routes: Routes = [
           {
             path:'',
             loadChildren: () => import('./buy/buy.module').then(m => m.BuyPageModule)
-          }
+          },
+          {
+            path:'productdetails',
+            loadChildren: () => import('./buy/productdetails/productdetails.module').then(m => m.ProductdetailsPageModule)
+          },
           //add more children here
         ]
       },
@@ -24,7 +28,11 @@ const routes: Routes = [
           {
             path:'',
             loadChildren: () => import('./category/category.module').then(m => m.CategoryPageModule)
-          }
+          },
+          {
+            path:'products/:catId',
+            loadChildren: () => import('./category/products/products.module').then(m => m.ProductsPageModule)
+          },
           //add more children here
         ]
       },

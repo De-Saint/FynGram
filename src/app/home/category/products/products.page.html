@@ -1,0 +1,43 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Products</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="fun.navigate('cart')" class="ion-no-margin ion-no-padding">
+        <ion-icon name="cart" slot="icon-only" class="white top-btn " ></ion-icon>
+      </ion-button>
+      <ion-button (click)="fun.navigate('search')" class="ion-no-margin">
+        <ion-icon name="search" slot="icon-only" class="white top-btn"></ion-icon>
+      </ion-button>
+      <ion-button (click)="side_open()" class="ion-no-margin">
+        <ion-icon name="ellipsis-vertical-circle" slot="icon-only"  class="white top-btn"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-row>
+    <ion-col *ngFor="let product of products;" size="6">
+      <ion-card class="card ion-no-margin" (click)="open(product)">
+        <img [src]="product.image[0]" [alt]="product.name">
+        <ion-card-content >
+          <ion-card-title>
+            <ion-row>
+              <ion-col class="ion-no-padding">
+                <ion-text class="price"><strong>{{ product.cost_price | currency:'₦' }}</strong></ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-no-padding">
+                <h6 class=""><strong>{{product.name}}</strong></h6>
+              </ion-col>
+            </ion-row>
+          </ion-card-title>
+        </ion-card-content >
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
