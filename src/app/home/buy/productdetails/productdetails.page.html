@@ -1,54 +1,17 @@
-<ion-header class="mybg">
-  <ion-toolbar color="mytheme">
-    <ion-buttons slot="start">
-      <ion-back-button color="light" [defaultHref]="'/home/tabs/category/products/1'" >
+<ion-tabs>
+  <ion-tab-bar mode="ios" slot="top" class="ion-text-xl-center">
+    <ion-tab-button>
+      <ion-back-button class="ion-text-small" color="light" [defaultHref]="'/home/tabs/category/products/1'" >
       </ion-back-button>
-    </ion-buttons>
-    <ion-title color="light">Details</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="fun.navigate('cart')">
-        <ion-icon name="cart" slot="icon-only" class="white top-btn ion-no-margin" ></ion-icon>
-      </ion-button>
-      <ion-button (click)="fun.navigate('search')">
-        <ion-icon name="search" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-toolbar color="mytheme" class="segmenttoolbarSection">
-    <ion-segment (ionChange)="seg($event)" mode="md" scrollable="true" id="dag" class="segSection">
-      <ion-segment-button [attr.id]="'seg_' + i" *ngFor="let item of data; let i = index;" 
-        (ionSelect)="update(i)" class="my-btn ion-no-margin ion-no-padding" [value]="item.title" [ngClass]="{'btn-active':segment == item.title}">
-        <ion-text  class="text ion-padding-horizontal">{{item.title}}</ion-text>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-slides pager="false" [options]="slideOpts" (ionSlideDidChange)="change()" #Slides>
-    <ion-slide>
-      <app-productoverview (notify)="onReviewClick($event)" [product]="product" [slider]="slider" class="slide">
-      </app-productoverview>
-    </ion-slide>
-    <ion-slide class="light-bg ion-padding">
-       <app-productrelated [products]="dataService.products_1" class="slide"></app-productrelated> 
-    </ion-slide>
-
-    <ion-slide>
-      <app-productreview [product]="product" [bool]="true" class="slide"></app-productreview>
-    </ion-slide>
-  </ion-slides>
-</ion-content>
-<ion-footer class="footer ion-align-items-center"  *ngIf="segment == 'Overview'">
-  <ion-row class="ion-align-items-center">
-    <ion-col class="ion-padding">
-      <ion-text >
-        <h6 class="foot-highlight ion-no-margin">{{product.cost_price | currency:'₦'}}</h6>
-      </ion-text>
-    </ion-col>
-    <ion-col size="4">
-      <ion-button (click)="goToCart()" class="white foot-btn ion-float-right ion-no-margin" color="warning" expand="block">
-        <strong>Add To Cart</strong></ion-button>
-    </ion-col>
-  </ion-row>
-</ion-footer>
+    </ion-tab-button>
+    <ion-tab-button tab="overview">
+      <ion-label>Overview</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="related">
+      <ion-label>Related</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="review">
+      <ion-label>Reviews</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

@@ -49,4 +49,8 @@ export class AuthenticatePage implements OnInit {
       );
   }
 
+  onOpen(link){
+    this.fun.navigate(link, true);
+  }
+
 }

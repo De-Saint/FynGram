@@ -81,4 +81,8 @@ export class RegisterPage implements OnInit {
       }
       );
   }
+
+  onOpen(link){
+    this.fun.navigate(link);
+  }
 }

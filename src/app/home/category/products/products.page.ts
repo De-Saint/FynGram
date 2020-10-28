@@ -19,7 +19,7 @@ export class ProductsPage implements OnInit {
   catId: any;
   constructor(private fun: FunctionsService,
     private menu: MenuController,
-     private dataService: DataService, private route: ActivatedRoute) {
+    private dataService: DataService, private route: ActivatedRoute) {
     this.products = dataService.sponsored;
 
   }
@@ -41,5 +41,9 @@ export class ProductsPage implements OnInit {
   side_open() {
     // this.menu.enable(true, 'custom');
     // this.menu.open('custom');
+  }
+
+  onOpen(link) {
+    this.fun.navigate(link);
   }
 }

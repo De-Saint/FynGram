@@ -23,11 +23,13 @@ export class CategoryPage implements OnInit {
 
   ngOnInit() {
   }
-  
+
   open(data) {
     this.fun.navigate('/home/tabs/category/products/1');
     // this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 1]);
   }
 
-
+  onOpen(link) {
+    this.fun.navigate(link);
+  }
 }

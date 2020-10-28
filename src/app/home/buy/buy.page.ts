@@ -18,6 +18,10 @@ export class BuyPage implements OnInit {
 
   }
 
+  onOpen(link){
+    this.fun.navigate(link);
+  }
+
   ngOnInit() {
   }
 
@@ -34,6 +38,6 @@ export class BuyPage implements OnInit {
 
   open(product) {
     this.fun.update(product);
-    this.fun.navigate('/home/tabs/buy/productdetails', false);
+    this.fun.navigate('/home/tabs/buy/productdetails/tabs/overview', false);
   }
 }

@@ -32,7 +32,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-text float-end color="mytheme" (click)="fun.navigate('authenticate/forgot', true)">
+          <ion-text float-end color="mytheme" (click)="onOpen('authenticate/forgot')">
             <h6 class="small ion-no-margin ion-text-end">Forgot Password?</h6>
           </ion-text>
         </ion-col>
@@ -46,7 +46,7 @@
       <div class="line ion-margin"></div>
       <ion-row class="ion-margin-top">
         <ion-col>
-          <ion-button expand="block" fill="outline" (click)="fun.navigate('authenticate/register')" color="mytheme">
+          <ion-button expand="block" fill="outline" (click)="onOpen('authenticate/register')" color="mytheme">
             <strong>New? Create an Account</strong></ion-button>
         </ion-col>
       </ion-row>

@@ -5,10 +5,10 @@
     </ion-buttons>
     <ion-title color="light">Products</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="fun.navigate('cart')" class="ion-no-margin ion-no-padding">
+      <ion-button (click)="onOpen('cart')" class="ion-no-margin ion-no-padding">
         <ion-icon name="cart" slot="icon-only" class="white top-btn " ></ion-icon>
       </ion-button>
-      <ion-button (click)="fun.navigate('search')" class="ion-no-margin">
+      <ion-button (click)="onOpen('search')" class="ion-no-margin">
         <ion-icon name="search" slot="icon-only" class="white top-btn"></ion-icon>
       </ion-button>
       <ion-button (click)="side_open()" class="ion-no-margin">

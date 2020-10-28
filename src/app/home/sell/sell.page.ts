@@ -12,5 +12,7 @@ export class SellPage implements OnInit {
 
   ngOnInit() {
   }
-
+  onOpen(link) {
+    this.fun.navigate(link);
+  }
 }

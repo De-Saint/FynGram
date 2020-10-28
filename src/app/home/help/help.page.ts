@@ -21,8 +21,11 @@ export class HelpPage implements OnInit {
 
   ngOnInit() {
   }
+  onOpen(link) {
+    this.fun.navigate(link);
+  }
 
- open(i) {
+  open(i) {
     this.openLink(Object.values(this.faqs)[i]);
   }
   async openLink(link) {
@@ -31,7 +34,7 @@ export class HelpPage implements OnInit {
         url: link,
         toolbarColor: "#40A944"
       }
-      );
+    );
   }
 
 }
