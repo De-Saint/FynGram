@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  local: "http://localhost:8080/FynGramEngine/",
+  remote: "https://www.fyngram.com/FynGramEngine/",
+  ngrok: "https://468daf4de951.ngrok.io/FynGramEngine/"
 };
 
 /*

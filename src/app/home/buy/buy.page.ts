@@ -10,12 +10,15 @@ import { MenuController } from '@ionic/angular';
 })
 export class BuyPage implements OnInit {
   products: Array<Product> = [];
-
+  topsellingProducts:any;
+  recentlyaddedProducts:any;
+  featuredProducts:any;
+  bestsellerProducts:any;
   constructor(private menuCtrl: MenuController,
     private fun: FunctionsService,
     private dataService: DataService) {
     this.products = dataService.sponsored;
-
+      this.getTopSellingProducts;
   }
 
   onOpen(link){
@@ -23,6 +26,8 @@ export class BuyPage implements OnInit {
   }
 
   ngOnInit() {
+    
+
   }
 
   side_open() {
@@ -40,4 +45,9 @@ export class BuyPage implements OnInit {
     this.fun.update(product);
     this.fun.navigate('/home/tabs/buy/productdetails/tabs/overview', false);
   }
+
+  getTopSellingProducts(){
+    
+  }
+
 }

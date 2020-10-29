@@ -89,8 +89,8 @@ export class AppComponent implements OnInit {
   }
 
   listenToEvents() {
-    // this.updateLoggedInStatus(true, "Admin");
-    this.updateLoggedInStatus(false, "");
+    this.updateLoggedInStatus(true, "Admin");
+    // this.updateLoggedInStatus(false, "");
     // this.events.subscribe('user:signup', () => {
     //   this.enableMenu(true, "");
     // });

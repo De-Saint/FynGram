@@ -8,7 +8,7 @@
               <img src="/assets/icon/logo.png">
             </ion-col>
             <ion-col class="ion-padding-vertical ion-align-items-center">
-              <div class="ion-margin-vertical">
+              <div class="ion-margin-vertical" *ngIf="userType === ''">
                 <h4  class="medium white ion-no-margin ion-margin-start"><strong>Guest</strong></h4>
                 <ion-menu-toggle autoHide="false">
                   <a routerLink="/support"   class="small white ion-no-margin ion-margin-start" routerLinkActive="active" routerDirection="root" detail="false">Create An Account</a>
@@ -81,7 +81,7 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-        <ion-list lines="none">
+        <!-- <ion-list lines="none">
           <ion-list-header>
             Theme
           </ion-list-header>
@@ -92,7 +92,7 @@
             </ion-label>
             <ion-toggle (ionChange)="updateDarkMode($event)" slot="end"></ion-toggle>
           </ion-item>
-        </ion-list>
+        </ion-list> -->
       </ion-content>
     </ion-menu>
 

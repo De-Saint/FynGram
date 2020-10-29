@@ -1,3 +1,5 @@
+import { AuthServiceService } from './service/auth-service.service';
+import { DatalinkService } from './../datalink.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from './../data.service';
 import { FunctionsService } from './../functions.service';
@@ -15,7 +17,7 @@ export class AuthenticatePage implements OnInit {
   loginForm: FormGroup;
 
   constructor(
-    private platform: Platform,
+    private authService: AuthServiceService,
     private fun: FunctionsService,
     private data: DataService) {
     this.loginForm = new FormGroup({
@@ -32,6 +34,11 @@ export class AuthenticatePage implements OnInit {
 
   signin() {
     if (this.fun.validateEmail(this.loginForm.value.email) && this.loginForm.value.password !== '') {
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe(res => {
+        console.log(res);
+      })
+
       this.fun.navigate('home', false);
     } else {
       this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
