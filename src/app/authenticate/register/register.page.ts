@@ -50,7 +50,7 @@ export class RegisterPage implements OnInit {
 
   onSubmit() {
     if (!this.registerForm.valid) {
-      this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
+      this.fun.presentToast('Wrong Input!');
       return false;
     }
     if (this.fun.validateEmail(this.registerForm.value.email)) {
@@ -59,14 +59,14 @@ export class RegisterPage implements OnInit {
           this.fun.navigate('home/tabs/buy', false);
 
         } else {
-          this.fun.presentToast('Password Mismatch!', true, 'bottom', 2100);
+          this.fun.presentToast('Password Mismatch!');
         }
       }else{
-        this.fun.presentToast('Phone must be 11 digits, start with 070xxxxxxxx!', true, 'bottom', 2100);
+        this.fun.presentToast('Phone must be 11 digits, start with 070xxxxxxxx!');
       }
 
     } else {
-      this.fun.presentToast('Invalid Email!', true, 'bottom', 2100);
+      this.fun.presentToast('Invalid Email!');
     }
 
   }

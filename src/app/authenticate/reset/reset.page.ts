@@ -27,13 +27,13 @@ export class ResetPage implements OnInit {
 
   onSubmit() {
     if (!this.resetForm.valid) {
-      this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
+      this.fun.presentToast('Wrong Input!');
       return false;
     }
     if (this.resetForm.value.password === this.resetForm.value.password2) {
       this.fun.navigate('home/tabs/buy', false);
     } else {
-      this.fun.presentToast('Password Mismatch!', true, 'bottom', 2100);
+      this.fun.presentToast('Password Mismatch!');
     }
   }
 

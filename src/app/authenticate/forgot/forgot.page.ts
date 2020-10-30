@@ -23,15 +23,15 @@ export class ForgotPage implements OnInit {
 
   onSubmit() {
     if (!this.forgotForm.valid) {
-      this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
+      this.fun.presentToast('Wrong Input!');
       return false;
     }
     if (this.fun.validateEmail(this.forgotForm.value.email)) {
-      this.fun.presentToast('Verification mail sent', false, 'bottom', 2100);
-      this.fun.navigate('authenticate/reset', true);
+      this.fun.presentToast('Verification mail sent');
+      this.fun.navigate('authenticate/reset');
     }
     else {
-      this.fun.presentToast('Invalid Email!', true, 'bottom', 2100);
+      this.fun.presentToast('Invalid Email!');
     }
   }
 

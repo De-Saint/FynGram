@@ -42,12 +42,10 @@ export class FunctionsService {
     }
   }
 
-  async presentToast(message, show_button, position, duration) {
+  async presentToast(message) {
     const toast = await this.toastController.create({
-      message: message,
-      // showCloseButton: show_button,
-      position: position,
-      duration: duration
+      duration: 2100,
+      message: message
     });
     toast.present();
   }

@@ -16,17 +16,17 @@
                 <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
               </div>
               <div class="ion-margin-vertical" *ngIf="userType === 'Admin'">
-                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Fyngram Admin</strong></h4>
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>{{userName}}</strong></h4>
                 <h6  class="small white ion-no-margin ion-margin-start">Admin</h6>
                 <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
               </div>
-              <div class="ion-margin-vertical" *ngIf="userType === 'Customer'">
-                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Lemuel Charles</strong></h4>
+              <div class="ion-margin-vertical" *ngIf="userType === 'Seller'">
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>{{userName}}</strong></h4>
                 <h6  class="small white ion-no-margin ion-margin-start">Seller</h6>
                 <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
               </div>
-              <div class="ion-margin-vertical" *ngIf="userType === 'Seller'">
-                <h4  class="medium white ion-no-margin ion-margin-start"><strong>Saint Deemene</strong></h4>
+              <div class="ion-margin-vertical" *ngIf="userType === 'Customer'">
+                <h4  class="medium white ion-no-margin ion-margin-start"><strong>{{userName}}</strong></h4>
                 <h6  class="small white ion-no-margin ion-margin-start">Customer</h6>
                 <h6  class="small white ion-no-margin ion-margin-start">1.0.0</h6>
               </div>
@@ -37,9 +37,6 @@
 
       <ion-content>
         <ion-list *ngIf="loggedIn" lines="none">
-          <ion-list-header>
-            Shop & Account
-          </ion-list-header>
           <div *ngIf="userType === 'Admin'">
             <ion-menu-toggle auto-hide="false" *ngFor="let p of adminPages; let i = index">
               <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
@@ -67,6 +64,14 @@
               </ion-item>
             </ion-menu-toggle>
           </div>
+          <ion-menu-toggle autoHide="false">
+            <ion-item button (click)="logout()" detail="false">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>
+                LogOut
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
 
         <ion-list *ngIf="!loggedIn" lines="none">

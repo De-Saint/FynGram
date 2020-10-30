@@ -49,15 +49,15 @@ ion-menu.md ion-item {
 }
 
 ion-menu.md ion-item.selected {
-  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+  --background: rgba(var(--ion-color-mytheme-rgb), 0.14);
 }
 
 ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-mytheme);
 }
 
 ion-menu.md ion-item ion-icon {
-  color: #40A944;
+  color: #333;
 }
 
 ion-menu.md ion-item ion-label {
