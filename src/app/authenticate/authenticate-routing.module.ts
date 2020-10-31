@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'reset',
     loadChildren: () => import('./reset/reset.module').then( m => m.ResetPageModule)
+  },
+  {
+    path: 'validate',
+    loadChildren: () => import('./validate/validate.module').then( m => m.ValidatePageModule)
   }
 ];
 

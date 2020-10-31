@@ -1,0 +1,27 @@
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0 0;
+}
+.head-image {
+    background-size: contain;
+    width: 180px;
+    align-self: center;
+    margin-bottom: 2em;
+}
+.small {
+    a{
+        font-size: 13px;
+        text-decoration: unset !important;
+    }
+}
+.input {
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 9px;
+    font-size: .9em !important;
+}
+.white{
+    color: white;
+}
+.title {
+    font-size: 18px;
+}

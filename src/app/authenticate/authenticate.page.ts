@@ -3,7 +3,7 @@ import { DatalinkService } from './../datalink.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from './../data.service';
 import { FunctionsService } from './../functions.service';
-import { Platform, LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 const { Browser, Storage } = Plugins;
@@ -40,24 +40,23 @@ export class AuthenticatePage implements OnInit {
         message: 'Please wait...',
       });
       await loading.present();
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
+      const oldsid = this.authService.currentUserDataValue.sid;
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid)
         .subscribe(res => {
           loading.dismiss().catch(() => { });
           console.log(res);
           if (res.code === 200) {
             this.gotoHomePage(res.data);
+          }else{
+            this.fun.presentToast(res.msg);
           }
         }, error => {
           loading.dismiss().catch(() => { });
           console.log(JSON.stringify(error));
-          this.fun.presentToast(error);
         })
-
-
     } else {
       this.fun.presentToast('Wrong Input!');
     }
-
   }
 
   async openLink(link) {
@@ -79,8 +78,8 @@ export class AuthenticatePage implements OnInit {
     const name = this.authService.currentUserDataValue.name;
     const type = this.authService.currentUserDataValue.usertype;
     this.fun.presentToast('Welcome ' + name);
-    this.fun.navigate('home', false);
-    const event = new CustomEvent('user:login', { detail: { name, type }});
+    this.fun.navigate('/home/tabs/buy', false);
+    const event = new CustomEvent('user:login', { detail: { name, type } });
     return window.dispatchEvent(event);
   }
 }

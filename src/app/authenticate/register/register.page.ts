@@ -1,3 +1,5 @@
+import { AuthServiceService } from './../service/auth-service.service';
+import { LoadingController } from '@ionic/angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { DataService } from './../../data.service';
 import { FunctionsService } from './../../functions.service';
@@ -12,7 +14,7 @@ const { Browser } = Plugins;
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-
+  HAS_LOGGED_IN = 'hasLoggedIn';
   registerForm: FormGroup;
 
   titlecustomAlertOptions: any = {
@@ -22,9 +24,11 @@ export class RegisterPage implements OnInit {
     header: 'Select Gender',
   };
 
-  constructor(private fun: FunctionsService,  private data: DataService) {
+  constructor(private fun: FunctionsService, private authService: AuthServiceService,
+    private loadingCtrl: LoadingController, private data: DataService) {
     this.registerForm = new FormGroup({
-      first_name: new FormControl(null, { updateOn: 'blur', validators: [Validators.required] }),
+      first_name: new FormControl(null,
+        { updateOn: 'blur', validators: [Validators.required] }),
       last_name: new FormControl(null,
         { updateOn: 'blur', validators: [Validators.required] }),
       email: new FormControl(null,
@@ -45,10 +49,12 @@ export class RegisterPage implements OnInit {
   }
 
   ngOnInit() {
+    const oldsid = this.authService.currentUserDataValue.sid;
+    console.log(oldsid);
   }
 
 
-  onSubmit() {
+  async onSubmit() {
     if (!this.registerForm.valid) {
       this.fun.presentToast('Wrong Input!');
       return false;
@@ -56,12 +62,31 @@ export class RegisterPage implements OnInit {
     if (this.fun.validateEmail(this.registerForm.value.email)) {
       if (this.registerForm.value.phone.length === 11) {
         if (this.registerForm.value.password === this.registerForm.value.password2) {
-          this.fun.navigate('home/tabs/buy', false);
+          const loading = await this.loadingCtrl.create({
+            cssClass: 'my-custom-class',
+            message: 'Please wait...',
+          });
+          await loading.present();
+          this.authService.RegisterCustomer( this.registerForm.value.first_name, this.registerForm.value.last_name,
+            this.registerForm.value.title, this.registerForm.value.gender, this.registerForm.value.email,
+            this.registerForm.value.password, this.registerForm.value.phone)
+            .subscribe(res => {
+              loading.dismiss().catch(() => { });
+              console.log(res);
+              if (res.code === 200) {
+                this.fun.navigate('authenticate/validate');
+                this.fun.presentToast(res.msg);
+              }
+            }, error => {
+              loading.dismiss().catch(() => { });
+              console.log(JSON.stringify(error));
+              this.fun.presentToast(error);
+            })
 
         } else {
           this.fun.presentToast('Password Mismatch!');
         }
-      }else{
+      } else {
         this.fun.presentToast('Phone must be 11 digits, start with 070xxxxxxxx!');
       }
 
@@ -79,10 +104,12 @@ export class RegisterPage implements OnInit {
         url: link,
         toolbarColor: "#40A944"
       }
-      );
+    );
   }
 
-  onOpen(link){
+  onOpen(link) {
     this.fun.navigate(link);
   }
+
+
 }

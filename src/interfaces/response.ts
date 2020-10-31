@@ -1,5 +1,5 @@
 export type ResponseType = {
     code: number;
-    description: string;
+    msg: string;
     data:any;
 }

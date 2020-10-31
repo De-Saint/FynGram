@@ -1,5 +1,6 @@
+import { AuthServiceService } from './../../authenticate/service/auth-service.service';
 import { Router } from '@angular/router';
-import { IonSlides } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Product, DataService } from './../../data.service';
 import { FunctionsService } from './../../functions.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -16,12 +17,38 @@ export class CategoryPage implements OnInit {
     effect: 'flip',
     zoom: false
   };
-  constructor(private fun: FunctionsService, private dataService: DataService, private router: Router) {
+  constructor(private fun: FunctionsService,
+    private loadingCtrl: LoadingController,
+    private authService: AuthServiceService,
+    private dataService: DataService, private router: Router) {
     this.categories = dataService.sponsored;
 
   }
 
   ngOnInit() {
+    this.getAllCategories();
+  }
+
+
+  async getAllCategories() {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    // this.homeService.getAllCategories.
+    // this.homeService.getAllCategories.subscribe(res => {
+    //     loading.dismiss().catch(() => { });
+    //     console.log(res);
+    //     if (res.code === 200) {
+         
+    //     } else {
+    //       this.fun.presentToast(res.msg);
+    //     }
+    //   }, error => {
+    //     loading.dismiss().catch(() => { });
+    //     console.log(JSON.stringify(error));
+    //   })
   }
 
   open(data) {

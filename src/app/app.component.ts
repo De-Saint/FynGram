@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   loggedIn = false;
   dark = false;
-  userType = '';
+  userType = 'Guest';
   userName: any;
   HAS_LOGGED_IN = 'hasLoggedIn';
   public appPages = [
@@ -89,18 +89,25 @@ export class AppComponent implements OnInit {
     this.checkLoginStatus();
     this.listenToEvents();
   }
+
+
   updateLoggedInStatus(loggedIn: boolean, userType: string) {
     setTimeout(() => {
       this.loggedIn = loggedIn;
       this.userType = userType;
     }, 300);
   }
+
   async checkLoginStatus() {
     const { value } = await Storage.get({ key: this.HAS_LOGGED_IN });
+    console.log(value);
     if (value === 'true') {
+      console.log(this.authService.currentUserDataValue)
       if (this.authService.currentUserDataValue) {
+        console.log(this.authService.currentUserDataValue)
         this.userName = this.authService.currentUserDataValue.name;
         this.userType = this.authService.currentUserDataValue.usertype;
+        console.log(this.userType);
         this.updateLoggedInStatus(true, this.userType);
       }
     } else {
@@ -108,28 +115,24 @@ export class AppComponent implements OnInit {
     }
   }
 
-
-
   listenToEvents() {
     window.addEventListener('user:login', (e: any) => {
-      console.log(e.detail);
       this.userName = e.detail.name;
+      console.log(e.detail);
       this.updateLoggedInStatus(true, e.detail.type);
     });
-
-
-    window.addEventListener('user:signup', () => {
-      this.updateLoggedInStatus(true, '');
+    window.addEventListener('user:guest', (e: any) => {
+      this.updateLoggedInStatus(false, 'Guest');
     });
 
     window.addEventListener('user:logout', () => {
-      this.updateLoggedInStatus(false, '');
+      this.updateLoggedInStatus(false, 'Guest');
     });
   }
 
   logout() {
     this.authService.logout().then(() => {
-      return this.router.navigateByUrl('/authenticate');
+      return this.router.navigateByUrl('/home/tabs/buy');
     });
   }
 
