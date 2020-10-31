@@ -1,8 +1,9 @@
-import { MenuController } from '@ionic/angular';
+import { ShopService } from './../../service/shop.service';
+import { MenuController, LoadingController } from '@ionic/angular';
 import { FunctionsService } from './../../../functions.service';
 import { Product, DataService } from './../../../data.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -11,16 +12,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsPage implements OnInit {
 
-  products: Array<Product> = [];
+  products: any;
   slideOpts = {
     effect: 'flip',
     zoom: false
   };
   catId: any;
   constructor(private fun: FunctionsService,
-    private menu: MenuController,
+    private loadingCtrl: LoadingController,
+    private shopService: ShopService,
+    private router: Router,
     private dataService: DataService, private route: ActivatedRoute) {
-    this.products = dataService.sponsored;
+    // this.products = dataService.sponsored;
 
   }
 
@@ -31,19 +34,43 @@ export class ProductsPage implements OnInit {
         return;
       }
       this.catId = paramMap.get('catId');
+      this.GetCategoryProducts(this.catId);
     })
   }
   open(data) {
-    this.fun.update(data);
-    this.fun.navigate('/home/tabs/buy/productdetails', true);
+    // this.fun.update(data);
+    console.log(data.id);
+    this.router.navigate(['/', 'home', 'tabs', 'buy', 'productdetails', data.id]);
+    // this.fun.navigate('/home/tabs/buy/productdetails', true);
   }
 
   side_open() {
-    // this.menu.enable(true, 'custom');
-    // this.menu.open('custom');
+
   }
 
   onOpen(link) {
     this.fun.navigate(link);
   }
+
+  async GetCategoryProducts(catid) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    this.shopService.GetCategoryProducts(catid).subscribe(res => {
+      loading.dismiss().catch(() => { });
+      console.log(res);
+      if (res.code === 200) {
+        this.products = res.data;
+        console.log(this.products);
+      } else {
+        this.fun.presentToast(res.msg);
+      }
+    }, error => {
+      loading.dismiss().catch(() => { });
+      console.log(JSON.stringify(error));
+    })
+  }
+
 }

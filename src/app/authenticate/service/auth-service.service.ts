@@ -224,36 +224,4 @@ export class AuthServiceService {
     );
     // }
   }
-
-  getAllCategories() {
-    const type = 'GetRootCategories';
-    const url = environment.url + 'MProductServlet';
-    const data = JSON.stringify({ type });
-    return this.http.post<ResponseType>(url, data).pipe(
-      map(res => {
-        return res;
-      })
-    );
-    // if (this.platform.is("android")) {
-    // const data = {
-    //   email,
-    //   type
-    // };
-    //   this.nativeHttp.setDataSerializer("json");
-    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-    //   return from(nativeCall).pipe(
-    //     map(result => {
-    // if(result.code === 200){
-    //       return JSON.parse(result.data);
-    //     })
-    //   )
-    // } else {
-    // const data = JSON.stringify({type });
-    // return this.http.post<ResponseType>(url, data).pipe(
-    //   map(res => {
-    //     return res;
-    //   })
-    // );
-    // }
-  }
 }

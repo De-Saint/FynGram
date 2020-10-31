@@ -38,6 +38,9 @@
 
       <ion-content>
         <ion-list *ngIf="loggedIn" lines="none">
+          <ion-list-header>
+            Shop & Account
+          </ion-list-header>
           <div *ngIf="userType === 'Admin'">
             <ion-menu-toggle auto-hide="false" *ngFor="let p of adminPages; let i = index">
               <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
@@ -65,16 +68,6 @@
               </ion-item>
             </ion-menu-toggle>
           </div>
-          <!-- <div *ngIf="userType === 'Guest'">
-            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-              <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-                detail="false" [class.selected]="selectedIndex == i">
-                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
-              </ion-item>
-            </ion-menu-toggle> 
-          </div>-->
-
           <ion-menu-toggle autoHide="false" *ngIf="userType !== 'Guest'">
             <ion-item button (click)="logout()" detail="false">
               <ion-icon slot="start" name="log-out"></ion-icon>

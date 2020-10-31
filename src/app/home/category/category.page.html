@@ -10,25 +10,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" color="light">
-  
-  <ion-row>
-    <ion-col *ngFor="let data of categories;" size="6">
-      <ion-card class="card ion-no-margin" (click)="open(data)">
-        <img [src]="data.image[0]" [alt]="data.name">
-        <ion-card-content>
-          <ion-card-title>
-            <ion-row>
-              <ion-col class="ion-no-padding ">
-                <ion-text class="ion-text-left"><span class="price">
-                    <strong>{{data.name}}</strong>
-                  </span>
-                </ion-text>
-              </ion-col>
-            </ion-row>
-          </ion-card-title>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+<ion-content  color="light">
+  <ion-grid>
+    <ion-row >
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6"  *ngFor="let data of categories"  (click)="open(data)">
+        <div class="img-wrapper" [style.background-image]="'url(data:image/png;base64,' + data.ImageText">
+        </div>
+        <ion-text class="ion-text-left"><span class="price">
+          <strong>{{data.name}}</strong>
+        </span>
+      </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
