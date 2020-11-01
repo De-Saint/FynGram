@@ -21,14 +21,11 @@ export class ProductsPage implements OnInit {
   constructor(private fun: FunctionsService,
     private loadingCtrl: LoadingController,
     private shopService: ShopService,
-    private router: Router,
-    private dataService: DataService, private route: ActivatedRoute) {
-    // this.products = dataService.sponsored;
-
+    private router: Router, private activeRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap => {
+    this.activeRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('catId')) {
         this.fun.navigate('home/tabs/category');
         return;
@@ -38,10 +35,8 @@ export class ProductsPage implements OnInit {
     })
   }
   open(data) {
-    // this.fun.update(data);
-    console.log(data.id);
-    this.router.navigate(['/', 'home', 'tabs', 'buy', 'productdetails', data.id]);
-    // this.fun.navigate('/home/tabs/buy/productdetails', true);
+    this.fun.setNavigationData(data.id, data);
+    this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', data.id]);
   }
 
   side_open() {

@@ -1,0 +1,55 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="cart" slot="icon-only" class="white top-btn" no-margin></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="search" slot="icon-only" class="white top-btn" no-margin></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme" class="segmenttoolbarSection">
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment"  mode="md" color="light" id="dag" class="segSection">
+      <ion-segment-button value="0" class="my-btn ion-no-margin ion-no-padding">
+        <ion-text  class="text ion-padding-horizontal">Overview</ion-text>
+      </ion-segment-button>
+      <ion-segment-button value="1" class="my-btn ion-no-margin ion-no-padding">
+        <ion-text  class="text ion-padding-horizontal">Related</ion-text>
+      </ion-segment-button>
+      <ion-segment-button value="2" class="my-btn ion-no-margin ion-no-padding"> 
+        <ion-text  class="text ion-padding-horizontal">Reviews</ion-text>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()"  pager="false" [options]="slideOpts">
+    <ion-slide>
+      <app-overview (notify)="onReviewClick($event)" [product]="product" [slider]="slider"  class="slide"></app-overview>
+    </ion-slide>
+    <ion-slide>
+      <app-related  class="slide" [productId]="productId"></app-related>
+    </ion-slide>
+    <ion-slide>
+      <app-review class="slide" [product]="product"></app-review>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer class="footer ion-align-items-center"  *ngIf="segment == 0">
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-padding">
+      <ion-text>
+        <h3  class="foot-highlight ion-no-margin">{{ product.PriceDetails?.selling_price | currency:'₦' }}</h3>
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-button (click)="goToCart()"  class="white foot-btn ion-float-right ion-no-margin" color="light"  expand="block"><strong>Buy</strong></ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

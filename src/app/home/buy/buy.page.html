@@ -25,11 +25,11 @@
   <ion-row>
     <ion-row class="container-outer">
       <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
-        <img [src]="product.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{product.name}}</p>
+        <img [src]="'data:image/png;base64,'+product.FirstImage" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.InfoDetails?.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>
               </span></ion-text>
           </ion-col>
         </ion-row>
@@ -54,17 +54,17 @@
     </ion-slide>
    </ion-slides>
   <ion-list-header>
-    <ion-label style="font-size: smaller;" class="ion-no-margin ion-text-center ">Recently Added Products</ion-label>
+    <ion-label style="font-size: smaller;" class="ion-no-margin ion-text-center ">Featured Products</ion-label>
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
-        <img [src]="product.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{product.name}}</p>
+      <div *ngFor="let product of featuredProducts" class="container-inner" (click)="open(product)">
+        <img [src]="'data:image/png;base64,'+product.FirstImage" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.InfoDetails?.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
-            </span></ion-text>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>
+              </span></ion-text>
           </ion-col>
         </ion-row>
       </div>
@@ -74,17 +74,17 @@
     <img src="/assets/images/slider7.jpg" />
   </ion-card>
   <ion-list-header>
-    <ion-label style="font-size: smaller;" class="ion-no-margin ion-text-center ">Featured Products</ion-label>
+    <ion-label style="font-size: smaller;" class="ion-no-margin ion-text-center ">Recently Added Products </ion-label>
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
-        <img [src]="product.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{product.name}}</p>
+      <div *ngFor="let product of recentProducts" class="container-inner" (click)="open(product)">
+        <img [src]="'data:image/png;base64,'+product.FirstImage" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.InfoDetails?.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
-            </span></ion-text>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>
+              </span></ion-text>
           </ion-col>
         </ion-row>
       </div>
@@ -98,13 +98,13 @@
   </ion-list-header>
   <ion-row>
     <ion-row class="container-outer">
-      <div *ngFor="let product of products" class="container-inner" (click)="open(product)">
-        <img [src]="product.image[0]" class="spon-img">
-        <p class="ion-no-margin text-truncate">{{product.name}}</p>
+      <div *ngFor="let product of bestsellerProducts" class="container-inner" (click)="open(product)">
+        <img [src]="'data:image/png;base64,'+product.FirstImage" class="spon-img">
+        <p class="ion-no-margin text-truncate">{{product.InfoDetails?.name}}</p>
         <ion-row>
           <ion-col class="ion-no-padding">
-            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.cost_price | currency:'₦' }}</small>
-            </span></ion-text>
+            <ion-text ion-text-left><span class="price"><small class="inline"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>
+              </span></ion-text>
           </ion-col>
         </ion-row>
       </div>

@@ -1,0 +1,13 @@
+<ion-grid>
+  <ion-text>{{getProductId(productId)}}  </ion-text>
+  <ion-row>
+    <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let data of products" (click)="open(data)">
+      <div class="img-wrapper" [style.background-image]="'url(data:image/png;base64,' + data.FirstImage">
+      </div>
+      <p class="ion-no-margin text-truncate"><strong>{{data.InfoDetails?.name}}</strong></p>
+      <p class="ion-no-margin">
+        {{ data.PriceDetails?.selling_price | currency:'₦' }}
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-grid>

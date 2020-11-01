@@ -1,0 +1,33 @@
+<ion-row class="ion-align-items-center ion-justify-content-center">
+  <ion-col size="6">
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-text><h6  class="small gray ion-text-center" color="light"><strong>OVERALL</strong></h6></ion-text>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-text>
+        <span class="margin"><strong>{{product.rating}}</strong></span>
+        <ion-icon name="star" color="mytheme" *ngFor="let i of computeRatings(product.RatingDetails?.AverageRatings)"></ion-icon>
+        <ion-icon name="star-outline" color="mytheme" *ngFor="let i of computeRatings(5-product.RatingDetails?.AverageRatings)"></ion-icon>
+        <div class="margin rate-small">{{product.RatingDetails?.NumberOfRatings}} Ratings</div>
+      </ion-text>
+    </ion-row>
+  </ion-col>
+</ion-row>
+<!-- <div class="">{{getProductReviews(product.id)}}</div> -->
+<div class="sep"></div>
+<ion-item *ngFor="let review of product.ReviewDetails">
+  <ion-row>
+    <ion-col size="2"><ion-avatar class="avatar"><img [src]="review.image"></ion-avatar></ion-col>
+    <ion-col>
+      <ion-row class="full block">
+        <ion-icon float-right name="star" class="small-ico" color="mytheme" *ngFor="let i of fun.array(review.rating)"></ion-icon>
+        <ion-icon float-right name="star-outline" class="small-ico" color="mytheme" *ngFor="let i of fun.array(5-review.rating)"></ion-icon>
+        <h6 float-left text-start no-margin><strong>{{review.name}}</strong></h6><br>
+      </ion-row>
+      <ion-row class="full block">
+        <h6 float-left text-start no-margin class="cmnt">{{review.comment}}</h6><br>
+        <img float-left *ngFor="let img of review.images" [src]="img" class="rev-img">
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-item>

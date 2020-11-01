@@ -43,7 +43,10 @@
 ion-tab-button {
   --color-selected:var(--ion-color-light);
 }
-
+.my-custom-class {
+  --spinner-color: var(--ion-color-mytheme);
+  color: var(--ion-color-mytheme);
+}
 ion-tab-bar{
   --background: var(--ion-color-mytheme) !important;
   --color: var(--ion-color-dark);
@@ -51,6 +54,7 @@ ion-tab-bar{
 .mycolor {
   color: var(--ion-color-mytheme) !important;
 }
+
 .ion-color-mytheme {
   --ion-color-base: var(--ion-color-mytheme) !important;
   --ion-color-base-rgb: var(--ion-color-mytheme-rgb) !important;

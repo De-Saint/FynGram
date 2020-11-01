@@ -92,8 +92,12 @@
     font-size: 12px;
 }
 .avatar {
-    width: 33px;
-    height: 33px;
+    width: 53px;
+    height: 53px;
+    img{
+        height: 3em;
+        width: 4em;
+    }
 }
 .sep {
     height: 1px;
@@ -118,4 +122,10 @@
 .full {
     width: 100%;
     display: block;
+}
+img {
+    // max-width: 100%;
+    // border: 0;
+    width: 360px !important;
+    height: 225px !important;
 }

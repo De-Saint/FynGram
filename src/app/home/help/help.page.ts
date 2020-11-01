@@ -14,8 +14,8 @@ export class HelpPage implements OnInit {
   faqs: any;
   links: Array<string>;
 
-  constructor(private fun: FunctionsService, private dataService: DataService) {
-    this.faqs = dataService.faqs;
+  constructor(private fun: FunctionsService) {
+    this.faqs = fun.faqs;
     this.links = Object.keys(this.faqs);
   }
 

@@ -9,50 +9,61 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
-        path:'buy',
-        children:[
+        path: 'buy',
+        children: [
           {
-            path:'',
+            path: '',
             loadChildren: () => import('./buy/buy.module').then(m => m.BuyPageModule)
           },
           {
-            path:'productdetails',
-            loadChildren: () => import('./buy/productdetails/productdetails.module').then(m => m.ProductdetailsPageModule)
-          },
+            path: 'products',
+            children: [
+              {
+                path: 'details/:productId',
+                loadChildren: () => import('./category/products/details/details.module').then(m => m.DetailsPageModule)
+              }
+            ]
+          }
         ]
       },
       {
-        path:'category',
-        children:[
+        path: 'category',
+        children: [
           {
-            path:'',
+            path: '',
             loadChildren: () => import('./category/category.module').then(m => m.CategoryPageModule)
           },
           {
-            path:'products/:catId',
-            loadChildren: () => import('./category/products/products.module').then(m => m.ProductsPageModule)
-          },
-          //add more children here
+            path: 'products',
+            children: [
+              {
+                path: 'details/:productId',
+                loadChildren: () => import('./category/products/details/details.module').then(m => m.DetailsPageModule)
+              },
+              {
+                path:':catId',
+                loadChildren: () => import('./category/products/products.module').then(m => m.ProductsPageModule)
+              }
+            ]
+          }
         ]
       },
       {
-        path:'sell',
-        children:[
+        path: 'sell',
+        children: [
           {
-            path:'',
+            path: '',
             loadChildren: () => import('./sell/sell.module').then(m => m.SellPageModule)
           }
-          //add more children here
         ]
       },
       {
-        path:'help',
-        children:[
+        path: 'help',
+        children: [
           {
-            path:'',
+            path: '',
             loadChildren: () => import('./help/help.module').then(m => m.HelpPageModule)
           }
-          //add more children here
         ]
       },
       {
@@ -74,4 +85,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class HomePageRoutingModule { }
+
 

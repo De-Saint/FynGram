@@ -7,7 +7,6 @@
 .btn-active{
     background-color: unset;
     color: white !important;
-    text-decoration: none;
     font-weight: bold;
     border-radius: 3px;
     font-size: 21px;
@@ -16,6 +15,7 @@
     ion-text{
         border-bottom: 2px solid white;
         padding-bottom: 5px;
+        color: white !important;
     }
 }
 .text {
@@ -66,3 +66,4 @@
         min-height:30px;
     }
 }
+

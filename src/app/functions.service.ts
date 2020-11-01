@@ -7,6 +7,8 @@ import { ToastController, NavController, AlertController } from '@ionic/angular'
   providedIn: 'root'
 })
 export class FunctionsService {
+  private nagivationData = [];
+
   constructor(
     public dataService: DataService,
     private router: Router,
@@ -105,5 +107,24 @@ export class FunctionsService {
   calculate(price, discount) {
     price = price - (price * discount / 100);
     return price.toFixed(2);
+  }
+
+  faqs = {
+    'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
+    'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
+    'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
+    'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
+    'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
+    'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
+    'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
+    'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
+  };
+
+  setNavigationData(id, data) {
+    this.nagivationData[id] = data;
+  }
+ 
+  getNavigationData(id) {
+    return this.nagivationData[id];
   }
 }

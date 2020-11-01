@@ -145,10 +145,9 @@ export class DataService {
   { title: 'Home Decor' }
   ];
 
-  item_tab: Array<HomeTab> = [
-    { title: 'Overview' },
-    { title: 'Related' },
-    { title: 'Reviews' }];
+  item_tab: Array<HomeTab> = [{ title: 'Overview' },
+  { title: 'Related' },
+  { title: 'Review' }];
 
   notifications_tab: Array<HomeTab> = [{ title: 'All' },
   { title: 'Deals' },
@@ -264,14 +263,5 @@ export class DataService {
     tax: 40
   }]
 
-  faqs = {
-    'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
-    'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
-    'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
-    'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
-    'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
-    'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
-    'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
-    'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
-  };
+
 }

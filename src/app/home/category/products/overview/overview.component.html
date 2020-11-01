@@ -1,0 +1,124 @@
+<div>
+  <ion-row class="ion-no-padding">
+    <ion-col class="ion-no-padding">
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let i of product.ImageDetails3;">
+          <img class="image" [src]="'data:image/png;base64,'+i.image_text">
+          <div class="product-image-overlay"></div>
+        </ion-slide>
+      </ion-slides>
+      <ion-badge class="badge">
+        <ion-icon name="images"></ion-icon>
+        {{product.ImageDetails3.length}}
+      </ion-badge>
+      <ion-row class="hover-buttons ion-justify-content-end">
+        <ion-icon *ngIf="!liked" size="small" name="heart-empty" class="fab ion-float-right" (click)="like()">
+        </ion-icon>
+        <ion-icon *ngIf="liked" size="small" name="heart" class="fab red ion-float-right" (click)="like()"></ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <div class="ion-padding">
+    <ion-row lines="none" class="row">
+      <ion-text class="name">{{product.InfoDetails?.name}}</ion-text>
+    </ion-row>
+    <ion-row class="ion-float-left">
+      <ion-icon name="star" color="mytheme" *ngFor="let i of computeRatings(product.RatingDetails?.AverageRatings)">
+      </ion-icon>
+      <ion-icon name="star-outline" color="mytheme"
+        *ngFor="let i of computeRatings(5-product.RatingDetails?.AverageRatings)"></ion-icon>
+      <h6 class="rate ion-no-margin ion-padding-start" (click)="goToReviews()">
+        ({{product.RatingDetails?.NumberOfRatings}})</h6>
+    </ion-row>
+    <ion-row class="ion-float-right">
+      <small class="ion-float-right ion-no-margin"><strong>{{product.RootCatName}}</strong></small>
+    </ion-row>
+    <div style="clear: both;"></div>
+    <div class="sep"></div>
+    <div>
+      <ion-text>
+        <span class="ion-float-left ion-no-margin"><strong>Sold By</strong></span>
+      </ion-text>
+      <br>
+      <ion-text>
+        <span class="ion-float-left ion-no-margin">{{product.SellerDetails?.SellerUserName}}</span>
+      </ion-text>
+      <br>
+      <ion-text>
+        <h6 class="ion-float-left ion-no-margin">{{product.SellerDetails?.business_email}}</h6>
+      </ion-text><br>
+      <ion-text>
+        <h6 class="ion-float-left ion-no-margin">{{product.SellerDetails?.cac_number}}</h6>
+      </ion-text><br>
+    </div>
+    <div class="sep"></div>
+    <ion-list lines="none">
+      <ion-row class="full info" (click)="toggle(0)">
+        <ion-col size="9">
+          <strong class="ion-float-left">Item Specification</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="ion-float-right" name="chevron-down-circle-outline" *ngIf="!open[0]"></ion-icon>
+          <ion-icon class="ion-float-right" name="chevron-up-circle-outline" *ngIf="open[0]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full ion-margin-top" *ngIf="open[0]">
+        <ion-col>
+          <span class="ion-float-left">{{product.UnitDetails?.UnitName}}:   <span>{{product.UnitDetails?.value}}</span></span>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row class="full info" (click)="toggle(1)">
+        <ion-col size="9">
+          <strong class="ion-float-left">Description</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="ion-float-right" name="chevron-down-circle-outline" *ngIf="!open[1]"></ion-icon>
+          <ion-icon class="ion-float-right" name="chevron-up-circle-outline" *ngIf="open[1]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-top" *ngIf="open[1]">
+        <ion-col>
+          <span class="ion-float-left">{{product.InfoDetails?.description}}</span>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row class="full info" (click)="toggle(2)">
+        <ion-col size="9">
+          <strong class="ion-float-left">Buyer Guarantee</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="ion-float-right" name="chevron-down-circle-outline" *ngIf="!open[2]"></ion-icon>
+          <ion-icon class="ion-float-right" name="chevron-up-circle-outline" *ngIf="open[2]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-top" *ngIf="open[2]">
+        <ion-col >
+          <span class="ion-text-left">You can return this product within 7 working days for an exchange but return does
+            not cover perishable goods.</span>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row class="full info" (click)="toggle(3)">
+        <ion-col size="9">
+          <strong class="ion-float-left">Shipping Information</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="ion-float-right" name="chevron-down-circle-outline" *ngIf="!open[3]"></ion-icon>
+          <ion-icon class="ion-float-right" name="chevron-up-circle-outline" *ngIf="open[3]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full ion-no-margin-top" *ngIf="open[3]">
+        <ion-col>
+          <span class="ion-float-left">Standard Shipping: <strong> {{product.SellerDetails?.shipStartDate}} -
+              {{product.SellerDetails?.shipEndDate}}</strong></span>
+        </ion-col>
+        <br>
+        <ion-col>
+          <small ion-text color="mytheme">If the product is bought today - {{computeDate()}}</small>
+        </ion-col>
+      </ion-row>
+
+    </ion-list>
+  </div>
+</div>

@@ -1,8 +1,10 @@
+import { ShopService } from './../service/shop.service';
+import { Router } from '@angular/router';
 import { AuthServiceService } from './../../authenticate/service/auth-service.service';
-import { DataService, Product } from './../../data.service';
+import { DataService } from './../../data.service';
 import { FunctionsService } from './../../functions.service';
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { MenuController, LoadingController } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 const { Storage } = Plugins;
 @Component({
@@ -11,19 +13,22 @@ const { Storage } = Plugins;
   styleUrls: ['./buy.page.scss'],
 })
 export class BuyPage {
-  products: Array<Product> = [];
+  products: any;
+  recents: any;
   topsellingProducts: any;
-  recentlyaddedProducts: any;
+  recentProducts: any;
   featuredProducts: any;
   bestsellerProducts: any;
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_VISITED = 'hasVisited';
-  constructor(private menuCtrl: MenuController,
+  constructor(
     private fun: FunctionsService,
+    private router: Router,
+    private shopService: ShopService,
+    private loadingCtrl: LoadingController,
     private authService: AuthServiceService,
     private dataService: DataService) {
-    this.products = dataService.sponsored;
-    this.getTopSellingProducts;
+
   }
 
   onOpen(link) {
@@ -32,10 +37,13 @@ export class BuyPage {
 
   async ionViewWillEnter() {
     const { value } = await Storage.get({ key: this.HAS_VISITED });
-    console.log(value);
     if (!value) {
       this.getIP();
     }
+    this.getTopSellingProducts();
+    this.GetRecentlyAddedProducts();
+    this.GetFeaturedProducts();
+    this.GetBestSellersProducts();
   }
   getIP() {
     this.authService.getIPAddress().subscribe((res: any) => {
@@ -49,11 +57,6 @@ export class BuyPage {
     });
   }
 
-  side_open() {
-    this.menuCtrl.toggle('end');
-  }
-
-
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
@@ -61,12 +64,59 @@ export class BuyPage {
   }
 
   open(product) {
-    this.fun.update(product);
-    this.fun.navigate('/home/tabs/buy/productdetails/tabs/overview', false);
+    this.fun.setNavigationData(product.id, product);
+    this.router.navigate(['/', 'home', 'tabs', 'buy', 'products', 'details', product.id]);
   }
 
-  getTopSellingProducts() {
+  async getTopSellingProducts() {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    this.shopService.GetTopSellingProducts().subscribe(res => {
+      loading.dismiss().catch(() => { });
+      if (res.code === 200) {
+        this.products = res.data;
+      } else {
+        this.fun.presentToast(res.msg);
+      }
+    }, error => {
+      loading.dismiss().catch(() => { });
+    })
+  }
 
+
+  GetRecentlyAddedProducts() {
+    this.shopService.GetRecentlyAddedProducts().subscribe(res => {
+      if (res.code === 200) {
+        this.recentProducts = res.data;
+      } else {
+        this.fun.presentToast(res.msg);
+      }
+    }, error => {
+    })
+  }
+  GetFeaturedProducts() {
+    this.shopService.GetFeaturedProducts().subscribe(res => {
+      if (res.code === 200) {
+        this.featuredProducts = res.data;
+      } else {
+        this.fun.presentToast(res.msg);
+      }
+    }, error => {
+    })
+  }
+
+  GetBestSellersProducts() {
+    this.shopService.GetBestSellersProducts().subscribe(res => {
+      if (res.code === 200) {
+        this.bestsellerProducts = res.data;
+      } else {
+        this.fun.presentToast(res.msg);
+      }
+    }, error => {
+    })
   }
 
 }
