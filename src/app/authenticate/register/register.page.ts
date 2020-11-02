@@ -49,8 +49,7 @@ export class RegisterPage implements OnInit {
   }
 
   ngOnInit() {
-    const oldsid = this.authService.currentUserDataValue.sid;
-    console.log(oldsid);
+  
   }
 
 
@@ -98,7 +97,6 @@ export class RegisterPage implements OnInit {
 
 
   async openLink(link) {
-    console.log(link);
     await Browser.open(
       {
         url: link,

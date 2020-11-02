@@ -102,12 +102,9 @@ export class AppComponent implements OnInit {
     const { value } = await Storage.get({ key: this.HAS_LOGGED_IN });
     console.log(value);
     if (value === 'true') {
-      console.log(this.authService.currentUserDataValue)
       if (this.authService.currentUserDataValue) {
-        console.log(this.authService.currentUserDataValue)
         this.userName = this.authService.currentUserDataValue.name;
         this.userType = this.authService.currentUserDataValue.usertype;
-        console.log(this.userType);
         this.updateLoggedInStatus(true, this.userType);
       }
     } else {

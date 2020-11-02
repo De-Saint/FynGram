@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
@@ -7,6 +7,140 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <div class="mid" *ngIf="!show">
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <button class="circle">
+        <ion-icon name="cart" size="large"></ion-icon>
+      </button>
+    </ion-row>
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <ion-text><strong>Your cart is empty</strong></ion-text>
+    </ion-row>
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <ion-button fill="clear" color="mytheme" (click)="browse()">Browse Products</ion-button>
+    </ion-row>
+  </div>
+  <div *ngIf="show">
+    <ion-row class="ion-justify-content-center ion-margin-horizontal ion-margin-bottom ion-padding-top">
+      <ion-text><strong class="text ion-text-center">Item(s) in Cart {{usercartcount}}</strong>
+      </ion-text>
+    </ion-row>
+    <ion-list #slidingList>
+      <ion-item-sliding *ngFor="let item of cart; " class="card ion-no-padding ion-no-margin">
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row class="container-outer">
+              <ion-col size="3" class="ion-text-center container-inner">
+                <img class="spon-img" [src]="'data:image/png;base64,'+item.ProductDetails.FirstImage" alt="">
+                <ion-text color="danger" class="small" (click)="remove(item)">Remove</ion-text>
+              </ion-col>
+              <ion-col size="6" auto>
+                <h3 class="item-name ion-no-margin">{{item.ProductDetails.InfoDetails?.name}}</h3>
+                <h5 class="item-def ion-no-margin">Quantity:{{item.product_quantity}}</h5>
+                <h5 class="item-def ion-no-margin">Price:
+                  {{ item.ProductDetails.PriceDetails?.selling_price | currency:'₦' }}</h5>
+                <h5 class="item-def ion-no-margin">Dec 31 - Jan 17</h5>
+              </ion-col>
+              <ion-col size="3" class="ion-text-end">
+                <ion-row class="ion-text-end ion-justify-content-end">
+                  <h3 class="item-name ion-no-margin ion-text-end">
+                    {{item.ProductDetails.PriceDetails?.selling_price | currency:'₦'}}
+                  </h3>
+                </ion-row>
+                <ion-row class="ion-justify-content-end">
+                  <ion-select placeholder="-" interface="popover" (onChange)="onQuantityChange($event)"
+                    [interfaceOptions]="customAlertOptions" class="select">
+                    <ion-select-option value="Male">Male</ion-select-option>
+                    <ion-select-option value="Female">Female</ion-select-option>
+                    <!-- <ion-select-option *ngFor="let q of qty" value="q" text-center>{{q}}</ion-select-option> -->
+                  </ion-select>
+                  <!-- <ion-select interface="action-sheet" placeholder="Select Gender"
+                    class="select input ion-padding-horizontal ion-padding-vertical input"
+                    [interfaceOptions]="gendercustomAlertOptions" formControlName='gender'>
+                    <ion-select-option value="Male">Male</ion-select-option>
+                    <ion-select-option value="Female">Female</ion-select-option>
+                  </ion-select> -->
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="remove(item)">
+            <ion-icon name="trash" size="large"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-row size="12" class="ion-justify-content-center ion-margin-top" disabled="true">
+      <ion-button fill="outline" color="mytheme" (click)="browse()">Continue shopping</ion-button>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-text><strong class="text">Order Summary</strong></ion-text>
+    </ion-row>
+    <ion-item lines="none" class="card ion-no-margin">
+      <ion-row class="full">
+        <ion-col size="9">
+          <ion-input placeholder="Enter Promo Code" class="ion-padding-left" [(value)]="code" class="input"></ion-input>
+        </ion-col>
+        <ion-col class="ion-align-self-center" size="3">
+          <ion-button fill="outline" expand="block" color="mytheme"><span class="small">Apply</span></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <div lines="none" class="card ion-no-margin ion-padding-bottom">
+      <ion-row class="full ion-padding-horizontal">
+        <ion-col size="9">
+          <ion-text>Item Total</ion-text>
+        </ion-col>
+        <ion-col size="3" class="ion-text-end">
+          <ion-text>{{data[0].product.currency}}{{fix(calculate(0))}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full ion-padding-horizontal">
+        <ion-col size="9">
+          <ion-text>Shipping</ion-text>
+        </ion-col>
+        <ion-col size="3" class="ion-text-end">
+          <ion-text>{{data[0].product.currency}}{{fix(calculate(1))}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full ion-padding-horizontal">
+        <ion-col size="9">
+          <ion-text>Item Total</ion-text>
+        </ion-col>
+        <ion-col size="3" class="ion-text-end">
+          <ion-text>{{data[0].product.currency}}{{fix(add())}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row>
+        <ion-col>
+          <ion-text class="item-def ion-text-start">
+            <div class="pad"> By tapping 'Checkout' you agree to the <a (click)="open_modal()" class="mycolor">Terms of
+                Use</a>
+
+            </div>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row>
+        <ion-col>
+          <ion-text class="item-def ion-text-start ion-padding-bottom">
+            <div class="mycolor pad">
+              7 Day Free Return and Refund. Does not include perishable items.
+            </div>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
 </ion-content>
+<ion-footer *ngIf="show" (click)="fun.checkout()">
+  <ion-toolbar color="success">
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-footer>

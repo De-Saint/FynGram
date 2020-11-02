@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../../authenticate/service/auth-service.service';
 import { environment } from './../../../environments/environment';
 import { ResponseType } from './../../../interfaces/response';
 import { Observable } from 'rxjs';
@@ -13,6 +14,7 @@ export class ShopService {
 
   constructor(
     private http: HttpClient, private nativeHttp: HTTP,
+    private authService: AuthServiceService,
   ) {
 
   }
@@ -180,6 +182,61 @@ export class ShopService {
     //   )
     // } else {
     const data = JSON.stringify({ type, productid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+
+
+
+  AddOption(option, productid, price, quantity, action): Observable<ResponseType> {
+    const url = environment.url + 'MProductServlet';
+    const type = 'AddOption';
+    const sid = this.authService.currentUserDataValue.sid;
+    // if (this.platform.is("android")) {
+    // const data = {
+    //   type,
+    // productid
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid, option, productid, price, quantity, action });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+
+  GetUserCart(sid): Observable<ResponseType> {
+    const url = environment.url + 'MProductServlet';
+    const type = 'GetShopCart';
+    // if (this.platform.is("android")) {
+    // const data = {
+    //   type,
+    // sid
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid });
     return this.http.post<ResponseType>(url, data).pipe(
       map(res => {
         return res;

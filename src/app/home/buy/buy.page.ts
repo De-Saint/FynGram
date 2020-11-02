@@ -45,15 +45,19 @@ export class BuyPage {
     this.GetFeaturedProducts();
     this.GetBestSellersProducts();
   }
+
+
   getIP() {
     this.authService.getIPAddress().subscribe((res: any) => {
-      this.authService.SaveGuest(res.ip, "Lagos Nigeria").subscribe(res => {
-        console.log(res);
+      console.log(res);
+      this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(res => {
         Storage.set({ key: this.HAS_VISITED, value: 'true' });
         this.fun.navigate('home', false);
         const event = new CustomEvent('user:guest');
         return window.dispatchEvent(event);
       })
+    }, error => {
+      console.log(error);
     });
   }
 
@@ -65,6 +69,7 @@ export class BuyPage {
 
   open(product) {
     this.fun.setNavigationData(product.id, product);
+    this.fun.setNavLink('buy');
     this.router.navigate(['/', 'home', 'tabs', 'buy', 'products', 'details', product.id]);
   }
 

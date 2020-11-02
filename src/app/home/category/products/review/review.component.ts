@@ -17,5 +17,8 @@ export class ReviewComponent implements OnInit {
   computeRatings(ratenumber) {
     return this.fun.array(parseInt(ratenumber));
   }
+  computeRatings2(ratenumber) {
+    return this.fun.array(5-parseInt(ratenumber));
+  }
   
 }

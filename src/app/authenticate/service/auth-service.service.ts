@@ -81,7 +81,7 @@ export class AuthServiceService {
     // if (this.platform.is("android")) {
     //return this.nativeHttp.get("https://ip.seeip.org/geoip"});
     // } else {
-    return this.http.get("https://ip.seeip.org/geoip");
+    return this.http.get("https://ipapi.co/json/");
     // }
   }
 

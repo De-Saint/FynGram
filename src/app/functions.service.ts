@@ -7,8 +7,8 @@ import { ToastController, NavController, AlertController } from '@ionic/angular'
   providedIn: 'root'
 })
 export class FunctionsService {
-  private nagivationData = [];
-
+  private navigationData = [];
+  private navlink: string;
   constructor(
     public dataService: DataService,
     private router: Router,
@@ -121,10 +121,16 @@ export class FunctionsService {
   };
 
   setNavigationData(id, data) {
-    this.nagivationData[id] = data;
+    this.navigationData[id] = data;
   }
  
   getNavigationData(id) {
-    return this.nagivationData[id];
+    return this.navigationData[id];
+  }
+  setNavLink(link){
+    this.navlink = link;
+  }
+  getNavLink(){
+    return this.navlink;
   }
 }

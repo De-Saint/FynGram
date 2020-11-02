@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FunctionsService } from './../../../../functions.service';
 import { ShopService } from './../../../service/shop.service';
 import { LoadingController, NavController } from '@ionic/angular';
@@ -13,16 +13,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RelatedComponent implements OnInit {
   @Input() productId: any;
   products: any;
+  navlink: string;
   thatThingHappened = false;
   constructor(
     private fun: FunctionsService,
     private router: Router,
-    private shopService: ShopService ) {
+    private shopService: ShopService) {
 
   }
 
   ngOnInit() {
-   
+    this.navlink = this.fun.getNavLink();
   }
 
   getProductId(productid) {
@@ -40,8 +41,13 @@ export class RelatedComponent implements OnInit {
   }
 
   open(product) {
-    this.fun.navigate('home')
+    this.fun.navigate('home', false)
     this.fun.setNavigationData(product.id, product);
-    this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', product.id]);
+    if (this.navlink) {
+      this.router.navigate(['/', 'home', 'tabs', this.navlink, 'products', 'details', product.id]);
+    } else {
+      this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', product.id]);
+
+    }
   }
 }

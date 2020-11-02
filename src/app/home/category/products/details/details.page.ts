@@ -1,6 +1,8 @@
+import { ShopService } from './../../../service/shop.service';
+import { AuthServiceService } from './../../../../authenticate/service/auth-service.service';
 import { FunctionsService } from './../../../../functions.service';
 import { HomeTab, Product, DataService } from './../../../../data.service';
-import { IonSlides, IonContent, MenuController, NavController } from '@ionic/angular';
+import { IonSlides, IonContent, MenuController, NavController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -28,9 +30,10 @@ export class DetailsPage implements OnInit {
 
   constructor(
     private fun: FunctionsService,
-    private dataService: DataService,
+    private loadingCtrl: LoadingController,
+    private shopService: ShopService,
     private activeRoute: ActivatedRoute,
-    private nav: NavController) {
+    ) {
   }
 
   ngOnInit() {
@@ -55,13 +58,37 @@ export class DetailsPage implements OnInit {
   goToCart() {
     this.fun.navigate('cart', false);
   }
- 
 
+  onSearch() {
+    this.fun.navigate('search', false);
+  }
   async segmentChanged() {
     await this.slider.slideTo(this.segment);
   }
 
   async slideChanged() {
     this.segment = await this.slider.getActiveIndex();
+  }
+
+  async onAddtoCart(product) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    this.shopService.AddOption('Cart', product.id, product.PriceDetails.selling_price, String(1), 'Increase')
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        console.log(res);
+        if (res.code === 200) {
+          this.fun.navigate('cart');
+          this.fun.presentToast(res.msg);
+        } else {
+          this.fun.presentToast(res.msg);
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+        console.log(JSON.stringify(error));
+      })
   }
 }

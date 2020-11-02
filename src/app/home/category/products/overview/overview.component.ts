@@ -1,6 +1,8 @@
+import { AuthServiceService } from './../../../../authenticate/service/auth-service.service';
+import { ShopService } from './../../../service/shop.service';
 import { FunctionsService } from './../../../../functions.service';
 import { Product } from './../../../../data.service';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, LoadingController, AlertController } from '@ionic/angular';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -20,7 +22,10 @@ export class OverviewComponent implements OnInit {
   };
   open = [false, false, false, false];
   liked = false;
-  constructor(private fun: FunctionsService) {
+  constructor(private fun: FunctionsService, private shopService: ShopService,
+    private authService: AuthServiceService,
+    private alertController: AlertController,
+    private loadingCtrl: LoadingController) {
   }
 
   ngOnInit() { }
@@ -41,14 +46,79 @@ export class OverviewComponent implements OnInit {
     this.slider.lockSwipes(false);
   }
 
-  like() {
+  async like(product) {
     this.liked = !this.liked;
     console.log(this.liked)
+
+    if (this.like) {
+      const usertype = this.authService.currentUserDataValue.usertype;
+      if (usertype !== 'Guest') {
+        this.AddtoSavedItem(product);
+      } else {
+        this.loginOrRegister();
+      }
+    } else {
+
+    }
   }
+
+
+  async  loginOrRegister() {
+    const alert = await this.alertController.create({
+      header: 'Wishlist!',
+      message: 'Please, you need to Login or Register to add to WishList',
+      buttons: [
+        {
+          text: 'Register',
+          cssClass: 'secondary',
+          handler: () => {
+            this.fun.navigate('/authenticate/register');
+          }
+        }, {
+          text: 'Login',
+          handler: () => {
+            this.fun.navigate('/authenticate');
+          }
+        }, {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            this.liked = !this.liked;
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
+
+  async AddtoSavedItem(product) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    this.shopService.AddOption('SavedItems', product.id, product.PriceDetails.selling_price, String(1), 'Increase')
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.fun.presentToast(res.msg);
+        } else {
+          this.fun.presentToast(res.msg);
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
+  }
+
   computeRatings(ratenumber) {
     return this.fun.array(parseInt(ratenumber));
   }
-  computeDate(){
+  computeRatings2(ratenumber) {
+    return this.fun.array(5 - parseInt(ratenumber));
+  }
+  computeDate() {
     return this.fun.date(new Date());
   }
 }

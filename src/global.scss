@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -41,13 +41,13 @@
   background-color: var(--ion-color-mytheme) !important;
 }
 ion-tab-button {
-  --color-selected:var(--ion-color-light);
+  --color-selected: var(--ion-color-light);
 }
 .my-custom-class {
   --spinner-color: var(--ion-color-mytheme);
   color: var(--ion-color-mytheme);
 }
-ion-tab-bar{
+ion-tab-bar {
   --background: var(--ion-color-mytheme) !important;
   --color: var(--ion-color-dark);
 }
@@ -106,10 +106,17 @@ ion-tab-bar{
 .menu {
   color: white !important;
 }
-.label-subtext{
-    position: absolute;
-    right: 20px;
+.label-subtext {
+  position: absolute;
+  right: 20px;
 }
-.padding-0{
+.padding-0 {
   padding: 0;
+}
+.alert-button-group-vertical.sc-ion-alert-md {
+  flex-direction: row !important;
+  -ms-flex-wrap: nowrap;
+}
+.alert-button.sc-ion-alert-md {
+  color: var(--ion-color-mytheme);
 }

@@ -12,9 +12,9 @@
         {{product.ImageDetails3.length}}
       </ion-badge>
       <ion-row class="hover-buttons ion-justify-content-end">
-        <ion-icon *ngIf="!liked" size="small" name="heart-empty" class="fab ion-float-right" (click)="like()">
+        <ion-icon *ngIf="!liked" size="small" name="heart-empty" class="fab ion-float-right" (click)="like(product)">
         </ion-icon>
-        <ion-icon *ngIf="liked" size="small" name="heart" class="fab red ion-float-right" (click)="like()"></ion-icon>
+        <ion-icon *ngIf="liked" size="small" name="heart" class="fab red ion-float-right" (click)="like(product)"></ion-icon>
       </ion-row>
     </ion-col>
   </ion-row>
@@ -26,7 +26,7 @@
       <ion-icon name="star" color="mytheme" *ngFor="let i of computeRatings(product.RatingDetails?.AverageRatings)">
       </ion-icon>
       <ion-icon name="star-outline" color="mytheme"
-        *ngFor="let i of computeRatings(5-product.RatingDetails?.AverageRatings)"></ion-icon>
+        *ngFor="let i of computeRatings2(product.RatingDetails?.AverageRatings)"></ion-icon>
       <h6 class="rate ion-no-margin ion-padding-start" (click)="goToReviews()">
         ({{product.RatingDetails?.NumberOfRatings}})</h6>
     </ion-row>
