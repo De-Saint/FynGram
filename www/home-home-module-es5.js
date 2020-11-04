@@ -80,23 +80,26 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | buy-buy-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null,
               /*! ./buy/buy.module */
               "./src/app/home/buy/buy.module.ts")).then(function (m) {
                 return m.BuyPageModule;
               });
             }
           }, {
-            path: 'productdetails',
-            loadChildren: function loadChildren() {
-              return Promise.all(
-              /*! import() | buy-productdetails-productdetails-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("buy-productdetails-productdetails-module")]).then(__webpack_require__.bind(null,
-              /*! ./buy/productdetails/productdetails.module */
-              "./src/app/home/buy/productdetails/productdetails.module.ts")).then(function (m) {
-                return m.ProductdetailsPageModule;
-              });
-            }
+            path: 'products',
+            children: [{
+              path: 'details/:productId',
+              loadChildren: function loadChildren() {
+                return Promise.all(
+                /*! import() | category-products-details-details-module */
+                [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
+                /*! ./category/products/details/details.module */
+                "./src/app/home/category/products/details/details.module.ts")).then(function (m) {
+                  return m.DetailsPageModule;
+                });
+              }
+            }]
           }]
         }, {
           path: 'category',
@@ -105,23 +108,37 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | category-category-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null,
               /*! ./category/category.module */
               "./src/app/home/category/category.module.ts")).then(function (m) {
                 return m.CategoryPageModule;
               });
             }
           }, {
-            path: 'products/:catId',
-            loadChildren: function loadChildren() {
-              return Promise.all(
-              /*! import() | category-products-products-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null,
-              /*! ./category/products/products.module */
-              "./src/app/home/category/products/products.module.ts")).then(function (m) {
-                return m.ProductsPageModule;
-              });
-            }
+            path: 'products',
+            children: [{
+              path: 'details/:productId',
+              loadChildren: function loadChildren() {
+                return Promise.all(
+                /*! import() | category-products-details-details-module */
+                [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
+                /*! ./category/products/details/details.module */
+                "./src/app/home/category/products/details/details.module.ts")).then(function (m) {
+                  return m.DetailsPageModule;
+                });
+              }
+            }, {
+              path: ':catId',
+              loadChildren: function loadChildren() {
+                return Promise.all(
+                /*! import() | category-products-products-module */
+                [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null,
+                /*! ./category/products/products.module */
+                "./src/app/home/category/products/products.module.ts")).then(function (m) {
+                  return m.ProductsPageModule;
+                });
+              }
+            }]
           }]
         }, {
           path: 'sell',
@@ -130,14 +147,13 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | sell-sell-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("sell-sell-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("sell-sell-module")]).then(__webpack_require__.bind(null,
               /*! ./sell/sell.module */
               "./src/app/home/sell/sell.module.ts")).then(function (m) {
                 return m.SellPageModule;
               });
             }
-          } //add more children here
-          ]
+          }]
         }, {
           path: 'help',
           children: [{
@@ -145,14 +161,13 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | help-help-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("default~authenticate-authenticate-module~help-help-module"), __webpack_require__.e("help-help-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("help-help-module")]).then(__webpack_require__.bind(null,
               /*! ./help/help.module */
               "./src/app/home/help/help.module.ts")).then(function (m) {
                 return m.HelpPageModule;
               });
             }
-          } //add more children here
-          ]
+          }]
         }, {
           path: '',
           redirectTo: '/home/tabs/buy',

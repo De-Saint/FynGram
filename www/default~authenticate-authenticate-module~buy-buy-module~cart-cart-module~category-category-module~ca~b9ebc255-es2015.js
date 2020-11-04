@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"],{
 
 /***/ "./src/app/data.service.ts":
 /*!*********************************!*\
@@ -55,11 +55,9 @@ let DataService = class DataService {
             { title: 'Phone Upgrades' },
             { title: 'Home Decor' }
         ];
-        this.item_tab = [
-            { title: 'Overview' },
+        this.item_tab = [{ title: 'Overview' },
             { title: 'Related' },
-            { title: 'Reviews' }
-        ];
+            { title: 'Review' }];
         this.notifications_tab = [{ title: 'All' },
             { title: 'Deals' },
             { title: 'Your Orders' },
@@ -163,16 +161,6 @@ let DataService = class DataService {
                 status: 'Delivered',
                 tax: 40
             }];
-        this.faqs = {
-            'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
-            'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
-            'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
-            'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
-            'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
-            'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
-            'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
-            'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
-        };
     }
 };
 DataService.ctorParameters = () => [];
@@ -213,6 +201,17 @@ let FunctionsService = class FunctionsService {
         this.toastController = toastController;
         this.nav = nav;
         this.alertController = alertController;
+        this.navigationData = [];
+        this.faqs = {
+            'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
+            'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
+            'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
+            'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
+            'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
+            'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
+            'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
+            'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
+        };
     }
     navigate(link, forward) {
         if (forward) {
@@ -241,13 +240,11 @@ let FunctionsService = class FunctionsService {
             this.nav.navigateForward('/Checkout');
         }
     }
-    presentToast(message, show_button, position, duration) {
+    presentToast(message) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
-                message: message,
-                // showCloseButton: show_button,
-                position: position,
-                duration: duration
+                duration: 2100,
+                message: message
             });
             toast.present();
         });
@@ -301,6 +298,18 @@ let FunctionsService = class FunctionsService {
         price = price - (price * discount / 100);
         return price.toFixed(2);
     }
+    setNavigationData(id, data) {
+        this.navigationData[id] = data;
+    }
+    getNavigationData(id) {
+        return this.navigationData[id];
+    }
+    setNavLink(link) {
+        this.navlink = link;
+    }
+    getNavLink() {
+        return this.navlink;
+    }
 };
 FunctionsService.ctorParameters = () => [
     { type: _data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"] },
@@ -320,4 +329,4 @@ FunctionsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987-es2015.js.map
+//# sourceMappingURL=default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255-es2015.js.map

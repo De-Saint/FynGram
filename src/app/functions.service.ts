@@ -36,14 +36,6 @@ export class FunctionsService {
     return re.test(String(email).toLowerCase());
   }
 
-  checkout() {
-    if (this.dataService.current_user.address.length === 0) {
-      this.nav.navigateForward('/NewAddress/$1');
-    } else {
-      this.nav.navigateForward('/Checkout');
-    }
-  }
-
   async presentToast(message) {
     const toast = await this.toastController.create({
       duration: 2100,
@@ -132,5 +124,14 @@ export class FunctionsService {
   }
   getNavLink(){
     return this.navlink;
+  }
+
+  CalculatePercentage(userAmt) {
+    let addedPerc = (parseInt(userAmt) * 0.02);
+    let newAmt = parseInt(userAmt) + addedPerc;
+    if (parseInt(userAmt) >= 2500) {
+      newAmt = parseInt(userAmt) + 100;
+    }
+    return newAmt;
   }
 }

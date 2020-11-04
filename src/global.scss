@@ -55,6 +55,9 @@ ion-tab-bar {
   color: var(--ion-color-mytheme) !important;
 }
 
+ion-radio {
+  --color-checked: var(--ion-color-mytheme) !important;
+}
 .ion-color-mytheme {
   --ion-color-base: var(--ion-color-mytheme) !important;
   --ion-color-base-rgb: var(--ion-color-mytheme-rgb) !important;
@@ -119,4 +122,30 @@ ion-tab-bar {
 }
 .alert-button.sc-ion-alert-md {
   color: var(--ion-color-mytheme);
+}
+.swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color: green !important;
+  color: #fff;
+  font-size: 1.0625em;
+}
+
+.swal2-icon.swal2-error {
+  border-color: green !important;
+  color: green !important;
+}
+.swal2-icon.swal2-success {
+  border-color: green !important;
+  color: green !important;
+}
+.swal2-icon.swal2-error [class^="swal2-x-mark-line"] {
+  display: block;
+  position: absolute;
+  top: 2.3125em;
+  width: 2.9375em;
+  height: 0.3125em;
+  border-radius: 0.125em;
+  background-color: green !important;
 }

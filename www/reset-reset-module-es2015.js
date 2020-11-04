@@ -116,42 +116,69 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPage", function() { return ResetPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
+
 
 
 
 
 let ResetPage = class ResetPage {
-    constructor(fun) {
+    constructor(fun, authService, loadingCtrl) {
         this.fun = fun;
-        this.resetForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
-            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] }),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] }),
-            password2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] })
+        this.authService = authService;
+        this.loadingCtrl = loadingCtrl;
+        this.resetForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
+            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(6)] }),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(6)] }),
+            password2: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(6)] })
         });
     }
     ngOnInit() {
     }
     onSubmit() {
-        if (!this.resetForm.valid) {
-            this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
-            return false;
-        }
-        if (this.resetForm.value.password === this.resetForm.value.password2) {
-            this.fun.navigate('home/tabs/buy', false);
-        }
-        else {
-            this.fun.presentToast('Password Mismatch!', true, 'bottom', 2100);
-        }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (!this.resetForm.valid) {
+                this.fun.presentToast('Wrong Input!');
+                return false;
+            }
+            if (this.resetForm.value.password === this.resetForm.value.password2) {
+                const loading = yield this.loadingCtrl.create({
+                    cssClass: 'my-custom-class',
+                    message: 'Please wait...',
+                });
+                yield loading.present();
+                this.authService.PasswordRecovery(this.resetForm.value.code, this.resetForm.value.password)
+                    .subscribe(res => {
+                    loading.dismiss().catch(() => { });
+                    console.log(res);
+                    if (res.code === 200) {
+                        this.fun.navigate('authenticate');
+                        this.fun.presentToast(res.msg);
+                    }
+                }, error => {
+                    loading.dismiss().catch(() => { });
+                    console.log(JSON.stringify(error));
+                    this.fun.presentToast(error);
+                });
+            }
+            else {
+                this.fun.presentToast('Password Mismatch!');
+            }
+        });
     }
 };
 ResetPage.ctorParameters = () => [
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] }
+    { type: _functions_service__WEBPACK_IMPORTED_MODULE_3__["FunctionsService"] },
+    { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] }
 ];
 ResetPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
         selector: 'app-reset',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./reset.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/authenticate/reset/reset.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./reset.page.scss */ "./src/app/authenticate/reset/reset.page.scss")).default]

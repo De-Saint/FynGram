@@ -270,7 +270,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\n      <ion-header>\n        <ion-toolbar color=\"mytheme\">\n          <ion-row class=\"ion-padding-horizontal ion-align-items-center\">\n            <ion-col size=\"4\" class=\"ion-padding-vertical ion-align-items-center\">\n              <img src=\"/assets/icon/logo.png\">\n            </ion-col>\n            <ion-col class=\"ion-padding-vertical ion-align-items-center\">\n              <div class=\"ion-margin-vertical\">\n                <h4  class=\"medium white ion-no-margin ion-margin-start\"><strong>Guest</strong></h4>\n                <ion-menu-toggle autoHide=\"false\">\n                  <a routerLink=\"/support\"   class=\"small white ion-no-margin ion-margin-start\" routerLinkActive=\"active\" routerDirection=\"root\" detail=\"false\">Create An Account</a>\n                </ion-menu-toggle>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Admin'\">\n                <h4  class=\"medium white ion-no-margin ion-margin-start\"><strong>Fyngram Admin</strong></h4>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">Admin</h6>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Customer'\">\n                <h4  class=\"medium white ion-no-margin ion-margin-start\"><strong>Lemuel Charles</strong></h4>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">Seller</h6>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Seller'\">\n                <h4  class=\"medium white ion-no-margin ion-margin-start\"><strong>Saint Deemene</strong></h4>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">Customer</h6>\n                <h6  class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content>\n        <ion-list *ngIf=\"loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Shop & Account\n          </ion-list-header>\n          <div *ngIf=\"userType === 'Admin'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of adminPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Customer'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of customerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Seller'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of sellerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n        </ion-list>\n\n        <ion-list *ngIf=\"!loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Account\n          </ion-list-header>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n              detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-list lines=\"none\">\n          <ion-list-header>\n            Theme\n          </ion-list-header>\n          <ion-item>\n            <ion-icon slot=\"start\" name=\"moon-outline\"></ion-icon>\n            <ion-label>\n              Dark Mode\n            </ion-label>\n            <ion-toggle (ionChange)=\"updateDarkMode($event)\" slot=\"end\"></ion-toggle>\n          </ion-item>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n\n    \n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n   \n  </ion-split-pane>\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\n      <ion-header>\n        <ion-toolbar color=\"mytheme\">\n          <ion-row class=\"ion-padding-horizontal ion-align-items-center\">\n            <ion-col size=\"4\" class=\"ion-padding-vertical ion-align-items-center\">\n              <img src=\"/assets/icon/logo.png\">\n            </ion-col>\n            <ion-col class=\"ion-padding-vertical ion-align-items-center\">\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Guest'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>Guest</strong></h4>\n                <ion-menu-toggle autoHide=\"false\">\n                  <a routerLink=\"/support\" class=\"small white ion-no-margin ion-margin-start\" routerLinkActive=\"active\"\n                    routerDirection=\"root\" detail=\"false\">Create An Account</a>\n                </ion-menu-toggle>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Admin'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Admin</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Seller'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Seller</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Customer'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Customer</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content>\n        <ion-list *ngIf=\"loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Shop & Account\n          </ion-list-header>\n          <div *ngIf=\"userType === 'Admin'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of adminPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Customer'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of customerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Seller'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of sellerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <ion-menu-toggle autoHide=\"false\" *ngIf=\"userType !== 'Guest'\">\n            <ion-item button (click)=\"logout()\" detail=\"false\">\n              <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\n              <ion-label>\n                LogOut\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n\n\n        <ion-list *ngIf=\"!loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Account\n          </ion-list-header>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n              detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-list lines=\"none\">\n          <ion-list-header>\n            Theme\n          </ion-list-header>\n          <ion-item>\n            <ion-icon slot=\"start\" name=\"moon-outline\"></ion-icon>\n            <ion-label>\n              Dark Mode\n            </ion-label>\n            <ion-toggle (ionChange)=\"updateDarkMode($event)\" slot=\"end\"></ion-toggle>\n          </ion-item>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n\n\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\n  </ion-split-pane>\n</ion-app>");
 
 /***/ }),
 
@@ -298,7 +298,7 @@ const routes = [
     },
     {
         path: 'authenticate',
-        loadChildren: () => Promise.all(/*! import() | authenticate-authenticate-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("default~authenticate-authenticate-module~help-help-module"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null, /*! ./authenticate/authenticate.module */ "./src/app/authenticate/authenticate.module.ts")).then(m => m.AuthenticatePageModule)
+        loadChildren: () => Promise.all(/*! import() | authenticate-authenticate-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null, /*! ./authenticate/authenticate.module */ "./src/app/authenticate/authenticate.module.ts")).then(m => m.AuthenticatePageModule)
     },
     {
         path: 'home',
@@ -306,11 +306,11 @@ const routes = [
     },
     {
         path: 'cart',
-        loadChildren: () => __webpack_require__.e(/*! import() | cart-cart-module */ "cart-cart-module").then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/cart/cart.module.ts")).then(m => m.CartPageModule)
+        loadChildren: () => Promise.all(/*! import() | cart-cart-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/cart/cart.module.ts")).then(m => m.CartPageModule)
     },
     {
         path: 'search',
-        loadChildren: () => Promise.all(/*! import() | search-search-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null, /*! ./search/search.module */ "./src/app/search/search.module.ts")).then(m => m.SearchPageModule)
+        loadChildren: () => Promise.all(/*! import() | search-search-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null, /*! ./search/search.module */ "./src/app/search/search.module.ts")).then(m => m.SearchPageModule)
     },
     {
         path: 'customeraccounts',
@@ -380,6 +380,10 @@ const routes = [
         path: 'customerdashboard',
         loadChildren: () => __webpack_require__.e(/*! import() | customerdashboard-customerdashboard-module */ "customerdashboard-customerdashboard-module").then(__webpack_require__.bind(null, /*! ./customerdashboard/customerdashboard.module */ "./src/app/customerdashboard/customerdashboard.module.ts")).then(m => m.CustomerdashboardPageModule)
     },
+    {
+        path: 'checkout',
+        loadChildren: () => Promise.all(/*! import() | checkout-checkout-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null, /*! ./checkout/checkout.module */ "./src/app/checkout/checkout.module.ts")).then(m => m.CheckoutPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -405,7 +409,7 @@ AppRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-menu ion-content {\n  --background: var(--ion-item-background, var(--ion-background-color, #fff));\n}\n\nion-menu.md ion-content {\n  --padding-start: 8px;\n  --padding-end: 8px;\n  --padding-bottom: 20px;\n}\n\nion-menu.md ion-list {\n  padding: 0;\n}\n\nion-menu.md ion-note {\n  margin-bottom: 30px;\n}\n\nion-menu.md ion-list-header,\nion-menu.md ion-note {\n  padding-left: 10px;\n}\n\nion-menu.md ion-list#inbox-list {\n  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);\n}\n\nion-menu.md ion-list#inbox-list ion-list-header {\n  font-size: 22px;\n  font-weight: 600;\n  min-height: 20px;\n}\n\nion-menu.md ion-list#labels-list ion-list-header {\n  font-size: 16px;\n  margin-bottom: 18px;\n  color: #757575;\n  min-height: 26px;\n}\n\nion-menu.md ion-item {\n  --padding-start: 10px;\n  --padding-end: 10px;\n  border-radius: 4px;\n}\n\nion-menu.md ion-item.selected {\n  --background: rgba(var(--ion-color-primary-rgb), 0.14);\n}\n\nion-menu.md ion-item.selected ion-icon {\n  color: var(--ion-color-primary);\n}\n\nion-menu.md ion-item ion-icon {\n  color: #40A944;\n}\n\nion-menu.md ion-item ion-label {\n  font-weight: 500;\n}\n\nion-menu.ios ion-content {\n  --padding-bottom: 20px;\n}\n\nion-menu.ios ion-list {\n  padding: 0 0 0 0;\n}\n\nion-menu.ios ion-note {\n  line-height: 24px;\n  margin-bottom: 20px;\n}\n\nion-menu.ios ion-item {\n  --padding-start: 16px;\n  --padding-end: 16px;\n  --min-height: 50px;\n}\n\nion-menu.ios ion-item.selected ion-icon {\n  color: var(--ion-color-mytheme);\n}\n\nion-menu.ios ion-item ion-icon {\n  font-size: 24px;\n  color: #73849a;\n}\n\nion-menu.ios ion-list#labels-list ion-list-header {\n  margin-bottom: 8px;\n}\n\nion-menu.ios ion-list-header,\nion-menu.ios ion-note {\n  padding-left: 16px;\n  padding-right: 16px;\n}\n\nion-menu.ios ion-note {\n  margin-bottom: 8px;\n}\n\nion-note {\n  display: inline-block;\n  font-size: 16px;\n  color: var(--ion-color-medium-shade);\n}\n\nion-item.selected {\n  --color: var(--ion-color-mytheme);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMkVBQUE7QUFDRjs7QUFFQTtFQUNFLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxzQkFBQTtBQUNGOztBQUVBO0VBQ0UsVUFBQTtBQUNGOztBQUVBO0VBQ0UsbUJBQUE7QUFDRjs7QUFFQTs7RUFFRSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsMkRBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtFQUVBLGdCQUFBO0FBQUY7O0FBR0E7RUFDRSxlQUFBO0VBRUEsbUJBQUE7RUFFQSxjQUFBO0VBRUEsZ0JBQUE7QUFIRjs7QUFNQTtFQUNFLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQUhGOztBQU1BO0VBQ0Usc0RBQUE7QUFIRjs7QUFNQTtFQUNFLCtCQUFBO0FBSEY7O0FBTUE7RUFDRSxjQUFBO0FBSEY7O0FBTUE7RUFDRSxnQkFBQTtBQUhGOztBQU1BO0VBQ0Usc0JBQUE7QUFIRjs7QUFNQTtFQUNFLGdCQUFBO0FBSEY7O0FBTUE7RUFDRSxpQkFBQTtFQUNBLG1CQUFBO0FBSEY7O0FBTUE7RUFDRSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFIRjs7QUFNQTtFQUNFLCtCQUFBO0FBSEY7O0FBTUE7RUFDRSxlQUFBO0VBQ0EsY0FBQTtBQUhGOztBQU1BO0VBQ0Usa0JBQUE7QUFIRjs7QUFNQTs7RUFFRSxrQkFBQTtFQUNBLG1CQUFBO0FBSEY7O0FBTUE7RUFDRSxrQkFBQTtBQUhGOztBQU1BO0VBQ0UscUJBQUE7RUFDQSxlQUFBO0VBRUEsb0NBQUE7QUFKRjs7QUFPQTtFQUNFLGlDQUFBO0FBSkYiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tbWVudSBpb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWl0ZW0tYmFja2dyb3VuZCwgdmFyKC0taW9uLWJhY2tncm91bmQtY29sb3IsICNmZmYpKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWNvbnRlbnQge1xuICAtLXBhZGRpbmctc3RhcnQ6IDhweDtcbiAgLS1wYWRkaW5nLWVuZDogOHB4O1xuICAtLXBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCB7XG4gIHBhZGRpbmc6IDA7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1ub3RlIHtcbiAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUubWQgaW9uLW5vdGUge1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1saXN0I2luYm94LWxpc3Qge1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0taW9uLWNvbG9yLXN0ZXAtMTUwLCAjZDdkOGRhKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjaW5ib3gtbGlzdCBpb24tbGlzdC1oZWFkZXIge1xuICBmb250LXNpemU6IDIycHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG5cbiAgbWluLWhlaWdodDogMjBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAxNnB4O1xuXG4gIG1hcmdpbi1ib3R0b206IDE4cHg7XG5cbiAgY29sb3I6ICM3NTc1NzU7XG5cbiAgbWluLWhlaWdodDogMjZweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0ge1xuICAtLXBhZGRpbmctc3RhcnQ6IDEwcHg7XG4gIC0tcGFkZGluZy1lbmQ6IDEwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0uc2VsZWN0ZWQge1xuICAtLWJhY2tncm91bmQ6IHJnYmEodmFyKC0taW9uLWNvbG9yLXByaW1hcnktcmdiKSwgMC4xNCk7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1pdGVtLnNlbGVjdGVkIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogIzQwQTk0NDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWxhYmVsIHtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1jb250ZW50IHtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1saXN0IHtcbiAgcGFkZGluZzogMCAwIDAgMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgbGluZS1oZWlnaHQ6IDI0cHg7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbSB7XG4gIC0tcGFkZGluZy1zdGFydDogMTZweDtcbiAgLS1wYWRkaW5nLWVuZDogMTZweDtcbiAgLS1taW4taGVpZ2h0OiA1MHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0uc2VsZWN0ZWQgaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLW15dGhlbWUpO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBmb250LXNpemU6IDI0cHg7XG4gIGNvbG9yOiAjNzM4NDlhO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgcGFkZGluZy1sZWZ0OiAxNnB4O1xuICBwYWRkaW5nLXJpZ2h0OiAxNnB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBtYXJnaW4tYm90dG9tOiA4cHg7XG59XG5cbmlvbi1ub3RlIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDE2cHg7XG5cbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0tc2hhZGUpO1xufVxuXG5pb24taXRlbS5zZWxlY3RlZCB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1teXRoZW1lKTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-menu ion-content {\n  --background: var(--ion-item-background, var(--ion-background-color, #fff));\n}\n\nion-menu.md ion-content {\n  --padding-start: 8px;\n  --padding-end: 8px;\n  --padding-bottom: 20px;\n}\n\nion-menu.md ion-list {\n  padding: 0;\n}\n\nion-menu.md ion-note {\n  margin-bottom: 30px;\n}\n\nion-menu.md ion-list-header,\nion-menu.md ion-note {\n  padding-left: 10px;\n}\n\nion-menu.md ion-list#inbox-list {\n  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);\n}\n\nion-menu.md ion-list#inbox-list ion-list-header {\n  font-size: 22px;\n  font-weight: 600;\n  min-height: 20px;\n}\n\nion-menu.md ion-list#labels-list ion-list-header {\n  font-size: 16px;\n  margin-bottom: 18px;\n  color: #757575;\n  min-height: 26px;\n}\n\nion-menu.md ion-item {\n  --padding-start: 10px;\n  --padding-end: 10px;\n  border-radius: 4px;\n}\n\nion-menu.md ion-item.selected {\n  --background: rgba(var(--ion-color-mytheme-rgb), 0.14);\n}\n\nion-menu.md ion-item.selected ion-icon {\n  color: var(--ion-color-mytheme);\n}\n\nion-menu.md ion-item ion-icon {\n  color: #333;\n}\n\nion-menu.md ion-item ion-label {\n  font-weight: 500;\n}\n\nion-menu.ios ion-content {\n  --padding-bottom: 20px;\n}\n\nion-menu.ios ion-list {\n  padding: 0 0 0 0;\n}\n\nion-menu.ios ion-note {\n  line-height: 24px;\n  margin-bottom: 20px;\n}\n\nion-menu.ios ion-item {\n  --padding-start: 16px;\n  --padding-end: 16px;\n  --min-height: 50px;\n}\n\nion-menu.ios ion-item.selected ion-icon {\n  color: var(--ion-color-mytheme);\n}\n\nion-menu.ios ion-item ion-icon {\n  font-size: 24px;\n  color: #73849a;\n}\n\nion-menu.ios ion-list#labels-list ion-list-header {\n  margin-bottom: 8px;\n}\n\nion-menu.ios ion-list-header,\nion-menu.ios ion-note {\n  padding-left: 16px;\n  padding-right: 16px;\n}\n\nion-menu.ios ion-note {\n  margin-bottom: 8px;\n}\n\nion-note {\n  display: inline-block;\n  font-size: 16px;\n  color: var(--ion-color-medium-shade);\n}\n\nion-item.selected {\n  --color: var(--ion-color-mytheme);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMkVBQUE7QUFDRjs7QUFFQTtFQUNFLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxzQkFBQTtBQUNGOztBQUVBO0VBQ0UsVUFBQTtBQUNGOztBQUVBO0VBQ0UsbUJBQUE7QUFDRjs7QUFFQTs7RUFFRSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsMkRBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtFQUVBLGdCQUFBO0FBQUY7O0FBR0E7RUFDRSxlQUFBO0VBRUEsbUJBQUE7RUFFQSxjQUFBO0VBRUEsZ0JBQUE7QUFIRjs7QUFNQTtFQUNFLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQUhGOztBQU1BO0VBQ0Usc0RBQUE7QUFIRjs7QUFNQTtFQUNFLCtCQUFBO0FBSEY7O0FBTUE7RUFDRSxXQUFBO0FBSEY7O0FBTUE7RUFDRSxnQkFBQTtBQUhGOztBQU1BO0VBQ0Usc0JBQUE7QUFIRjs7QUFNQTtFQUNFLGdCQUFBO0FBSEY7O0FBTUE7RUFDRSxpQkFBQTtFQUNBLG1CQUFBO0FBSEY7O0FBTUE7RUFDRSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFIRjs7QUFNQTtFQUNFLCtCQUFBO0FBSEY7O0FBTUE7RUFDRSxlQUFBO0VBQ0EsY0FBQTtBQUhGOztBQU1BO0VBQ0Usa0JBQUE7QUFIRjs7QUFNQTs7RUFFRSxrQkFBQTtFQUNBLG1CQUFBO0FBSEY7O0FBTUE7RUFDRSxrQkFBQTtBQUhGOztBQU1BO0VBQ0UscUJBQUE7RUFDQSxlQUFBO0VBRUEsb0NBQUE7QUFKRjs7QUFPQTtFQUNFLGlDQUFBO0FBSkYiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tbWVudSBpb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWl0ZW0tYmFja2dyb3VuZCwgdmFyKC0taW9uLWJhY2tncm91bmQtY29sb3IsICNmZmYpKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWNvbnRlbnQge1xuICAtLXBhZGRpbmctc3RhcnQ6IDhweDtcbiAgLS1wYWRkaW5nLWVuZDogOHB4O1xuICAtLXBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCB7XG4gIHBhZGRpbmc6IDA7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1ub3RlIHtcbiAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUubWQgaW9uLW5vdGUge1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1saXN0I2luYm94LWxpc3Qge1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0taW9uLWNvbG9yLXN0ZXAtMTUwLCAjZDdkOGRhKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjaW5ib3gtbGlzdCBpb24tbGlzdC1oZWFkZXIge1xuICBmb250LXNpemU6IDIycHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG5cbiAgbWluLWhlaWdodDogMjBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAxNnB4O1xuXG4gIG1hcmdpbi1ib3R0b206IDE4cHg7XG5cbiAgY29sb3I6ICM3NTc1NzU7XG5cbiAgbWluLWhlaWdodDogMjZweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0ge1xuICAtLXBhZGRpbmctc3RhcnQ6IDEwcHg7XG4gIC0tcGFkZGluZy1lbmQ6IDEwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0uc2VsZWN0ZWQge1xuICAtLWJhY2tncm91bmQ6IHJnYmEodmFyKC0taW9uLWNvbG9yLW15dGhlbWUtcmdiKSwgMC4xNCk7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1pdGVtLnNlbGVjdGVkIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1teXRoZW1lKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogIzMzMztcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWxhYmVsIHtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1jb250ZW50IHtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1saXN0IHtcbiAgcGFkZGluZzogMCAwIDAgMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgbGluZS1oZWlnaHQ6IDI0cHg7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbSB7XG4gIC0tcGFkZGluZy1zdGFydDogMTZweDtcbiAgLS1wYWRkaW5nLWVuZDogMTZweDtcbiAgLS1taW4taGVpZ2h0OiA1MHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0uc2VsZWN0ZWQgaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLW15dGhlbWUpO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBmb250LXNpemU6IDI0cHg7XG4gIGNvbG9yOiAjNzM4NDlhO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgcGFkZGluZy1sZWZ0OiAxNnB4O1xuICBwYWRkaW5nLXJpZ2h0OiAxNnB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBtYXJnaW4tYm90dG9tOiA4cHg7XG59XG5cbmlvbi1ub3RlIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDE2cHg7XG5cbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0tc2hhZGUpO1xufVxuXG5pb24taXRlbS5zZWxlY3RlZCB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1teXRoZW1lKTtcbn1cbiJdfQ== */");
 
 /***/ }),
 
@@ -420,70 +424,73 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
 
 
 
+
+
+const { Storage } = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"];
 let AppComponent = class AppComponent {
-    constructor(platform, splashScreen, statusBar, router, menu) {
+    constructor(platform, splashScreen, statusBar, router, authService) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.router = router;
-        this.menu = menu;
+        this.authService = authService;
         this.selectedIndex = 0;
         this.loggedIn = false;
         this.dark = false;
-        this.userType = '';
+        this.userType = 'Guest';
+        this.HAS_LOGGED_IN = 'hasLoggedIn';
         this.appPages = [
-            { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+            { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
             { title: 'Carts', url: '/cart', icon: 'cart' },
             { title: 'Login', url: '/authenticate', icon: 'log-in' },
             { title: 'Register', url: '/authenticate/register', icon: 'person-add' }
         ];
         this.sellerPages = [
-            { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+            { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
             { title: 'Carts', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
-            { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'search' },
-            { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'search' },
-            { title: 'Accounts', url: '/sellersaccounts/tabs/subscriptions', icon: 'search' },
-            { title: 'Inventory', url: '/sellersinventory/tabs/products', icon: 'search' },
-            { title: 'LogOut', url: '/authenticate', icon: 'log-in' },
+            { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'person-circle' },
+            { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'wallet' },
+            { title: 'Accounts', url: '/sellersaccounts/tabs/subscriptions', icon: 'cash' },
+            { title: 'Inventory', url: '/sellersinventory/tabs/products', icon: 'bag-add' },
         ];
         this.adminPages = [
-            { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+            { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
             { title: 'Carts', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
-            { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'search' },
-            { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'search' },
-            { title: 'Accounts', url: '/adminaccounts/tabs/subscriptions', icon: 'search' },
-            { title: 'Users', url: '/adminusers/tabs/sellers', icon: 'search' },
-            { title: 'Inventory', url: '/admininventory/tabs/products', icon: 'search' },
-            { title: 'Categories', url: '/admincategory/tabs/categories', icon: 'search' },
-            { title: 'LogOut', url: '/authenticate', icon: 'log-in' },
+            { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'person-circle' },
+            { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'wallet' },
+            { title: 'Accounts', url: '/adminaccounts/tabs/subscriptions', icon: 'cash' },
+            { title: 'Users', url: '/adminusers/tabs/sellers', icon: 'people-circle' },
+            { title: 'Inventory', url: '/admininventory/tabs/products', icon: 'bag-add' },
+            { title: 'Categories', url: '/admincategory/tabs/categories', icon: 'apps' },
         ];
         this.customerPages = [
-            { title: 'Buy', url: '/home/tabs/buy', icon: 'home' },
+            { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
             { title: 'Carts', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/customerdashboard', icon: 'home' },
-            { title: 'Profile', url: '/customerprofile/tabs/profile', icon: 'search' },
-            { title: 'FynPay', url: '/customerwallet/tabs/fynpay', icon: 'search' },
-            { title: 'Accounts', url: '/customeraccounts/tabs/discounts', icon: 'cart' },
+            { title: 'Profile', url: '/customerprofile/tabs/profile', icon: 'person-circle' },
+            { title: 'FynPay', url: '/customerwallet/tabs/fynpay', icon: 'wallet' },
+            { title: 'Accounts', url: '/customeraccounts/tabs/discounts', icon: 'cash' },
             { title: 'Orders', url: '/customerorders/tabs/orders', icon: 'cart' },
-            { title: 'WishList', url: '/customerorders/tabs/wishlist', icon: 'cart' },
-            { title: 'LogOut', url: '/authenticate', icon: 'log-in' },
+            { title: 'WishList', url: '/customerorders/tabs/wishlist', icon: 'heart-circle' },
         ];
         this.initializeApp();
         this.dark;
@@ -495,7 +502,7 @@ let AppComponent = class AppComponent {
         });
     }
     ngOnInit() {
-        // this.checkLoginStatus();
+        this.checkLoginStatus();
         this.listenToEvents();
     }
     updateLoggedInStatus(loggedIn, userType) {
@@ -504,36 +511,39 @@ let AppComponent = class AppComponent {
             this.userType = userType;
         }, 300);
     }
-    listenToEvents() {
-        // this.updateLoggedInStatus(true, "Admin");
-        this.updateLoggedInStatus(false, "");
-        // this.events.subscribe('user:signup', () => {
-        //   this.enableMenu(true, "");
-        // });
-        // this.events.subscribe('user:logout', () => {
-        //   this.nav.setRoot('SignInPage');
-        //   this.enableMenu(false, "");
-        //   this.auth.logout();
-        // });
-        // this.events.subscribe('user:login', (usertype, Userfullname) => {
-        //   this.Userfullname = Userfullname;
-        //   this.usertype = usertype;
-        //   this.enableMenu(true, usertype);
-        // })
-        window.addEventListener('user:login', () => {
-            this.updateLoggedInStatus(true, '');
+    checkLoginStatus() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const { value } = yield Storage.get({ key: this.HAS_LOGGED_IN });
+            console.log(value);
+            if (value === 'true') {
+                if (this.authService.currentUserDataValue) {
+                    this.userName = this.authService.currentUserDataValue.name;
+                    this.userType = this.authService.currentUserDataValue.usertype;
+                    this.updateLoggedInStatus(true, this.userType);
+                }
+            }
+            else {
+                this.router.navigateByUrl('/home/tabs/buy');
+            }
         });
-        window.addEventListener('user:signup', () => {
-            this.updateLoggedInStatus(true, '');
+    }
+    listenToEvents() {
+        window.addEventListener('user:login', (e) => {
+            this.userName = e.detail.name;
+            console.log(e.detail);
+            this.updateLoggedInStatus(true, e.detail.type);
+        });
+        window.addEventListener('user:guest', (e) => {
+            this.updateLoggedInStatus(false, 'Guest');
         });
         window.addEventListener('user:logout', () => {
-            this.updateLoggedInStatus(false, '');
+            this.updateLoggedInStatus(false, 'Guest');
         });
     }
     logout() {
-        // this.userData.logout().then(() => {
-        //   return this.router.navigateByUrl('/app/tabs/schedule');
-        // });
+        this.authService.logout().then(() => {
+            return this.router.navigateByUrl('/home/tabs/buy');
+        });
     }
     updateDarkMode(event) {
         let systemDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -558,14 +568,14 @@ let AppComponent = class AppComponent {
     }
 };
 AppComponent.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"] },
-    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"] },
-    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
+    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"] },
+    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"] }
 ];
 AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-root',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")).default]
@@ -637,6 +647,235 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "./src/app/authenticate/service/auth-service.service.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/authenticate/service/auth-service.service.ts ***!
+  \**************************************************************/
+/*! exports provided: AuthServiceService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthServiceService", function() { return AuthServiceService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+
+
+
+
+
+
+
+
+
+const { Storage } = _capacitor_core__WEBPACK_IMPORTED_MODULE_8__["Plugins"];
+let AuthServiceService = class AuthServiceService {
+    constructor(nativeHttp, platform, http) {
+        this.nativeHttp = nativeHttp;
+        this.platform = platform;
+        this.http = http;
+        this.currentUserDataSubject = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](JSON.parse(sessionStorage.getItem('userData')));
+        this.currentUserData = this.currentUserDataSubject.asObservable();
+    }
+    get currentUserDataValue() {
+        return this.currentUserDataSubject.value;
+    }
+    login(emailphone, password, oldsid) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + "MUserServlet";
+        const type = "Login";
+        // if (this.platform.is("android")) {
+        // const data = {
+        //   emailphone,
+        //   password,
+        //   type
+        // };
+        //   this.nativeHttp.setDataSerializer("json");
+        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+        //   return from(nativeCall).pipe(
+        //     map(result => {
+        // if(result.code === 200){
+        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+        //       this.currentUserDataSubject.next(result.data.data);
+        // }
+        //       return JSON.parse(result.data);
+        //     })
+        //   )
+        // } else {
+        const data = JSON.stringify({ emailphone, password, oldsid, type });
+        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+            if (res.code === 200) {
+                // this.logout() 
+                sessionStorage.setItem('userData', JSON.stringify(res.data));
+                this.currentUserDataSubject.next(res.data);
+            }
+            return res;
+        }));
+        // }
+    }
+    logout() {
+        return Storage.remove({ key: 'hasLoggedIn' }).then(() => {
+            Storage.remove({ key: 'hasVisited' });
+            window.dispatchEvent(new CustomEvent('user:logout'));
+            this.currentUserDataSubject.next(null);
+            sessionStorage.removeItem('userData');
+        });
+    }
+    getIPAddress() {
+        // if (this.platform.is("android")) {
+        //return this.nativeHttp.get("https://ip.seeip.org/geoip"});
+        // } else {
+        return this.http.get("https://ipapi.co/json/");
+        // }
+    }
+    SaveGuest(ipaddress, location) {
+        const type = 'SaveGuest';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        // if (this.platform.is("android")) {
+        // const data = {
+        //   ipaddress,
+        //   location,
+        //   type
+        // };
+        //   this.nativeHttp.setDataSerializer("json");
+        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+        //   return from(nativeCall).pipe(
+        //     map(result => {
+        // if(result.code === 200){
+        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+        //       this.currentUserDataSubject.next(result.data.data);
+        //       return JSON.parse(result.data);
+        //     })
+        //   )
+        // } else {
+        const data = JSON.stringify({ ipaddress, location, type });
+        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+            sessionStorage.setItem('userData', JSON.stringify(res.data));
+            this.currentUserDataSubject.next(res.data);
+            return res;
+        }));
+        // }
+    }
+    ResetPassword(email) {
+        const type = 'ResetPassword';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        // if (this.platform.is("android")) {
+        // const data = {
+        //   email,
+        //   type
+        // };
+        //   this.nativeHttp.setDataSerializer("json");
+        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+        //   return from(nativeCall).pipe(
+        //     map(result => {
+        // if(result.code === 200){
+        //       return JSON.parse(result.data);
+        //     })
+        //   )
+        // } else {
+        const data = JSON.stringify({ email, type });
+        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+            return res;
+        }));
+        // }
+    }
+    PasswordRecovery(code, password) {
+        const type = 'PasswordRecovery';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        // if (this.platform.is("android")) {
+        // const data = {
+        //   code,
+        //   password
+        // };
+        //   this.nativeHttp.setDataSerializer("json");
+        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+        //   return from(nativeCall).pipe(
+        //     map(result => {
+        //       return JSON.parse(result.data);
+        //     })
+        //   )
+        // } else {
+        const data = JSON.stringify({ code, password, type });
+        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+            return res;
+        }));
+        // }
+    }
+    RegisterCustomer(firstname, lastname, title, gender, email, password, phone) {
+        const type = 'RegisterCustomer';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        // const data = {
+        // firstname,
+        // lastname,
+        // title,
+        // gender,
+        // email,
+        //  password, 
+        //  phone,
+        //   type
+        // };
+        //   this.nativeHttp.setDataSerializer("json");
+        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+        //   return from(nativeCall).pipe(
+        //     map(result => {
+        // if(result.code === 200){
+        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+        //       this.currentUserDataSubject.next(result.data.data);
+        //       return JSON.parse(result.data);
+        //     })
+        //   )
+        // } else {
+        const data = JSON.stringify({ firstname, lastname, title, gender, email, password, phone, type });
+        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+            return res;
+        }));
+        // }
+    }
+    ValidateAccount(code) {
+        const type = 'ValidateAccount';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        // const data = {
+        // code, oldsid,  type
+        // };
+        //   this.nativeHttp.setDataSerializer("json");
+        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+        //   return from(nativeCall).pipe(
+        //     map(result => {
+        // if(result.code === 200){
+        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+        //       this.currentUserDataSubject.next(result.data.data);
+        //       return JSON.parse(result.data);
+        //     })
+        //   )
+        // } else {
+        const data = JSON.stringify({ code, type });
+        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+            return res;
+        }));
+        // }
+    }
+};
+AuthServiceService.ctorParameters = () => [
+    { type: _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__["HTTP"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }
+];
+AuthServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthServiceService);
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -652,9 +891,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    local: "http://localhost:8080/FynGramEngine/",
-    remote: "https://www.fyngram.com/FynGramEngine/",
-    ngrok: "https://468daf4de951.ngrok.io/FynGramEngine/"
+    url: "http://localhost:8080/FynGramEngine/",
 };
 /*
  * For easier debugging in development mode, you can import the following file

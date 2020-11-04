@@ -207,31 +207,45 @@
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../service/auth-service.service */
+      "./src/app/authenticate/service/auth-service.service.ts");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
       /* harmony import */
 
 
-      var _functions_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./../../functions.service */
       "./src/app/functions.service.ts");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
       var ForgotPage = /*#__PURE__*/function () {
-        function ForgotPage(fun) {
+        function ForgotPage(fun, authService, loadingCtrl) {
           _classCallCheck(this, ForgotPage);
 
           this.fun = fun;
-          this.forgotForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
+          this.authService = authService;
+          this.loadingCtrl = loadingCtrl;
+          this.forgotForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
               updateOn: 'blur',
-              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)]
+              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)]
             })
           });
         }
@@ -242,17 +256,68 @@
         }, {
           key: "onSubmit",
           value: function onSubmit() {
-            if (!this.forgotForm.valid) {
-              this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
-              return false;
-            }
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this = this;
 
-            if (this.fun.validateEmail(this.forgotForm.value.email)) {
-              this.fun.presentToast('Verification mail sent', false, 'bottom', 2100);
-              this.fun.navigate('authenticate/reset', true);
-            } else {
-              this.fun.presentToast('Invalid Email!', true, 'bottom', 2100);
-            }
+              var loading;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      if (this.forgotForm.valid) {
+                        _context.next = 3;
+                        break;
+                      }
+
+                      this.fun.presentToast('Wrong Input!');
+                      return _context.abrupt("return", false);
+
+                    case 3:
+                      if (!this.fun.validateEmail(this.forgotForm.value.email)) {
+                        _context.next = 12;
+                        break;
+                      }
+
+                      _context.next = 6;
+                      return this.loadingCtrl.create({
+                        cssClass: 'my-custom-class',
+                        message: 'Please wait...'
+                      });
+
+                    case 6:
+                      loading = _context.sent;
+                      _context.next = 9;
+                      return loading.present();
+
+                    case 9:
+                      this.authService.ResetPassword(this.forgotForm.value.email).subscribe(function (res) {
+                        loading.dismiss()["catch"](function () {});
+                        console.log(res);
+
+                        if (res.code === 200) {
+                          _this.fun.navigate('authenticate/reset');
+
+                          _this.fun.presentToast(res.msg);
+                        }
+                      }, function (error) {
+                        loading.dismiss()["catch"](function () {});
+                        console.log(JSON.stringify(error));
+
+                        _this.fun.presentToast(error);
+                      });
+                      _context.next = 13;
+                      break;
+
+                    case 12:
+                      this.fun.presentToast('Invalid Email!');
+
+                    case 13:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
           }
         }]);
 
@@ -261,11 +326,15 @@
 
       ForgotPage.ctorParameters = function () {
         return [{
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_2__["FunctionsService"]
+          type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"]
+        }, {
+          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]
         }];
       };
 
-      ForgotPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+      ForgotPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-forgot',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./forgot.page.html */

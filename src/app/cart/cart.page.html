@@ -37,10 +37,11 @@
               </ion-col>
               <ion-col size="6" auto>
                 <h3 class="item-name ion-no-margin">{{item.ProductDetails.InfoDetails?.name}}</h3>
-                <h5 class="item-def ion-no-margin">Quantity:{{item.product_quantity}}</h5>
+                <h5 class="item-def ion-no-margin">Quantity:<strong><ion-text color="mytheme">{{item.product_quantity}}</ion-text></strong></h5>
                 <h5 class="item-def ion-no-margin">Price:
                   {{ item.ProductDetails.PriceDetails?.selling_price | currency:'₦' }}</h5>
-                <h5 class="item-def ion-no-margin">Dec 31 - Jan 17</h5>
+                <h5 class="item-def ion-no-margin text-truncate" style="max-width: 7.5em;">
+                  {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>
               </ion-col>
               <ion-col size="3" class="ion-text-end">
                 <ion-row class="ion-text-end ion-justify-content-end">
@@ -49,18 +50,21 @@
                   </h3>
                 </ion-row>
                 <ion-row class="ion-justify-content-end">
-                  <ion-select placeholder="-" interface="popover" (onChange)="onQuantityChange($event)"
-                    [interfaceOptions]="customAlertOptions" class="select">
-                    <ion-select-option value="Male">Male</ion-select-option>
-                    <ion-select-option value="Female">Female</ion-select-option>
-                    <!-- <ion-select-option *ngFor="let q of qty" value="q" text-center>{{q}}</ion-select-option> -->
+                  <ion-select placeholder="-" mode="ios" interface="popover"
+                    (ionChange)="onQuantityChange($event, item)" [interfaceOptions]="customAlertOptions" class="select">
+                    <ion-select-option value="1">1</ion-select-option>
+                    <ion-select-option value="2">2</ion-select-option>
+                    <ion-select-option value="3">3</ion-select-option>
+                    <ion-select-option value="4">4</ion-select-option>
+                    <ion-select-option value="5">5</ion-select-option>
+                    <ion-select-option value="6">6</ion-select-option>
+                    <ion-select-option value="7">7</ion-select-option>
+                    <ion-select-option value="8">8</ion-select-option>
+                    <ion-select-option value="9">9</ion-select-option>
+                    <ion-select-option value="10">10</ion-select-option>
+                    <ion-select-option value="11">11</ion-select-option>
+                    <ion-select-option value="12">12</ion-select-option>
                   </ion-select>
-                  <!-- <ion-select interface="action-sheet" placeholder="Select Gender"
-                    class="select input ion-padding-horizontal ion-padding-vertical input"
-                    [interfaceOptions]="gendercustomAlertOptions" formControlName='gender'>
-                    <ion-select-option value="Male">Male</ion-select-option>
-                    <ion-select-option value="Female">Female</ion-select-option>
-                  </ion-select> -->
                 </ion-row>
               </ion-col>
             </ion-row>
@@ -83,36 +87,44 @@
     <ion-item lines="none" class="card ion-no-margin">
       <ion-row class="full">
         <ion-col size="9">
-          <ion-input placeholder="Enter Promo Code" class="ion-padding-left" [(value)]="code" class="input"></ion-input>
+          <ion-input placeholder="Enter Promo Code" class="ion-padding-left" [(ngModel)]="code" class="input"></ion-input>
         </ion-col>
         <ion-col class="ion-align-self-center" size="3">
-          <ion-button fill="outline" expand="block" color="mytheme"><span class="small">Apply</span></ion-button>
+          <ion-button fill="outline" expand="block" (click)="onApply()" color="mytheme"><span class="small">Apply</span></ion-button>
         </ion-col>
       </ion-row>
     </ion-item>
     <div lines="none" class="card ion-no-margin ion-padding-bottom">
       <ion-row class="full ion-padding-horizontal">
-        <ion-col size="9">
+        <ion-col size="7">
           <ion-text>Item Total</ion-text>
         </ion-col>
-        <ion-col size="3" class="ion-text-end">
-          <ion-text>{{data[0].product.currency}}{{fix(calculate(0))}}</ion-text>
+        <ion-col size="5" class="ion-text-end">
+          <ion-text>{{cartdetails?.amount | currency:'₦' }}</ion-text>
         </ion-col>
       </ion-row>
       <ion-row class="full ion-padding-horizontal">
-        <ion-col size="9">
+        <ion-col size="7">
           <ion-text>Shipping</ion-text>
         </ion-col>
-        <ion-col size="3" class="ion-text-end">
-          <ion-text>{{data[0].product.currency}}{{fix(calculate(1))}}</ion-text>
+        <ion-col size="5" class="ion-text-end">
+          <ion-text>{{cartdetails?.fees | currency:'₦'}}</ion-text>
         </ion-col>
       </ion-row>
       <ion-row class="full ion-padding-horizontal">
-        <ion-col size="9">
-          <ion-text>Item Total</ion-text>
+        <ion-col size="7">
+          <ion-text>Discount</ion-text>
         </ion-col>
-        <ion-col size="3" class="ion-text-end">
-          <ion-text>{{data[0].product.currency}}{{fix(add())}}</ion-text>
+        <ion-col size="5" class="ion-text-end">
+          <ion-text color="danger">{{cartdetails?.discount_amount  | currency:'₦' }}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full ion-padding-horizontal">
+        <ion-col size="7">
+          <ion-text>Total</ion-text>
+        </ion-col>
+        <ion-col size="5" class="ion-text-end">
+          <ion-text>{{cartdetails?.total_amount | currency:'₦'}}</ion-text>
         </ion-col>
       </ion-row>
       <div class="sep"></div>
@@ -139,7 +151,7 @@
     </div>
   </div>
 </ion-content>
-<ion-footer *ngIf="show" (click)="fun.checkout()">
+<ion-footer *ngIf="show" (click)="checkout()">
   <ion-toolbar color="success">
     <ion-title>Checkout</ion-title>
   </ion-toolbar>

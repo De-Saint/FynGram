@@ -116,21 +116,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpPage", function() { return HelpPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../data.service */ "./src/app/data.service.ts");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
 
-
-const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_4__["Plugins"];
+const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_3__["Plugins"];
 let HelpPage = class HelpPage {
-    constructor(fun, dataService) {
+    constructor(fun) {
         this.fun = fun;
-        this.dataService = dataService;
-        this.faqs = dataService.faqs;
+        this.faqs = fun.faqs;
         this.links = Object.keys(this.faqs);
     }
     ngOnInit() {
@@ -151,11 +148,10 @@ let HelpPage = class HelpPage {
     }
 };
 HelpPage.ctorParameters = () => [
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_2__["FunctionsService"] },
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"] }
+    { type: _functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] }
 ];
 HelpPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-help',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./help.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/help/help.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./help.page.scss */ "./src/app/home/help/help.page.scss")).default]

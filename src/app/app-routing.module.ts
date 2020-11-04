@@ -91,6 +91,10 @@ const routes: Routes = [
     path: 'customerdashboard',
     loadChildren: () => import('./customerdashboard/customerdashboard.module').then( m => m.CustomerdashboardPageModule)
   },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
  
 ];
 

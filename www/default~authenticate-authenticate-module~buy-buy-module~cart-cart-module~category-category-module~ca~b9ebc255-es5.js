@@ -5,7 +5,7 @@
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"], {
     /***/
     "./src/app/data.service.ts":
     /*!*********************************!*\
@@ -89,7 +89,7 @@
         }, {
           title: 'Related'
         }, {
-          title: 'Reviews'
+          title: 'Review'
         }];
         this.notifications_tab = [{
           title: 'All'
@@ -2099,16 +2099,6 @@
           status: 'Delivered',
           tax: 40
         }];
-        this.faqs = {
-          'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
-          'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
-          'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
-          'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
-          'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
-          'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
-          'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
-          'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp"
-        };
       };
 
       DataService.ctorParameters = function () {
@@ -2180,6 +2170,17 @@
           this.toastController = toastController;
           this.nav = nav;
           this.alertController = alertController;
+          this.navigationData = [];
+          this.faqs = {
+            'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
+            'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
+            'Contact Us': "https://fyngram.com/FynGramShop/pages/shop/contact/contact.jsp",
+            'Supports': "https://fyngram.com/FynGramShop/pages/shop/support/support.jsp",
+            'FAQs': "https://fyngram.com/FynGramShop/pages/shop/faq/faq.jsp",
+            'Privacy Policy': "https://fyngram.com/FynGramShop/pages/shop/privacy/privacy.jsp",
+            'Terms & Conditions': "https://fyngram.com/FynGramShop/pages/shop/terms/terms.jsp",
+            'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp"
+          };
         }
 
         _createClass(FunctionsService, [{
@@ -2219,7 +2220,7 @@
           }
         }, {
           key: "presentToast",
-          value: function presentToast(message, show_button, position, duration) {
+          value: function presentToast(message) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               var toast;
               return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -2228,10 +2229,8 @@
                     case 0:
                       _context.next = 2;
                       return this.toastController.create({
-                        message: message,
-                        // showCloseButton: show_button,
-                        position: position,
-                        duration: duration
+                        duration: 2100,
+                        message: message
                       });
 
                     case 2:
@@ -2322,6 +2321,26 @@
             price = price - price * discount / 100;
             return price.toFixed(2);
           }
+        }, {
+          key: "setNavigationData",
+          value: function setNavigationData(id, data) {
+            this.navigationData[id] = data;
+          }
+        }, {
+          key: "getNavigationData",
+          value: function getNavigationData(id) {
+            return this.navigationData[id];
+          }
+        }, {
+          key: "setNavLink",
+          value: function setNavLink(link) {
+            this.navlink = link;
+          }
+        }, {
+          key: "getNavLink",
+          value: function getNavLink() {
+            return this.navlink;
+          }
         }]);
 
         return FunctionsService;
@@ -2348,4 +2367,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987-es5.js.map
+//# sourceMappingURL=default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255-es5.js.map

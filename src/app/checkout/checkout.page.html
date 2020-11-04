@@ -1,0 +1,173 @@
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">CheckOut</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-list-header color="light">
+      <ion-label>Select Delivery Method</ion-label>
+    </ion-list-header>
+    <ion-radio-group (ionChange)="onSelectShipType($event)">
+      <ion-item>
+        <ion-label>
+          <ion-row class="full ion-align-items-center">
+            <ion-col size="10">
+              <ion-row class="ion-align-items-center">
+                <p class="ion-no-margin"><strong>Door Step Delivery</strong></p>
+              </ion-row>
+              <ion-row class="ion-align-items-center">
+                <p class="small ion-no-margin">Deliver to my door step</p>
+                <h6 class="small mycolor ion-padding-start ion-no-margin">DEFAULT</h6>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+        <ion-radio slot="start" value="1" checked></ion-radio>
+      </ion-item>
+      <ion-item disabled="true">
+        <ion-label>
+          <ion-row class="full ion-align-items-center">
+            <ion-col size="10">
+              <ion-row class="ion-align-items-center">
+                <p class="ion-no-margin"><strong>PickUp Center</strong></p>
+              </ion-row>
+              <ion-row class="ion-align-items-center">
+                <p class="small ion-no-margin">Select a pickup Center </p>
+                <h6 class="small mycolor ion-padding-start ion-no-margin">PRIMARY</h6>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+        <ion-radio slot="start" value="2" checked></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+  <ion-list>
+    <ion-list-header color="light" class="ion-justify-content-center">
+      <ion-label class="ion-no-margin ion-margin-bottom ion-margin-top ion-no-padding">Delivery Address</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        <ion-row class="ion-align-items-center">
+          <p class="ion-no-margin"><strong>{{useraddress?.addresstypename}} Address</strong></p>
+          <h6 class="small mycolor ion-padding-start" *ngIf="useraddress?.default_address === '1'">Default</h6>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin ion-wrap">{{useraddress?.address_line}} {{useraddress?.close_to}},
+            {{useraddress?.streetname}}</p>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin">{{useraddress?.busname}}</p>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin">{{useraddress?.townname}}</p>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin">{{useraddress?.lganame}}</p>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin">{{useraddress?.statename}}</p>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin">{{useraddress?.phone}}</p>
+        </ion-row>
+        <ion-row>
+          <p class="ion-no-margin">{{useraddress?.postal_code}}</p>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+    <ion-row class="ion-justify-content-center ion-padding-top ion-padding-bottom">
+      <ion-text color="mytheme" (click)="addAddress()">
+        Use Another Address
+      </ion-text>
+    </ion-row>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header color="light" class="ion-justify-content-center">
+      <ion-label class="ion-no-margin ion-margin-bottom ion-margin-top ion-no-padding">Select Payment Method</ion-label>
+    </ion-list-header>
+    <ion-radio-group (ionChange)="onSelectPayMeth($event)">
+      <ion-item>
+        <ion-label>
+          <ion-row class="full ion-align-items-center">
+            <ion-col size="10">
+              <ion-row class="ion-align-items-center">
+                <p class="ion-no-margin"><strong>Pay via FynPay?</strong></p>
+              </ion-row>
+              <ion-row class="ion-align-items-center">
+                <p class="small ion-no-margin">Pay from your FynPay Account </p>
+                <h6 class="small mycolor ion-padding-start ion-no-margin"></h6>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+        <ion-radio slot="start" value="fynpay" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-row class="full ion-align-items-center">
+            <ion-col size="10">
+              <ion-row class="ion-align-items-center">
+                <p class="ion-no-margin"><strong>Pay via PayStack?</strong></p>
+              </ion-row>
+              <ion-row class="ion-align-items-center">
+                <p class="small ion-no-margin">Pay with your Card Details </p>
+                <h6 class="small mycolor ion-padding-start ion-no-margin"></h6>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+
+        <ion-radio slot="start" value="paystack" checked></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-list>
+    <div class="add-payment-div">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <ion-icon name="lock-closed-sharp" class="icon ion-margin-top"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <h5 class="ion-no-margin" class="label">Secure Payment</h5>
+            <h6 class="small">Trusted by over 500 million shoppers</h6>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="mytheme" (click)="onPlaceOrder()" *ngIf="selectedPaymentMethod === 'fynpay' && shiptypeId !== undefined">
+    <ion-title color="light">Place Order</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="selectedPaymentMethod === 'paystack' && shiptypeId !== undefined" color="mytheme"
+    angular4-paystack [key]="public_key" (paymentInit)="paymentInit()" [email]="userEmail" [amount]="pay_amount * 100"
+    [ref]="random_id" [channels]="channels" (close)="paymentCancel()" (callback)="paymentDone($event)"
+    (click)="onPay()" [metadata]="{ 
+    custom_fields: 
+    [ {
+      display_name: 'Customer Name', 
+      variable_name: 'Customer Name', 
+      value: userName } ,
+    {
+      display_name: 'Payment Type', 
+      variable_name: 'Payment Type', 
+      value: 'Order Checkout Payment' 
+    }] 
+  }">
+    <ion-title color="light">Pay & Place Order</ion-title>
+  </ion-toolbar>
+</ion-footer>

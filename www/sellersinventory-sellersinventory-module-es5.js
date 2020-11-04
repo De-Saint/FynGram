@@ -78,9 +78,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return Promise.all(
+              return __webpack_require__.e(
               /*! import() | products-products-module */
-              [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~buy-productdetails-productdetails-module~cat~4a608987"), __webpack_require__.e("common"), __webpack_require__.e("products-products-module")]).then(__webpack_require__.bind(null,
+              "products-products-module").then(__webpack_require__.bind(null,
               /*! ./products/products.module */
               "./src/app/sellersinventory/products/products.module.ts")).then(function (m) {
                 return m.ProductsPageModule;

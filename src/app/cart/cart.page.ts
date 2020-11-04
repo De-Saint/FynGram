@@ -1,9 +1,10 @@
+import { Router } from '@angular/router';
 import { ShopService } from './../home/service/shop.service';
 import { AuthServiceService } from './../authenticate/service/auth-service.service';
 import { FunctionsService } from './../functions.service';
 import { DataService, Cart } from './../data.service';
-import { ModalController, NavController, AlertController, IonList, LoadingController } from '@ionic/angular';
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { AlertController, IonList, LoadingController } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 const { Browser } = Plugins;
 @Component({
@@ -12,42 +13,34 @@ const { Browser } = Plugins;
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage {
-
   @ViewChild('slidingList') slidingList: IonList;
-
   customAlertOptions: any = {
     header: 'Select Quantity',
     translucent: true
   };
-
-  qty = [];
+  shipping: any;
+  shippingFees: any;
   code = '';
   show = true;
   data: Array<Cart> = [];
   usercart: any;
   usercartcount: any;
   cart: [];
+  cartdetails: any;
+  sid: any;
   constructor(
     public dataService: DataService,
     public fun: FunctionsService,
-    private modalController: ModalController,
-    private nav: NavController,
+    private router: Router,
     private loadingCtrl: LoadingController,
     private authService: AuthServiceService,
     private shopService: ShopService,
     public alertController: AlertController) {
-    this.data = dataService.cart;
-    if (this.data.length === 0) { this.show = false; }
-
-    for (let i = 1; i <= 12; i++) {
-      this.qty.push(i);
-    }
-    console.log(this.qty);
 
   }
   ionViewWillEnter() {
-    const sid = this.authService.currentUserDataValue.sid;
-    this.GetUserCart(sid);
+    this.sid = this.authService.currentUserDataValue.sid;
+    this.GetUserCart(this.sid);
   }
 
   async GetUserCart(sid) {
@@ -61,13 +54,11 @@ export class CartPage {
         loading.dismiss().catch(() => { });
         if (res.code === 200) {
           this.usercart = res.data;
-          console.log(this.usercart);
-          this.usercartcount = this.usercart.CartProductDetails.length;
+          this.usercartcount = this.usercart.product_count;
           this.cart = this.usercart.CartProductDetails;
-          console.log(this.cart);
+          this.cartdetails = this.usercart;
         } else {
           this.show = false;
-          this.fun.presentToast(res.msg);
         }
       }, error => {
         this.show = false;
@@ -84,53 +75,139 @@ export class CartPage {
       }
     );
   }
-  onQuantityChange(event) {
-    console.log(event);
-  }
-  calculate(i) {
-    let res = 0;
-    if (i === 0) {
-      for (const j of this.data) {
-        if (j.product.offer) {
-          res += this.fun.calculate(j.product.cost_price, j.product.discount) * j.quantity;
+  async onQuantityChange(event, details) {
+    let quantity = 0;
+    let action: string;
+    const newQty = event.detail.value;
+    const oldQty = details.product_quantity;
+    if (parseInt(newQty) > parseInt(oldQty)) {
+      quantity = parseInt(newQty) - parseInt(oldQty);
+      action = 'Increase';
+    } else if (parseInt(newQty) < parseInt(oldQty)) {
+      quantity = parseInt(oldQty) - parseInt(newQty);
+      action = 'Decrease';
+    } else if (parseInt(newQty) === parseInt(oldQty)) {
+      return false;
+    }
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    this.shopService.UpdateOption('Cart', details.ProductDetails.id,
+     details.ProductDetails.PriceDetails.selling_price, String(quantity), action)
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.fun.presentToast(res.msg);
+          this.sid = this.authService.currentUserDataValue.sid;
+          this.GetUserCart(this.sid);
         } else {
-          res += j.product.cost_price * j.quantity;
+          this.fun.presentToast(res.msg);
         }
-      }
-    }
-    if (i === 1) {
-      for (const j of this.data) {
-        res += j.product.shipping;
-      }
-    }
-    return res;
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
   }
 
-
-  fix(a) {
-    return a.toFixed(2);
-  }
-
-  add() {
-    const res = this.calculate(1) + this.calculate(0);
-    return res;
-  }
 
   browse() {
     this.fun.navigate('/home', false);
   }
 
-  async remove(j) {
-    this.fun.removeConform().then(res => {
-      console.log('res conform', res);
+  async remove(cart) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+
+    this.fun.removeConform().then(async res => {
       if (res === 'ok') {
         this.slidingList.closeSlidingItems();
-        this.data.splice(j, 1);
-        if (this.data.length === 0) {
-          this.show = !this.show;
-        }
+        await loading.present();
+        this.shopService.DeleteOption('Cart', String(cart.cartid), cart.ProductDetails.id)
+          .subscribe(resp => {
+            loading.dismiss().catch(() => { });
+            if (resp.code === 200) {
+              this.fun.presentToast(resp.msg);
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserCart(this.sid);
+            } else {
+              this.fun.presentToast(resp.msg);
+            }
+          }, error => {
+            loading.dismiss().catch(() => { });
+          })
       }
     });
   }
 
+  onApply() {
+    if (this.code) {
+      const usertype = this.authService.currentUserDataValue.usertype;
+      if (usertype !== 'Guest') {
+        this.onCompute(this.code);
+      } else {
+        this.loginOrRegister();
+      }
+    } else {
+      this.fun.presentToast('Please, enter your discount code.');
+    }
+
+  }
+
+  async onCompute(code) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present();
+    this.shopService.CartDiscountCode(code)
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.sid = this.authService.currentUserDataValue.sid;
+          this.GetUserCart(this.sid);
+          this.fun.presentToast(res.msg);
+        } else {
+          this.fun.presentToast(res.msg);
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
+  }
+
+
+  async  loginOrRegister() {
+    const alert = await this.alertController.create({
+      header: 'Discount Code!',
+      message: 'Please, you need to Login or Register to use your Discount Code',
+      buttons: [
+        {
+          text: 'Register',
+          cssClass: 'secondary',
+          handler: () => {
+            this.fun.navigate('/authenticate/register');
+          }
+        }, {
+          text: 'Login',
+          handler: () => {
+            this.fun.navigate('/authenticate');
+          }
+        }, {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            return false;
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
+  checkout() {
+    this.router.navigate(['/checkout'], { queryParams: { 'totalamount': this.usercart.total_amount } });
+  }
 }

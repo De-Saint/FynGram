@@ -57,8 +57,6 @@ export class OverviewComponent implements OnInit {
       } else {
         this.loginOrRegister();
       }
-    } else {
-
     }
   }
 

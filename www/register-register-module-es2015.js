@@ -116,67 +116,92 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../data.service */ "./src/app/data.service.ts");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
 
 
 
-const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_5__["Plugins"];
+
+
+const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"];
 let RegisterPage = class RegisterPage {
-    constructor(fun, data) {
+    constructor(fun, authService, loadingCtrl, data) {
         this.fun = fun;
+        this.authService = authService;
+        this.loadingCtrl = loadingCtrl;
         this.data = data;
+        this.HAS_LOGGED_IN = 'hasLoggedIn';
         this.titlecustomAlertOptions = {
             header: 'Select Title',
         };
         this.gendercustomAlertOptions = {
             header: 'Select Gender',
         };
-        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            first_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            last_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)] }),
-            password2: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)] }),
-            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(11), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(11)] }),
-            terms: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] })
+        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+            first_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
+            last_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] }),
+            password2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] }),
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
+            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(11), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(11)] }),
+            terms: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] })
         });
     }
     ngOnInit() {
     }
     onSubmit() {
-        if (!this.registerForm.valid) {
-            this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
-            return false;
-        }
-        if (this.fun.validateEmail(this.registerForm.value.email)) {
-            if (this.registerForm.value.phone.length === 11) {
-                if (this.registerForm.value.password === this.registerForm.value.password2) {
-                    this.fun.navigate('home/tabs/buy', false);
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (!this.registerForm.valid) {
+                this.fun.presentToast('Wrong Input!');
+                return false;
+            }
+            if (this.fun.validateEmail(this.registerForm.value.email)) {
+                if (this.registerForm.value.phone.length === 11) {
+                    if (this.registerForm.value.password === this.registerForm.value.password2) {
+                        const loading = yield this.loadingCtrl.create({
+                            cssClass: 'my-custom-class',
+                            message: 'Please wait...',
+                        });
+                        yield loading.present();
+                        this.authService.RegisterCustomer(this.registerForm.value.first_name, this.registerForm.value.last_name, this.registerForm.value.title, this.registerForm.value.gender, this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.phone)
+                            .subscribe(res => {
+                            loading.dismiss().catch(() => { });
+                            console.log(res);
+                            if (res.code === 200) {
+                                this.fun.navigate('authenticate/validate');
+                                this.fun.presentToast(res.msg);
+                            }
+                        }, error => {
+                            loading.dismiss().catch(() => { });
+                            console.log(JSON.stringify(error));
+                            this.fun.presentToast(error);
+                        });
+                    }
+                    else {
+                        this.fun.presentToast('Password Mismatch!');
+                    }
                 }
                 else {
-                    this.fun.presentToast('Password Mismatch!', true, 'bottom', 2100);
+                    this.fun.presentToast('Phone must be 11 digits, start with 070xxxxxxxx!');
                 }
             }
             else {
-                this.fun.presentToast('Phone must be 11 digits, start with 070xxxxxxxx!', true, 'bottom', 2100);
+                this.fun.presentToast('Invalid Email!');
             }
-        }
-        else {
-            this.fun.presentToast('Invalid Email!', true, 'bottom', 2100);
-        }
+        });
     }
     openLink(link) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            console.log(link);
             yield Browser.open({
                 url: link,
                 toolbarColor: "#40A944"
@@ -188,11 +213,13 @@ let RegisterPage = class RegisterPage {
     }
 };
 RegisterPage.ctorParameters = () => [
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_3__["FunctionsService"] },
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"] }
+    { type: _functions_service__WEBPACK_IMPORTED_MODULE_5__["FunctionsService"] },
+    { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] }
 ];
 RegisterPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
         selector: 'app-register',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./register.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/authenticate/register/register.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./register.page.scss */ "./src/app/authenticate/register/register.page.scss")).default]

@@ -106,6 +106,17 @@
             return m.ResetPageModule;
           });
         }
+      }, {
+        path: 'validate',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | validate-validate-module */
+          "validate-validate-module").then(__webpack_require__.bind(null,
+          /*! ./validate/validate.module */
+          "./src/app/authenticate/validate/validate.module.ts")).then(function (m) {
+            return m.ValidatePageModule;
+          });
+        }
       }];
 
       var AuthenticatePageRoutingModule = function AuthenticatePageRoutingModule() {
@@ -264,25 +275,35 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var _capacitor_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @capacitor/core */
       "./node_modules/@capacitor/core/dist/esm/index.js");
 
-      var Browser = _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["Plugins"].Browser;
+      var _capacitor_core__WEBP = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"],
+          Browser = _capacitor_core__WEBP.Browser,
+          Storage = _capacitor_core__WEBP.Storage;
 
       var AuthenticatePage = /*#__PURE__*/function () {
-        function AuthenticatePage(authService, fun, data) {
+        function AuthenticatePage(authService, fun, loadingCtrl, data) {
           _classCallCheck(this, AuthenticatePage);
 
           this.authService = authService;
           this.fun = fun;
+          this.loadingCtrl = loadingCtrl;
           this.data = data;
+          this.HAS_LOGGED_IN = 'hasLoggedIn';
           this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
               updateOn: 'blur',
@@ -301,25 +322,69 @@
         }, {
           key: "signin",
           value: function signin() {
-            if (this.fun.validateEmail(this.loginForm.value.email) && this.loginForm.value.password !== '') {
-              this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(function (res) {
-                console.log(res);
-              });
-              this.fun.navigate('home', false);
-            } else {
-              this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
-            }
-          }
-        }, {
-          key: "openLink",
-          value: function openLink(link) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this = this;
+
+              var loading, oldsid;
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
                     case 0:
-                      console.log(link);
+                      if (!(this.fun.validateEmail(this.loginForm.value.email) && this.loginForm.value.password !== '')) {
+                        _context.next = 10;
+                        break;
+                      }
+
                       _context.next = 3;
+                      return this.loadingCtrl.create({
+                        cssClass: 'my-custom-class',
+                        message: 'Please wait...'
+                      });
+
+                    case 3:
+                      loading = _context.sent;
+                      _context.next = 6;
+                      return loading.present();
+
+                    case 6:
+                      oldsid = this.authService.currentUserDataValue.sid;
+                      this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid).subscribe(function (res) {
+                        loading.dismiss()["catch"](function () {});
+                        console.log(res);
+
+                        if (res.code === 200) {
+                          _this.gotoHomePage(res.data);
+                        } else {
+                          _this.fun.presentToast(res.msg);
+                        }
+                      }, function (error) {
+                        loading.dismiss()["catch"](function () {});
+                        console.log(JSON.stringify(error));
+                      });
+                      _context.next = 11;
+                      break;
+
+                    case 10:
+                      this.fun.presentToast('Wrong Input!');
+
+                    case 11:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "openLink",
+          value: function openLink(link) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      console.log(link);
+                      _context2.next = 3;
                       return Browser.open({
                         url: link,
                         toolbarColor: "#40A944"
@@ -327,16 +392,35 @@
 
                     case 3:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee);
+              }, _callee2);
             }));
           }
         }, {
           key: "onOpen",
           value: function onOpen(link) {
             this.fun.navigate(link, true);
+          }
+        }, {
+          key: "gotoHomePage",
+          value: function gotoHomePage(data) {
+            Storage.set({
+              key: this.HAS_LOGGED_IN,
+              value: 'true'
+            });
+            var name = this.authService.currentUserDataValue.name;
+            var type = this.authService.currentUserDataValue.usertype;
+            this.fun.presentToast('Welcome ' + name);
+            this.fun.navigate('/home/tabs/buy', false);
+            var event = new CustomEvent('user:login', {
+              detail: {
+                name: name,
+                type: type
+              }
+            });
+            return window.dispatchEvent(event);
           }
         }]);
 
@@ -349,11 +433,13 @@
         }, {
           type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"]
         }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["LoadingController"]
+        }, {
           type: _data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]
         }];
       };
 
-      AuthenticatePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+      AuthenticatePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
         selector: 'app-authenticate',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./authenticate.page.html */
@@ -362,135 +448,6 @@
         /*! ./authenticate.page.scss */
         "./src/app/authenticate/authenticate.page.scss"))["default"]]
       })], AuthenticatePage);
-      /***/
-    },
-
-    /***/
-    "./src/app/authenticate/service/auth-service.service.ts":
-    /*!**************************************************************!*\
-      !*** ./src/app/authenticate/service/auth-service.service.ts ***!
-      \**************************************************************/
-
-    /*! exports provided: AuthServiceService */
-
-    /***/
-    function srcAppAuthenticateServiceAuthServiceServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "AuthServiceService", function () {
-        return AuthServiceService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./../../../environments/environment */
-      "./src/environments/environment.ts");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @ionic-native/http/ngx */
-      "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
-      /* harmony import */
-
-
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @angular/common/http */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! rxjs/operators */
-      "./node_modules/rxjs/_esm2015/operators/index.js");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! rxjs */
-      "./node_modules/rxjs/_esm2015/index.js");
-
-      var AuthServiceService = /*#__PURE__*/function () {
-        function AuthServiceService(nativeHttp, platform, http) {
-          _classCallCheck(this, AuthServiceService);
-
-          this.nativeHttp = nativeHttp;
-          this.platform = platform;
-          this.http = http;
-        }
-
-        _createClass(AuthServiceService, [{
-          key: "login",
-          value: function login(emailphone, password) {
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].ngrok + "MUserServlet";
-            var type = "Login";
-
-            if (this.platform.is("android")) {
-              var data = {
-                emailphone: emailphone,
-                password: password,
-                type: type
-              };
-              this.nativeHttp.setDataSerializer("json");
-              var nativeCall = this.nativeHttp.get(url, data, {
-                "Content-Type": "application/json"
-              });
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (result) {
-                return JSON.parse(result.data);
-              }));
-            } else {
-              var _data = JSON.stringify({
-                emailphone: emailphone,
-                password: password,
-                type: type
-              });
-
-              return this.http.post(url, _data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-                return res;
-              }));
-            }
-          }
-        }]);
-
-        return AuthServiceService;
-      }();
-
-      AuthServiceService.ctorParameters = function () {
-        return [{
-          type: _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__["HTTP"]
-        }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]
-        }, {
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]
-        }];
-      };
-
-      AuthServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])({
-        providedIn: 'root'
-      })], AuthServiceService);
       /***/
     }
   }]);

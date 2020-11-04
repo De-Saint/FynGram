@@ -47,6 +47,10 @@ const routes = [
     {
         path: 'reset',
         loadChildren: () => __webpack_require__.e(/*! import() | reset-reset-module */ "reset-reset-module").then(__webpack_require__.bind(null, /*! ./reset/reset.module */ "./src/app/authenticate/reset/reset.module.ts")).then(m => m.ResetPageModule)
+    },
+    {
+        path: 'validate',
+        loadChildren: () => __webpack_require__.e(/*! import() | validate-validate-module */ "validate-validate-module").then(__webpack_require__.bind(null, /*! ./validate/validate.module */ "./src/app/authenticate/validate/validate.module.ts")).then(m => m.ValidatePageModule)
     }
 ];
 let AuthenticatePageRoutingModule = class AuthenticatePageRoutingModule {
@@ -132,8 +136,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../data.service */ "./src/app/data.service.ts");
 /* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
@@ -141,12 +146,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["Plugins"];
+
+const { Browser, Storage } = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"];
 let AuthenticatePage = class AuthenticatePage {
-    constructor(authService, fun, data) {
+    constructor(authService, fun, loadingCtrl, data) {
         this.authService = authService;
         this.fun = fun;
+        this.loadingCtrl = loadingCtrl;
         this.data = data;
+        this.HAS_LOGGED_IN = 'hasLoggedIn';
         this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required] }),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required] }),
@@ -155,16 +163,33 @@ let AuthenticatePage = class AuthenticatePage {
     ngOnInit() {
     }
     signin() {
-        if (this.fun.validateEmail(this.loginForm.value.email) && this.loginForm.value.password !== '') {
-            this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
-                .subscribe(res => {
-                console.log(res);
-            });
-            this.fun.navigate('home', false);
-        }
-        else {
-            this.fun.presentToast('Wrong Input!', true, 'bottom', 2100);
-        }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (this.fun.validateEmail(this.loginForm.value.email) && this.loginForm.value.password !== '') {
+                const loading = yield this.loadingCtrl.create({
+                    cssClass: 'my-custom-class',
+                    message: 'Please wait...',
+                });
+                yield loading.present();
+                const oldsid = this.authService.currentUserDataValue.sid;
+                this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid)
+                    .subscribe(res => {
+                    loading.dismiss().catch(() => { });
+                    console.log(res);
+                    if (res.code === 200) {
+                        this.gotoHomePage(res.data);
+                    }
+                    else {
+                        this.fun.presentToast(res.msg);
+                    }
+                }, error => {
+                    loading.dismiss().catch(() => { });
+                    console.log(JSON.stringify(error));
+                });
+            }
+            else {
+                this.fun.presentToast('Wrong Input!');
+            }
+        });
     }
     openLink(link) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -178,89 +203,29 @@ let AuthenticatePage = class AuthenticatePage {
     onOpen(link) {
         this.fun.navigate(link, true);
     }
+    gotoHomePage(data) {
+        Storage.set({ key: this.HAS_LOGGED_IN, value: 'true' });
+        const name = this.authService.currentUserDataValue.name;
+        const type = this.authService.currentUserDataValue.usertype;
+        this.fun.presentToast('Welcome ' + name);
+        this.fun.navigate('/home/tabs/buy', false);
+        const event = new CustomEvent('user:login', { detail: { name, type } });
+        return window.dispatchEvent(event);
+    }
 };
 AuthenticatePage.ctorParameters = () => [
     { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"] },
     { type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["LoadingController"] },
     { type: _data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"] }
 ];
 AuthenticatePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
         selector: 'app-authenticate',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./authenticate.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/authenticate/authenticate.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./authenticate.page.scss */ "./src/app/authenticate/authenticate.page.scss")).default]
     })
 ], AuthenticatePage);
-
-
-
-/***/ }),
-
-/***/ "./src/app/authenticate/service/auth-service.service.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/authenticate/service/auth-service.service.ts ***!
-  \**************************************************************/
-/*! exports provided: AuthServiceService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthServiceService", function() { return AuthServiceService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-
-
-
-
-
-
-
-
-let AuthServiceService = class AuthServiceService {
-    constructor(nativeHttp, platform, http) {
-        this.nativeHttp = nativeHttp;
-        this.platform = platform;
-        this.http = http;
-    }
-    login(emailphone, password) {
-        let url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].ngrok + "MUserServlet";
-        let type = "Login";
-        if (this.platform.is("android")) {
-            let data = {
-                emailphone: emailphone,
-                password: password,
-                type: type
-            };
-            this.nativeHttp.setDataSerializer("json");
-            let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
-                return JSON.parse(result.data);
-            }));
-        }
-        else {
-            let data = JSON.stringify({ emailphone, password, type });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-                return res;
-            }));
-        }
-    }
-};
-AuthServiceService.ctorParameters = () => [
-    { type: _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__["HTTP"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }
-];
-AuthServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])({
-        providedIn: 'root'
-    })
-], AuthServiceService);
 
 
 
