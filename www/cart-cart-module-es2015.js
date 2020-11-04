@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Cart</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content color=\"light\">\n  <div class=\"mid\" *ngIf=\"!show\">\n    <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n      <button class=\"circle\">\n        <ion-icon name=\"cart\" size=\"large\"></ion-icon>\n      </button>\n    </ion-row>\n    <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n      <ion-text><strong>Your cart is empty</strong></ion-text>\n    </ion-row>\n    <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n      <ion-button fill=\"clear\" color=\"mytheme\" (click)=\"browse()\">Browse Products</ion-button>\n    </ion-row>\n  </div>\n  <div *ngIf=\"show\">\n    <ion-row class=\"ion-justify-content-center ion-margin-horizontal ion-margin-bottom ion-padding-top\">\n      <ion-text><strong class=\"text ion-text-center\">Item(s) in Cart {{usercartcount}}</strong>\n      </ion-text>\n    </ion-row>\n    <ion-list #slidingList>\n      <ion-item-sliding *ngFor=\"let item of cart; \" class=\"card ion-no-padding ion-no-margin\">\n        <ion-item lines=\"none\">\n          <ion-grid>\n            <ion-row class=\"container-outer\">\n              <ion-col size=\"3\" class=\"ion-text-center container-inner\">\n                <img class=\"spon-img\" [src]=\"'data:image/png;base64,'+item.ProductDetails.FirstImage\" alt=\"\">\n                <ion-text color=\"danger\" class=\"small\" (click)=\"remove(item)\">Remove</ion-text>\n              </ion-col>\n              <ion-col size=\"6\" auto>\n                <h3 class=\"item-name ion-no-margin\">{{item.ProductDetails.InfoDetails?.name}}</h3>\n                <h5 class=\"item-def ion-no-margin\">Quantity:<strong><ion-text color=\"mytheme\">{{item.product_quantity}}</ion-text></strong></h5>\n                <h5 class=\"item-def ion-no-margin\">Price:\n                  {{ item.ProductDetails.PriceDetails?.selling_price | currency:'₦' }}</h5>\n                <h5 class=\"item-def ion-no-margin text-truncate\" style=\"max-width: 7.5em;\">\n                  {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>\n              </ion-col>\n              <ion-col size=\"3\" class=\"ion-text-end\">\n                <ion-row class=\"ion-text-end ion-justify-content-end\">\n                  <h3 class=\"item-name ion-no-margin ion-text-end\">\n                    {{item.ProductDetails.PriceDetails?.selling_price | currency:'₦'}}\n                  </h3>\n                </ion-row>\n                <ion-row class=\"ion-justify-content-end\">\n                  <ion-select placeholder=\"-\" mode=\"ios\" interface=\"popover\"\n                    (ionChange)=\"onQuantityChange($event, item)\" [interfaceOptions]=\"customAlertOptions\" class=\"select\">\n                    <ion-select-option value=\"1\">1</ion-select-option>\n                    <ion-select-option value=\"2\">2</ion-select-option>\n                    <ion-select-option value=\"3\">3</ion-select-option>\n                    <ion-select-option value=\"4\">4</ion-select-option>\n                    <ion-select-option value=\"5\">5</ion-select-option>\n                    <ion-select-option value=\"6\">6</ion-select-option>\n                    <ion-select-option value=\"7\">7</ion-select-option>\n                    <ion-select-option value=\"8\">8</ion-select-option>\n                    <ion-select-option value=\"9\">9</ion-select-option>\n                    <ion-select-option value=\"10\">10</ion-select-option>\n                    <ion-select-option value=\"11\">11</ion-select-option>\n                    <ion-select-option value=\"12\">12</ion-select-option>\n                  </ion-select>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n\n        </ion-item>\n        <ion-item-options side=\"end\">\n          <ion-item-option color=\"danger\" (click)=\"remove(item)\">\n            <ion-icon name=\"trash\" size=\"large\"></ion-icon>\n          </ion-item-option>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n    <ion-row size=\"12\" class=\"ion-justify-content-center ion-margin-top\" disabled=\"true\">\n      <ion-button fill=\"outline\" color=\"mytheme\" (click)=\"browse()\">Continue shopping</ion-button>\n    </ion-row>\n    <ion-row class=\"ion-margin\">\n      <ion-text><strong class=\"text\">Order Summary</strong></ion-text>\n    </ion-row>\n    <ion-item lines=\"none\" class=\"card ion-no-margin\">\n      <ion-row class=\"full\">\n        <ion-col size=\"9\">\n          <ion-input placeholder=\"Enter Promo Code\" class=\"ion-padding-left\" [(ngModel)]=\"code\" class=\"input\"></ion-input>\n        </ion-col>\n        <ion-col class=\"ion-align-self-center\" size=\"3\">\n          <ion-button fill=\"outline\" expand=\"block\" (click)=\"onApply()\" color=\"mytheme\"><span class=\"small\">Apply</span></ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-item>\n    <div lines=\"none\" class=\"card ion-no-margin ion-padding-bottom\">\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Item Total</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text>{{cartdetails?.amount | currency:'₦' }}</ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Shipping</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text>{{cartdetails?.fees | currency:'₦'}}</ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Discount</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text color=\"danger\">{{cartdetails?.discount_amount  | currency:'₦' }}</ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Total</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text>{{cartdetails?.total_amount | currency:'₦'}}</ion-text>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row>\n        <ion-col>\n          <ion-text class=\"item-def ion-text-start\">\n            <div class=\"pad\"> By tapping 'Checkout' you agree to the <a (click)=\"open_modal()\" class=\"mycolor\">Terms of\n                Use</a>\n\n            </div>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row>\n        <ion-col>\n          <ion-text class=\"item-def ion-text-start ion-padding-bottom\">\n            <div class=\"mycolor pad\">\n              7 Day Free Return and Refund. Does not include perishable items.\n            </div>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n</ion-content>\n<ion-footer *ngIf=\"show\" (click)=\"fun.checkout()\">\n  <ion-toolbar color=\"success\">\n    <ion-title>Checkout</ion-title>\n  </ion-toolbar>\n</ion-footer>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Cart</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content color=\"light\">\n  <div class=\"mid\" *ngIf=\"!show\">\n    <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n      <button class=\"circle\">\n        <ion-icon name=\"cart\" size=\"large\"></ion-icon>\n      </button>\n    </ion-row>\n    <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n      <ion-text><strong>Your cart is empty</strong></ion-text>\n    </ion-row>\n    <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n      <ion-button fill=\"clear\" color=\"mytheme\" (click)=\"browse()\">Browse Products</ion-button>\n    </ion-row>\n  </div>\n  <div *ngIf=\"show\">\n    <ion-row class=\"ion-justify-content-center ion-margin-horizontal ion-margin-bottom ion-padding-top\">\n      <ion-text><strong class=\"text ion-text-center\">Item(s) in Cart {{usercartcount}}</strong>\n      </ion-text>\n    </ion-row>\n    <ion-list #slidingList>\n      <ion-item-sliding *ngFor=\"let item of cart; \" class=\"card ion-no-padding ion-no-margin\">\n        <ion-item lines=\"none\">\n          <ion-grid>\n            <ion-row class=\"container-outer\">\n              <ion-col size=\"3\" class=\"ion-text-center container-inner\">\n                <img class=\"spon-img\" [src]=\"'data:image/png;base64,'+item.ProductDetails.FirstImage\" alt=\"\">\n                <ion-text color=\"danger\" class=\"small\" (click)=\"remove(item)\">Remove</ion-text>\n              </ion-col>\n              <ion-col size=\"6\" auto>\n                <h3 class=\"item-name ion-no-margin\">{{item.ProductDetails.InfoDetails?.name}}</h3>\n                <h5 class=\"item-def ion-no-margin\">Quantity:<strong><ion-text color=\"mytheme\">{{item.product_quantity}}</ion-text></strong></h5>\n                <h5 class=\"item-def ion-no-margin\">Price:\n                  {{ item.ProductDetails.PriceDetails?.selling_price | currency:'₦' }}</h5>\n                <h5 class=\"item-def ion-no-margin text-truncate\" style=\"max-width: 7.5em;\">\n                  {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>\n              </ion-col>\n              <ion-col size=\"3\" class=\"ion-text-end\">\n                <ion-row class=\"ion-text-end ion-justify-content-end\">\n                  <h3 class=\"item-name ion-no-margin ion-text-end\">\n                    {{item.ProductDetails.PriceDetails?.selling_price | currency:'₦'}}\n                  </h3>\n                </ion-row>\n                <ion-row class=\"ion-justify-content-end\">\n                  <ion-select placeholder=\"-\" mode=\"ios\" interface=\"popover\"\n                    (ionChange)=\"onQuantityChange($event, item)\" [interfaceOptions]=\"customAlertOptions\" class=\"select\">\n                    <ion-select-option value=\"1\">1</ion-select-option>\n                    <ion-select-option value=\"2\">2</ion-select-option>\n                    <ion-select-option value=\"3\">3</ion-select-option>\n                    <ion-select-option value=\"4\">4</ion-select-option>\n                    <ion-select-option value=\"5\">5</ion-select-option>\n                    <ion-select-option value=\"6\">6</ion-select-option>\n                    <ion-select-option value=\"7\">7</ion-select-option>\n                    <ion-select-option value=\"8\">8</ion-select-option>\n                    <ion-select-option value=\"9\">9</ion-select-option>\n                    <ion-select-option value=\"10\">10</ion-select-option>\n                    <ion-select-option value=\"11\">11</ion-select-option>\n                    <ion-select-option value=\"12\">12</ion-select-option>\n                  </ion-select>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n\n        </ion-item>\n        <ion-item-options side=\"end\">\n          <ion-item-option color=\"danger\" (click)=\"remove(item)\">\n            <ion-icon name=\"trash\" size=\"large\"></ion-icon>\n          </ion-item-option>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n    <ion-row size=\"12\" class=\"ion-justify-content-center ion-margin-top\" disabled=\"true\">\n      <ion-button fill=\"outline\" color=\"mytheme\" (click)=\"browse()\">Continue shopping</ion-button>\n    </ion-row>\n    <ion-row class=\"ion-margin\">\n      <ion-text><strong class=\"text\">Order Summary</strong></ion-text>\n    </ion-row>\n    <ion-item lines=\"none\" class=\"card ion-no-margin\">\n      <ion-row class=\"full\">\n        <ion-col size=\"9\">\n          <ion-input placeholder=\"Enter Promo Code\" class=\"ion-padding-left\" [(ngModel)]=\"code\" class=\"input\"></ion-input>\n        </ion-col>\n        <ion-col class=\"ion-align-self-center\" size=\"3\">\n          <ion-button fill=\"outline\" expand=\"block\" (click)=\"onApply()\" color=\"mytheme\"><span class=\"small\">Apply</span></ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-item>\n    <div lines=\"none\" class=\"card ion-no-margin ion-padding-bottom\">\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Item Total</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text>{{cartdetails?.amount | currency:'₦' }}</ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Shipping</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text>{{cartdetails?.fees | currency:'₦'}}</ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Discount</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text color=\"danger\">{{cartdetails?.discount_amount  | currency:'₦' }}</ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-padding-horizontal\">\n        <ion-col size=\"7\">\n          <ion-text>Total</ion-text>\n        </ion-col>\n        <ion-col size=\"5\" class=\"ion-text-end\">\n          <ion-text>{{cartdetails?.total_amount | currency:'₦'}}</ion-text>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row>\n        <ion-col>\n          <ion-text class=\"item-def ion-text-start\">\n            <div class=\"pad\"> By tapping 'Checkout' you agree to the <a (click)=\"open_modal()\" class=\"mycolor\">Terms of\n                Use</a>\n\n            </div>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row>\n        <ion-col>\n          <ion-text class=\"item-def ion-text-start ion-padding-bottom\">\n            <div class=\"mycolor pad\">\n              7 Day Free Return and Refund. Does not include perishable items.\n            </div>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n</ion-content>\n<ion-footer *ngIf=\"show\" (click)=\"checkout()\">\n  <ion-toolbar color=\"success\">\n    <ion-title>Checkout</ion-title>\n  </ion-toolbar>\n</ion-footer>");
 
 /***/ }),
 
@@ -116,13 +116,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartPage", function() { return CartPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _home_service_shop_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../home/service/shop.service */ "./src/app/home/service/shop.service.ts");
-/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../data.service */ "./src/app/data.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _home_service_shop_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../home/service/shop.service */ "./src/app/home/service/shop.service.ts");
+/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../functions.service */ "./src/app/functions.service.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
@@ -131,13 +132,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"];
+
+const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_8__["Plugins"];
 let CartPage = class CartPage {
-    constructor(dataService, fun, modalController, nav, loadingCtrl, authService, shopService, alertController) {
+    constructor(dataService, fun, router, loadingCtrl, authService, shopService, alertController) {
         this.dataService = dataService;
         this.fun = fun;
-        this.modalController = modalController;
-        this.nav = nav;
+        this.router = router;
         this.loadingCtrl = loadingCtrl;
         this.authService = authService;
         this.shopService = shopService;
@@ -149,10 +150,6 @@ let CartPage = class CartPage {
         this.code = '';
         this.show = true;
         this.data = [];
-        this.data = dataService.cart;
-        if (this.data.length === 0) {
-            this.show = false;
-        }
     }
     ionViewWillEnter() {
         this.sid = this.authService.currentUserDataValue.sid;
@@ -172,12 +169,11 @@ let CartPage = class CartPage {
                     this.usercart = res.data;
                     this.usercartcount = this.usercart.product_count;
                     this.cart = this.usercart.CartProductDetails;
-                    console.log(this.usercart);
                     this.cartdetails = this.usercart;
+                    this.show = true;
                 }
                 else {
                     this.show = false;
-                    this.fun.presentToast(res.msg);
                 }
             }, error => {
                 this.show = false;
@@ -245,7 +241,7 @@ let CartPage = class CartPage {
                 if (res === 'ok') {
                     this.slidingList.closeSlidingItems();
                     yield loading.present();
-                    this.shopService.DeleteOption('Cart', String(cart.id), cart.ProductDetails.id)
+                    this.shopService.DeleteOption('Cart', String(cart.cartid), cart.ProductDetails.id)
                         .subscribe(resp => {
                         loading.dismiss().catch(() => { });
                         if (resp.code === 200) {
@@ -279,7 +275,6 @@ let CartPage = class CartPage {
     }
     onCompute(code) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            console.log(code);
             const loading = yield this.loadingCtrl.create({
                 cssClass: 'my-custom-class',
                 message: 'Please wait...',
@@ -330,22 +325,24 @@ let CartPage = class CartPage {
             alert.present();
         });
     }
+    checkout() {
+        this.router.navigate(['/checkout'], { queryParams: { 'totalamount': this.usercart.total_amount } });
+    }
 };
 CartPage.ctorParameters = () => [
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] },
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_3__["FunctionsService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["LoadingController"] },
-    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthServiceService"] },
-    { type: _home_service_shop_service__WEBPACK_IMPORTED_MODULE_1__["ShopService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] }
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
+    { type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] },
+    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"] },
+    { type: _home_service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"] }
 ];
 CartPage.propDecorators = {
-    slidingList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["ViewChild"], args: ['slidingList',] }]
+    slidingList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_7__["ViewChild"], args: ['slidingList',] }]
 };
 CartPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
         selector: 'app-cart',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./cart.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/cart/cart.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./cart.page.scss */ "./src/app/cart/cart.page.scss")).default]

@@ -232,14 +232,6 @@ let FunctionsService = class FunctionsService {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
-    checkout() {
-        if (this.dataService.current_user.address.length === 0) {
-            this.nav.navigateForward('/NewAddress/$1');
-        }
-        else {
-            this.nav.navigateForward('/Checkout');
-        }
-    }
     presentToast(message) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
@@ -309,6 +301,14 @@ let FunctionsService = class FunctionsService {
     }
     getNavLink() {
         return this.navlink;
+    }
+    CalculatePercentage(userAmt) {
+        let addedPerc = (parseInt(userAmt) * 0.02);
+        let newAmt = parseInt(userAmt) + addedPerc;
+        if (parseInt(userAmt) >= 2500) {
+            newAmt = parseInt(userAmt) + 100;
+        }
+        return newAmt;
     }
 };
 FunctionsService.ctorParameters = () => [

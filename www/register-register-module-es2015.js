@@ -176,14 +176,12 @@ let RegisterPage = class RegisterPage {
                         this.authService.RegisterCustomer(this.registerForm.value.first_name, this.registerForm.value.last_name, this.registerForm.value.title, this.registerForm.value.gender, this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.phone)
                             .subscribe(res => {
                             loading.dismiss().catch(() => { });
-                            console.log(res);
                             if (res.code === 200) {
                                 this.fun.navigate('authenticate/validate');
                                 this.fun.presentToast(res.msg);
                             }
                         }, error => {
                             loading.dismiss().catch(() => { });
-                            console.log(JSON.stringify(error));
                             this.fun.presentToast(error);
                         });
                     }

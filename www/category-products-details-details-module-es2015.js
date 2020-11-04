@@ -228,7 +228,6 @@ let DetailsPage = class DetailsPage {
             this.shopService.AddOption('Cart', product.id, product.PriceDetails.selling_price, String(1), 'Increase')
                 .subscribe(res => {
                 loading.dismiss().catch(() => { });
-                console.log(res);
                 if (res.code === 200) {
                     this.fun.navigate('cart');
                     this.fun.presentToast(res.msg);
@@ -238,7 +237,6 @@ let DetailsPage = class DetailsPage {
                 }
             }, error => {
                 loading.dismiss().catch(() => { });
-                console.log(JSON.stringify(error));
             });
         });
     }

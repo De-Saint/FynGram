@@ -306,17 +306,14 @@
                     case 5:
                       this.shopService.GetCategoryProducts(catid).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
                           _this2.products = res.data;
-                          console.log(_this2.products);
                         } else {
                           _this2.fun.presentToast(res.msg);
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
                       });
 
                     case 6:

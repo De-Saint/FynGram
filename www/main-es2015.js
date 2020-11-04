@@ -306,7 +306,7 @@ const routes = [
     },
     {
         path: 'cart',
-        loadChildren: () => Promise.all(/*! import() | cart-cart-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/cart/cart.module.ts")).then(m => m.CartPageModule)
+        loadChildren: () => Promise.all(/*! import() | cart-cart-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/cart/cart.module.ts")).then(m => m.CartPageModule)
     },
     {
         path: 'search',
@@ -382,7 +382,7 @@ const routes = [
     },
     {
         path: 'checkout',
-        loadChildren: () => Promise.all(/*! import() | checkout-checkout-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null, /*! ./checkout/checkout.module */ "./src/app/checkout/checkout.module.ts")).then(m => m.CheckoutPageModule)
+        loadChildren: () => Promise.all(/*! import() | checkout-checkout-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null, /*! ./checkout/checkout.module */ "./src/app/checkout/checkout.module.ts")).then(m => m.CheckoutPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -455,14 +455,14 @@ let AppComponent = class AppComponent {
         this.appPages = [
             { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
-            { title: 'Carts', url: '/cart', icon: 'cart' },
+            { title: 'Cart', url: '/cart', icon: 'cart' },
             { title: 'Login', url: '/authenticate', icon: 'log-in' },
             { title: 'Register', url: '/authenticate/register', icon: 'person-add' }
         ];
         this.sellerPages = [
             { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
-            { title: 'Carts', url: '/cart', icon: 'cart' },
+            { title: 'Cart', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
             { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'person-circle' },
             { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'wallet' },
@@ -472,7 +472,7 @@ let AppComponent = class AppComponent {
         this.adminPages = [
             { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
-            { title: 'Carts', url: '/cart', icon: 'cart' },
+            { title: 'Cart', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
             { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'person-circle' },
             { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'wallet' },
@@ -484,7 +484,7 @@ let AppComponent = class AppComponent {
         this.customerPages = [
             { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
-            { title: 'Carts', url: '/cart', icon: 'cart' },
+            { title: 'Cart', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/customerdashboard', icon: 'home' },
             { title: 'Profile', url: '/customerprofile/tabs/profile', icon: 'person-circle' },
             { title: 'FynPay', url: '/customerwallet/tabs/fynpay', icon: 'wallet' },
@@ -608,6 +608,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var angular4_paystack__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! angular4-paystack */ "./node_modules/angular4-paystack/__ivy_ngcc__/fesm2015/angular4-paystack.js");
+
 
 
 
@@ -630,6 +632,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(),
             _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+            angular4_paystack__WEBPACK_IMPORTED_MODULE_12__["Angular4PaystackModule"].forRoot(''),
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
         ],

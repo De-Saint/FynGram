@@ -57,6 +57,7 @@ export class CartPage {
           this.usercartcount = this.usercart.product_count;
           this.cart = this.usercart.CartProductDetails;
           this.cartdetails = this.usercart;
+          this.show = true;
         } else {
           this.show = false;
         }
@@ -95,7 +96,7 @@ export class CartPage {
     });
     await loading.present();
     this.shopService.UpdateOption('Cart', details.ProductDetails.id,
-     details.ProductDetails.PriceDetails.selling_price, String(quantity), action)
+      details.ProductDetails.PriceDetails.selling_price, String(quantity), action)
       .subscribe(res => {
         loading.dismiss().catch(() => { });
         if (res.code === 200) {

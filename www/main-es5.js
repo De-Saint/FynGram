@@ -206,7 +206,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | cart-cart-module */
-          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null,
           /*! ./cart/cart.module */
           "./src/app/cart/cart.module.ts")).then(function (m) {
             return m.CartPageModule;
@@ -415,7 +415,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | checkout-checkout-module */
-          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null,
           /*! ./checkout/checkout.module */
           "./src/app/checkout/checkout.module.ts")).then(function (m) {
             return m.CheckoutPageModule;
@@ -549,7 +549,7 @@
             url: '/search',
             icon: 'search'
           }, {
-            title: 'Carts',
+            title: 'Cart',
             url: '/cart',
             icon: 'cart'
           }, {
@@ -570,7 +570,7 @@
             url: '/search',
             icon: 'search'
           }, {
-            title: 'Carts',
+            title: 'Cart',
             url: '/cart',
             icon: 'cart'
           }, {
@@ -603,7 +603,7 @@
             url: '/search',
             icon: 'search'
           }, {
-            title: 'Carts',
+            title: 'Cart',
             url: '/cart',
             icon: 'cart'
           }, {
@@ -644,7 +644,7 @@
             url: '/search',
             icon: 'search'
           }, {
-            title: 'Carts',
+            title: 'Cart',
             url: '/cart',
             icon: 'cart'
           }, {
@@ -916,6 +916,12 @@
       var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @angular/common/http */
       "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+      /* harmony import */
+
+
+      var angular4_paystack__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! angular4-paystack */
+      "./node_modules/angular4-paystack/__ivy_ngcc__/fesm2015/angular4-paystack.js");
 
       var AppModule = function AppModule() {
         _classCallCheck(this, AppModule);
@@ -924,7 +930,7 @@
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], angular4_paystack__WEBPACK_IMPORTED_MODULE_12__["Angular4PaystackModule"].forRoot(''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
         providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"], _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_8__["HTTP"], {
           provide: _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouteReuseStrategy"],
           useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"]

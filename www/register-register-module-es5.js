@@ -356,7 +356,6 @@
                     case 11:
                       this.authService.RegisterCustomer(this.registerForm.value.first_name, this.registerForm.value.last_name, this.registerForm.value.title, this.registerForm.value.gender, this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.phone).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
                           _this.fun.navigate('authenticate/validate');
@@ -365,7 +364,6 @@
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
 
                         _this.fun.presentToast(error);
                       });

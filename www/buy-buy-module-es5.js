@@ -321,8 +321,6 @@
             var _this = this;
 
             this.authService.getIPAddress().subscribe(function (res) {
-              console.log(res);
-
               _this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(function (res) {
                 Storage.set({
                   key: _this.HAS_VISITED,
@@ -334,9 +332,7 @@
                 var event = new CustomEvent('user:guest');
                 return window.dispatchEvent(event);
               });
-            }, function (error) {
-              console.log(error);
-            });
+            }, function (error) {});
           }
         }, {
           key: "open",

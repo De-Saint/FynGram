@@ -2210,15 +2210,6 @@
             return re.test(String(email).toLowerCase());
           }
         }, {
-          key: "checkout",
-          value: function checkout() {
-            if (this.dataService.current_user.address.length === 0) {
-              this.nav.navigateForward('/NewAddress/$1');
-            } else {
-              this.nav.navigateForward('/Checkout');
-            }
-          }
-        }, {
           key: "presentToast",
           value: function presentToast(message) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -2340,6 +2331,18 @@
           key: "getNavLink",
           value: function getNavLink() {
             return this.navlink;
+          }
+        }, {
+          key: "CalculatePercentage",
+          value: function CalculatePercentage(userAmt) {
+            var addedPerc = parseInt(userAmt) * 0.02;
+            var newAmt = parseInt(userAmt) + addedPerc;
+
+            if (parseInt(userAmt) >= 2500) {
+              newAmt = parseInt(userAmt) + 100;
+            }
+
+            return newAmt;
           }
         }]);
 

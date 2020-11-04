@@ -42,14 +42,12 @@ export class ResetPage implements OnInit {
       this.authService.PasswordRecovery(this.resetForm.value.code, this.resetForm.value.password)
         .subscribe(res => {
           loading.dismiss().catch(() => { });
-          console.log(res);
           if (res.code === 200) {
             this.fun.navigate('authenticate');
             this.fun.presentToast(res.msg);
           }
         }, error => {
           loading.dismiss().catch(() => { });
-          console.log(JSON.stringify(error));
           this.fun.presentToast(error);
         })
 

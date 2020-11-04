@@ -153,14 +153,12 @@ let ForgotPage = class ForgotPage {
                 this.authService.ResetPassword(this.forgotForm.value.email)
                     .subscribe(res => {
                     loading.dismiss().catch(() => { });
-                    console.log(res);
                     if (res.code === 200) {
                         this.fun.navigate('authenticate/reset');
                         this.fun.presentToast(res.msg);
                     }
                 }, error => {
                     loading.dismiss().catch(() => { });
-                    console.log(JSON.stringify(error));
                     this.fun.presentToast(error);
                 });
             }

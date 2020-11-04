@@ -428,7 +428,6 @@
                     case 5:
                       this.shopService.AddOption('Cart', product.id, product.PriceDetails.selling_price, String(1), 'Increase').subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
                           _this2.fun.navigate('cart');
@@ -439,7 +438,6 @@
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
                       });
 
                     case 6:

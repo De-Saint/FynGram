@@ -167,17 +167,14 @@ let ProductsPage = class ProductsPage {
             yield loading.present();
             this.shopService.GetCategoryProducts(catid).subscribe(res => {
                 loading.dismiss().catch(() => { });
-                console.log(res);
                 if (res.code === 200) {
                     this.products = res.data;
-                    console.log(this.products);
                 }
                 else {
                     this.fun.presentToast(res.msg);
                 }
             }, error => {
                 loading.dismiss().catch(() => { });
-                console.log(JSON.stringify(error));
             });
         });
     }

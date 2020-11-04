@@ -350,7 +350,6 @@
                       oldsid = this.authService.currentUserDataValue.sid;
                       this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
                           _this.gotoHomePage(res.data);
@@ -359,7 +358,6 @@
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
                       });
                       _context.next = 11;
                       break;
@@ -383,14 +381,13 @@
                 while (1) {
                   switch (_context2.prev = _context2.next) {
                     case 0:
-                      console.log(link);
-                      _context2.next = 3;
+                      _context2.next = 2;
                       return Browser.open({
                         url: link,
                         toolbarColor: "#40A944"
                       });
 
-                    case 3:
+                    case 2:
                     case "end":
                       return _context2.stop();
                   }

@@ -79,7 +79,6 @@ export class DetailsPage implements OnInit {
     this.shopService.AddOption('Cart', product.id, product.PriceDetails.selling_price, String(1), 'Increase')
       .subscribe(res => {
         loading.dismiss().catch(() => { });
-        console.log(res);
         if (res.code === 200) {
           this.fun.navigate('cart');
           this.fun.presentToast(res.msg);
@@ -88,7 +87,6 @@ export class DetailsPage implements OnInit {
         }
       }, error => {
         loading.dismiss().catch(() => { });
-        console.log(JSON.stringify(error));
       })
   }
 }

@@ -299,29 +299,24 @@
                     case 8:
                       this.authService.ValidateAccount(this.validateForm.value.code).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
-                          console.log(res);
                           var oldsid = _this.authService.currentUserDataValue.sid;
 
                           _this.authService.login(res.data.email, res.data.password, oldsid).subscribe(function (res) {
                             loading.dismiss()["catch"](function () {});
-                            console.log(res);
 
                             if (res.code === 200) {
                               _this.gotoHomePage(res.data);
                             }
                           }, function (error) {
                             loading.dismiss()["catch"](function () {});
-                            console.log(JSON.stringify(error));
 
                             _this.fun.presentToast(error);
                           });
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
 
                         _this.fun.presentToast(error);
                       });

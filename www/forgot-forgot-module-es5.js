@@ -292,7 +292,6 @@
                     case 9:
                       this.authService.ResetPassword(this.forgotForm.value.email).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
                           _this.fun.navigate('authenticate/reset');
@@ -301,7 +300,6 @@
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
 
                         _this.fun.presentToast(error);
                       });

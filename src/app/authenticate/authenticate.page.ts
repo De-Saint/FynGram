@@ -44,7 +44,6 @@ export class AuthenticatePage implements OnInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid)
         .subscribe(res => {
           loading.dismiss().catch(() => { });
-          console.log(res);
           if (res.code === 200) {
             this.gotoHomePage(res.data);
           }else{
@@ -52,7 +51,6 @@ export class AuthenticatePage implements OnInit {
           }
         }, error => {
           loading.dismiss().catch(() => { });
-          console.log(JSON.stringify(error));
         })
     } else {
       this.fun.presentToast('Wrong Input!');
@@ -60,7 +58,6 @@ export class AuthenticatePage implements OnInit {
   }
 
   async openLink(link) {
-    console.log(link);
     await Browser.open(
       {
         url: link,

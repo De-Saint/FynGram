@@ -71,14 +71,12 @@ export class RegisterPage implements OnInit {
             this.registerForm.value.password, this.registerForm.value.phone)
             .subscribe(res => {
               loading.dismiss().catch(() => { });
-              console.log(res);
               if (res.code === 200) {
                 this.fun.navigate('authenticate/validate');
                 this.fun.presentToast(res.msg);
               }
             }, error => {
               loading.dismiss().catch(() => { });
-              console.log(JSON.stringify(error));
               this.fun.presentToast(error);
             })
 

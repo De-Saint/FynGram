@@ -174,7 +174,6 @@ let AuthenticatePage = class AuthenticatePage {
                 this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid)
                     .subscribe(res => {
                     loading.dismiss().catch(() => { });
-                    console.log(res);
                     if (res.code === 200) {
                         this.gotoHomePage(res.data);
                     }
@@ -183,7 +182,6 @@ let AuthenticatePage = class AuthenticatePage {
                     }
                 }, error => {
                     loading.dismiss().catch(() => { });
-                    console.log(JSON.stringify(error));
                 });
             }
             else {
@@ -193,7 +191,6 @@ let AuthenticatePage = class AuthenticatePage {
     }
     openLink(link) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            console.log(link);
             yield Browser.open({
                 url: link,
                 toolbarColor: "#40A944"

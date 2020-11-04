@@ -167,7 +167,6 @@ let BuyPage = class BuyPage {
     }
     getIP() {
         this.authService.getIPAddress().subscribe((res) => {
-            console.log(res);
             this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(res => {
                 Storage.set({ key: this.HAS_VISITED, value: 'true' });
                 this.fun.navigate('home', false);
@@ -175,7 +174,6 @@ let BuyPage = class BuyPage {
                 return window.dispatchEvent(event);
             });
         }, error => {
-            console.log(error);
         });
     }
     open(product) {

@@ -300,7 +300,6 @@
                     case 9:
                       this.authService.PasswordRecovery(this.resetForm.value.code, this.resetForm.value.password).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(res);
 
                         if (res.code === 200) {
                           _this.fun.navigate('authenticate');
@@ -309,7 +308,6 @@
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
 
                         _this.fun.presentToast(error);
                       });

@@ -41,14 +41,14 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | buy-buy-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null, /*! ./buy/buy.module */ "./src/app/home/buy/buy.module.ts")).then(m => m.BuyPageModule)
+                        loadChildren: () => Promise.all(/*! import() | buy-buy-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null, /*! ./buy/buy.module */ "./src/app/home/buy/buy.module.ts")).then(m => m.BuyPageModule)
                     },
                     {
                         path: 'products',
                         children: [
                             {
                                 path: 'details/:productId',
-                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
+                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
                             }
                         ]
                     }
@@ -59,18 +59,18 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | category-category-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null, /*! ./category/category.module */ "./src/app/home/category/category.module.ts")).then(m => m.CategoryPageModule)
+                        loadChildren: () => Promise.all(/*! import() | category-category-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null, /*! ./category/category.module */ "./src/app/home/category/category.module.ts")).then(m => m.CategoryPageModule)
                     },
                     {
                         path: 'products',
                         children: [
                             {
                                 path: 'details/:productId',
-                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
+                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
                             },
                             {
                                 path: ':catId',
-                                loadChildren: () => Promise.all(/*! import() | category-products-products-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a826fd91"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null, /*! ./category/products/products.module */ "./src/app/home/category/products/products.module.ts")).then(m => m.ProductsPageModule)
+                                loadChildren: () => Promise.all(/*! import() | category-products-products-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null, /*! ./category/products/products.module */ "./src/app/home/category/products/products.module.ts")).then(m => m.ProductsPageModule)
                             }
                         ]
                     }

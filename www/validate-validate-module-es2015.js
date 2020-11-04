@@ -158,26 +158,21 @@ let ValidatePage = class ValidatePage {
             this.authService.ValidateAccount(this.validateForm.value.code)
                 .subscribe(res => {
                 loading.dismiss().catch(() => { });
-                console.log(res);
                 if (res.code === 200) {
-                    console.log(res);
                     const oldsid = this.authService.currentUserDataValue.sid;
                     this.authService.login(res.data.email, res.data.password, oldsid)
                         .subscribe(res => {
                         loading.dismiss().catch(() => { });
-                        console.log(res);
                         if (res.code === 200) {
                             this.gotoHomePage(res.data);
                         }
                     }, error => {
                         loading.dismiss().catch(() => { });
-                        console.log(JSON.stringify(error));
                         this.fun.presentToast(error);
                     });
                 }
             }, error => {
                 loading.dismiss().catch(() => { });
-                console.log(JSON.stringify(error));
                 this.fun.presentToast(error);
             });
         });
