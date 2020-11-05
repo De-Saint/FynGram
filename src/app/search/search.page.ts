@@ -1,5 +1,6 @@
-import { FunctionsService } from './../functions.service';
-import { DataService } from './../data.service';
+import { DataService } from './../services/data.service';
+import { FunctionsService } from './../services/functions.service';
+
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 

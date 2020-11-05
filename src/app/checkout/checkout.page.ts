@@ -1,12 +1,10 @@
+import { FunctionsService } from './../services/functions.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthServiceService } from './../authenticate/service/auth-service.service';
 import { ShopService } from './../home/service/shop.service';
 import { LoadingController } from '@ionic/angular';
-import { DataService } from './../data.service';
-import { FunctionsService } from './../functions.service';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
-import { PaystackOptions } from 'angular4-paystack';
 
 @Component({
   selector: 'app-checkout',

@@ -1,7 +1,6 @@
+import { FunctionsService } from './../../../services/functions.service';
 import { ShopService } from './../../service/shop.service';
 import { MenuController, LoadingController } from '@ionic/angular';
-import { FunctionsService } from './../../../functions.service';
-import { Product, DataService } from './../../../data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 

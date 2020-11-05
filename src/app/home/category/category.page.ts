@@ -1,8 +1,7 @@
+import { FunctionsService } from './../../services/functions.service';
 import { Router } from '@angular/router';
 import { ShopService } from './../service/shop.service';
 import { LoadingController } from '@ionic/angular';
-import { Product, DataService } from './../../data.service';
-import { FunctionsService } from './../../functions.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({

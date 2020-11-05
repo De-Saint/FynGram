@@ -1,10 +1,9 @@
+import { FunctionsService } from './../../services/functions.service';
 import { ShopService } from './../service/shop.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from './../../authenticate/service/auth-service.service';
-import { DataService } from './../../data.service';
-import { FunctionsService } from './../../functions.service';
 import { Component } from '@angular/core';
-import { MenuController, LoadingController } from '@ionic/angular';
+import {LoadingController } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 const { Storage } = Plugins;
 @Component({
@@ -27,7 +26,7 @@ export class BuyPage {
     private shopService: ShopService,
     private loadingCtrl: LoadingController,
     private authService: AuthServiceService,
-    private dataService: DataService) {
+ ) {
 
   }
 

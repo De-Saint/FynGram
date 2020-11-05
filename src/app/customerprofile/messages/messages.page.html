@@ -1,12 +1,47 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
-      <ion-menu-button  color="light"></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">Messages</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="mail" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have no messages yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="shop()">
+          <span class="white">Continue Shopping</span>
+        </ion-button>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+  <div *ngIf="show">
+    <div *ngFor="let item of messages" class="card">
+      <ion-row>
+        <ion-col>
+          <ion-row class="title" text-left>
+            <strong> {{item.subject}}</strong>
+          </ion-row>
+          <ion-row class="ion-margin-top" text-left>
+            {{item.body}}
+          </ion-row>
+          <ion-row class="time ion-margin-top ion-float-left">
+            <ion-text class="ion-float-right">{{item.date}}</ion-text>
+          </ion-row>
+          <ion-row class="time ion-margin-top ion-float-right">
+            <ion-text class="ion-float-right">{{item.time}}</ion-text>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
 </ion-content>

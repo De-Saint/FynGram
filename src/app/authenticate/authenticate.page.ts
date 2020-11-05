@@ -1,8 +1,7 @@
+import { FunctionsService } from './../services/functions.service';
 import { AuthServiceService } from './service/auth-service.service';
-import { DatalinkService } from './../datalink.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DataService } from './../data.service';
-import { FunctionsService } from './../functions.service';
+
 import { LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
@@ -20,7 +19,7 @@ export class AuthenticatePage implements OnInit {
     private authService: AuthServiceService,
     private fun: FunctionsService,
     private loadingCtrl: LoadingController,
-    private data: DataService) {
+    ) {
     this.loginForm = new FormGroup({
       email: new FormControl(null,
         { updateOn: 'blur', validators: [Validators.required] }),
@@ -40,7 +39,10 @@ export class AuthenticatePage implements OnInit {
         message: 'Please wait...',
       });
       await loading.present();
-      const oldsid = this.authService.currentUserDataValue.sid;
+      let oldsid;
+      if(this.authService.currentUserDataValue){
+        oldsid = this.authService.currentUserDataValue.sid;
+      }
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid)
         .subscribe(res => {
           loading.dismiss().catch(() => { });

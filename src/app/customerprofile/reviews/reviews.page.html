@@ -1,12 +1,60 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
-      <ion-menu-button  color="light"></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">Reviews</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="mail" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not reviewed any product!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="shop()">
+          <span class="white">Continue Shopping</span>
+        </ion-button>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+  <div *ngIf="show">
+
+
+    <ion-grid>
+      <ion-row  *ngFor="let review of reviews" class="card">
+        <ion-col>
+          <ion-row class="full block">
+            <ion-text class="ion-float-right">
+              <ion-icon name="star" class="small-ico" color="mytheme"
+                *ngFor="let i of computeRatings(review.rate_value)">
+              </ion-icon>
+              <ion-icon name="star-outline" class="small-ico" color="mytheme"
+                *ngFor="let i of computeRatings(5-review.rate_value)"></ion-icon>
+              <small> {{review.rate_value}}</small>
+            </ion-text>
+            <ion-text class="ion-float-left">
+              <h6 class="ion-text-start ion-no-margin"><strong>{{review.reviewProductName}}</strong></h6>
+            </ion-text>
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class="full block ion-margin-top">
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{review.comment}}</h6>
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class="full block ion-margin-top">
+            <small class="ion-float-left ion-text-start ion-no-margin">{{review.date}}</small>
+            <small class="ion-float-right ion-text-end ion-no-margin">{{review.time}}</small>
+          </ion-row>
+        </ion-col>
+      </ion-row >
+    </ion-grid>
+  </div>
 
 </ion-content>

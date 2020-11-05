@@ -1,6 +1,6 @@
+import { FunctionsService } from './../../services/functions.service';
 import { AuthServiceService } from './../service/auth-service.service';
 import { LoadingController } from '@ionic/angular';
-import { FunctionsService } from './../../functions.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 

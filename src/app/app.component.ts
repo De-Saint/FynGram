@@ -100,7 +100,6 @@ export class AppComponent implements OnInit {
 
   async checkLoginStatus() {
     const { value } = await Storage.get({ key: this.HAS_LOGGED_IN });
-    console.log(value);
     if (value === 'true') {
       if (this.authService.currentUserDataValue) {
         this.userName = this.authService.currentUserDataValue.name;
@@ -115,7 +114,6 @@ export class AppComponent implements OnInit {
   listenToEvents() {
     window.addEventListener('user:login', (e: any) => {
       this.userName = e.detail.name;
-      console.log(e.detail);
       this.updateLoggedInStatus(true, e.detail.type);
     });
     window.addEventListener('user:guest', (e: any) => {
@@ -129,7 +127,7 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.authService.logout().then(() => {
-      return this.router.navigateByUrl('/home/tabs/buy');
+      return this.router.navigateByUrl('/authenticate');
     });
   }
 

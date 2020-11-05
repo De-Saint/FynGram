@@ -1,8 +1,7 @@
+import { FunctionsService } from './../../services/functions.service';
 import { AuthServiceService } from './../service/auth-service.service';
 import { LoadingController } from '@ionic/angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { DataService } from './../../data.service';
-import { FunctionsService } from './../../functions.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Plugins } from '@capacitor/core';
@@ -25,7 +24,7 @@ export class RegisterPage implements OnInit {
   };
 
   constructor(private fun: FunctionsService, private authService: AuthServiceService,
-    private loadingCtrl: LoadingController, private data: DataService) {
+    private loadingCtrl: LoadingController) {
     this.registerForm = new FormGroup({
       first_name: new FormControl(null,
         { updateOn: 'blur', validators: [Validators.required] }),

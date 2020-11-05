@@ -68,11 +68,11 @@ export class FunctionsService {
     this.dataService.current_product = product;
   }
 
-  removeConform(): Promise<any> {
+  removeConform(data): Promise<any> {
     return new Promise(async (resolve, reject) => {
       const alert = await this.alertController.create({
         header: 'Confirm!',
-        message: 'Are you sure you want to remove this item',
+        message: 'Are you sure you want to remove this ' + data +'?',
         buttons: [
           {
             text: 'Cancel',

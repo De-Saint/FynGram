@@ -1,5 +1,4 @@
-import { DataService } from './../../data.service';
-import { FunctionsService } from './../../functions.service';
+import { FunctionsService } from './../../services/functions.service';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 

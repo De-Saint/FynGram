@@ -1,5 +1,5 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { FunctionsService } from './../../../../functions.service';
+import { FunctionsService } from './../../../../services/functions.service';
+import { Router } from '@angular/router';
 import { ShopService } from './../../../service/shop.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';

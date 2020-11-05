@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ShopService {
-
+  
   constructor(
     private http: HttpClient, private nativeHttp: HTTP,
     private authService: AuthServiceService, private platform: Platform
@@ -22,7 +22,7 @@ export class ShopService {
   }
 
   GetCategories(): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetRootCategories';
     // if (this.platform.is("android")) {
     // const data = {
@@ -46,7 +46,7 @@ export class ShopService {
     // }
   }
   GetTopSellingProducts(): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetTopSellingProducts';
     // if (this.platform.is('android')) {
     //   const data = {
@@ -69,7 +69,7 @@ export class ShopService {
     //}
   }
   GetRecentlyAddedProducts(): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetRecentlyAddedProducts';
     // if (this.platform.is("android")) {
     // const data = {
@@ -93,7 +93,7 @@ export class ShopService {
     // }
   }
   GetFeaturedProducts(): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetFeaturedProducts';
     // if (this.platform.is("android")) {
     // const data = {
@@ -117,7 +117,7 @@ export class ShopService {
     // }
   }
   GetBestSellersProducts(): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetBestSellersProducts';
     // if (this.platform.is("android")) {
     // const data = {
@@ -141,7 +141,7 @@ export class ShopService {
     // }
   }
   GetCategoryProducts(catid): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetShopProductsByCategoryID';
     // if (this.platform.is("android")) {
     // const data = {
@@ -166,7 +166,7 @@ export class ShopService {
     // }
   }
   GetRelatedProducts(productid): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetRelatedProducts';
     // if (this.platform.is("android")) {
     // const data = {
@@ -194,7 +194,7 @@ export class ShopService {
 
 
   AddOption(option, productid, price, quantity, action): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'AddOption';
     const sid = this.authService.currentUserDataValue.sid;
     // if (this.platform.is("android")) {
@@ -220,7 +220,7 @@ export class ShopService {
     // }
   }
   CartDiscountCode(code): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'CartDiscountCode';
     const sid = this.authService.currentUserDataValue.sid;
     // if (this.platform.is("android")) {
@@ -247,7 +247,7 @@ export class ShopService {
     // }
   }
   GetCartDefaultAddress(sid): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetCartDefaultAddress';
     // if (this.platform.is("android")) {
     // const data = {
@@ -273,7 +273,7 @@ export class ShopService {
     // }
   }
   processOrder(sid, paytype, shiptypeid, addressid): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'PlaceOrder';
     // if (this.platform.is("android")) {
     // const data = {
@@ -299,7 +299,7 @@ export class ShopService {
     // }
   }
   getParameter(): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetPaystackKey';
     // if (this.platform.is("android")) {
     // const data = {
@@ -326,7 +326,7 @@ export class ShopService {
   }
 
   UpdateOption(option, productid, price, quantity, action): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'UpdateOptions';
     const sid = this.authService.currentUserDataValue.sid;
     // if (this.platform.is("android")) {
@@ -352,7 +352,7 @@ export class ShopService {
     // }
   }
   DeleteOption(option, optionid, productid): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'DeleteOptions';
     // if (this.platform.is("android")) {
     // const data = {
@@ -378,7 +378,7 @@ export class ShopService {
   }
 
   GetUserCart(sid): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'GetShopCart';
     // if (this.platform.is("android")) {
     // const data = {
@@ -404,7 +404,7 @@ export class ShopService {
   }
 
   placeOrder(sid, paytype, shiptypeid, addressid, amount, refcode, tcode): Observable<ResponseType> {
-    const url = environment.url + 'MProductServlet';
+    const url = environment.url + 'MShopServlet';
     const type = 'ValidatePaystackPayment';
     // if (this.platform.is("android")) {
     // const data = {

@@ -1,8 +1,7 @@
+import { FunctionsService } from './../services/functions.service';
 import { Router } from '@angular/router';
 import { ShopService } from './../home/service/shop.service';
 import { AuthServiceService } from './../authenticate/service/auth-service.service';
-import { FunctionsService } from './../functions.service';
-import { DataService, Cart } from './../data.service';
 import { AlertController, IonList, LoadingController } from '@ionic/angular';
 import { Component, ViewChild } from '@angular/core';
 import { Plugins } from '@capacitor/core';
@@ -22,14 +21,13 @@ export class CartPage {
   shippingFees: any;
   code = '';
   show = true;
-  data: Array<Cart> = [];
   usercart: any;
   usercartcount: any;
   cart: [];
   cartdetails: any;
   sid: any;
   constructor(
-    public dataService: DataService,
+    // public dataService: DataService,
     public fun: FunctionsService,
     private router: Router,
     private loadingCtrl: LoadingController,
@@ -122,7 +120,7 @@ export class CartPage {
       message: 'Please wait...',
     });
 
-    this.fun.removeConform().then(async res => {
+    this.fun.removeConform('product').then(async res => {
       if (res === 'ok') {
         this.slidingList.closeSlidingItems();
         await loading.present();

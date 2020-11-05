@@ -1,5 +1,5 @@
-import { ShopService } from './../../../service/shop.service';
-import { FunctionsService } from './../../../../functions.service';
+import { FunctionsService } from './../../../../services/functions.service';
+
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -11,8 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ReviewComponent implements OnInit {
   @Input() product: any;
   constructor(private fun: FunctionsService) { }
-  thatThingHappened = false;
-  ngOnInit() { }
+ ngOnInit() { }
 
   computeRatings(ratenumber) {
     return this.fun.array(parseInt(ratenumber));

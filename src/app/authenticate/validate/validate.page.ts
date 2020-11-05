@@ -1,7 +1,7 @@
+import { FunctionsService } from './../../services/functions.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { AuthServiceService } from './../service/auth-service.service';
-import { FunctionsService } from './../../functions.service';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 const { Storage } = Plugins;

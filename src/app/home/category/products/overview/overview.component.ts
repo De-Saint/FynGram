@@ -1,7 +1,6 @@
+import { FunctionsService } from './../../../../services/functions.service';
 import { AuthServiceService } from './../../../../authenticate/service/auth-service.service';
 import { ShopService } from './../../../service/shop.service';
-import { FunctionsService } from './../../../../functions.service';
-import { Product } from './../../../../data.service';
 import { IonSlides, LoadingController, AlertController } from '@ionic/angular';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 

@@ -1,8 +1,6 @@
+import { FunctionsService } from './../../../../services/functions.service';
 import { ShopService } from './../../../service/shop.service';
-import { AuthServiceService } from './../../../../authenticate/service/auth-service.service';
-import { FunctionsService } from './../../../../functions.service';
-import { HomeTab, Product, DataService } from './../../../../data.service';
-import { IonSlides, IonContent, MenuController, NavController, LoadingController } from '@ionic/angular';
+import { IonSlides, IonContent, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
