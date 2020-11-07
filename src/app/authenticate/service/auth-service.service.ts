@@ -16,7 +16,7 @@ export class AuthServiceService {
   private currentUserDataSubject: BehaviorSubject<User>;
   public currentUserData: Observable<User>;
 
-
+  HAS_VISITED = 'hasVisited';
   constructor(private nativeHttp: HTTP,
     private platform: Platform,
     public http: HttpClient, ) {
@@ -73,6 +73,15 @@ export class AuthServiceService {
       window.dispatchEvent(new CustomEvent('user:logout'));
       this.currentUserDataSubject.next(null);
       sessionStorage.removeItem('userData');
+
+      this.getIPAddress().subscribe((res: any) => {
+        this.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(res => {
+          Storage.set({ key: this.HAS_VISITED, value: 'true' });
+          const event = new CustomEvent('user:guest');
+          return window.dispatchEvent(event);
+        })
+      }, error => {
+      });
     });
   }
 
@@ -217,6 +226,131 @@ export class AuthServiceService {
     //   )
     // } else {
     const data = JSON.stringify({ code, type });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  GetBanks() {
+    const type = 'GetBanks';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  CreateBankDetails(sid, bankid, accounttype, accountnumber) {
+    const type = 'CreateBankDetails';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid, bankid, accounttype, accountnumber });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  GetBankDetails(sid) {
+    const type = 'GetBankDetails';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  DeleteBankDetails(bankdetid) {
+    const type = 'DeleteBankDetails';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, bankdetid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  GetWalletDetails(sid) {
+    const type = 'GetWalletDetails';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid });
     return this.http.post<ResponseType>(url, data).pipe(
       map(res => {
         return res;

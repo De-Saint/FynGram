@@ -15,7 +15,7 @@ export class MessagesPage implements OnInit {
   messages: any;
   show = true;
   constructor(private fun: FunctionsService, private loadingCtrl: LoadingController,
-    private authService: AuthServiceService, private messagesService: MessagesService) { }
+              private authService: AuthServiceService, private messagesService: MessagesService) { }
 
   ngOnInit() {
     this.sid = this.authService.currentUserDataValue.sid;
@@ -31,11 +31,11 @@ export class MessagesPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode: 'ios'
     });
     await loading.present();
     this.messagesService.GetMessages(sid, 'All').subscribe(res => {
       loading.dismiss().catch(() => { });
-      console.log(res);
       if (res.code === 200) {
         this.messages = res.data;
         this.show = true;
@@ -53,6 +53,7 @@ export class MessagesPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode: 'ios'
     });
     this.fun.removeConform('message').then(async res => {
       if (res === 'ok') {

@@ -36,6 +36,7 @@ export class ReviewsPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.reviewsService.GetUserReviewList(sid)
@@ -58,6 +59,7 @@ export class ReviewsPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     this.fun.removeConform('review').then(async res => {
       if (res === 'ok') {

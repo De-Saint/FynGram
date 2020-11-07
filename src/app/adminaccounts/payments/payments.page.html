@@ -8,6 +8,51 @@
 </ion-header>
 
 <ion-content>
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="swap-vertical" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not made any payment yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="shop()">
+          <span class="white">Continue Shopping</span>
+        </ion-button>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+   <div *ngIf="show">
+    <ion-grid>
+       <ion-row  *ngFor="let payment of payments" class="card">
+        <ion-col>
+          <ion-row class="full block">
+            <ion-text class="ion-float-right">
+              <small> {{payment.amount  | currency:'₦' }}</small>
+            </ion-text>
+            <ion-text class="ion-float-left">
+              <h6 class="ion-text-start ion-no-margin"><strong>{{payment.UserName}}</strong></h6>
+            </ion-text>
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class="full block ion-margin-top">
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{payment.payment_type}}</h6><br>
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{payment.reference_code}}</h6><br>
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{payment.transaction_code}}</h6>
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class=" ion-margin-top ion-float-left">
+            <ion-text class="ion-float-right"><small>{{payment.date}} {{payment.time}}</small></ion-text>
+          </ion-row>
+          <ion-row class=" ion-margin-top ion-float-right">
+            <ion-text class="ion-float-right"  (click)="onDelete(payment)"><ion-icon color="danger" name="trash"></ion-icon></ion-text>
+          </ion-row>
+        </ion-col>
+      </ion-row > 
+    </ion-grid>
+  </div> 
 
 </ion-content>
 

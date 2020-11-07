@@ -7,40 +7,44 @@ const routes: Routes = [
   {
     path: 'tabs',
     component: CustomerprofilePage,
-    children:[
+    children: [
       {
-        path:'profile',
-        children:[
+        path: 'profile',
+        children: [
           {
-            path:'',
-            loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+            path: '',
+            loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
           }
         ]
       },
       {
-        path:'address',
-        children:[
+        path: 'address',
+        children: [
           {
-            path:'',
-            loadChildren: () => import('./address/address.module').then( m => m.AddressPageModule)
+            path: '',
+            loadChildren: () => import('./address/address.module').then(m => m.AddressPageModule)
+          },
+          {
+            path: 'new',
+            loadChildren: () => import('./address/new/new.module').then(m => m.NewPageModule)
           }
         ]
       },
       {
-        path:'messages',
-        children:[
+        path: 'messages',
+        children: [
           {
-            path:'',
-            loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
+            path: '',
+            loadChildren: () => import('./messages/messages.module').then(m => m.MessagesPageModule)
           }
         ]
       },
       {
-        path:'reviews',
-        children:[
+        path: 'reviews',
+        children: [
           {
-            path:'',
-            loadChildren: () => import('./reviews/reviews.module').then( m => m.ReviewsPageModule)
+            path: '',
+            loadChildren: () => import('./reviews/reviews.module').then(m => m.ReviewsPageModule)
           }
         ]
       },
@@ -62,4 +66,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CustomerprofilePageRoutingModule {}
+export class CustomerprofilePageRoutingModule { }

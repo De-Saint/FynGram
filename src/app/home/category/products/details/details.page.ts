@@ -72,6 +72,7 @@ export class DetailsPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.shopService.AddOption('Cart', product.id, product.PriceDetails.selling_price, String(1), 'Increase')

@@ -1,0 +1,49 @@
+<ion-header ion-padding color="mytheme" class="mybg head">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-row class="ion-justify-content-center">
+    <ion-img src="assets/images/fyngram.png" class="head-image"></ion-img>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+  <ion-text>
+    <h3 class="title ion-no-margin ion-margin-bottom ion-margin-top ion-text-center">Fund your FynPay Account</h3>
+  </ion-text>
+  <form [formGroup]="fundForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <ion-text class="small">Enter the Amount</ion-text>
+          </ion-label>
+          <ion-input clearInput type="number" placeholder="Amount" formControlName="amount"
+            class="input ion-padding-horizontal"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button  expand="block" [disabled]="!fundForm.valid" angular4-paystack [key]="public_key" (paymentInit)="paymentInit()"
+            [email]="userEmail" [amount]="CalculatePercentage(fundForm.value.amount) * 100" [ref]="random_id" [channels]="channels"
+            (close)="paymentCancel()" (callback)="paymentDone($event)" (click)="onPay()" [metadata]="{ 
+          custom_fields: 
+          [ {
+            display_name: 'Customer Name', 
+            variable_name: 'Customer Name', 
+            value: userName } ,
+          {
+            display_name: 'Payment Type', 
+            variable_name: 'Payment Type', 
+            value: 'Fund FynPay Account' 
+          }] 
+        }" color="mytheme"><strong class="white">Submit</strong>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

@@ -63,6 +63,7 @@ export class RegisterPage implements OnInit {
           const loading = await this.loadingCtrl.create({
             cssClass: 'my-custom-class',
             message: 'Please wait...',
+            mode:'ios'
           });
           await loading.present();
           this.authService.RegisterCustomer( this.registerForm.value.first_name, this.registerForm.value.last_name,

@@ -14,6 +14,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./fynpay/fynpay.module').then(m => m.FynpayPageModule)
+          },
+          {
+            path: 'new',
+            loadChildren: () => import('./fynpay/new/new.module').then(m => m.NewPageModule)
           }
         ]
       },
@@ -32,7 +36,12 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./banks/banks.module').then(m => m.BanksPageModule)
-          }
+          },
+          {
+            path: 'new',
+            loadChildren: () => import('./banks/new/new.module').then(m => m.NewPageModule)
+          },
+
         ]
       },
       {

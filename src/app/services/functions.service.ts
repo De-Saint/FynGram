@@ -96,6 +96,34 @@ export class FunctionsService {
     });
   }
 
+ setConform(data): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const alert = await this.alertController.create({
+        header: 'Confirm!',
+        message: 'Are you sure you want to make this ' + data +' the default?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (cancel) => {
+              console.log('Confirm Cancel: blah');
+              resolve('cancel');
+            }
+          }, {
+            text: 'Okay',
+            handler: (ok) => {
+              console.log('Confirm Okay');
+              resolve('ok');
+            }
+          }
+        ]
+      });
+
+      alert.present();
+    });
+  }
+
   calculate(price, discount) {
     price = price - (price * discount / 100);
     return price.toFixed(2);

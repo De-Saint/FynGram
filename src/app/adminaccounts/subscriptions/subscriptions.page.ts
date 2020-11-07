@@ -1,3 +1,4 @@
+import { FunctionsService } from './../../services/functions.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subscriptions.page.scss'],
 })
 export class SubscriptionsPage implements OnInit {
-
-  constructor() { }
+  show = false;
+  subscriptions: any;
+  sid: any;
+  constructor(private fun: FunctionsService, ) { }
 
   ngOnInit() {
   }
-
+  shop() {
+    this.fun.navigate('home');
+  }
 }

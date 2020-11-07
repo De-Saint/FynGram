@@ -94,6 +94,7 @@ export class OverviewComponent implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.shopService.AddOption('SavedItems', product.id, product.PriceDetails.selling_price, String(1), 'Increase')

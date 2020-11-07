@@ -429,4 +429,30 @@ export class ShopService {
     );
     // }
   }
+  fundWallet(sid, paytype, amount, refcode, tcode): Observable<ResponseType> {
+    const url = environment.url + 'MShopServlet';
+    const type = 'ValidatePaystackPayment';
+    // if (this.platform.is("android")) {
+    // const data = {
+    //   type,
+    // code
+    //sid
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid, paytype, amount, refcode, tcode });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
 }

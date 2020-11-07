@@ -37,6 +37,7 @@ export class AuthenticatePage implements OnInit {
       const loading = await this.loadingCtrl.create({
         cssClass: 'my-custom-class',
         message: 'Please wait...',
+        mode:'ios'
       });
       await loading.present();
       let oldsid;

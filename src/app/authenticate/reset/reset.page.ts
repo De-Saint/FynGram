@@ -37,6 +37,7 @@ export class ResetPage implements OnInit {
       const loading = await this.loadingCtrl.create({
         cssClass: 'my-custom-class',
         message: 'Please wait...',
+        mode:'ios'
       });
       await loading.present();
       this.authService.PasswordRecovery(this.resetForm.value.code, this.resetForm.value.password)

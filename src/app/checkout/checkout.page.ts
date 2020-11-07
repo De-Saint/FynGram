@@ -4,7 +4,7 @@ import { AuthServiceService } from './../authenticate/service/auth-service.servi
 import { ShopService } from './../home/service/shop.service';
 import { LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout',
@@ -52,6 +52,7 @@ export class CheckoutPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.sid = this.authService.currentUserDataValue.sid;
@@ -103,6 +104,7 @@ export class CheckoutPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.sid = this.authService.currentUserDataValue.sid;
@@ -136,7 +138,7 @@ export class CheckoutPage implements OnInit {
   paymentCancel() {
     this.errorSwt('You cancelled the payment!');
   }
-
+ 
   async paymentDone(ref: any) {
     console.log(ref);
     if (ref.status === 'success') {
@@ -144,6 +146,7 @@ export class CheckoutPage implements OnInit {
       const loading = await this.loadingCtrl.create({
         cssClass: 'my-custom-class',
         message: 'Please wait...',
+        mode:'ios'
       });
       await loading.present();
       this.sid = this.authService.currentUserDataValue.sid;

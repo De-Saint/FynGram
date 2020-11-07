@@ -1,0 +1,116 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add Address</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="addressForm">
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Address Type</span></ion-text>
+        <ion-select formControlName="addresstype" [interfaceOptions]="addresstypecustomAlertOptions" class="input"
+          placeholder="Select address type">
+          <ion-select-option *ngFor="let q of addresstypes" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">State</span></ion-text>
+        <ion-select formControlName="state" [interfaceOptions]="statecustomAlertOptions" class="input"
+          placeholder="Select State" (ionChange)="onSelectState($event)">
+          <ion-select-option *ngFor="let q of states" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">LGA</span></ion-text>
+        <ion-select formControlName="lga" [interfaceOptions]="lgacustomAlertOptions" class="input"
+          placeholder="Select LGA" (ionChange)="onSelectLga($event)">
+          <ion-select-option *ngFor="let q of lgas" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-text><span class="label">Town</span></ion-text>
+        <ion-select formControlName="town" [interfaceOptions]="towncustomAlertOptions" class="input"
+          placeholder="Select Town" (ionChange)="onSelectTown($event)">
+          <ion-select-option *ngFor="let q of towns" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="showbustop">
+        <ion-text><span class="label">Bus Stop</span></ion-text>
+        <ion-select formControlName="busstop" [interfaceOptions]="busstopcustomAlertOptions" class="input"
+          placeholder="Select Bus Stop" (ionChange)="onSelectBusStop($event)">
+          <ion-select-option *ngFor="let q of busstops" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col *ngIf="showstreet">
+        <ion-text><span class="label">Street</span></ion-text>
+        <ion-select formControlName="street" [interfaceOptions]="streetcustomAlertOptions" class="input"
+          placeholder="Select Street">
+          <ion-select-option *ngFor="let q of streets" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+
+      <ion-row>
+        <ion-col >
+          <ion-text><span class="label">Type your Bus Stop</span></ion-text>
+          <ion-input placeholder="if not in the list" class="input" formControlName="busstop" type="text"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-text><span class="label">Type your Street</span></ion-text>
+          <ion-input placeholder="if not in the list" class="input" formControlName="street" type="text"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Close To</span></ion-text>
+        <ion-input class="input" formControlName="closeto"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-text><span class="label">House Number</span></ion-text>
+        <ion-input class="input" formControlName="housenumber" placeholder="Optional">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Phone Number (11 digits)</span></ion-text>
+        <ion-input class="input" formControlName="phone"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-text><span class="label">Postal Code</span></ion-text>
+        <ion-input class="input" formControlName="postal" type="number"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Set To Default Address?</span></ion-text>
+        <ion-select formControlName="default" [interfaceOptions]="defaultcustomAlertOptions" class="input"
+          >
+          <ion-select-option value="1">Yes</ion-select-option>
+          <ion-select-option value="0">No</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="mytheme"  (click)="update()"><span
+            class="white"><strong>Save</strong></span></ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

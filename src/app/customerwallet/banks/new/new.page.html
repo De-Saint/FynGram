@@ -1,0 +1,52 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add Bank Details</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  class="ion-padding">
+  <form [formGroup]="bankForm">
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Select Bank</span></ion-text>
+        <ion-select formControlName="bank" [interfaceOptions]="bankcustomAlertOptions" class="input"
+          placeholder="Select address type">
+          <ion-select-option *ngFor="let q of banks" [(value)]="q.id">{{q.name}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Select Account Type?</span></ion-text>
+        <ion-select formControlName="accttype" [interfaceOptions]="accounttypecustomAlertOptions" class="input"
+          >
+          <ion-select-option value="Savings">Savings</ion-select-option>
+          <ion-select-option value="Current">Current</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    
+
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Enter Account Number</span></ion-text>
+        <ion-input class="input ion-padding-horizontal" type="text" formControlName="acctnumber" ></ion-input>
+      </ion-col>
+     
+    </ion-row>
+
+  
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="mytheme"  (click)="onSubmit()"><span
+            class="white"><strong>Save</strong></span></ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

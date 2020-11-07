@@ -45,6 +45,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.shopService.GetUserCart(sid)
@@ -91,6 +92,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.shopService.UpdateOption('Cart', details.ProductDetails.id,
@@ -118,6 +120,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
 
     this.fun.removeConform('product').then(async res => {
@@ -159,6 +162,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.shopService.CartDiscountCode(code)

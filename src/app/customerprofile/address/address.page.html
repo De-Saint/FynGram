@@ -1,12 +1,76 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="mytheme">
-    <ion-buttons slot="start" >
+    <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">Address</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAdd()">
+        <ion-icon name="add-circle" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="location" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not added an address yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="onAdd()">
+          <span class="white">Add Address</span>
+        </ion-button>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+  <div *ngIf="show">
+    <ion-list lines="none">
+      <ion-item *ngFor="let add of addressess; let i = index;">
+        <ion-row class="full ion-align-items-center">
+          <ion-col size="2">
+            <ion-icon name="location" size="large" color="mytheme"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-row class="ion-align-items-center">
+              <p class="ion-no-margin"><strong><strong>{{add.addresstypename}} Address</strong></strong></p>
+              <h6 class="small mycolor ion-padding-start" *ngIf="add.default_address === '1'">DEFAULT</h6>
+            </ion-row>
+            <ion-row>
+              <p class="ion-no-margin">{{add.phone}}</p>
+            </ion-row>
+            <ion-row>
+              <p class="ion-no-margin">{{add.address_line}} {{add.close_to}},
+                {{add.streetname}}</p>
+            </ion-row>
+            <ion-row>
+              <p class="ion-no-margin">{{add?.busname}}, {{add?.townname}}</p>
+            </ion-row>
+            <ion-row>
+              <p class="ion-no-margin">{{add?.lganame}}</p>
+            </ion-row>
+            <ion-row>
+              <p class="ion-no-margin">{{add?.statename}}</p>
+            </ion-row>
+            <ion-row>
+              <p class="ion-no-margin">{{add.postal_code}}</p>
+            </ion-row>
+          </ion-col>
+          <ion-row *ngIf="add.default_address !== '1'">
+            <ion-col>
+              <ion-icon name="thumbs-up" (click)="onSetDefault(add)" class="mycolor item-icons"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="trash" (click)="onDelete(add)" color="danger" class="item-icons"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

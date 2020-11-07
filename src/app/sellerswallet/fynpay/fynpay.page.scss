@@ -1,0 +1,206 @@
+.amt {
+    font-size: 30px;
+}
+.menu {
+    color: white !important;
+}
+.hor-scroll{
+    height: 40px;
+}
+.mid {
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 35vh;
+    left: 50%;
+}
+.card {
+    padding: 6px;
+    border-radius: 3px;
+    border: .3px solid rgb(210, 210, 210);
+    background-color: white;
+}
+.full {
+    width: 100%;
+}
+.circle{
+    border-radius: 40px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 3px;
+}
+.my-btn{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(66, 63, 63);
+    margin: 0 12px !important;
+}
+.text {
+    font-size: 12px;
+}
+.btn-active{
+    background-color: unset;
+    color: white;
+    font-size: 21px;
+    text-decoration: underline;
+    font-weight: bold;
+    border-radius: 3px;
+    border-bottom: 1px solid gray;
+    --indicator-color-checked:none !important;
+    ion-text{
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+}
+.light {
+    background-color: var(--ion-color-light);
+}
+.normal {
+    font-size: 15px;
+    margin-bottom: 9px;
+    display: block;
+}
+.bold {
+    font-weight: bold;
+    margin-bottom: 9px;
+    display: block;
+    font-size: 16px;
+}
+#dag{
+    scroll-behavior: smooth;
+}
+.segSection{
+    width:100%;
+}
+.header-ios ion-toolbar:last-of-type {
+    --border-width:0 !important;
+}
+
+.btn-active{
+    background-color: unset;
+    color: white !important;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 21px;
+    border-radius: 3px;
+    border-bottom: 1px solid gray;
+    --indicator-color-checked:none !important;
+    ion-text{
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+}
+.text {
+    font-size: 12px;
+}
+.menu {
+    color: white !important;
+}
+.my-btn{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(250, 250, 250);
+    margin: 0 12px !important;
+    width: fit-content;
+    --background-checked: transparent;
+    min-height: 25px;
+}
+.my-btn2{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(90, 90, 90);
+    margin: 0 12px !important;
+}
+.btn-active2{
+    background-color: rgba(210, 210, 210, .5);
+    color: black !important;
+    font-weight: bold;
+    border-radius: 3px;
+    --indicator-color-checked:none !important;
+}
+#dag{
+    scroll-behavior: smooth;
+}
+.hor-scroll{
+    height: 30px;
+}
+.card {
+    border-radius: 3px;
+    border: .3px solid rgb(210, 210, 210);
+    padding: 6px;
+    background-color: white;
+}
+.head{
+    padding: 6px;
+    background-color: white;
+}
+.full {
+    width: 100%;
+}
+.img {
+    background-size: contain;
+    width: 90px;
+    align-self: center;
+}
+.toptext {
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+.sub {
+    color: rgb(120, 120, 120);
+    font-size: 12px;
+}
+.sub2 {
+    font-size: 13px;
+}
+.off {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.off-small {
+    font-size: 10px;
+    color: rgb(120, 120, 120);
+    margin-bottom: 5px;
+}
+.off-code {
+    background-color: rgba(210, 210, 210, .5);
+    border: .5px solid rgb(180, 180, 180);
+    margin-bottom: 5px;
+    padding: 3px;
+}
+.udanchuu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px;
+    border-radius: 10px;
+    height: 15px;
+}
+.mar-top {
+    margin-top: 3px;
+}
+.mycolor {
+    font-size: 15px;
+}
+.foot {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.off-codein {
+    font-size: 10px;
+    color: rgb(37, 35, 35);
+}
+.bottom {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+}
+.segmenttoolbarSection{
+    --min-height: 30px;
+    .segSection{
+        display: flex;
+        align-items: flex-end;
+        min-height:30px;
+    }
+}

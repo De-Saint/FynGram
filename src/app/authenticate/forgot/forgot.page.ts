@@ -33,6 +33,7 @@ export class ForgotPage implements OnInit {
       const loading = await this.loadingCtrl.create({
         cssClass: 'my-custom-class',
         message: 'Please wait...',
+        mode:'ios'
       });
       await loading.present();
       this.authService.ResetPassword(this.forgotForm.value.email)

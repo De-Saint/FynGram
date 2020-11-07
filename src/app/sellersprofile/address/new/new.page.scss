@@ -1,0 +1,18 @@
+.input {
+    border: .5px solid rgb(210, 210, 210);
+    background-color: rgba(240, 240, 240, .5);
+    border-radius: 3px;
+    font-size: .9em !important;
+    padding-left: 1.2em !important;
+    padding-right: 1.2em !important;
+}
+.label {
+    font-size: 12px;
+}
+.bottom {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}

@@ -4,9 +4,57 @@
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title  color="light">Bank Details</ion-title>
+    <ion-buttons slot="end" *ngIf="!show">
+      <ion-button (click)="onAdd()" >
+        <ion-icon name="add-circle" slot="icon-only"  class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content  class="ion-padding">
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="business" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not added a bank detail yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="onAdd()">
+          <span class="white">Add Bank Details</span>
+        </ion-button>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+<div  *ngIf="show">
+  <ion-list lines="none">
+     <ion-item >
+      <ion-row class="full ion-align-items-center">
+        <ion-col size="2" >
+          <ion-icon name="business" size="large"  color="mytheme"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-row class="ion-align-items-center">
+            <p class="ion-no-margin" ><strong><strong>{{banks?.bankName}}</strong></strong></p>
+            <h6 class="small mycolor ion-padding-start">DEFAULT</h6>
+          </ion-row>
+           <ion-row>
+            <p class="ion-no-margin" >{{banks?.account_type}}</p>
+          </ion-row>
+          <ion-row>
+            <p class="ion-no-margin" >{{banks?.account_number}}</p>
+          </ion-row>
+        </ion-col>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="trash" (click)="onDelete(banks)" color="danger" class="item-icons"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-item> 
+  </ion-list>
+</div>
 </ion-content>

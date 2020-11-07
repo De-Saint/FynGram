@@ -31,6 +31,7 @@ export class MessagesPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
+      mode:'ios'
     });
     await loading.present();
     this.messagesService.GetMessages(sid, 'All').subscribe(res => {
@@ -39,7 +40,6 @@ export class MessagesPage implements OnInit {
         this.messages = res.data;
         this.show = true;
       } else {
-        this.fun.presentToast(res.msg);
         this.show = false;
       }
     }, error => {

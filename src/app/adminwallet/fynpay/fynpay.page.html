@@ -1,12 +1,155 @@
-<ion-header >
+<ion-header class="mybg">
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
-      <ion-menu-button color="light"></ion-menu-button>
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title color="light">FynPay Accounts</ion-title>
+    <ion-title color="light">FynPay Account</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onFund()">
+        <ion-icon name="add-circle" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <div class="mybg">
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-justify-content-center">
+        <h6 class="small white ion-no-margin ion-text-center">Main Balance</h6>
+        <h5 class="white amt ion-no-margin ion-text-center">{{account?.MainBalance | currency:'₦' }}</h5>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-header>
 
 <ion-content>
+  <ion-row class="ion-padding">
+    <div class="full">
+      <ion-item class="card" lines="none">
+        <ion-row class="full ion-align-items-center">
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Main FynPay Account Balance</strong></h6>
+            </ion-row>
+            <ion-row>
+              <h6 class="off-small ion-no-margin">{{account?.wallet_number}}</h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.MainBalance | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+          <ion-text>
+            <h6 class="off-small bottom ion-no-margin"><span><strong>{{account?.wallet_pin }}</strong></span></h6>
+          </ion-text>
+        </ion-row>
+      </ion-item>
+    </div>
 
+  </ion-row>
+  <ion-row class="ion-padding">
+    <div class="full">
+      <ion-item class="card" lines="none">
+        <ion-row class="full ion-align-items-center">
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Pending FynPay Account Balance</strong></h6>
+            </ion-row>
+            <ion-row>
+              <h6 class="off-small ion-no-margin">{{account?.wallet_number}}</h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.PendingBalance | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+          <ion-text>
+            <h6 class="off-small bottom ion-no-margin"><span><strong>{{account?.wallet_pin }}</strong></span></h6>
+          </ion-text>
+        </ion-row>
+      </ion-item>
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <div class="full">
+      <ion-item class="card" lines="none">
+        <ion-row class="full ion-align-items-center">
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Total In All Seller Accounts</strong></h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.TotalSellerBalance | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding ion-no-padding-top">
+    <div class="full">
+      <ion-item class="card" lines="none">
+        <ion-row class="full ion-align-items-center">
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Total In All Customer Accounts</strong></h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.TotalCustomerBalance | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding ion-no-padding-top">
+    <div class="full">
+      <ion-item class="card" lines="none">
+        <ion-row class="full ion-align-items-center">
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Total In All Shipping Accounts</strong></h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.TotalShippingEarnings | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding ion-no-padding-top">
+    <div class="full">
+      <ion-item class="card" lines="none">
+        <ion-row class="full ion-align-items-center">
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Total In All Main Accounts</strong></h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.TotalMainWallets | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <h6 class="off ion-no-margin"><strong>Total In All Pending Accounts</strong></h6>
+            </ion-row>
+            <ion-row>
+              <div class="off-code">
+                <h5 class="off-codein ion-no-margin">{{account?.TotalPendingWallets | currency:'₦' }}</h5>
+              </div>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+  </ion-row>
 </ion-content>
