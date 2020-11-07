@@ -358,4 +358,156 @@ export class AuthServiceService {
     );
     // }
   }
+  RequestCashOut(sid, amount, pin): Observable<ResponseType> {
+    const url = environment.url + 'MUserServlet';
+    const type = 'NewCashoutRequest';
+    // if (this.platform.is("android")) {
+    // const data = {
+    //   type,
+    // code
+    //sid
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid, amount, pin });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+
+  GetCashoutRequests(sid) {
+    const type = 'GetCashoutRequests';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  ProcessCashOut(option, cashoutid) {
+    const type = 'ProcessCashOut';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, option, cashoutid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  GetCustomerDiscountCodes(sid) {
+    const type = 'GetCustomerDiscountCodes';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  GetDiscountCodes() {
+    const type = 'GetDiscountCodes';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+  ProcessDiscount(discountid, option) {
+    const type = 'ProcessDiscount';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, discountid, option });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
 }

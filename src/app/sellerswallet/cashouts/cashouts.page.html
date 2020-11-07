@@ -1,12 +1,65 @@
-<ion-header>
+<ion-header >
   <ion-toolbar color="mytheme">
-    <ion-buttons slot="start" color="light">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>CashOut Requests</ion-title>
+    <ion-title  color="light">CashOut Requests</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAdd()" >
+        <ion-icon name="add-circle" slot="icon-only"  class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="card" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not made any request yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="onAdd()">
+          <span class="white">Make a request</span>
+        </ion-button>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+<div  *ngIf="show">
+  <ion-list lines="none">
+    <ion-item *ngFor="let cash of cashouts" >
+     <ion-grid>
+      <ion-row class="full ion-align-items-center card">
+        <ion-col>
+          <ion-row class="ion-align-items-center">
+            <p class="ion-no-margin"><strong><strong>{{cash.amount | currency:'₦'}}</strong></strong></p>
+            <h6 class="small mycolor ion-padding-start">{{cash.status}}</h6>
+          </ion-row>
+           <ion-row>
+            <p class="ion-no-margin">{{cash.bankName}}</p>
+          </ion-row>
+          <ion-row>
+            <p class="ion-no-margin">{{cash.account_number}}</p>
+          </ion-row>
+          <ion-row>
+            <p class="ion-no-margin">{{cash.account_type}}</p>
+          </ion-row>
+         <ion-row>
+            <p class="ion-no-margin"><small>{{cash.request_date}} {{cash.request_time}}</small></p>
+          </ion-row>
+        </ion-col>
+         <ion-row>
+          <ion-col *ngIf="cash.status !== 'Pending'">
+            <ion-icon name="trash" (click)="onDelete(cash)" color="danger" class="item-icons"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-row> 
+     </ion-grid>
+    </ion-item>
+  </ion-list>
+</div>
 </ion-content>

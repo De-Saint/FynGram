@@ -72,7 +72,7 @@ export class FunctionsService {
     return new Promise(async (resolve, reject) => {
       const alert = await this.alertController.create({
         header: 'Confirm!',
-        message: 'Are you sure you want to remove this ' + data +'?',
+        message: 'Are you sure you want to remove this ' + data + '?',
         buttons: [
           {
             text: 'Cancel',
@@ -96,11 +96,11 @@ export class FunctionsService {
     });
   }
 
- setConform(data): Promise<any> {
+  setConfirm(data): Promise<any> {
     return new Promise(async (resolve, reject) => {
       const alert = await this.alertController.create({
         header: 'Confirm!',
-        message: 'Are you sure you want to make this ' + data +' the default?',
+        message: 'Are you sure you want to make this ' + data + ' the default?',
         buttons: [
           {
             text: 'Cancel',
@@ -129,6 +129,34 @@ export class FunctionsService {
     return price.toFixed(2);
   }
 
+  processRequest(option, data): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const alert = await this.alertController.create({
+        header: 'Confirm!',
+        message: 'Are you sure you want to ' + option + ' this ' + data + '?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (cancel) => {
+              console.log('Confirm Cancel: blah');
+              resolve('cancel');
+            }
+          }, {
+            text: 'Okay',
+            handler: (ok) => {
+              console.log('Confirm Okay');
+              resolve('ok');
+            }
+          }
+        ]
+      });
+
+      alert.present();
+    });
+  }
+
   faqs = {
     'About Us': "https://fyngram.com/FynGramShop/pages/shop/aboutus/aboutus.jsp",
     'Blog': "https://fyngram.com/FynGramShop/pages/shop/services/services.jsp",
@@ -143,14 +171,14 @@ export class FunctionsService {
   setNavigationData(id, data) {
     this.navigationData[id] = data;
   }
- 
+
   getNavigationData(id) {
     return this.navigationData[id];
   }
-  setNavLink(link){
+  setNavLink(link) {
     this.navlink = link;
   }
-  getNavLink(){
+  getNavLink() {
     return this.navlink;
   }
 

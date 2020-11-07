@@ -3,10 +3,60 @@
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title color="light">Discount Codes</ion-title>
+    <ion-title  color="light">Discount Codes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="gift" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You do not have any discount code(s) yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="shop()">
+          <span class="white">Continue Shopping</span>
+        </ion-button>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+  <div *ngIf="show">
+    <ion-grid>
+       <ion-row  *ngFor="let discount of discounts" class="card">
+        <ion-col>
+          <ion-row class="full block">
+            <ion-text class="ion-float-right">
+              <small> Available: {{discount.total_available}} of ({{discount.total_created}})</small>
+            </ion-text>
+            <ion-text class="ion-float-left">
+              <h6 class="ion-text-start ion-no-margin"><strong> {{discount.DiscountCodeTypeName}} </strong></h6>
+            </ion-text>
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class="full block ion-margin-top">
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{discount.code}}</h6><br>
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{discount.description}}</h6>
+            <h6 class="cmnt ion-float-right ion-text-end ion-no-margin"  (click)="onStop(discount)" *ngIf="discount.Status === 'Active'" ><ion-icon color="mytheme" style="font-size: medium;" name="stop-circle"></ion-icon></h6><br>
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin" >
+              <span *ngIf="discount.split_deduction_value === '1'">Split Discount : Yes</span>
+              <span *ngIf="discount.split_deduction_value !== '1'">Split Discount : No</span>
+            </h6>
+            <h6 class="cmnt ion-float-right ion-text-end ion-no-margin" (click)="onDelete(discount)" *ngIf="discount.Status !== 'Active'" ><ion-icon color="danger" style="font-size: medium;" name="trash"></ion-icon></h6><br>
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin" *ngIf="discount.DiscountDeductionTypeName === 'Amount'">Would deduct {{discount.deduction_value | currency:'₦' }}  from the order amount</h6>
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin" *ngIf="discount.DiscountDeductionTypeName !== 'Amount'">Would deduct {{discount.deduction_value }}%  from the order amount</h6> 
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class="full block ion-margin-top">
+            <small class="ion-float-left ion-text-start ion-no-margin"><strong>Status: {{discount.Status}}</strong></small>
+            <small class="ion-float-right ion-text-end ion-no-margin">Expiry Date: {{discount.expiry_date}}</small>
+          </ion-row>
+        </ion-col>
+      </ion-row > 
+    </ion-grid> 
+  </div>
 
 </ion-content>

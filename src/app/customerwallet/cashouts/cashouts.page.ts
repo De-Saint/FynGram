@@ -1,3 +1,7 @@
+import { FunctionsService } from './../../services/functions.service';
+import { LoadingController } from '@ionic/angular';
+import { AuthServiceService } from './../../authenticate/service/auth-service.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +10,74 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cashouts.page.scss'],
 })
 export class CashoutsPage implements OnInit {
-
-  constructor() { }
+  cashouts: any;
+  sid: any;
+  show = true;
+  constructor(
+    private router: Router,
+    private loadingCtrl: LoadingController,
+    private fun: FunctionsService,
+    private authService: AuthServiceService) { }
 
   ngOnInit() {
   }
+  ionViewWillEnter() {
+    this.sid = this.authService.currentUserDataValue.sid;
+    this.GetUserCashoutRequest(this.sid);
+  }
+  onAdd() {
+    this.router.navigate(['/', 'customerwallet', 'tabs', 'cashouts', 'new']);
+  }
 
+  async  GetUserCashoutRequest(sid) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    await loading.present();
+    this.authService.GetCashoutRequests(String(sid))
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.cashouts = res.data;
+          this.show = true;
+        } else {
+          this.show = false;
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+        this.fun.presentToast(error);
+        this.show = false;
+      })
+  }
+
+  async onDelete(request) {
+    console.log(request);
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode:'ios'
+    });
+
+    this.fun.removeConform('cashout request').then(async res => {
+      if (res === 'ok') {
+        await loading.present();
+        this.authService.ProcessCashOut('Deleted', request.CashOutID)
+          .subscribe(res => {
+            loading.dismiss().catch(() => { });
+            if (res.code === 200) {
+              this.fun.presentToast(res.msg);
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserCashoutRequest(this.sid);
+            } else {
+              this.fun.presentToast(res.msg);
+            }
+          }, error => {
+            loading.dismiss().catch(() => { });
+            console.log(JSON.stringify(error));
+          })
+      }
+    });
+  }
 }

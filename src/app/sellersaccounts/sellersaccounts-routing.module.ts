@@ -8,15 +8,7 @@ const routes: Routes = [
     path: 'tabs',
     component: SellersaccountsPage,
     children: [
-      {
-        path: 'subscriptions',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('./subscriptions/subscriptions.module').then(m => m.SubscriptionsPageModule)
-          }
-        ]
-      },
+      
       {
         path: 'transactions',
         children: [
@@ -32,6 +24,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'subscriptions',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./subscriptions/subscriptions.module').then(m => m.SubscriptionsPageModule)
           }
         ]
       },

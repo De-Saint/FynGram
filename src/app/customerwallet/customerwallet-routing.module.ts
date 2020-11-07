@@ -27,6 +27,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./cashouts/cashouts.module').then(m => m.CashoutsPageModule)
+          },
+          {
+            path: 'new',
+            loadChildren: () => import('./cashouts/new/new.module').then(m => m.NewPageModule)
           }
         ]
       },

@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
     { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'person-circle' },
     { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'wallet' },
-    { title: 'Accounts', url: '/sellersaccounts/tabs/subscriptions', icon: 'cash' },
+    { title: 'Accounts', url: '/sellersaccounts/tabs/transactions', icon: 'cash' },
     { title: 'Inventory', url: '/sellersinventory/tabs/products', icon: 'bag-add' },
 
   ];
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
     { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'person-circle' },
     { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'wallet' },
-    { title: 'Accounts', url: '/adminaccounts/tabs/subscriptions', icon: 'cash' },
+    { title: 'Accounts', url: '/adminaccounts/tabs/transactions', icon: 'cash' },
     { title: 'Users', url: '/adminusers/tabs/sellers', icon: 'people-circle' },
     { title: 'Inventory', url: '/admininventory/tabs/products', icon: 'bag-add' },
     { title: 'Categories', url: '/admincategory/tabs/categories', icon: 'apps' },

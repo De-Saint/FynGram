@@ -1,3 +1,6 @@
+import { LoadingController } from '@ionic/angular';
+import { AuthServiceService } from './../../authenticate/service/auth-service.service';
+import { FunctionsService } from 'src/app/services/functions.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,94 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./discounts.page.scss'],
 })
 export class DiscountsPage implements OnInit {
-
-  constructor() { }
+  show = true;
+  discounts: any;
+  constructor(
+    private fun: FunctionsService,
+    private loadingCtrl: LoadingController,
+    private authService: AuthServiceService, ) { }
 
   ngOnInit() {
+
+  }
+  ionViewWillEnter() {
+    this.GetDiscountCodes();
+  }
+  shop() {
+    this.fun.navigate('home');
+  }
+  async GetDiscountCodes() {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    await loading.present();
+    this.authService.GetDiscountCodes().subscribe(res => {
+      loading.dismiss().catch(() => { });
+      console.log(res)
+      if (res.code === 200) {
+        this.discounts = res.data;
+        this.show = true;
+      } else {
+        this.show = false;
+      }
+    }, error => {
+      loading.dismiss().catch(() => { });
+      console.log(JSON.stringify(error));
+    })
   }
 
+
+  async onStop(discount) {
+    console.log(discount.id);
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    this.fun.processRequest('stop', 'discount code').then(async res => {
+      if (res === 'ok') {
+        await loading.present();
+        this.authService.ProcessDiscount(String(discount.id), 'Stopped')
+          .subscribe(resp => {
+            loading.dismiss().catch(() => { });
+            if (resp.code === 200) {
+              this.fun.presentToast(resp.msg);
+              this.GetDiscountCodes();
+            } else {
+              this.fun.presentToast(resp.msg);
+            }
+          }, error => {
+            loading.dismiss().catch(() => { });
+          })
+      }
+    });
+  }
+  async onDelete(discount) {
+    console.log(discount.id);
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    this.fun.removeConform('discount code').then(async res => {
+      if (res === 'ok') {
+        await loading.present();
+        this.authService.ProcessDiscount(String(discount.id), 'Deleted')
+          .subscribe(resp => {
+            loading.dismiss().catch(() => { });
+            if (resp.code === 200) {
+              this.fun.presentToast(resp.msg);
+              this.GetDiscountCodes();
+            } else {
+              this.fun.presentToast(resp.msg);
+            }
+          }, error => {
+            loading.dismiss().catch(() => { });
+          })
+      }
+    });
+
+  }
 }

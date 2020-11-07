@@ -88,7 +88,7 @@ export class AddressPage implements OnInit {
       mode:'ios'
     });
 
-    this.fun.setConform('address').then(async res => {
+    this.fun.setConfirm('address').then(async res => {
       if (res === 'ok') {
         await loading.present();
         this.sid = this.authService.currentUserDataValue.sid;

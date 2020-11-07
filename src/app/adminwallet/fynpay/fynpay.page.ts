@@ -37,7 +37,6 @@ export class FynpayPage implements OnInit {
     await loading.present();
     this.authService.GetWalletDetails(String(sid))
       .subscribe(res => {
-        console.log(res);
         loading.dismiss().catch(() => { });
         if (res.code === 200) {
           this.account = res.data;
