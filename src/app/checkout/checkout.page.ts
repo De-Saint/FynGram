@@ -35,7 +35,6 @@ export class CheckoutPage implements OnInit {
     this.userEmail = this.authService.currentUserDataValue.email;
     this.route.queryParams.subscribe(params => {
       this.resp = params;
-      console.log(this.resp);
     });
   }
 
@@ -140,7 +139,6 @@ export class CheckoutPage implements OnInit {
   }
  
   async paymentDone(ref: any) {
-    console.log(ref);
     if (ref.status === 'success') {
       //ref contains the response from paystack after successful payment
       const loading = await this.loadingCtrl.create({

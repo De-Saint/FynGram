@@ -52,7 +52,6 @@ export class CashoutsPage implements OnInit {
   }
 
   async onDelete(request) {
-    console.log(request);
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
@@ -74,7 +73,6 @@ export class CashoutsPage implements OnInit {
             }
           }, error => {
             loading.dismiss().catch(() => { });
-            console.log(JSON.stringify(error));
           })
       }
     });

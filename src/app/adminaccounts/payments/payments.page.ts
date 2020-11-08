@@ -33,7 +33,6 @@ export class PaymentsPage implements OnInit {
     await loading.present();
     this.paymentService.GetPayments(sid).subscribe(res => {
       loading.dismiss().catch(() => { });
-      console.log(res);
       if (res.code === 200) {
         this.payments = res.data;
         this.show = true;

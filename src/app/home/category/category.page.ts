@@ -46,7 +46,6 @@ export class CategoryPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
 

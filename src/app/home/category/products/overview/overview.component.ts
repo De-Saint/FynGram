@@ -47,7 +47,6 @@ export class OverviewComponent implements OnInit {
 
   async like(product) {
     this.liked = !this.liked;
-    console.log(this.liked)
 
     if (this.like) {
       const usertype = this.authService.currentUserDataValue.usertype;

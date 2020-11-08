@@ -48,7 +48,6 @@ export class AddressPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
   async onDelete(address) {
@@ -75,13 +74,11 @@ export class AddressPage implements OnInit {
             }
           }, error => {
             loading.dismiss().catch(() => { });
-            console.log(JSON.stringify(error));
           })
       }
     });
   }
   async onSetDefault(address) {
-    console.log(address);
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
@@ -106,7 +103,6 @@ export class AddressPage implements OnInit {
             }
           }, error => {
             loading.dismiss().catch(() => { });
-            console.log(JSON.stringify(error));
           })
       }
     });

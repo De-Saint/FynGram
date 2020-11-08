@@ -48,7 +48,6 @@ export class ProfilePage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
 

@@ -40,7 +40,6 @@ export class TransactionsPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
 

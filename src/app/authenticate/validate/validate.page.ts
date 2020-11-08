@@ -22,8 +22,6 @@ export class ValidatePage implements OnInit {
   }
 
   ngOnInit() {
-    const oldsid = this.authService.currentUserDataValue.sid;
-    console.log(oldsid);
   }
 
 

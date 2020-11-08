@@ -44,7 +44,6 @@ export class MessagesPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
 }

@@ -39,7 +39,6 @@ export class MessagesPage implements OnInit {
     await loading.present();
     this.messagesService.GetMessages(sid, 'All').subscribe(res => {
       loading.dismiss().catch(() => { });
-      console.log(res);
       if (res.code === 200) {
         this.messages = res.data;
         this.show = true;
@@ -48,7 +47,6 @@ export class MessagesPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
 }

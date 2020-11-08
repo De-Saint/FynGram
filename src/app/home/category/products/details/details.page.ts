@@ -41,7 +41,6 @@ export class DetailsPage implements OnInit {
       }
       this.productId = paramMap.get('productId');
       this.product = this.fun.getNavigationData(this.productId);
-      console.log(this.product);
     })
   }
 

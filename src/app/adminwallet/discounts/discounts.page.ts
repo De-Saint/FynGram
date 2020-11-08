@@ -34,7 +34,6 @@ export class DiscountsPage implements OnInit {
     await loading.present();
     this.authService.GetDiscountCodes().subscribe(res => {
       loading.dismiss().catch(() => { });
-      console.log(res)
       if (res.code === 200) {
         this.discounts = res.data;
         this.show = true;
@@ -43,13 +42,11 @@ export class DiscountsPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
 
 
   async onStop(discount) {
-    console.log(discount.id);
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
@@ -74,7 +71,6 @@ export class DiscountsPage implements OnInit {
     });
   }
   async onDelete(discount) {
-    console.log(discount.id);
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',

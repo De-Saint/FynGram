@@ -55,7 +55,6 @@ export class OrdersPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
-      console.log(JSON.stringify(error));
     })
   }
   onShop(){
