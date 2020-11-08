@@ -9,15 +9,6 @@ const routes: Routes = [
     component: CustomeraccountsPage,
     children: [
       {
-        path: 'discounts',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('./discounts/discounts.module').then( m => m.DiscountsPageModule)
-          }
-        ]
-      },
-      {
         path: 'transactions',
         children: [
           {
@@ -32,6 +23,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'discounts',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./discounts/discounts.module').then( m => m.DiscountsPageModule)
           }
         ]
       },

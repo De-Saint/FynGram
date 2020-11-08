@@ -15,7 +15,7 @@ export class CartPage {
   @ViewChild('slidingList') slidingList: IonList;
   customAlertOptions: any = {
     header: 'Select Quantity',
-    translucent: true
+    translucent: true,
   };
   shipping: any;
   shippingFees: any;
@@ -27,7 +27,6 @@ export class CartPage {
   cartdetails: any;
   sid: any;
   constructor(
-    // public dataService: DataService,
     public fun: FunctionsService,
     private router: Router,
     private loadingCtrl: LoadingController,
@@ -45,7 +44,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.shopService.GetUserCart(sid)
@@ -92,7 +91,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.shopService.UpdateOption('Cart', details.ProductDetails.id,
@@ -120,7 +119,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
 
     this.fun.removeConform('product').then(async res => {
@@ -162,7 +161,7 @@ export class CartPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.shopService.CartDiscountCode(code)

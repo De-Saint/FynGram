@@ -510,4 +510,62 @@ export class AuthServiceService {
     );
     // }
   }
+  GetUserDetails(sid) {
+    const type = 'GetUserDetails';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // code, oldsid,  type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ type, sid });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
+
+  UpdateProfile(sid, firstname, lastname, opassword, npassword, phone) {
+    const type = 'UpdateProfile';
+    const url = environment.url + 'MUserServlet';
+    // const data = {
+    // firstname,
+    // lastname,
+    // title,
+    // gender,
+    // email,
+    //  password, 
+    //  phone,
+    //   type
+    // };
+    //   this.nativeHttp.setDataSerializer("json");
+    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
+    //   return from(nativeCall).pipe(
+    //     map(result => {
+    // if(result.code === 200){
+    //       sessionStorage.setItem('userData', JSON.stringify(result.data));
+    //       this.currentUserDataSubject.next(result.data.data);
+    //       return JSON.parse(result.data);
+    //     })
+    //   )
+    // } else {
+    const data = JSON.stringify({ sid, firstname, lastname, opassword, npassword, phone, type });
+    return this.http.post<ResponseType>(url, data).pipe(
+      map(res => {
+        return res;
+      })
+    );
+    // }
+  }
 }

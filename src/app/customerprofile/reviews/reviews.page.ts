@@ -13,7 +13,8 @@ export class ReviewsPage implements OnInit {
   show = true;
   reviews: any;
   sid: any;
-  constructor(private fun: FunctionsService,
+  constructor(
+    private fun: FunctionsService,
     private authService: AuthServiceService,
     private reviewsService: ReviewsService, private loadingCtrl: LoadingController) { }
 

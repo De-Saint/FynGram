@@ -1,12 +1,84 @@
-<ion-header>
+<ion-header >
   <ion-toolbar color="mytheme">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start" >
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Profile</ion-title>
+    <ion-title color="light">Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="updateForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label><small>Title</small></ion-label>
+          <ion-input type="text" placeholder="Title" readonly formControlName="title" value="{{details?.title}}"
+          class="input ion-padding-horizontal">
+        </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label><small>First Name</small></ion-label>
+          <ion-input type="text"  placeholder="First Name" formControlName="first_name" value="{{details?.firstname}}"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label><small>Last Name</small></ion-label>
+          <ion-input type="text"  placeholder="Last Name" formControlName="last_name" value="{{details?.lastname}}"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label><small>Gender</small></ion-label>
+          <ion-input type="text" placeholder="Gender" readonly formControlName="gender" value="{{details?.gender}}"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label><small>Email</small></ion-label>
+          <ion-input readonly type="email" placeholder="Email" formControlName="email" value="{{details?.email}}"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label><small>Phone</small></ion-label>
+          <ion-input  type="tel" placeholder="Phone 070xxxxxxxx" formControlName="phone" value="{{details?.phone}}"
+            class="input ion-padding-horizontal "></ion-input>
+        </ion-col>
+      </ion-row>
+      <div class="line ion-margin-top"></div>
+      <ion-row>
+        <ion-col>
+          <ion-label><small>Current Password</small></ion-label>
+          <ion-input type="password" placeholder="Password (Min:6)" formControlName="password" 
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label><small>New Password</small></ion-label>
+          <ion-input type="password" placeholder="New Password (Min:6)" formControlName="password2"
+            class="input ion-padding-horizontal">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row class="ion-margin-bottom">
+        <ion-col>
+          <ion-button expand="block" color="primary" (click)="onSubmit()"
+            color="mytheme"><strong class="white">Update Account</strong></ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="line ion-margin"></div>
+      
+    </ion-grid>
+  </form>
 </ion-content>

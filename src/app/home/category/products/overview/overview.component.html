@@ -28,7 +28,7 @@
       <ion-icon name="star-outline" color="mytheme"
         *ngFor="let i of computeRatings2(product.RatingDetails?.AverageRatings)"></ion-icon>
       <h6 class="rate ion-no-margin ion-padding-start" (click)="goToReviews()">
-        ({{product.RatingDetails?.NumberOfRatings}})</h6>
+        ({{product.RatingDetails?.NumberOfRatings}} Reviews) </h6>
     </ion-row>
     <ion-row class="ion-float-right">
       <small class="ion-float-right ion-no-margin"><strong>{{product.RootCatName}}</strong></small>

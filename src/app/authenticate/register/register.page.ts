@@ -74,6 +74,8 @@ export class RegisterPage implements OnInit {
               if (res.code === 200) {
                 this.fun.navigate('authenticate/validate');
                 this.fun.presentToast(res.msg);
+              }else{
+                this.fun.presentToast(res.msg);
               }
             }, error => {
               loading.dismiss().catch(() => { });

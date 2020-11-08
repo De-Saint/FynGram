@@ -2,17 +2,19 @@
   <ion-col size="6">
     <ion-row class="ion-justify-content-center ion-margin-top">
       <ion-text>
-        <h6 class="small gray ion-text-center" color="light"><strong>OVERALL</strong></h6>
+        <h6 class="small gray ion-text-center" color="light"><strong>OVERALL</strong> <br>
+          <span class="margin">{{product.RatingDetails?.AverageRatings}}</span></h6>
+        
       </ion-text>
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-text>
-        <span class="margin"><strong>{{product.rating}}</strong></span>
+        
         <ion-icon name="star" color="mytheme" *ngFor="let i of computeRatings(product.RatingDetails?.AverageRatings)">
         </ion-icon>
         <ion-icon name="star-outline" color="mytheme"
           *ngFor="let i of computeRatings2(product.RatingDetails?.AverageRatings)"></ion-icon>
-        <div class="margin rate-small">{{product.RatingDetails?.NumberOfRatings}} Ratings</div>
+        <div class="margin rate-small">{{product.RatingDetails?.NumberOfRatings}} Reviews</div>
       </ion-text>
     </ion-row>
   </ion-col>

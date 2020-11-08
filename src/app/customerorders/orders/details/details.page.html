@@ -1,0 +1,306 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Order Details</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Reference</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin"><strong>{{order?.reference}}</strong></h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Status</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order.StatusDetails?.name}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Items</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order?.product_count}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Order Date</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order?.booking_date}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Order Time</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order?.booking_time}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Cart</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order?.order_amount  | currency:'₦' }}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Shipping</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order?.delivery_fees | currency:'₦' }}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Discount</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">
+              <ion-text color="danger">{{order?.discount_amount  | currency:'₦' }}</ion-text>
+            </h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin"><strong>{{order?.total_paid  | currency:'₦' }}</strong></h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Method</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order.PaymentDetails?.payment_method}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Reference</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{order.PaymentDetails?.reference_code}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-text>
+          <h6 class="title ion-no-margin">Address</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order?.ShippingTypeName}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.addresstypename}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.phone}},
+          </h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.address_line}},
+            {{order.ShippingAddressDetails?.close_to}},
+            {{order.ShippingAddressDetails?.streetname}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.busname}},
+            {{order.ShippingAddressDetails?.townname}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.lganame}},
+            {{order.ShippingAddressDetails?.statename}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.postal_code}}</h6>
+        </ion-text>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-text>
+          <h6 class="title ion-no-margin">Products</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row *ngFor="let item of products">
+        <ion-col>
+          <ion-row class="container-outer">
+            <ion-col size="3" class="ion-text-center container-inner">
+              <img class="spon-img" [src]="'data:image/png;base64,'+item.ProductDetails?.FirstImage" alt="">
+            </ion-col>
+            <ion-col size="9" auto>
+              <h3 class="item-name ion-no-margin">{{item.ProductDetails.InfoDetails?.name}}</h3>
+              <h5 class="item-def ion-no-margin">Quantity:<strong>
+                  <ion-text color="mytheme">{{item.quantity}}</ion-text>
+                </strong></h5>
+              <h5 class="item-def ion-no-margin">Price:
+                {{ item.ProductDetails.PriceDetails?.selling_price   | currency:'₦' }}</h5>
+              <h5 class="item-def ion-no-margin text-truncate" style="max-width: 7.5em;">
+                {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <form [formGroup]="reviewForm">
+    <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+      <ion-col>
+        <ion-row>
+          <ion-text>
+            <h6 class="title ion-no-margin">Product Review</h6>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">
+            <ion-text>
+              <h6 class="title gray ion-no-margin">Product</h6>
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-select [interfaceOptions]="productAlertOptions" formControlName="product" class="select"
+              placeholder="Select">
+              <ion-select-option *ngFor="let product of products" [(value)]="product.productid">
+                {{product.ProductDetails.InfoDetails?.name}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">
+            <ion-text>
+              <h6 class="title gray ion-no-margin">Rate Value</h6>
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-select placeholder="Select" formControlName="ratevalue" mode="ios" interface="popover"
+              [interfaceOptions]="customAlertOptions" class="small-ico select">
+              <ion-select-option value="1">1 - Worse</ion-select-option>
+              <ion-select-option value="2">2 - Poor</ion-select-option>
+              <ion-select-option value="3">3 - Average </ion-select-option>
+              <ion-select-option value="4">4 - Good</ion-select-option>
+              <ion-select-option value="5">5 - Excellent</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row size="12" class="ion-justify-content-center">
+          <ion-textarea class="select" rows="4" cols="20" formControlName="comment" maxlength="100"
+            placeholder="Enter any notes here...">
+          </ion-textarea>
+        </ion-row>
+        <ion-row size="12" class="ion-justify-content-center">
+          <ion-button color="success" class="ion-margin-top" (click)="onSubmit()">
+            <span class="white">Rate Product</span>
+          </ion-button>
+        </ion-row>
+      </ion-col>
+
+    </ion-item>
+  </form>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding" *ngIf="order.StatusDetails?.name !== 'Cancelled'">
+    <ion-col>
+      <ion-row size="12" class="ion-justify-content-center">
+        <ion-button color="danger" class="ion-margin-top" (click)="onCancel(order)">
+          <span class="white">Cancel Order</span>
+        </ion-button>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+</ion-content>

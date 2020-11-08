@@ -59,10 +59,9 @@ export class AppComponent implements OnInit {
     { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
     { title: 'Search', url: '/search', icon: 'search' },
     { title: 'Cart', url: '/cart', icon: 'cart' },
-    { title: 'Dashboard', url: '/customerdashboard', icon: 'home' },
     { title: 'Profile', url: '/customerprofile/tabs/profile', icon: 'person-circle' },
     { title: 'FynPay', url: '/customerwallet/tabs/fynpay', icon: 'wallet' },
-    { title: 'Accounts', url: '/customeraccounts/tabs/discounts', icon: 'cash' },
+    { title: 'Accounts', url: '/customeraccounts/tabs/transactions', icon: 'cash' },
     { title: 'Orders', url: '/customerorders/tabs/orders', icon: 'cart' },
     { title: 'WishList', url: '/customerorders/tabs/wishlist', icon: 'heart-circle' },
   ];
