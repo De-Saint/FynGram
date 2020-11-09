@@ -207,15 +207,15 @@
       /* harmony import */
 
 
-      var _functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./../functions.service */
-      "./src/app/functions.service.ts");
+      var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../services/data.service */
+      "./src/app/services/data.service.ts");
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./../data.service */
-      "./src/app/data.service.ts");
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./../services/functions.service */
+      "./src/app/services/functions.service.ts");
       /* harmony import */
 
 
@@ -261,9 +261,9 @@
         return [{
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["MenuController"]
         }, {
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_2__["FunctionsService"]
         }, {
-          type: _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"]
+          type: _services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"]
         }];

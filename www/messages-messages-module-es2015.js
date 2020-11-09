@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header >\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Messages</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Messages</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"mid\" *ngIf=\"!show\">\n    <ion-grid>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n        <button class=\"circle\">\n          <ion-icon name=\"mail\" size=\"large\"></ion-icon>\n        </button>\n      </ion-row>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n        <ion-text class=\"ion-text-center\"><strong>You have no messages yet!</strong></ion-text>\n        <ion-button color=\"mytheme\" class=\"ion-margin-top\" (click)=\"shop()\">\n          <span class=\"white\">Continue Shopping</span>\n        </ion-button>\n      </ion-row>\n\n    </ion-grid>\n  </div>\n  <div *ngIf=\"show\">\n    <div *ngFor=\"let item of messages\" class=\"card\">\n      <ion-row>\n        <ion-col>\n          <ion-row class=\"title\" text-left>\n            <strong> {{item.subject}}</strong>\n          </ion-row>\n          <ion-row class=\"ion-margin-top\" text-left>\n            {{item.body}}\n          </ion-row>\n          <ion-row class=\"time ion-margin-top ion-float-left\">\n            <ion-text class=\"ion-float-right\">{{item.date}} {{item.time}}</ion-text>\n          </ion-row>\n          <ion-row class=\"time ion-margin-top ion-float-right\">\n            <ion-text class=\"ion-float-right\"  (click)=\"onDelete(item)\"><ion-icon color=\"danger\" name=\"trash\"></ion-icon></ion-text>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n</ion-content>\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header >\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button  color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Messages</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Messages</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"mid\" *ngIf=\"!show\">\n    <ion-grid>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n        <button class=\"circle\">\n          <ion-icon name=\"mail\" size=\"large\"></ion-icon>\n        </button>\n      </ion-row>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n        <ion-text class=\"ion-text-center\"><strong>You have no messages yet!</strong></ion-text>\n        <ion-button color=\"mytheme\" class=\"ion-margin-top\" (click)=\"shop()\">\n          <span class=\"white\">Continue Shopping</span>\n        </ion-button>\n      </ion-row>\n\n    </ion-grid>\n  </div>\n  <div *ngIf=\"show\">\n    <div *ngFor=\"let item of messages\" class=\"card\">\n      <ion-row>\n        <ion-col>\n          <ion-row class=\"title\" text-left>\n            <strong> {{item.subject}}</strong>\n          </ion-row>\n          <ion-row class=\"ion-margin-top\" text-left>\n            {{item.body}}\n          </ion-row>\n          <ion-row class=\"time ion-margin-top ion-float-left\">\n            <ion-text class=\"ion-float-right\">{{item.date}}</ion-text>\n          </ion-row>\n          <ion-row class=\"time ion-margin-top ion-float-right\">\n            <ion-text class=\"ion-float-right\">{{item.time}}</ion-text>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n</ion-content>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\" color=\"light\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>Messages</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Messages</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"mid\" *ngIf=\"!show\">\n    <ion-grid>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n        <button class=\"circle\">\n          <ion-icon name=\"mail\" size=\"large\"></ion-icon>\n        </button>\n      </ion-row>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\" disabled=\"true\">\n        <ion-text class=\"ion-text-center\"><strong>You have no messages yet!</strong></ion-text>\n        <ion-button color=\"mytheme\" class=\"ion-margin-top\" (click)=\"shop()\">\n          <span class=\"white\">Continue Shopping</span>\n        </ion-button>\n      </ion-row>\n\n    </ion-grid>\n  </div>\n  <div *ngIf=\"show\">\n    <div *ngFor=\"let item of messages\" class=\"card\">\n      <ion-row>\n        <ion-col>\n          <ion-row class=\"title\" text-left>\n            <strong> {{item.subject}}</strong>\n          </ion-row>\n          <ion-row class=\"ion-margin-top\" text-left>\n            {{item.body}}\n          </ion-row>\n          <ion-row class=\"time ion-margin-top ion-float-left\">\n            <ion-text class=\"ion-float-right\">{{item.date}}</ion-text>\n          </ion-row>\n          <ion-row class=\"time ion-margin-top ion-float-right\">\n            <ion-text class=\"ion-float-right\">{{item.time}}</ion-text>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </div>\n  </div>\n</ion-content>");
 
 /***/ }),
 
@@ -127,7 +127,7 @@ MessagesPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWlucHJvZmlsZS9tZXNzYWdlcy9tZXNzYWdlcy5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".avatar {\n  width: 45px;\n  height: 45px;\n}\n\n.title {\n  color: black;\n  font-size: 15px;\n}\n\n.time {\n  font-size: 12px;\n  color: #1f1f1d;\n}\n\n.small {\n  font-size: 12px;\n}\n\n.card {\n  padding: 6px;\n  margin: 8px 16px;\n  border-radius: 3px;\n  border: 0.3px solid #d2d2d2;\n  background-color: white;\n}\n\n.mid {\n  transform: translate(-50%, -50%);\n  position: absolute;\n  top: 40vh;\n  left: 50%;\n}\n\n.circle {\n  border-radius: 40px;\n  background-color: white;\n  width: 50px;\n  height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW5wcm9maWxlL21lc3NhZ2VzL21lc3NhZ2VzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0FBQ0o7O0FBQ0E7RUFDSSxZQUFBO0VBQ0EsZUFBQTtBQUVKOztBQUFBO0VBQ0ksZUFBQTtFQUNBLGNBQUE7QUFHSjs7QUFEQTtFQUNJLGVBQUE7QUFJSjs7QUFGQTtFQUNJLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsMkJBQUE7RUFDQSx1QkFBQTtBQUtKOztBQUhBO0VBQ0ksZ0NBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxTQUFBO0FBTUo7O0FBSkE7RUFDSSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFPSiIsImZpbGUiOiJzcmMvYXBwL2FkbWlucHJvZmlsZS9tZXNzYWdlcy9tZXNzYWdlcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXZhdGFyIHtcbiAgICB3aWR0aDogNDVweDtcbiAgICBoZWlnaHQ6IDQ1cHg7XG59XG4udGl0bGUge1xuICAgIGNvbG9yOiBibGFjaztcbiAgICBmb250LXNpemU6IDE1cHg7XG59XG4udGltZSB7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiByZ2IoMzEsIDMxLCAyOSk7XG59XG4uc21hbGx7XG4gICAgZm9udC1zaXplOiAxMnB4O1xufVxuLmNhcmQge1xuICAgIHBhZGRpbmc6IDZweDtcbiAgICBtYXJnaW46IDhweCAxNnB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgICBib3JkZXI6IC4zcHggc29saWQgcmdiKDIxMCwgMjEwLCAyMTApO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xufVxuLm1pZCB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwtNTAlKTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiA0MHZoO1xuICAgIGxlZnQ6IDUwJTtcbn1cbi5jaXJjbGV7XG4gICAgYm9yZGVyLXJhZGl1czogNDBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgICB3aWR0aDogNTBweDtcbiAgICBoZWlnaHQ6IDUwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -142,17 +142,92 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesPage", function() { return MessagesPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_messages_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/messages.service */ "./src/app/services/messages.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../services/functions.service */ "./src/app/services/functions.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+
+
 
 
 let MessagesPage = class MessagesPage {
-    constructor() { }
+    constructor(fun, loadingCtrl, authService, messagesService) {
+        this.fun = fun;
+        this.loadingCtrl = loadingCtrl;
+        this.authService = authService;
+        this.messagesService = messagesService;
+        this.show = true;
+    }
     ngOnInit() {
+        this.sid = this.authService.currentUserDataValue.sid;
+        this.GetMessages(this.sid);
+    }
+    shop() {
+        this.fun.navigate('home');
+    }
+    GetMessages(sid) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const loading = yield this.loadingCtrl.create({
+                cssClass: 'my-custom-class',
+                message: 'Please wait...',
+                mode: 'ios'
+            });
+            yield loading.present();
+            this.messagesService.GetMessages(sid, 'All').subscribe(res => {
+                loading.dismiss().catch(() => { });
+                if (res.code === 200) {
+                    this.messages = res.data;
+                    this.show = true;
+                }
+                else {
+                    this.fun.presentToast(res.msg);
+                    this.show = false;
+                }
+            }, error => {
+                loading.dismiss().catch(() => { });
+            });
+        });
+    }
+    onDelete(message) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const loading = yield this.loadingCtrl.create({
+                cssClass: 'my-custom-class',
+                message: 'Please wait...',
+                mode: 'ios'
+            });
+            this.fun.removeConform('message').then((res) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+                if (res === 'ok') {
+                    yield loading.present();
+                    this.messagesService.DeleteMessage(String(message.id))
+                        .subscribe(resp => {
+                        loading.dismiss().catch(() => { });
+                        if (resp.code === 200) {
+                            this.fun.presentToast(resp.msg);
+                            this.sid = this.authService.currentUserDataValue.sid;
+                            this.GetMessages(this.sid);
+                        }
+                        else {
+                            this.fun.presentToast(resp.msg);
+                        }
+                    }, error => {
+                        loading.dismiss().catch(() => { });
+                    });
+                }
+            }));
+        });
     }
 };
-MessagesPage.ctorParameters = () => [];
+MessagesPage.ctorParameters = () => [
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"] },
+    { type: _services_messages_service__WEBPACK_IMPORTED_MODULE_1__["MessagesService"] }
+];
 MessagesPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-messages',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./messages.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adminprofile/messages/messages.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./messages.page.scss */ "./src/app/adminprofile/messages/messages.page.scss")).default]
@@ -251,7 +326,7 @@ MessagesPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2N1c3RvbWVycHJvZmlsZS9tZXNzYWdlcy9tZXNzYWdlcy5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".avatar {\n  width: 45px;\n  height: 45px;\n}\n\n.title {\n  color: black;\n  font-size: 15px;\n}\n\n.time {\n  font-size: 12px;\n  color: #1f1f1d;\n}\n\n.small {\n  font-size: 12px;\n}\n\n.card {\n  padding: 6px;\n  margin: 8px 16px;\n  border-radius: 3px;\n  border: 0.3px solid #d2d2d2;\n  background-color: white;\n}\n\n.mid {\n  transform: translate(-50%, -50%);\n  position: absolute;\n  top: 40vh;\n  left: 50%;\n}\n\n.circle {\n  border-radius: 40px;\n  background-color: white;\n  width: 50px;\n  height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY3VzdG9tZXJwcm9maWxlL21lc3NhZ2VzL21lc3NhZ2VzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0FBQ0o7O0FBQ0E7RUFDSSxZQUFBO0VBQ0EsZUFBQTtBQUVKOztBQUFBO0VBQ0ksZUFBQTtFQUNBLGNBQUE7QUFHSjs7QUFEQTtFQUNJLGVBQUE7QUFJSjs7QUFGQTtFQUNJLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsMkJBQUE7RUFDQSx1QkFBQTtBQUtKOztBQUhBO0VBQ0ksZ0NBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxTQUFBO0FBTUo7O0FBSkE7RUFDSSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFPSiIsImZpbGUiOiJzcmMvYXBwL2N1c3RvbWVycHJvZmlsZS9tZXNzYWdlcy9tZXNzYWdlcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXZhdGFyIHtcbiAgICB3aWR0aDogNDVweDtcbiAgICBoZWlnaHQ6IDQ1cHg7XG59XG4udGl0bGUge1xuICAgIGNvbG9yOiBibGFjaztcbiAgICBmb250LXNpemU6IDE1cHg7XG59XG4udGltZSB7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiByZ2IoMzEsIDMxLCAyOSk7XG59XG4uc21hbGx7XG4gICAgZm9udC1zaXplOiAxMnB4O1xufVxuLmNhcmQge1xuICAgIHBhZGRpbmc6IDZweDtcbiAgICBtYXJnaW46IDhweCAxNnB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgICBib3JkZXI6IC4zcHggc29saWQgcmdiKDIxMCwgMjEwLCAyMTApO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xufVxuLm1pZCB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwtNTAlKTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiA0MHZoO1xuICAgIGxlZnQ6IDUwJTtcbn1cbi5jaXJjbGV7XG4gICAgYm9yZGVyLXJhZGl1czogNDBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgICB3aWR0aDogNTBweDtcbiAgICBoZWlnaHQ6IDUwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -266,17 +341,63 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesPage", function() { return MessagesPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_messages_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/messages.service */ "./src/app/services/messages.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../services/functions.service */ "./src/app/services/functions.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+
+
 
 
 let MessagesPage = class MessagesPage {
-    constructor() { }
+    constructor(fun, loadingCtrl, authService, messagesService) {
+        this.fun = fun;
+        this.loadingCtrl = loadingCtrl;
+        this.authService = authService;
+        this.messagesService = messagesService;
+        this.show = true;
+    }
     ngOnInit() {
+        this.sid = this.authService.currentUserDataValue.sid;
+        this.GetMessages(this.sid);
+    }
+    shop() {
+        this.fun.navigate('home');
+    }
+    GetMessages(sid) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const loading = yield this.loadingCtrl.create({
+                cssClass: 'my-custom-class',
+                message: 'Please wait...',
+                mode: 'ios'
+            });
+            yield loading.present();
+            this.messagesService.GetMessages(sid, 'All').subscribe(res => {
+                loading.dismiss().catch(() => { });
+                if (res.code === 200) {
+                    this.messages = res.data;
+                    this.show = true;
+                }
+                else {
+                    this.show = false;
+                }
+            }, error => {
+                loading.dismiss().catch(() => { });
+            });
+        });
     }
 };
-MessagesPage.ctorParameters = () => [];
+MessagesPage.ctorParameters = () => [
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"] },
+    { type: _services_messages_service__WEBPACK_IMPORTED_MODULE_1__["MessagesService"] }
+];
 MessagesPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-messages',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./messages.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/customerprofile/messages/messages.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./messages.page.scss */ "./src/app/customerprofile/messages/messages.page.scss")).default]
@@ -375,7 +496,7 @@ MessagesPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlbGxlcnNwcm9maWxlL21lc3NhZ2VzL21lc3NhZ2VzLnBhZ2Uuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".avatar {\n  width: 45px;\n  height: 45px;\n}\n\n.title {\n  color: black;\n  font-size: 15px;\n}\n\n.time {\n  font-size: 12px;\n  color: #1f1f1d;\n}\n\n.small {\n  font-size: 12px;\n}\n\n.card {\n  padding: 6px;\n  margin: 8px 16px;\n  border-radius: 3px;\n  border: 0.3px solid #d2d2d2;\n  background-color: white;\n}\n\n.mid {\n  transform: translate(-50%, -50%);\n  position: absolute;\n  top: 40vh;\n  left: 50%;\n}\n\n.circle {\n  border-radius: 40px;\n  background-color: white;\n  width: 50px;\n  height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VsbGVyc3Byb2ZpbGUvbWVzc2FnZXMvbWVzc2FnZXMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtFQUNBLFlBQUE7QUFDSjs7QUFDQTtFQUNJLFlBQUE7RUFDQSxlQUFBO0FBRUo7O0FBQUE7RUFDSSxlQUFBO0VBQ0EsY0FBQTtBQUdKOztBQURBO0VBQ0ksZUFBQTtBQUlKOztBQUZBO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSwyQkFBQTtFQUNBLHVCQUFBO0FBS0o7O0FBSEE7RUFDSSxnQ0FBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7QUFNSjs7QUFKQTtFQUNJLG1CQUFBO0VBQ0EsdUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQU9KIiwiZmlsZSI6InNyYy9hcHAvc2VsbGVyc3Byb2ZpbGUvbWVzc2FnZXMvbWVzc2FnZXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmF2YXRhciB7XG4gICAgd2lkdGg6IDQ1cHg7XG4gICAgaGVpZ2h0OiA0NXB4O1xufVxuLnRpdGxlIHtcbiAgICBjb2xvcjogYmxhY2s7XG4gICAgZm9udC1zaXplOiAxNXB4O1xufVxuLnRpbWUge1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBjb2xvcjogcmdiKDMxLCAzMSwgMjkpO1xufVxuLnNtYWxse1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbn1cbi5jYXJkIHtcbiAgICBwYWRkaW5nOiA2cHg7XG4gICAgbWFyZ2luOiA4cHggMTZweDtcbiAgICBib3JkZXItcmFkaXVzOiAzcHg7XG4gICAgYm9yZGVyOiAuM3B4IHNvbGlkIHJnYigyMTAsIDIxMCwgMjEwKTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbn1cbi5taWQge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsLTUwJSk7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogNDB2aDtcbiAgICBsZWZ0OiA1MCU7XG59XG4uY2lyY2xle1xuICAgIGJvcmRlci1yYWRpdXM6IDQwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gICAgd2lkdGg6IDUwcHg7XG4gICAgaGVpZ2h0OiA1MHB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -390,22 +511,146 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesPage", function() { return MessagesPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_messages_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/messages.service */ "./src/app/services/messages.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../services/functions.service */ "./src/app/services/functions.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+
+
 
 
 let MessagesPage = class MessagesPage {
-    constructor() { }
+    constructor(fun, loadingCtrl, authService, messagesService) {
+        this.fun = fun;
+        this.loadingCtrl = loadingCtrl;
+        this.authService = authService;
+        this.messagesService = messagesService;
+        this.show = true;
+    }
     ngOnInit() {
+        this.sid = this.authService.currentUserDataValue.sid;
+        this.GetMessages(this.sid);
+    }
+    shop() {
+        this.fun.navigate('home');
+    }
+    GetMessages(sid) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const loading = yield this.loadingCtrl.create({
+                cssClass: 'my-custom-class',
+                message: 'Please wait...',
+                mode: 'ios'
+            });
+            yield loading.present();
+            this.messagesService.GetMessages(sid, 'All').subscribe(res => {
+                loading.dismiss().catch(() => { });
+                if (res.code === 200) {
+                    this.messages = res.data;
+                    this.show = true;
+                }
+                else {
+                    this.show = false;
+                }
+            }, error => {
+                loading.dismiss().catch(() => { });
+            });
+        });
     }
 };
-MessagesPage.ctorParameters = () => [];
+MessagesPage.ctorParameters = () => [
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"] },
+    { type: _services_messages_service__WEBPACK_IMPORTED_MODULE_1__["MessagesService"] }
+];
 MessagesPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-messages',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./messages.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/sellersprofile/messages/messages.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./messages.page.scss */ "./src/app/sellersprofile/messages/messages.page.scss")).default]
     })
 ], MessagesPage);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/messages.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/messages.service.ts ***!
+  \**********************************************/
+/*! exports provided: MessagesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesService", function() { return MessagesService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+
+
+
+
+
+let MessagesService = class MessagesService {
+    constructor(http, authService, platform) {
+        this.http = http;
+        this.authService = authService;
+        this.platform = platform;
+    }
+    GetMessages(sid, option) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MMessageServlet';
+        const type = 'GetMessages';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid, option
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid, option });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    DeleteMessage(messageid) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MMessageServlet';
+        const type = 'DeleteMessage';
+        if (this.platform.is('android')) {
+            const data = {
+                type, messageid
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, messageid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+};
+MessagesService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] },
+    { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] }
+];
+MessagesService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Injectable"])({
+        providedIn: 'root'
+    })
+], MessagesService);
 
 
 

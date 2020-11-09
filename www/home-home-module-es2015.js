@@ -41,14 +41,14 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | buy-buy-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null, /*! ./buy/buy.module */ "./src/app/home/buy/buy.module.ts")).then(m => m.BuyPageModule)
+                        loadChildren: () => Promise.all(/*! import() | buy-buy-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null, /*! ./buy/buy.module */ "./src/app/home/buy/buy.module.ts")).then(m => m.BuyPageModule)
                     },
                     {
                         path: 'products',
                         children: [
                             {
                                 path: 'details/:productId',
-                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
+                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
                             }
                         ]
                     }
@@ -59,18 +59,18 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | category-category-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null, /*! ./category/category.module */ "./src/app/home/category/category.module.ts")).then(m => m.CategoryPageModule)
+                        loadChildren: () => Promise.all(/*! import() | category-category-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null, /*! ./category/category.module */ "./src/app/home/category/category.module.ts")).then(m => m.CategoryPageModule)
                     },
                     {
                         path: 'products',
                         children: [
                             {
                                 path: 'details/:productId',
-                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
+                                loadChildren: () => Promise.all(/*! import() | category-products-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ./category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
                             },
                             {
                                 path: ':catId',
-                                loadChildren: () => Promise.all(/*! import() | category-products-products-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null, /*! ./category/products/products.module */ "./src/app/home/category/products/products.module.ts")).then(m => m.ProductsPageModule)
+                                loadChildren: () => Promise.all(/*! import() | category-products-products-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null, /*! ./category/products/products.module */ "./src/app/home/category/products/products.module.ts")).then(m => m.ProductsPageModule)
                             }
                         ]
                     }
@@ -81,7 +81,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | sell-sell-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("sell-sell-module")]).then(__webpack_require__.bind(null, /*! ./sell/sell.module */ "./src/app/home/sell/sell.module.ts")).then(m => m.SellPageModule)
+                        loadChildren: () => Promise.all(/*! import() | sell-sell-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("sell-sell-module")]).then(__webpack_require__.bind(null, /*! ./sell/sell.module */ "./src/app/home/sell/sell.module.ts")).then(m => m.SellPageModule)
                     }
                 ]
             },
@@ -90,7 +90,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | help-help-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("help-help-module")]).then(__webpack_require__.bind(null, /*! ./help/help.module */ "./src/app/home/help/help.module.ts")).then(m => m.HelpPageModule)
+                        loadChildren: () => Promise.all(/*! import() | help-help-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("help-help-module")]).then(__webpack_require__.bind(null, /*! ./help/help.module */ "./src/app/home/help/help.module.ts")).then(m => m.HelpPageModule)
                     }
                 ]
             },

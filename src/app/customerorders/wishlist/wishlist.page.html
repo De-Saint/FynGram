@@ -7,6 +7,86 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <div class="mid" *ngIf="!show">
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <button class="circle">
+        <ion-icon name="cart" size="large"></ion-icon>
+      </button>
+    </ion-row>
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <ion-text><strong>Your wishlist is empty</strong></ion-text>
+    </ion-row>
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <ion-button fill="clear" color="mytheme" (click)="browse()">Continue Browsing</ion-button>
+    </ion-row>
+  </div>
+  <div *ngIf="show">
+    <ion-row class="ion-justify-content-center ion-margin-horizontal ion-margin-bottom ion-padding-top">
+      <ion-text><strong class="text ion-text-center">Item(s) in Wishlist {{wishlists?.product_count}}</strong>
+      </ion-text>
+    </ion-row>
+    <ion-list #slidingList>
+      <ion-item-sliding *ngFor="let item of wishdetails" class="card ion-no-padding ion-no-margin">
+        <ion-item lines="none">
+          <ion-grid>
+            <ion-row class="container-outer">
+              <ion-col size="3" class="ion-text-center container-inner">
+                <img class="spon-img" [src]="'data:image/png;base64,'+item.ProductDetails.FirstImage" alt="">
+                <ion-text color="danger" class="small" (click)="remove(item)">Remove</ion-text>
+              </ion-col>
+              <ion-col size="6" auto>
+                <h3 class="item-name ion-no-margin">{{item.ProductDetails.InfoDetails?.name}}</h3>
+                <h5 class="item-def ion-no-margin">Quantity:<strong><ion-text color="mytheme">{{item.product_quantity}}</ion-text></strong></h5>
+                <h5 class="item-def ion-no-margin">Price:
+                  {{ item.ProductDetails.PriceDetails?.selling_price | currency:'₦' }}</h5>
+                <h5 class="item-def ion-no-margin text-truncate" style="max-width: 7.5em;">
+                  {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>
+              </ion-col>
+              <ion-col size="3" class="ion-text-end">
+                <ion-row class="ion-text-end ion-justify-content-end">
+                  <h3 class="item-name ion-no-margin ion-text-end">
+                    {{item.ProductDetails.PriceDetails?.selling_price | currency:'₦'}}
+                  </h3>
+                </ion-row>
+                <ion-row class="ion-justify-content-end">
+                  <ion-text color="mytheme" class="small" (click)="details(item)">Detail</ion-text>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="remove(item)">
+            <ion-icon name="trash" size="large"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list> 
+    <ion-row size="12" class="ion-justify-content-center ion-margin-top" disabled="true">
+      <ion-button fill="outline" color="mytheme" (click)="browse()">Continue Shopping</ion-button>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-text><strong class="text">WishList Summary</strong></ion-text>
+    </ion-row>
+    <div lines="none" class="card ion-no-margin ion-padding-bottom">
+      <ion-row class="full ion-padding-horizontal">
+        <ion-col size="7">
+          <ion-text>Item Total</ion-text>
+        </ion-col>
+        <ion-col size="5" class="ion-text-end">
+          <ion-text>{{wishlists?.amount | currency:'₦' }}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full ion-padding-horizontal">
+        <ion-col size="7">
+          <ion-text>Date</ion-text>
+        </ion-col>
+        <ion-col size="5" class="ion-text-end">
+          <ion-text>{{wishlists?.date}}</ion-text>
+        </ion-col>
+      </ion-row>
+    </div> 
+  </div> 
 </ion-content>

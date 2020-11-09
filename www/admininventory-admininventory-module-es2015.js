@@ -50,7 +50,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | orders-orders-module */ "orders-orders-module").then(__webpack_require__.bind(null, /*! ./orders/orders.module */ "./src/app/admininventory/orders/orders.module.ts")).then(m => m.OrdersPageModule)
+                        loadChildren: () => Promise.all(/*! import() | orders-orders-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("orders-orders-module")]).then(__webpack_require__.bind(null, /*! ./orders/orders.module */ "./src/app/admininventory/orders/orders.module.ts")).then(m => m.OrdersPageModule)
+                    },
+                    {
+                        path: 'details/:orderId',
+                        loadChildren: () => Promise.all(/*! import() | orders-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~details-details-module~orders-details-details-module"), __webpack_require__.e("common"), __webpack_require__.e("orders-details-details-module")]).then(__webpack_require__.bind(null, /*! ./orders/details/details.module */ "./src/app/admininventory/orders/details/details.module.ts")).then(m => m.DetailsPageModule)
                     }
                 ]
             },

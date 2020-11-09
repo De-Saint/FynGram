@@ -207,9 +207,9 @@
       /* harmony import */
 
 
-      var _functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./../../functions.service */
-      "./src/app/functions.service.ts");
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../services/functions.service */
+      "./src/app/services/functions.service.ts");
       /* harmony import */
 
 
@@ -239,7 +239,7 @@
 
       SellPage.ctorParameters = function () {
         return [{
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }];
       };
 

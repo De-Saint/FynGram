@@ -41,7 +41,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | profile-profile-module */ "profile-profile-module").then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/customerprofile/profile/profile.module.ts")).then(m => m.ProfilePageModule)
+                        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/customerprofile/profile/profile.module.ts")).then(m => m.ProfilePageModule)
                     }
                 ]
             },
@@ -50,7 +50,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | address-address-module */ "address-address-module").then(__webpack_require__.bind(null, /*! ./address/address.module */ "./src/app/customerprofile/address/address.module.ts")).then(m => m.AddressPageModule)
+                        loadChildren: () => Promise.all(/*! import() | address-address-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("address-address-module")]).then(__webpack_require__.bind(null, /*! ./address/address.module */ "./src/app/customerprofile/address/address.module.ts")).then(m => m.AddressPageModule)
+                    },
+                    {
+                        path: 'new',
+                        loadChildren: () => Promise.all(/*! import() | address-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("address-new-new-module")]).then(__webpack_require__.bind(null, /*! ./address/new/new.module */ "./src/app/customerprofile/address/new/new.module.ts")).then(m => m.NewPageModule)
                     }
                 ]
             },
@@ -59,7 +63,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | messages-messages-module */ "messages-messages-module").then(__webpack_require__.bind(null, /*! ./messages/messages.module */ "./src/app/customerprofile/messages/messages.module.ts")).then(m => m.MessagesPageModule)
+                        loadChildren: () => Promise.all(/*! import() | messages-messages-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null, /*! ./messages/messages.module */ "./src/app/customerprofile/messages/messages.module.ts")).then(m => m.MessagesPageModule)
                     }
                 ]
             },
@@ -68,7 +72,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | reviews-reviews-module */ "reviews-reviews-module").then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/customerprofile/reviews/reviews.module.ts")).then(m => m.ReviewsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | reviews-reviews-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("reviews-reviews-module")]).then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/customerprofile/reviews/reviews.module.ts")).then(m => m.ReviewsPageModule)
                     }
                 ]
             },

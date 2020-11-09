@@ -116,13 +116,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../data.service */ "./src/app/data.service.ts");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/functions.service */ "./src/app/services/functions.service.ts");
+/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
@@ -130,14 +129,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"];
+const { Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["Plugins"];
 let RegisterPage = class RegisterPage {
-    constructor(fun, authService, loadingCtrl, data) {
+    constructor(fun, authService, loadingCtrl) {
         this.fun = fun;
         this.authService = authService;
         this.loadingCtrl = loadingCtrl;
-        this.data = data;
         this.HAS_LOGGED_IN = 'hasLoggedIn';
         this.titlecustomAlertOptions = {
             header: 'Select Title',
@@ -145,16 +142,16 @@ let RegisterPage = class RegisterPage {
         this.gendercustomAlertOptions = {
             header: 'Select Gender',
         };
-        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
-            first_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
-            last_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] }),
-            password2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)] }),
-            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
-            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] }),
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(11), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(11)] }),
-            terms: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required] })
+        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            first_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required] }),
+            last_name: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required] }),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required] }),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(6)] }),
+            password2: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(6)] }),
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required] }),
+            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required] }),
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(11), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(11)] }),
+            terms: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required] })
         });
     }
     ngOnInit() {
@@ -171,6 +168,7 @@ let RegisterPage = class RegisterPage {
                         const loading = yield this.loadingCtrl.create({
                             cssClass: 'my-custom-class',
                             message: 'Please wait...',
+                            mode: 'ios'
                         });
                         yield loading.present();
                         this.authService.RegisterCustomer(this.registerForm.value.first_name, this.registerForm.value.last_name, this.registerForm.value.title, this.registerForm.value.gender, this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.phone)
@@ -178,6 +176,9 @@ let RegisterPage = class RegisterPage {
                             loading.dismiss().catch(() => { });
                             if (res.code === 200) {
                                 this.fun.navigate('authenticate/validate');
+                                this.fun.presentToast(res.msg);
+                            }
+                            else {
                                 this.fun.presentToast(res.msg);
                             }
                         }, error => {
@@ -211,13 +212,12 @@ let RegisterPage = class RegisterPage {
     }
 };
 RegisterPage.ctorParameters = () => [
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_5__["FunctionsService"] },
-    { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] }
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] },
+    { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthServiceService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] }
 ];
 RegisterPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-register',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./register.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/authenticate/register/register.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./register.page.scss */ "./src/app/authenticate/register/register.page.scss")).default]

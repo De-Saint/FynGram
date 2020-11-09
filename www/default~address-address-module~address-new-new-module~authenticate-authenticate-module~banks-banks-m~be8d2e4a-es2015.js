@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"],{
 
-/***/ "./src/app/data.service.ts":
-/*!*********************************!*\
-  !*** ./src/app/data.service.ts ***!
-  \*********************************/
+/***/ "./src/app/services/data.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/data.service.ts ***!
+  \******************************************/
 /*! exports provided: DataService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -174,10 +174,10 @@ DataService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "./src/app/functions.service.ts":
-/*!**************************************!*\
-  !*** ./src/app/functions.service.ts ***!
-  \**************************************/
+/***/ "./src/app/services/functions.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/functions.service.ts ***!
+  \***********************************************/
 /*! exports provided: FunctionsService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -185,7 +185,7 @@ DataService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FunctionsService", function() { return FunctionsService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data.service */ "./src/app/services/data.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
@@ -260,11 +260,37 @@ let FunctionsService = class FunctionsService {
     update(product) {
         this.dataService.current_product = product;
     }
-    removeConform() {
+    removeConform(data) {
         return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 header: 'Confirm!',
-                message: 'Are you sure you want to remove this item',
+                message: 'Are you sure you want to remove this ' + data + '?',
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        cssClass: 'secondary',
+                        handler: (cancel) => {
+                            console.log('Confirm Cancel: blah');
+                            resolve('cancel');
+                        }
+                    }, {
+                        text: 'Okay',
+                        handler: (ok) => {
+                            console.log('Confirm Okay');
+                            resolve('ok');
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        }));
+    }
+    setConfirm(data) {
+        return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                header: 'Confirm!',
+                message: 'Are you sure you want to make this ' + data + ' the default?',
                 buttons: [
                     {
                         text: 'Cancel',
@@ -289,6 +315,32 @@ let FunctionsService = class FunctionsService {
     calculate(price, discount) {
         price = price - (price * discount / 100);
         return price.toFixed(2);
+    }
+    processRequest(option, data) {
+        return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                header: 'Confirm!',
+                message: 'Are you sure you want to ' + option + ' this ' + data + '?',
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        cssClass: 'secondary',
+                        handler: (cancel) => {
+                            console.log('Confirm Cancel: blah');
+                            resolve('cancel');
+                        }
+                    }, {
+                        text: 'Okay',
+                        handler: (ok) => {
+                            console.log('Confirm Okay');
+                            resolve('ok');
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        }));
     }
     setNavigationData(id, data) {
         this.navigationData[id] = data;
@@ -329,4 +381,4 @@ FunctionsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255-es2015.js.map
+//# sourceMappingURL=default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a-es2015.js.map

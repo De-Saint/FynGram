@@ -45,7 +45,7 @@ export class GeneralService {
   }
 
 
-  AddOption(option, productid, price, quantity, action): Observable<ResponseType> {
+  AddOption2(option, productid, price, quantity, action): Observable<ResponseType> {
     const url = environment.url + 'MShopServlet';
     const type = 'AddOption';
     // if (this.platform.is("android")) {

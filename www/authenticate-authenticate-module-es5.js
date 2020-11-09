@@ -251,67 +251,60 @@
       /* harmony import */
 
 
-      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../services/functions.service */
+      "./src/app/services/functions.service.ts");
+      /* harmony import */
+
+
+      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./service/auth-service.service */
       "./src/app/authenticate/service/auth-service.service.ts");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./../data.service */
-      "./src/app/data.service.ts");
-      /* harmony import */
-
-
-      var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./../functions.service */
-      "./src/app/functions.service.ts");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _capacitor_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @capacitor/core */
       "./node_modules/@capacitor/core/dist/esm/index.js");
 
-      var _capacitor_core__WEBP = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"],
+      var _capacitor_core__WEBP = _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["Plugins"],
           Browser = _capacitor_core__WEBP.Browser,
           Storage = _capacitor_core__WEBP.Storage;
 
       var AuthenticatePage = /*#__PURE__*/function () {
-        function AuthenticatePage(authService, fun, loadingCtrl, data) {
+        function AuthenticatePage(authService, fun, loadingCtrl) {
           _classCallCheck(this, AuthenticatePage);
 
           this.authService = authService;
           this.fun = fun;
           this.loadingCtrl = loadingCtrl;
-          this.data = data;
           this.HAS_LOGGED_IN = 'hasLoggedIn';
-          this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+          this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
               updateOn: 'blur',
-              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
             }),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, {
               updateOn: 'blur',
-              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
             })
           });
         }
@@ -338,7 +331,8 @@
                       _context.next = 3;
                       return this.loadingCtrl.create({
                         cssClass: 'my-custom-class',
-                        message: 'Please wait...'
+                        message: 'Please wait...',
+                        mode: 'ios'
                       });
 
                     case 3:
@@ -347,7 +341,10 @@
                       return loading.present();
 
                     case 6:
-                      oldsid = this.authService.currentUserDataValue.sid;
+                      if (this.authService.currentUserDataValue) {
+                        oldsid = this.authService.currentUserDataValue.sid;
+                      }
+
                       this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid).subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
 
@@ -410,7 +407,15 @@
             var name = this.authService.currentUserDataValue.name;
             var type = this.authService.currentUserDataValue.usertype;
             this.fun.presentToast('Welcome ' + name);
-            this.fun.navigate('/home/tabs/buy', false);
+
+            if (type === 'Guest' || type === 'Customer') {
+              this.fun.navigate('/home/tabs/buy', false);
+            } else if (type === 'Seller') {
+              this.fun.navigate('/sellersdashboard', false);
+            } else if (type === 'Admin') {
+              this.fun.navigate('/admindashboard', false);
+            }
+
             var event = new CustomEvent('user:login', {
               detail: {
                 name: name,
@@ -426,17 +431,15 @@
 
       AuthenticatePage.ctorParameters = function () {
         return [{
-          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"]
+          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthServiceService"]
         }, {
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["LoadingController"]
-        }, {
-          type: _data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"]
         }];
       };
 
-      AuthenticatePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+      AuthenticatePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-authenticate',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./authenticate.page.html */

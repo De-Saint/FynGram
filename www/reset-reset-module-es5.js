@@ -207,21 +207,21 @@
       /* harmony import */
 
 
-      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../services/functions.service */
+      "./src/app/services/functions.service.ts");
+      /* harmony import */
+
+
+      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./../service/auth-service.service */
       "./src/app/authenticate/service/auth-service.service.ts");
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-      /* harmony import */
-
-
-      var _functions_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./../../functions.service */
-      "./src/app/functions.service.ts");
       /* harmony import */
 
 
@@ -289,7 +289,8 @@
                       _context.next = 6;
                       return this.loadingCtrl.create({
                         cssClass: 'my-custom-class',
-                        message: 'Please wait...'
+                        message: 'Please wait...',
+                        mode: 'ios'
                       });
 
                     case 6:
@@ -332,11 +333,11 @@
 
       ResetPage.ctorParameters = function () {
         return [{
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_3__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }, {
-          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"]
+          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthServiceService"]
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]
         }];
       };
 

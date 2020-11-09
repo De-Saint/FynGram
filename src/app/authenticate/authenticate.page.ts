@@ -19,7 +19,7 @@ export class AuthenticatePage implements OnInit {
     private authService: AuthServiceService,
     private fun: FunctionsService,
     private loadingCtrl: LoadingController,
-    ) {
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl(null,
         { updateOn: 'blur', validators: [Validators.required] }),
@@ -37,11 +37,11 @@ export class AuthenticatePage implements OnInit {
       const loading = await this.loadingCtrl.create({
         cssClass: 'my-custom-class',
         message: 'Please wait...',
-        mode:'ios'
+        mode: 'ios'
       });
       await loading.present();
       let oldsid;
-      if(this.authService.currentUserDataValue){
+      if (this.authService.currentUserDataValue) {
         oldsid = this.authService.currentUserDataValue.sid;
       }
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password, oldsid)
@@ -49,7 +49,7 @@ export class AuthenticatePage implements OnInit {
           loading.dismiss().catch(() => { });
           if (res.code === 200) {
             this.gotoHomePage(res.data);
-          }else{
+          } else {
             this.fun.presentToast(res.msg);
           }
         }, error => {
@@ -78,7 +78,14 @@ export class AuthenticatePage implements OnInit {
     const name = this.authService.currentUserDataValue.name;
     const type = this.authService.currentUserDataValue.usertype;
     this.fun.presentToast('Welcome ' + name);
-    this.fun.navigate('/home/tabs/buy', false);
+    if (type === 'Guest' || type === 'Customer') {
+      this.fun.navigate('/home/tabs/buy', false);
+    } else if (type === 'Seller') {
+      this.fun.navigate('/sellersdashboard', false);
+    } else if (type === 'Admin') {
+      this.fun.navigate('/admindashboard', false);
+    }
+
     const event = new CustomEvent('user:login', { detail: { name, type } });
     return window.dispatchEvent(event);
   }

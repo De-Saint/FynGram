@@ -5,17 +5,17 @@
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"], {
     /***/
-    "./src/app/data.service.ts":
-    /*!*********************************!*\
-      !*** ./src/app/data.service.ts ***!
-      \*********************************/
+    "./src/app/services/data.service.ts":
+    /*!******************************************!*\
+      !*** ./src/app/services/data.service.ts ***!
+      \******************************************/
 
     /*! exports provided: DataService */
 
     /***/
-    function srcAppDataServiceTs(module, __webpack_exports__, __webpack_require__) {
+    function srcAppServicesDataServiceTs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -2112,15 +2112,15 @@
     },
 
     /***/
-    "./src/app/functions.service.ts":
-    /*!**************************************!*\
-      !*** ./src/app/functions.service.ts ***!
-      \**************************************/
+    "./src/app/services/functions.service.ts":
+    /*!***********************************************!*\
+      !*** ./src/app/services/functions.service.ts ***!
+      \***********************************************/
 
     /*! exports provided: FunctionsService */
 
     /***/
-    function srcAppFunctionsServiceTs(module, __webpack_exports__, __webpack_require__) {
+    function srcAppServicesFunctionsServiceTs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -2141,7 +2141,7 @@
 
       var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! ./data.service */
-      "./src/app/data.service.ts");
+      "./src/app/services/data.service.ts");
       /* harmony import */
 
 
@@ -2262,7 +2262,7 @@
           }
         }, {
           key: "removeConform",
-          value: function removeConform() {
+          value: function removeConform(data) {
             var _this = this;
 
             return new Promise(function (resolve, reject) {
@@ -2275,7 +2275,7 @@
                         _context2.next = 2;
                         return this.alertController.create({
                           header: 'Confirm!',
-                          message: 'Are you sure you want to remove this item',
+                          message: 'Are you sure you want to remove this ' + data + '?',
                           buttons: [{
                             text: 'Cancel',
                             role: 'cancel',
@@ -2307,10 +2307,102 @@
             });
           }
         }, {
+          key: "setConfirm",
+          value: function setConfirm(data) {
+            var _this2 = this;
+
+            return new Promise(function (resolve, reject) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this2, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var alert;
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                  while (1) {
+                    switch (_context3.prev = _context3.next) {
+                      case 0:
+                        _context3.next = 2;
+                        return this.alertController.create({
+                          header: 'Confirm!',
+                          message: 'Are you sure you want to make this ' + data + ' the default?',
+                          buttons: [{
+                            text: 'Cancel',
+                            role: 'cancel',
+                            cssClass: 'secondary',
+                            handler: function handler(cancel) {
+                              console.log('Confirm Cancel: blah');
+                              resolve('cancel');
+                            }
+                          }, {
+                            text: 'Okay',
+                            handler: function handler(ok) {
+                              console.log('Confirm Okay');
+                              resolve('ok');
+                            }
+                          }]
+                        });
+
+                      case 2:
+                        alert = _context3.sent;
+                        alert.present();
+
+                      case 4:
+                      case "end":
+                        return _context3.stop();
+                    }
+                  }
+                }, _callee3, this);
+              }));
+            });
+          }
+        }, {
           key: "calculate",
           value: function calculate(price, discount) {
             price = price - price * discount / 100;
             return price.toFixed(2);
+          }
+        }, {
+          key: "processRequest",
+          value: function processRequest(option, data) {
+            var _this3 = this;
+
+            return new Promise(function (resolve, reject) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this3, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+                var alert;
+                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                  while (1) {
+                    switch (_context4.prev = _context4.next) {
+                      case 0:
+                        _context4.next = 2;
+                        return this.alertController.create({
+                          header: 'Confirm!',
+                          message: 'Are you sure you want to ' + option + ' this ' + data + '?',
+                          buttons: [{
+                            text: 'Cancel',
+                            role: 'cancel',
+                            cssClass: 'secondary',
+                            handler: function handler(cancel) {
+                              console.log('Confirm Cancel: blah');
+                              resolve('cancel');
+                            }
+                          }, {
+                            text: 'Okay',
+                            handler: function handler(ok) {
+                              console.log('Confirm Okay');
+                              resolve('ok');
+                            }
+                          }]
+                        });
+
+                      case 2:
+                        alert = _context4.sent;
+                        alert.present();
+
+                      case 4:
+                      case "end":
+                        return _context4.stop();
+                    }
+                  }
+                }, _callee4, this);
+              }));
+            });
           }
         }, {
           key: "setNavigationData",
@@ -2370,4 +2462,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255-es5.js.map
+//# sourceMappingURL=default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a-es5.js.map

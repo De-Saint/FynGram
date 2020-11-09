@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../authenticate/service/auth-service.service';
 import { map } from 'rxjs/operators';
 import { environment } from './../../environments/environment';
 import { ResponseType } from './../../interfaces/response';
@@ -12,8 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class PaymentService {
   constructor(
-    private http: HttpClient, private nativeHttp: HTTP,
-     private platform: Platform
+    private http: HttpClient, private authService: AuthServiceService,
+    private platform: Platform
   ) {
 
   }
@@ -22,49 +23,35 @@ export class PaymentService {
   GetPayments(sid): Observable<ResponseType> {
     const url = environment.url + 'MPaymentServlet';
     const type = 'GetPayments';
-    // if (this.platform.is("android")) {
-    // const data = {
-    //   type
-    // };
-    //   this.nativeHttp.setDataSerializer("json");
-    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-    //   return from(nativeCall).pipe(
-    //     map(result => {
-    // if(result.code === 200){
-    //       return JSON.parse(result.data);
-    //     })
-    //   )
-    // } else {
-    const data = JSON.stringify({ type, sid });
-    return this.http.post<ResponseType>(url, data).pipe(
-      map(res => {
-        return res;
-      })
-    );
-    // }
+    if (this.platform.is('android')) {
+      const data = {
+        type, sid
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, sid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
   }
   DeletePayment(paymentid): Observable<ResponseType> {
     const url = environment.url + 'MPaymentServlet';
     const type = 'DeletePayment';
-    // if (this.platform.is("android")) {
-    // const data = {
-    //   type
-    // };
-    //   this.nativeHttp.setDataSerializer("json");
-    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-    //   return from(nativeCall).pipe(
-    //     map(result => {
-    // if(result.code === 200){
-    //       return JSON.parse(result.data);
-    //     })
-    //   )
-    // } else {
-    const data = JSON.stringify({ type, paymentid });
-    return this.http.post<ResponseType>(url, data).pipe(
-      map(res => {
-        return res;
-      })
-    );
-    // }
+    if (this.platform.is('android')) {
+      const data = {
+        type, paymentid
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, paymentid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
   }
 }

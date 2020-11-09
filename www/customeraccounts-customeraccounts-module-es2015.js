@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\n  <ion-tab-bar mode=\"ios\" slot=\"bottom\" class=\"ion-text-xl-center\">\n    <ion-tab-button tab=\"discounts\">\n      <ion-label>Discounts</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"transactions\">\n      <ion-label>Transactions</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"payments\">\n      <ion-label>Payments</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n</ion-tabs>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\n  <ion-tab-bar mode=\"ios\" slot=\"bottom\" class=\"ion-text-xl-center\">\n    <ion-tab-button tab=\"transactions\">\n      <ion-label>Transactions</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"payments\">\n      <ion-label>Payments</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"discounts\">\n      <ion-label>Discounts</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n</ion-tabs>");
 
 /***/ }),
 
@@ -37,20 +37,11 @@ const routes = [
         component: _customeraccounts_page__WEBPACK_IMPORTED_MODULE_3__["CustomeraccountsPage"],
         children: [
             {
-                path: 'discounts',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | discounts-discounts-module */ "discounts-discounts-module").then(__webpack_require__.bind(null, /*! ./discounts/discounts.module */ "./src/app/customeraccounts/discounts/discounts.module.ts")).then(m => m.DiscountsPageModule)
-                    }
-                ]
-            },
-            {
                 path: 'transactions',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | transactions-transactions-module */ "transactions-transactions-module").then(__webpack_require__.bind(null, /*! ./transactions/transactions.module */ "./src/app/customeraccounts/transactions/transactions.module.ts")).then(m => m.TransactionsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | transactions-transactions-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("transactions-transactions-module")]).then(__webpack_require__.bind(null, /*! ./transactions/transactions.module */ "./src/app/customeraccounts/transactions/transactions.module.ts")).then(m => m.TransactionsPageModule)
                     }
                 ]
             },
@@ -59,7 +50,16 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | payments-payments-module */ "payments-payments-module").then(__webpack_require__.bind(null, /*! ./payments/payments.module */ "./src/app/customeraccounts/payments/payments.module.ts")).then(m => m.PaymentsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | payments-payments-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("payments-payments-module")]).then(__webpack_require__.bind(null, /*! ./payments/payments.module */ "./src/app/customeraccounts/payments/payments.module.ts")).then(m => m.PaymentsPageModule)
+                    }
+                ]
+            },
+            {
+                path: 'discounts',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => Promise.all(/*! import() | discounts-discounts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("discounts-discounts-module")]).then(__webpack_require__.bind(null, /*! ./discounts/discounts.module */ "./src/app/customeraccounts/discounts/discounts.module.ts")).then(m => m.DiscountsPageModule)
                     }
                 ]
             },

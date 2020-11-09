@@ -207,56 +207,50 @@
       /* harmony import */
 
 
-      var _service_shop_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../services/functions.service */
+      "./src/app/services/functions.service.ts");
+      /* harmony import */
+
+
+      var _service_shop_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./../service/shop.service */
       "./src/app/home/service/shop.service.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./../../authenticate/service/auth-service.service */
       "./src/app/authenticate/service/auth-service.service.ts");
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./../../data.service */
-      "./src/app/data.service.ts");
-      /* harmony import */
-
-
-      var _functions_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./../../functions.service */
-      "./src/app/functions.service.ts");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
       /* harmony import */
 
 
-      var _capacitor_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @capacitor/core */
       "./node_modules/@capacitor/core/dist/esm/index.js");
 
-      var Storage = _capacitor_core__WEBPACK_IMPORTED_MODULE_8__["Plugins"].Storage;
+      var Storage = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"].Storage;
 
       var BuyPage = /*#__PURE__*/function () {
-        function BuyPage(fun, router, shopService, loadingCtrl, authService, dataService) {
+        function BuyPage(fun, router, shopService, loadingCtrl, authService) {
           _classCallCheck(this, BuyPage);
 
           this.fun = fun;
@@ -264,7 +258,6 @@
           this.shopService = shopService;
           this.loadingCtrl = loadingCtrl;
           this.authService = authService;
-          this.dataService = dataService;
           this.HAS_LOGGED_IN = 'hasLoggedIn';
           this.HAS_VISITED = 'hasVisited';
           this.slideOptsOne = {
@@ -321,7 +314,11 @@
             var _this = this;
 
             this.authService.getIPAddress().subscribe(function (res) {
+              alert("buy res  " + JSON.stringify(res));
+
               _this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(function (res) {
+                console.log(JSON.stringify(res));
+                alert("res save guest" + JSON.stringify(res));
                 Storage.set({
                   key: _this.HAS_VISITED,
                   value: 'true'
@@ -355,7 +352,8 @@
                       _context2.next = 2;
                       return this.loadingCtrl.create({
                         cssClass: 'my-custom-class',
-                        message: 'Please wait...'
+                        message: 'Please wait...',
+                        mode: 'ios'
                       });
 
                     case 2:
@@ -430,21 +428,19 @@
 
       BuyPage.ctorParameters = function () {
         return [{
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_5__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }, {
-          type: _service_shop_service__WEBPACK_IMPORTED_MODULE_1__["ShopService"]
+          type: _service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"]
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["LoadingController"]
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"]
         }, {
-          type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"]
-        }, {
-          type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]
+          type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthServiceService"]
         }];
       };
 
-      BuyPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+      BuyPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-buy',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./buy.page.html */

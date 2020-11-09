@@ -33,9 +33,6 @@ export class AppComponent implements OnInit {
     { title: 'Register', url: '/authenticate/register', icon: 'person-add' }
   ];
   public sellerPages = [
-    { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
-    { title: 'Search', url: '/search', icon: 'search' },
-    { title: 'Cart', url: '/cart', icon: 'cart' },
     { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
     { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'person-circle' },
     { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'wallet' },
@@ -44,9 +41,9 @@ export class AppComponent implements OnInit {
 
   ];
   public adminPages = [
-    { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
-    { title: 'Search', url: '/search', icon: 'search' },
-    { title: 'Cart', url: '/cart', icon: 'cart' },
+    // { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
+    // { title: 'Search', url: '/search', icon: 'search' },
+    // { title: 'Cart', url: '/cart', icon: 'cart' },
     { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
     { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'person-circle' },
     { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'wallet' },

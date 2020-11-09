@@ -3,7 +3,7 @@ import { ShopService } from './../service/shop.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from './../../authenticate/service/auth-service.service';
 import { Component } from '@angular/core';
-import {LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 const { Storage } = Plugins;
 @Component({
@@ -26,7 +26,7 @@ export class BuyPage {
     private shopService: ShopService,
     private loadingCtrl: LoadingController,
     private authService: AuthServiceService,
- ) {
+  ) {
 
   }
 
@@ -46,14 +46,19 @@ export class BuyPage {
   }
 
 
+
   getIP() {
     this.authService.getIPAddress().subscribe((res: any) => {
-      this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(res => {
-        Storage.set({ key: this.HAS_VISITED, value: 'true' });
-        this.fun.navigate('home', false);
-        const event = new CustomEvent('user:guest');
-        return window.dispatchEvent(event);
-      })
+      alert("buy res  " + JSON.stringify(res));
+      this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name)
+        .subscribe(res => {
+          console.log(JSON.stringify(res))
+          alert("res save guest" + JSON.stringify(res));
+          Storage.set({ key: this.HAS_VISITED, value: 'true' });
+          this.fun.navigate('home', false);
+          const event = new CustomEvent('user:guest');
+          return window.dispatchEvent(event);
+        })
     }, error => {
     });
   }
@@ -74,7 +79,7 @@ export class BuyPage {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.shopService.GetTopSellingProducts().subscribe(res => {

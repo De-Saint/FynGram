@@ -78,9 +78,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | profile-profile-module */
-              "profile-profile-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
               /*! ./profile/profile.module */
               "./src/app/adminprofile/profile/profile.module.ts")).then(function (m) {
                 return m.ProfilePageModule;
@@ -92,9 +92,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | messages-messages-module */
-              "messages-messages-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null,
               /*! ./messages/messages.module */
               "./src/app/adminprofile/messages/messages.module.ts")).then(function (m) {
                 return m.MessagesPageModule;
@@ -106,9 +106,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | reviews-reviews-module */
-              "reviews-reviews-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("reviews-reviews-module")]).then(__webpack_require__.bind(null,
               /*! ./reviews/reviews.module */
               "./src/app/adminprofile/reviews/reviews.module.ts")).then(function (m) {
                 return m.ReviewsPageModule;

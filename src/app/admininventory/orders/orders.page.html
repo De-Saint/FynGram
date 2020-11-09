@@ -1,12 +1,55 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
-      <ion-menu-button  color="light"></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title  color="light">Orders</ion-title>
+    <ion-title color="light">Orders</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" color="light">
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="basket" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not placed any order yet!</strong></ion-text>
+        <ion-button color="mytheme" class="ion-margin-top" (click)="onShop()">
+          <span class="white">Continue Shopping</span>
+        </ion-button>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+
+  <ion-item lines="none" *ngFor="let order of orders" class="card ion-margin-bottom ion-no-padding"
+    (click)="open(order)">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="3">
+        <ion-row>
+          <ion-text>
+            <h5 class="title ion-no-margin">Order Item(s) <strong>(#{{order.product_count}})</strong> </h5>
+          </ion-text>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-text>
+            <h5 class="title ion-no-margin"><strong>{{order.reference}}</strong></h5>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 class="sub ion-no-margin">{{order.StatusDetails?.name}}</h6>
+          </ion-text>
+        </ion-row>
+      </ion-col>
+      <ion-col class="ion-float-right" size="2">
+        <ion-icon class="item-icon mycolor ion-float-right" name="chevron-forward-circle" mode="ios"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
 </ion-content>

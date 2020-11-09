@@ -41,7 +41,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | orders-orders-module */ "orders-orders-module").then(__webpack_require__.bind(null, /*! ./orders/orders.module */ "./src/app/customerorders/orders/orders.module.ts")).then(m => m.OrdersPageModule)
+                        loadChildren: () => Promise.all(/*! import() | orders-orders-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("orders-orders-module")]).then(__webpack_require__.bind(null, /*! ./orders/orders.module */ "./src/app/customerorders/orders/orders.module.ts")).then(m => m.OrdersPageModule)
+                    },
+                    {
+                        path: 'details/:orderId',
+                        loadChildren: () => Promise.all(/*! import() | orders-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~details-details-module~orders-details-details-module"), __webpack_require__.e("common"), __webpack_require__.e("orders-details-details-module")]).then(__webpack_require__.bind(null, /*! ./orders/details/details.module */ "./src/app/customerorders/orders/details/details.module.ts")).then(m => m.DetailsPageModule)
                     }
                 ]
             },
@@ -50,7 +54,16 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | wishlist-wishlist-module */ "wishlist-wishlist-module").then(__webpack_require__.bind(null, /*! ./wishlist/wishlist.module */ "./src/app/customerorders/wishlist/wishlist.module.ts")).then(m => m.WishlistPageModule)
+                        loadChildren: () => Promise.all(/*! import() | wishlist-wishlist-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("wishlist-wishlist-module")]).then(__webpack_require__.bind(null, /*! ./wishlist/wishlist.module */ "./src/app/customerorders/wishlist/wishlist.module.ts")).then(m => m.WishlistPageModule)
+                    },
+                    {
+                        path: 'products',
+                        children: [
+                            {
+                                path: 'details/:productId',
+                                loadChildren: () => Promise.all(/*! import() | home-category-products-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null, /*! ../home/category/products/details/details.module */ "./src/app/home/category/products/details/details.module.ts")).then(m => m.DetailsPageModule)
+                            }
+                        ]
                     }
                 ]
             },
@@ -59,7 +72,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | returned-returned-module */ "returned-returned-module").then(__webpack_require__.bind(null, /*! ./returned/returned.module */ "./src/app/customerorders/returned/returned.module.ts")).then(m => m.ReturnedPageModule)
+                        loadChildren: () => Promise.all(/*! import() | returned-returned-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("returned-returned-module")]).then(__webpack_require__.bind(null, /*! ./returned/returned.module */ "./src/app/customerorders/returned/returned.module.ts")).then(m => m.ReturnedPageModule)
                     }
                 ]
             },

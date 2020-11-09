@@ -207,27 +207,27 @@
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../services/functions.service */
+      "./src/app/services/functions.service.ts");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
       /* harmony import */
 
 
-      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./../service/auth-service.service */
       "./src/app/authenticate/service/auth-service.service.ts");
-      /* harmony import */
-
-
-      var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./../../functions.service */
-      "./src/app/functions.service.ts");
       /* harmony import */
 
 
@@ -251,20 +251,17 @@
           this.authService = authService;
           this.loadingCtrl = loadingCtrl;
           this.HAS_LOGGED_IN = 'hasLoggedIn';
-          this.validateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
+          this.validateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, {
               updateOn: 'blur',
-              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)]
+              validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6)]
             })
           });
         }
 
         _createClass(ValidatePage, [{
           key: "ngOnInit",
-          value: function ngOnInit() {
-            var oldsid = this.authService.currentUserDataValue.sid;
-            console.log(oldsid);
-          }
+          value: function ngOnInit() {}
         }, {
           key: "onSubmit",
           value: function onSubmit() {
@@ -288,7 +285,8 @@
                       _context.next = 5;
                       return this.loadingCtrl.create({
                         cssClass: 'my-custom-class',
-                        message: 'Please wait...'
+                        message: 'Please wait...',
+                        mode: 'ios'
                       });
 
                     case 5:
@@ -355,11 +353,11 @@
 
       ValidatePage.ctorParameters = function () {
         return [{
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }, {
-          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"]
+          type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthServiceService"]
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]
         }];
       };
 

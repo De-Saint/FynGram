@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../authenticate/service/auth-service.service';
 import { map } from 'rxjs/operators';
 import { environment } from './../../environments/environment';
 import { ResponseType } from './../../interfaces/response';
@@ -13,8 +14,8 @@ import { Observable } from 'rxjs';
 export class TransactionService {
 
   constructor(
-    private http: HttpClient, private nativeHttp: HTTP,
-     private platform: Platform
+    private http: HttpClient, private authService: AuthServiceService,
+    private platform: Platform
   ) {
 
   }
@@ -23,49 +24,35 @@ export class TransactionService {
   GetRecentTransactions(sid): Observable<ResponseType> {
     const url = environment.url + 'MTransactionServlet';
     const type = 'GetRecentTransactions';
-    // if (this.platform.is("android")) {
-    // const data = {
-    //   type
-    // };
-    //   this.nativeHttp.setDataSerializer("json");
-    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-    //   return from(nativeCall).pipe(
-    //     map(result => {
-    // if(result.code === 200){
-    //       return JSON.parse(result.data);
-    //     })
-    //   )
-    // } else {
-    const data = JSON.stringify({ type, sid });
-    return this.http.post<ResponseType>(url, data).pipe(
-      map(res => {
-        return res;
-      })
-    );
-    // }
+    if (this.platform.is('android')) {
+      const data = {
+        type, sid
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, sid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
   }
   DeleteTransaction(transactionid): Observable<ResponseType> {
     const url = environment.url + 'MTransactionServlet';
     const type = 'DeleteTransaction';
-    // if (this.platform.is("android")) {
-    // const data = {
-    //   type
-    // };
-    //   this.nativeHttp.setDataSerializer("json");
-    //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-    //   return from(nativeCall).pipe(
-    //     map(result => {
-    // if(result.code === 200){
-    //       return JSON.parse(result.data);
-    //     })
-    //   )
-    // } else {
-    const data = JSON.stringify({ type, transactionid });
-    return this.http.post<ResponseType>(url, data).pipe(
-      map(res => {
-        return res;
-      })
-    );
-    // }
+    if (this.platform.is('android')) {
+      const data = {
+        type, transactionid
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, transactionid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
   }
 }

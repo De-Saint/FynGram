@@ -78,9 +78,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | profile-profile-module */
-              "profile-profile-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
               /*! ./profile/profile.module */
               "./src/app/sellersprofile/profile/profile.module.ts")).then(function (m) {
                 return m.ProfilePageModule;
@@ -92,12 +92,23 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | address-address-module */
-              "address-address-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("address-address-module")]).then(__webpack_require__.bind(null,
               /*! ./address/address.module */
               "./src/app/sellersprofile/address/address.module.ts")).then(function (m) {
                 return m.AddressPageModule;
+              });
+            }
+          }, {
+            path: 'new',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | address-new-new-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("address-new-new-module")]).then(__webpack_require__.bind(null,
+              /*! ./address/new/new.module */
+              "./src/app/sellersprofile/address/new/new.module.ts")).then(function (m) {
+                return m.NewPageModule;
               });
             }
           }]
@@ -106,9 +117,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | messages-messages-module */
-              "messages-messages-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null,
               /*! ./messages/messages.module */
               "./src/app/sellersprofile/messages/messages.module.ts")).then(function (m) {
                 return m.MessagesPageModule;

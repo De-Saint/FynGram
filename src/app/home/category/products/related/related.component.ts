@@ -32,8 +32,6 @@ export class RelatedComponent implements OnInit {
       this.shopService.GetRelatedProducts(productid).subscribe(res => {
         if (res.code === 200) {
           this.products = res.data;
-        } else {
-          // this.fun.presentToast(res.msg);
         }
       }, error => {
       })
@@ -41,13 +39,14 @@ export class RelatedComponent implements OnInit {
   }
 
   open(product) {
-    this.fun.navigate('home', false)
+    this.fun.navigate('home', false);
     this.fun.setNavigationData(product.id, product);
-    if (this.navlink) {
-      this.router.navigate(['/', 'home', 'tabs', this.navlink, 'products', 'details', product.id]);
+    if (this.navlink === 'buy') {
+      this.router.navigate(['/', 'home', 'tabs', 'buy', 'products', 'details', product.id]);
+    } else if (this.navlink === 'wishlist') {
+      this.router.navigate(['/', 'customerorders', 'tabs', 'wishlist', 'products', 'details', product.id]);
     } else {
       this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', product.id]);
-
     }
   }
 }

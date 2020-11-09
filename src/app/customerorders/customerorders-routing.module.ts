@@ -27,6 +27,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./wishlist/wishlist.module').then(m => m.WishlistPageModule)
+          },
+          {
+            path: 'products',
+            children: [
+              {
+                path: 'details/:productId',
+                loadChildren: () => import('../home/category/products/details/details.module').then(m => m.DetailsPageModule)
+              }
+            ]
           }
         ]
       },

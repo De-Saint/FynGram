@@ -116,10 +116,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryPage", function() { return CategoryPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _service_shop_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../service/shop.service */ "./src/app/home/service/shop.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/functions.service */ "./src/app/services/functions.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _service_shop_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../service/shop.service */ "./src/app/home/service/shop.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
 
@@ -148,6 +148,7 @@ let CategoryPage = class CategoryPage {
             const loading = yield this.loadingCtrl.create({
                 cssClass: 'my-custom-class',
                 message: 'Please wait...',
+                mode: 'ios'
             });
             yield loading.present();
             this.shopService.GetCategories().subscribe(res => {
@@ -160,7 +161,6 @@ let CategoryPage = class CategoryPage {
                 }
             }, error => {
                 loading.dismiss().catch(() => { });
-                console.log(JSON.stringify(error));
             });
         });
     }
@@ -172,10 +172,10 @@ let CategoryPage = class CategoryPage {
     }
 };
 CategoryPage.ctorParameters = () => [
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
-    { type: _service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] },
+    { type: _service_shop_service__WEBPACK_IMPORTED_MODULE_3__["ShopService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 CategoryPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({

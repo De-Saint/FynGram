@@ -116,10 +116,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValidatePage", function() { return ValidatePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../functions.service */ "./src/app/functions.service.ts");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/functions.service */ "./src/app/services/functions.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
@@ -136,13 +136,11 @@ let ValidatePage = class ValidatePage {
         this.authService = authService;
         this.loadingCtrl = loadingCtrl;
         this.HAS_LOGGED_IN = 'hasLoggedIn';
-        this.validateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)] }),
+        this.validateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, { updateOn: 'blur', validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6)] }),
         });
     }
     ngOnInit() {
-        const oldsid = this.authService.currentUserDataValue.sid;
-        console.log(oldsid);
     }
     onSubmit() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -153,6 +151,7 @@ let ValidatePage = class ValidatePage {
             const loading = yield this.loadingCtrl.create({
                 cssClass: 'my-custom-class',
                 message: 'Please wait...',
+                mode: 'ios'
             });
             yield loading.present();
             this.authService.ValidateAccount(this.validateForm.value.code)
@@ -188,9 +187,9 @@ let ValidatePage = class ValidatePage {
     }
 };
 ValidatePage.ctorParameters = () => [
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"] },
-    { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] }
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] },
+    { type: _service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthServiceService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] }
 ];
 ValidatePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({

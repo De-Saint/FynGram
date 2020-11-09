@@ -41,7 +41,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | fynpay-fynpay-module */ "fynpay-fynpay-module").then(__webpack_require__.bind(null, /*! ./fynpay/fynpay.module */ "./src/app/adminwallet/fynpay/fynpay.module.ts")).then(m => m.FynpayPageModule)
+                        loadChildren: () => Promise.all(/*! import() | fynpay-fynpay-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("fynpay-fynpay-module")]).then(__webpack_require__.bind(null, /*! ./fynpay/fynpay.module */ "./src/app/adminwallet/fynpay/fynpay.module.ts")).then(m => m.FynpayPageModule)
+                    },
+                    {
+                        path: 'new',
+                        loadChildren: () => Promise.all(/*! import() | fynpay-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("fynpay-new-new-module")]).then(__webpack_require__.bind(null, /*! ./fynpay/new/new.module */ "./src/app/adminwallet/fynpay/new/new.module.ts")).then(m => m.NewPageModule)
                     }
                 ]
             },
@@ -50,7 +54,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | cashouts-cashouts-module */ "cashouts-cashouts-module").then(__webpack_require__.bind(null, /*! ./cashouts/cashouts.module */ "./src/app/adminwallet/cashouts/cashouts.module.ts")).then(m => m.CashoutsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | cashouts-cashouts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("cashouts-cashouts-module")]).then(__webpack_require__.bind(null, /*! ./cashouts/cashouts.module */ "./src/app/adminwallet/cashouts/cashouts.module.ts")).then(m => m.CashoutsPageModule)
                     }
                 ]
             },
@@ -59,7 +63,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | discounts-discounts-module */ "discounts-discounts-module").then(__webpack_require__.bind(null, /*! ./discounts/discounts.module */ "./src/app/adminwallet/discounts/discounts.module.ts")).then(m => m.DiscountsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | discounts-discounts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("discounts-discounts-module")]).then(__webpack_require__.bind(null, /*! ./discounts/discounts.module */ "./src/app/adminwallet/discounts/discounts.module.ts")).then(m => m.DiscountsPageModule)
                     }
                 ]
             },

@@ -298,7 +298,7 @@ const routes = [
     },
     {
         path: 'authenticate',
-        loadChildren: () => Promise.all(/*! import() | authenticate-authenticate-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null, /*! ./authenticate/authenticate.module */ "./src/app/authenticate/authenticate.module.ts")).then(m => m.AuthenticatePageModule)
+        loadChildren: () => Promise.all(/*! import() | authenticate-authenticate-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null, /*! ./authenticate/authenticate.module */ "./src/app/authenticate/authenticate.module.ts")).then(m => m.AuthenticatePageModule)
     },
     {
         path: 'home',
@@ -306,11 +306,11 @@ const routes = [
     },
     {
         path: 'cart',
-        loadChildren: () => Promise.all(/*! import() | cart-cart-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/cart/cart.module.ts")).then(m => m.CartPageModule)
+        loadChildren: () => Promise.all(/*! import() | cart-cart-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/cart/cart.module.ts")).then(m => m.CartPageModule)
     },
     {
         path: 'search',
-        loadChildren: () => Promise.all(/*! import() | search-search-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null, /*! ./search/search.module */ "./src/app/search/search.module.ts")).then(m => m.SearchPageModule)
+        loadChildren: () => Promise.all(/*! import() | search-search-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null, /*! ./search/search.module */ "./src/app/search/search.module.ts")).then(m => m.SearchPageModule)
     },
     {
         path: 'customeraccounts',
@@ -377,12 +377,8 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | customerwallet-customerwallet-module */ "customerwallet-customerwallet-module").then(__webpack_require__.bind(null, /*! ./customerwallet/customerwallet.module */ "./src/app/customerwallet/customerwallet.module.ts")).then(m => m.CustomerwalletPageModule)
     },
     {
-        path: 'customerdashboard',
-        loadChildren: () => __webpack_require__.e(/*! import() | customerdashboard-customerdashboard-module */ "customerdashboard-customerdashboard-module").then(__webpack_require__.bind(null, /*! ./customerdashboard/customerdashboard.module */ "./src/app/customerdashboard/customerdashboard.module.ts")).then(m => m.CustomerdashboardPageModule)
-    },
-    {
         path: 'checkout',
-        loadChildren: () => Promise.all(/*! import() | checkout-checkout-module */[__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null, /*! ./checkout/checkout.module */ "./src/app/checkout/checkout.module.ts")).then(m => m.CheckoutPageModule)
+        loadChildren: () => Promise.all(/*! import() | checkout-checkout-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null, /*! ./checkout/checkout.module */ "./src/app/checkout/checkout.module.ts")).then(m => m.CheckoutPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -460,23 +456,20 @@ let AppComponent = class AppComponent {
             { title: 'Register', url: '/authenticate/register', icon: 'person-add' }
         ];
         this.sellerPages = [
-            { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
-            { title: 'Search', url: '/search', icon: 'search' },
-            { title: 'Cart', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
             { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'person-circle' },
             { title: 'FynPay', url: '/sellerswallet/tabs/fynpay', icon: 'wallet' },
-            { title: 'Accounts', url: '/sellersaccounts/tabs/subscriptions', icon: 'cash' },
+            { title: 'Accounts', url: '/sellersaccounts/tabs/transactions', icon: 'cash' },
             { title: 'Inventory', url: '/sellersinventory/tabs/products', icon: 'bag-add' },
         ];
         this.adminPages = [
-            { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
-            { title: 'Search', url: '/search', icon: 'search' },
-            { title: 'Cart', url: '/cart', icon: 'cart' },
+            // { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
+            // { title: 'Search', url: '/search', icon: 'search' },
+            // { title: 'Cart', url: '/cart', icon: 'cart' },
             { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
             { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'person-circle' },
             { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'wallet' },
-            { title: 'Accounts', url: '/adminaccounts/tabs/subscriptions', icon: 'cash' },
+            { title: 'Accounts', url: '/adminaccounts/tabs/transactions', icon: 'cash' },
             { title: 'Users', url: '/adminusers/tabs/sellers', icon: 'people-circle' },
             { title: 'Inventory', url: '/admininventory/tabs/products', icon: 'bag-add' },
             { title: 'Categories', url: '/admincategory/tabs/categories', icon: 'apps' },
@@ -485,10 +478,9 @@ let AppComponent = class AppComponent {
             { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
             { title: 'Search', url: '/search', icon: 'search' },
             { title: 'Cart', url: '/cart', icon: 'cart' },
-            { title: 'Dashboard', url: '/customerdashboard', icon: 'home' },
             { title: 'Profile', url: '/customerprofile/tabs/profile', icon: 'person-circle' },
             { title: 'FynPay', url: '/customerwallet/tabs/fynpay', icon: 'wallet' },
-            { title: 'Accounts', url: '/customeraccounts/tabs/discounts', icon: 'cash' },
+            { title: 'Accounts', url: '/customeraccounts/tabs/transactions', icon: 'cash' },
             { title: 'Orders', url: '/customerorders/tabs/orders', icon: 'cart' },
             { title: 'WishList', url: '/customerorders/tabs/wishlist', icon: 'heart-circle' },
         ];
@@ -514,7 +506,6 @@ let AppComponent = class AppComponent {
     checkLoginStatus() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const { value } = yield Storage.get({ key: this.HAS_LOGGED_IN });
-            console.log(value);
             if (value === 'true') {
                 if (this.authService.currentUserDataValue) {
                     this.userName = this.authService.currentUserDataValue.name;
@@ -530,7 +521,6 @@ let AppComponent = class AppComponent {
     listenToEvents() {
         window.addEventListener('user:login', (e) => {
             this.userName = e.detail.name;
-            console.log(e.detail);
             this.updateLoggedInStatus(true, e.detail.type);
         });
         window.addEventListener('user:guest', (e) => {
@@ -542,7 +532,7 @@ let AppComponent = class AppComponent {
     }
     logout() {
         this.authService.logout().then(() => {
-            return this.router.navigateByUrl('/home/tabs/buy');
+            return this.router.navigateByUrl('/authenticate');
         });
     }
     updateDarkMode(event) {
@@ -684,6 +674,7 @@ let AuthServiceService = class AuthServiceService {
         this.nativeHttp = nativeHttp;
         this.platform = platform;
         this.http = http;
+        this.HAS_VISITED = 'hasVisited';
         this.currentUserDataSubject = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](JSON.parse(sessionStorage.getItem('userData')));
         this.currentUserData = this.currentUserDataSubject.asObservable();
     }
@@ -691,36 +682,39 @@ let AuthServiceService = class AuthServiceService {
         return this.currentUserDataSubject.value;
     }
     login(emailphone, password, oldsid) {
-        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + "MUserServlet";
-        const type = "Login";
-        // if (this.platform.is("android")) {
-        // const data = {
-        //   emailphone,
-        //   password,
-        //   type
-        // };
-        //   this.nativeHttp.setDataSerializer("json");
-        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-        //   return from(nativeCall).pipe(
-        //     map(result => {
-        // if(result.code === 200){
-        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-        //       this.currentUserDataSubject.next(result.data.data);
-        // }
-        //       return JSON.parse(result.data);
-        //     })
-        //   )
-        // } else {
-        const data = JSON.stringify({ emailphone, password, oldsid, type });
-        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-            if (res.code === 200) {
-                // this.logout() 
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        const type = 'Login';
+        if (this.platform.is('android')) {
+            const data = {
+                emailphone,
+                password,
+                oldsid,
+                type
+            };
+            this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+            this.nativeHttp.setDataSerializer('json');
+            this.nativeHttp.setServerTrustMode('nocheck');
+            const nativeCall = this.nativeHttp.post(url, data, {});
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
+                const res = JSON.parse(result.data);
+                alert("login res " + JSON.stringify(res));
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
                 this.currentUserDataSubject.next(res.data);
-            }
-            return res;
-        }));
-        // }
+                return JSON.parse(result.data);
+            }));
+        }
+        else {
+            const data = JSON.stringify({ emailphone, password, oldsid, type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                if (res.code === 200) {
+                    sessionStorage.setItem('userData', JSON.stringify(res.data));
+                    this.currentUserDataSubject.next(res.data);
+                }
+                return res;
+            }));
+        }
     }
     logout() {
         return Storage.remove({ key: 'hasLoggedIn' }).then(() => {
@@ -728,140 +722,366 @@ let AuthServiceService = class AuthServiceService {
             window.dispatchEvent(new CustomEvent('user:logout'));
             this.currentUserDataSubject.next(null);
             sessionStorage.removeItem('userData');
+            this.getIPAddress().subscribe((res) => {
+                this.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(res => {
+                    Storage.set({ key: this.HAS_VISITED, value: 'true' });
+                    const event = new CustomEvent('user:guest');
+                    return window.dispatchEvent(event);
+                });
+            }, error => {
+            });
         });
     }
     getIPAddress() {
-        // if (this.platform.is("android")) {
-        //return this.nativeHttp.get("https://ip.seeip.org/geoip"});
-        // } else {
-        return this.http.get("https://ipapi.co/json/");
-        // }
+        if (this.platform.is('android')) {
+            const url = 'https://ipapi.co/json/';
+            // const url = 'https://ip.seeip.org/geoip';
+            return this.setHttpRequest(url, '');
+        }
+        else {
+            return this.http.get("https://ipapi.co/json/");
+        }
+    }
+    setHttpRequest(link, data) {
+        try {
+            const url = link;
+            this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+            this.nativeHttp.setDataSerializer('json');
+            this.nativeHttp.setServerTrustMode('nocheck');
+            const nativeCall = this.nativeHttp.get(url, data, {});
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
+                const res = JSON.parse(result.data);
+                alert(JSON.stringify(res));
+                return JSON.parse(result.data);
+            }));
+        }
+        catch (error) {
+            alert('error ' + error);
+            alert('error.status ' + error.status);
+        }
+    }
+    nativeHttpRequest(url, data) {
+        try {
+            this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+            this.nativeHttp.setDataSerializer('json');
+            this.nativeHttp.setServerTrustMode('nocheck');
+            const nativeCall = this.nativeHttp.post(url, data, {});
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
+                return JSON.parse(result.data);
+            }));
+        }
+        catch (error) {
+            alert(error);
+            alert(error.status);
+            alert(error.error); // Error message as string
+            alert(error.headers);
+        }
     }
     SaveGuest(ipaddress, location) {
         const type = 'SaveGuest';
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
-        // if (this.platform.is("android")) {
-        // const data = {
-        //   ipaddress,
-        //   location,
-        //   type
-        // };
-        //   this.nativeHttp.setDataSerializer("json");
-        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-        //   return from(nativeCall).pipe(
-        //     map(result => {
-        // if(result.code === 200){
-        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-        //       this.currentUserDataSubject.next(result.data.data);
-        //       return JSON.parse(result.data);
-        //     })
-        //   )
-        // } else {
-        const data = JSON.stringify({ ipaddress, location, type });
-        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-            sessionStorage.setItem('userData', JSON.stringify(res.data));
-            this.currentUserDataSubject.next(res.data);
-            return res;
-        }));
-        // }
+        const data = {
+            ipaddress,
+            location,
+            type
+        };
+        if (this.platform.is('android')) {
+            this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+            this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+            this.nativeHttp.setDataSerializer('json');
+            this.nativeHttp.setServerTrustMode('nocheck');
+            const nativeCall = this.nativeHttp.post(url, data, {});
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
+                const res = JSON.parse(result.data);
+                sessionStorage.setItem('userData', JSON.stringify(res.data));
+                this.currentUserDataSubject.next(res.data);
+                return JSON.parse(result.data);
+            }));
+        }
+        else {
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                sessionStorage.setItem('userData', JSON.stringify(res.data));
+                this.currentUserDataSubject.next(res.data);
+                return res;
+            }));
+        }
     }
     ResetPassword(email) {
         const type = 'ResetPassword';
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
-        // if (this.platform.is("android")) {
-        // const data = {
-        //   email,
-        //   type
-        // };
-        //   this.nativeHttp.setDataSerializer("json");
-        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-        //   return from(nativeCall).pipe(
-        //     map(result => {
-        // if(result.code === 200){
-        //       return JSON.parse(result.data);
-        //     })
-        //   )
-        // } else {
-        const data = JSON.stringify({ email, type });
-        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-            return res;
-        }));
-        // }
+        if (this.platform.is('android')) {
+            const data = {
+                email,
+                type
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ email, type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
     }
     PasswordRecovery(code, password) {
         const type = 'PasswordRecovery';
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
-        // if (this.platform.is("android")) {
-        // const data = {
-        //   code,
-        //   password
-        // };
-        //   this.nativeHttp.setDataSerializer("json");
-        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-        //   return from(nativeCall).pipe(
-        //     map(result => {
-        //       return JSON.parse(result.data);
-        //     })
-        //   )
-        // } else {
-        const data = JSON.stringify({ code, password, type });
-        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-            return res;
-        }));
-        // }
+        if (this.platform.is('android')) {
+            const data = {
+                code,
+                password
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ code, password, type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
     }
     RegisterCustomer(firstname, lastname, title, gender, email, password, phone) {
         const type = 'RegisterCustomer';
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
-        // const data = {
-        // firstname,
-        // lastname,
-        // title,
-        // gender,
-        // email,
-        //  password, 
-        //  phone,
-        //   type
-        // };
-        //   this.nativeHttp.setDataSerializer("json");
-        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-        //   return from(nativeCall).pipe(
-        //     map(result => {
-        // if(result.code === 200){
-        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-        //       this.currentUserDataSubject.next(result.data.data);
-        //       return JSON.parse(result.data);
-        //     })
-        //   )
-        // } else {
-        const data = JSON.stringify({ firstname, lastname, title, gender, email, password, phone, type });
-        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-            return res;
-        }));
-        // }
+        if (this.platform.is('android')) {
+            const data = { firstname, lastname, title, gender, email, password, phone, type };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ firstname, lastname, title, gender, email, password, phone, type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
     }
     ValidateAccount(code) {
         const type = 'ValidateAccount';
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
-        // const data = {
-        // code, oldsid,  type
-        // };
-        //   this.nativeHttp.setDataSerializer("json");
-        //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-        //   return from(nativeCall).pipe(
-        //     map(result => {
-        // if(result.code === 200){
-        //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-        //       this.currentUserDataSubject.next(result.data.data);
-        //       return JSON.parse(result.data);
-        //     })
-        //   )
-        // } else {
-        const data = JSON.stringify({ code, type });
-        return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
-            return res;
-        }));
-        // }
+        if (this.platform.is('android')) {
+            const data = {
+                code, type
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ code, type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetBanks() {
+        const type = 'GetBanks';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    CreateBankDetails(sid, bankid, accounttype, accountnumber) {
+        const type = 'CreateBankDetails';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid, bankid, accounttype, accountnumber
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid, bankid, accounttype, accountnumber });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetBankDetails(sid) {
+        const type = 'GetBankDetails';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    DeleteBankDetails(bankdetid) {
+        const type = 'DeleteBankDetails';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, bankdetid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, bankdetid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetWalletDetails(sid) {
+        const type = 'GetWalletDetails';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    RequestCashOut(sid, amount, pin) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        const type = 'NewCashoutRequest';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid, amount, pin
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid, amount, pin });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetCashoutRequests(sid) {
+        const type = 'GetCashoutRequests';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    ProcessCashOut(option, cashoutid) {
+        const type = 'ProcessCashOut';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, option, cashoutid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, option, cashoutid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetCustomerDiscountCodes(sid) {
+        const type = 'GetCustomerDiscountCodes';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetDiscountCodes() {
+        const type = 'GetDiscountCodes';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    ProcessDiscount(discountid, option) {
+        const type = 'ProcessDiscount';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, discountid, option
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, discountid, option });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetUserDetails(sid) {
+        const type = 'GetUserDetails';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                type, sid
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, sid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    UpdateProfile(sid, firstname, lastname, opassword, npassword, phone) {
+        const type = 'UpdateProfile';
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+        if (this.platform.is('android')) {
+            const data = {
+                sid, firstname, lastname, opassword, npassword, phone, type
+            };
+            return this.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ sid, firstname, lastname, opassword, npassword, phone, type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
     }
 };
 AuthServiceService.ctorParameters = () => [
@@ -894,7 +1114,9 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    url: "http://localhost:8080/FynGramEngine/",
+    // url: "http://localhost:8080/FynGramEngine/",
+    // url: "https://www.fyngram.com/FynGramEngine/",
+    url: "https://396a1d1d2fba.ngrok.io/FynGramEngine/"
 };
 /*
  * For easier debugging in development mode, you can import the following file

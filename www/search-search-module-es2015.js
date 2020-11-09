@@ -116,8 +116,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchPage", function() { return SearchPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../functions.service */ "./src/app/functions.service.ts");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var _services_functions_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../services/functions.service */ "./src/app/services/functions.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 
@@ -145,8 +145,8 @@ let SearchPage = class SearchPage {
 };
 SearchPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["MenuController"] },
-    { type: _functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] },
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"] },
+    { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_2__["FunctionsService"] },
+    { type: _services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] }
 ];
 SearchPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([

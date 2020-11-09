@@ -184,7 +184,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | authenticate-authenticate-module */
-          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null,
           /*! ./authenticate/authenticate.module */
           "./src/app/authenticate/authenticate.module.ts")).then(function (m) {
             return m.AuthenticatePageModule;
@@ -206,7 +206,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | cart-cart-module */
-          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null,
           /*! ./cart/cart.module */
           "./src/app/cart/cart.module.ts")).then(function (m) {
             return m.CartPageModule;
@@ -217,7 +217,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | search-search-module */
-          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null,
           /*! ./search/search.module */
           "./src/app/search/search.module.ts")).then(function (m) {
             return m.SearchPageModule;
@@ -400,22 +400,11 @@
           });
         }
       }, {
-        path: 'customerdashboard',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() | customerdashboard-customerdashboard-module */
-          "customerdashboard-customerdashboard-module").then(__webpack_require__.bind(null,
-          /*! ./customerdashboard/customerdashboard.module */
-          "./src/app/customerdashboard/customerdashboard.module.ts")).then(function (m) {
-            return m.CustomerdashboardPageModule;
-          });
-        }
-      }, {
         path: 'checkout',
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | checkout-checkout-module */
-          [__webpack_require__.e("default~authenticate-authenticate-module~buy-buy-module~cart-cart-module~category-category-module~ca~b9ebc255"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~category-category-module~category-products-details-details-m~a7956fb3"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null,
           /*! ./checkout/checkout.module */
           "./src/app/checkout/checkout.module.ts")).then(function (m) {
             return m.CheckoutPageModule;
@@ -562,18 +551,6 @@
             icon: 'person-add'
           }];
           this.sellerPages = [{
-            title: 'Buy',
-            url: '/home/tabs/buy',
-            icon: 'basket'
-          }, {
-            title: 'Search',
-            url: '/search',
-            icon: 'search'
-          }, {
-            title: 'Cart',
-            url: '/cart',
-            icon: 'cart'
-          }, {
             title: 'Dashboard',
             url: '/sellersdashboard',
             icon: 'home'
@@ -587,26 +564,17 @@
             icon: 'wallet'
           }, {
             title: 'Accounts',
-            url: '/sellersaccounts/tabs/subscriptions',
+            url: '/sellersaccounts/tabs/transactions',
             icon: 'cash'
           }, {
             title: 'Inventory',
             url: '/sellersinventory/tabs/products',
             icon: 'bag-add'
           }];
-          this.adminPages = [{
-            title: 'Buy',
-            url: '/home/tabs/buy',
-            icon: 'basket'
-          }, {
-            title: 'Search',
-            url: '/search',
-            icon: 'search'
-          }, {
-            title: 'Cart',
-            url: '/cart',
-            icon: 'cart'
-          }, {
+          this.adminPages = [// { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
+          // { title: 'Search', url: '/search', icon: 'search' },
+          // { title: 'Cart', url: '/cart', icon: 'cart' },
+          {
             title: 'Dashboard',
             url: '/admindashboard',
             icon: 'home'
@@ -620,7 +588,7 @@
             icon: 'wallet'
           }, {
             title: 'Accounts',
-            url: '/adminaccounts/tabs/subscriptions',
+            url: '/adminaccounts/tabs/transactions',
             icon: 'cash'
           }, {
             title: 'Users',
@@ -648,10 +616,6 @@
             url: '/cart',
             icon: 'cart'
           }, {
-            title: 'Dashboard',
-            url: '/customerdashboard',
-            icon: 'home'
-          }, {
             title: 'Profile',
             url: '/customerprofile/tabs/profile',
             icon: 'person-circle'
@@ -661,7 +625,7 @@
             icon: 'wallet'
           }, {
             title: 'Accounts',
-            url: '/customeraccounts/tabs/discounts',
+            url: '/customeraccounts/tabs/transactions',
             icon: 'cash'
           }, {
             title: 'Orders',
@@ -721,7 +685,6 @@
                     case 2:
                       _yield$Storage$get = _context.sent;
                       value = _yield$Storage$get.value;
-                      console.log(value);
 
                       if (value === 'true') {
                         if (this.authService.currentUserDataValue) {
@@ -733,7 +696,7 @@
                         this.router.navigateByUrl('/home/tabs/buy');
                       }
 
-                    case 6:
+                    case 5:
                     case "end":
                       return _context.stop();
                   }
@@ -748,7 +711,6 @@
 
             window.addEventListener('user:login', function (e) {
               _this3.userName = e.detail.name;
-              console.log(e.detail);
 
               _this3.updateLoggedInStatus(true, e.detail.type);
             });
@@ -765,7 +727,7 @@
             var _this4 = this;
 
             this.authService.logout().then(function () {
-              return _this4.router.navigateByUrl('/home/tabs/buy');
+              return _this4.router.navigateByUrl('/authenticate');
             });
           }
         }, {
@@ -1023,6 +985,7 @@
           this.nativeHttp = nativeHttp;
           this.platform = platform;
           this.http = http;
+          this.HAS_VISITED = 'hasVisited';
           this.currentUserDataSubject = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](JSON.parse(sessionStorage.getItem('userData')));
           this.currentUserData = this.currentUserDataSubject.asObservable();
         }
@@ -1032,42 +995,49 @@
           value: function login(emailphone, password, oldsid) {
             var _this5 = this;
 
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + "MUserServlet";
-            var type = "Login"; // if (this.platform.is("android")) {
-            // const data = {
-            //   emailphone,
-            //   password,
-            //   type
-            // };
-            //   this.nativeHttp.setDataSerializer("json");
-            //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            //   return from(nativeCall).pipe(
-            //     map(result => {
-            // if(result.code === 200){
-            //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-            //       this.currentUserDataSubject.next(result.data.data);
-            // }
-            //       return JSON.parse(result.data);
-            //     })
-            //   )
-            // } else {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+            var type = 'Login';
 
-            var data = JSON.stringify({
-              emailphone: emailphone,
-              password: password,
-              oldsid: oldsid,
-              type: type
-            });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-              if (res.code === 200) {
-                // this.logout() 
+            if (this.platform.is('android')) {
+              var data = {
+                emailphone: emailphone,
+                password: password,
+                oldsid: oldsid,
+                type: type
+              };
+              this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+              this.nativeHttp.setDataSerializer('json');
+              this.nativeHttp.setServerTrustMode('nocheck');
+              var nativeCall = this.nativeHttp.post(url, data, {});
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (result) {
+                var res = JSON.parse(result.data);
+                alert("login res " + JSON.stringify(res));
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
 
                 _this5.currentUserDataSubject.next(res.data);
-              }
 
-              return res;
-            })); // }
+                return JSON.parse(result.data);
+              }));
+            } else {
+              var _data = JSON.stringify({
+                emailphone: emailphone,
+                password: password,
+                oldsid: oldsid,
+                type: type
+              });
+
+              return this.http.post(url, _data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                if (res.code === 200) {
+                  sessionStorage.setItem('userData', JSON.stringify(res.data));
+
+                  _this5.currentUserDataSubject.next(res.data);
+                }
+
+                return res;
+              }));
+            }
           }
         }, {
           key: "logout",
@@ -1085,15 +1055,71 @@
               _this6.currentUserDataSubject.next(null);
 
               sessionStorage.removeItem('userData');
+
+              _this6.getIPAddress().subscribe(function (res) {
+                _this6.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(function (res) {
+                  Storage.set({
+                    key: _this6.HAS_VISITED,
+                    value: 'true'
+                  });
+                  var event = new CustomEvent('user:guest');
+                  return window.dispatchEvent(event);
+                });
+              }, function (error) {});
             });
           }
         }, {
           key: "getIPAddress",
           value: function getIPAddress() {
-            // if (this.platform.is("android")) {
-            //return this.nativeHttp.get("https://ip.seeip.org/geoip"});
-            // } else {
-            return this.http.get("https://ipapi.co/json/"); // }
+            if (this.platform.is('android')) {
+              var url = 'https://ipapi.co/json/'; // const url = 'https://ip.seeip.org/geoip';
+
+              return this.setHttpRequest(url, '');
+            } else {
+              return this.http.get("https://ipapi.co/json/");
+            }
+          }
+        }, {
+          key: "setHttpRequest",
+          value: function setHttpRequest(link, data) {
+            try {
+              var url = link;
+              this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+              this.nativeHttp.setDataSerializer('json');
+              this.nativeHttp.setServerTrustMode('nocheck');
+              var nativeCall = this.nativeHttp.get(url, data, {});
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (result) {
+                var res = JSON.parse(result.data);
+                alert(JSON.stringify(res));
+                return JSON.parse(result.data);
+              }));
+            } catch (error) {
+              alert('error ' + error);
+              alert('error.status ' + error.status);
+            }
+          }
+        }, {
+          key: "nativeHttpRequest",
+          value: function nativeHttpRequest(url, data) {
+            try {
+              this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+              this.nativeHttp.setDataSerializer('json');
+              this.nativeHttp.setServerTrustMode('nocheck');
+              var nativeCall = this.nativeHttp.post(url, data, {});
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (result) {
+                return JSON.parse(result.data);
+              }));
+            } catch (error) {
+              alert(error);
+              alert(error.status);
+              alert(error.error); // Error message as string
+
+              alert(error.headers);
+            }
           }
         }, {
           key: "SaveGuest",
@@ -1101,157 +1127,461 @@
             var _this7 = this;
 
             var type = 'SaveGuest';
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet'; // if (this.platform.is("android")) {
-            // const data = {
-            //   ipaddress,
-            //   location,
-            //   type
-            // };
-            //   this.nativeHttp.setDataSerializer("json");
-            //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            //   return from(nativeCall).pipe(
-            //     map(result => {
-            // if(result.code === 200){
-            //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-            //       this.currentUserDataSubject.next(result.data.data);
-            //       return JSON.parse(result.data);
-            //     })
-            //   )
-            // } else {
-
-            var data = JSON.stringify({
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+            var data = {
               ipaddress: ipaddress,
               location: location,
               type: type
-            });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-              sessionStorage.setItem('userData', JSON.stringify(res.data));
+            };
 
-              _this7.currentUserDataSubject.next(res.data);
+            if (this.platform.is('android')) {
+              this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+              this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+              this.nativeHttp.setDataSerializer('json');
+              this.nativeHttp.setServerTrustMode('nocheck');
+              var nativeCall = this.nativeHttp.post(url, data, {});
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (result) {
+                var res = JSON.parse(result.data);
+                sessionStorage.setItem('userData', JSON.stringify(res.data));
 
-              return res;
-            })); // }
+                _this7.currentUserDataSubject.next(res.data);
+
+                return JSON.parse(result.data);
+              }));
+            } else {
+              return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                sessionStorage.setItem('userData', JSON.stringify(res.data));
+
+                _this7.currentUserDataSubject.next(res.data);
+
+                return res;
+              }));
+            }
           }
         }, {
           key: "ResetPassword",
           value: function ResetPassword(email) {
             var type = 'ResetPassword';
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet'; // if (this.platform.is("android")) {
-            // const data = {
-            //   email,
-            //   type
-            // };
-            //   this.nativeHttp.setDataSerializer("json");
-            //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            //   return from(nativeCall).pipe(
-            //     map(result => {
-            // if(result.code === 200){
-            //       return JSON.parse(result.data);
-            //     })
-            //   )
-            // } else {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
 
-            var data = JSON.stringify({
-              email: email,
-              type: type
-            });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-              return res;
-            })); // }
+            if (this.platform.is('android')) {
+              var data = {
+                email: email,
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data2 = JSON.stringify({
+                email: email,
+                type: type
+              });
+
+              return this.http.post(url, _data2).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
           }
         }, {
           key: "PasswordRecovery",
           value: function PasswordRecovery(code, password) {
             var type = 'PasswordRecovery';
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet'; // if (this.platform.is("android")) {
-            // const data = {
-            //   code,
-            //   password
-            // };
-            //   this.nativeHttp.setDataSerializer("json");
-            //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            //   return from(nativeCall).pipe(
-            //     map(result => {
-            //       return JSON.parse(result.data);
-            //     })
-            //   )
-            // } else {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
 
-            var data = JSON.stringify({
-              code: code,
-              password: password,
-              type: type
-            });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-              return res;
-            })); // }
+            if (this.platform.is('android')) {
+              var data = {
+                code: code,
+                password: password
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data3 = JSON.stringify({
+                code: code,
+                password: password,
+                type: type
+              });
+
+              return this.http.post(url, _data3).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
           }
         }, {
           key: "RegisterCustomer",
           value: function RegisterCustomer(firstname, lastname, title, gender, email, password, phone) {
             var type = 'RegisterCustomer';
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet'; // const data = {
-            // firstname,
-            // lastname,
-            // title,
-            // gender,
-            // email,
-            //  password, 
-            //  phone,
-            //   type
-            // };
-            //   this.nativeHttp.setDataSerializer("json");
-            //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            //   return from(nativeCall).pipe(
-            //     map(result => {
-            // if(result.code === 200){
-            //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-            //       this.currentUserDataSubject.next(result.data.data);
-            //       return JSON.parse(result.data);
-            //     })
-            //   )
-            // } else {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
 
-            var data = JSON.stringify({
-              firstname: firstname,
-              lastname: lastname,
-              title: title,
-              gender: gender,
-              email: email,
-              password: password,
-              phone: phone,
-              type: type
-            });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-              return res;
-            })); // }
+            if (this.platform.is('android')) {
+              var data = {
+                firstname: firstname,
+                lastname: lastname,
+                title: title,
+                gender: gender,
+                email: email,
+                password: password,
+                phone: phone,
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data4 = JSON.stringify({
+                firstname: firstname,
+                lastname: lastname,
+                title: title,
+                gender: gender,
+                email: email,
+                password: password,
+                phone: phone,
+                type: type
+              });
+
+              return this.http.post(url, _data4).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
           }
         }, {
           key: "ValidateAccount",
           value: function ValidateAccount(code) {
             var type = 'ValidateAccount';
-            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet'; // const data = {
-            // code, oldsid,  type
-            // };
-            //   this.nativeHttp.setDataSerializer("json");
-            //   let nativeCall = this.nativeHttp.get(url, data, { "Content-Type": "application/json" });
-            //   return from(nativeCall).pipe(
-            //     map(result => {
-            // if(result.code === 200){
-            //       sessionStorage.setItem('userData', JSON.stringify(result.data));
-            //       this.currentUserDataSubject.next(result.data.data);
-            //       return JSON.parse(result.data);
-            //     })
-            //   )
-            // } else {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
 
-            var data = JSON.stringify({
-              code: code,
-              type: type
-            });
-            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
-              return res;
-            })); // }
+            if (this.platform.is('android')) {
+              var data = {
+                code: code,
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data5 = JSON.stringify({
+                code: code,
+                type: type
+              });
+
+              return this.http.post(url, _data5).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetBanks",
+          value: function GetBanks() {
+            var type = 'GetBanks';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data6 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data6).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "CreateBankDetails",
+          value: function CreateBankDetails(sid, bankid, accounttype, accountnumber) {
+            var type = 'CreateBankDetails';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid,
+                bankid: bankid,
+                accounttype: accounttype,
+                accountnumber: accountnumber
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data7 = JSON.stringify({
+                type: type,
+                sid: sid,
+                bankid: bankid,
+                accounttype: accounttype,
+                accountnumber: accountnumber
+              });
+
+              return this.http.post(url, _data7).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetBankDetails",
+          value: function GetBankDetails(sid) {
+            var type = 'GetBankDetails';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data8 = JSON.stringify({
+                type: type,
+                sid: sid
+              });
+
+              return this.http.post(url, _data8).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "DeleteBankDetails",
+          value: function DeleteBankDetails(bankdetid) {
+            var type = 'DeleteBankDetails';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                bankdetid: bankdetid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data9 = JSON.stringify({
+                type: type,
+                bankdetid: bankdetid
+              });
+
+              return this.http.post(url, _data9).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetWalletDetails",
+          value: function GetWalletDetails(sid) {
+            var type = 'GetWalletDetails';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data10 = JSON.stringify({
+                type: type,
+                sid: sid
+              });
+
+              return this.http.post(url, _data10).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "RequestCashOut",
+          value: function RequestCashOut(sid, amount, pin) {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+            var type = 'NewCashoutRequest';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid,
+                amount: amount,
+                pin: pin
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data11 = JSON.stringify({
+                type: type,
+                sid: sid,
+                amount: amount,
+                pin: pin
+              });
+
+              return this.http.post(url, _data11).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetCashoutRequests",
+          value: function GetCashoutRequests(sid) {
+            var type = 'GetCashoutRequests';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data12 = JSON.stringify({
+                type: type,
+                sid: sid
+              });
+
+              return this.http.post(url, _data12).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "ProcessCashOut",
+          value: function ProcessCashOut(option, cashoutid) {
+            var type = 'ProcessCashOut';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                option: option,
+                cashoutid: cashoutid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data13 = JSON.stringify({
+                type: type,
+                option: option,
+                cashoutid: cashoutid
+              });
+
+              return this.http.post(url, _data13).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetCustomerDiscountCodes",
+          value: function GetCustomerDiscountCodes(sid) {
+            var type = 'GetCustomerDiscountCodes';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data14 = JSON.stringify({
+                type: type,
+                sid: sid
+              });
+
+              return this.http.post(url, _data14).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetDiscountCodes",
+          value: function GetDiscountCodes() {
+            var type = 'GetDiscountCodes';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data15 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data15).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "ProcessDiscount",
+          value: function ProcessDiscount(discountid, option) {
+            var type = 'ProcessDiscount';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                discountid: discountid,
+                option: option
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data16 = JSON.stringify({
+                type: type,
+                discountid: discountid,
+                option: option
+              });
+
+              return this.http.post(url, _data16).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetUserDetails",
+          value: function GetUserDetails(sid) {
+            var type = 'GetUserDetails';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data17 = JSON.stringify({
+                type: type,
+                sid: sid
+              });
+
+              return this.http.post(url, _data17).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "UpdateProfile",
+          value: function UpdateProfile(sid, firstname, lastname, opassword, npassword, phone) {
+            var type = 'UpdateProfile';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                sid: sid,
+                firstname: firstname,
+                lastname: lastname,
+                opassword: opassword,
+                npassword: npassword,
+                phone: phone,
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data18 = JSON.stringify({
+                sid: sid,
+                firstname: firstname,
+                lastname: lastname,
+                opassword: opassword,
+                npassword: npassword,
+                phone: phone,
+                type: type
+              });
+
+              return this.http.post(url, _data18).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
           }
         }, {
           key: "currentUserDataValue",
@@ -1304,7 +1634,9 @@
 
       var environment = {
         production: false,
-        url: "http://localhost:8080/FynGramEngine/"
+        // url: "http://localhost:8080/FynGramEngine/",
+        // url: "https://www.fyngram.com/FynGramEngine/",
+        url: "https://396a1d1d2fba.ngrok.io/FynGramEngine/"
       };
       /*
        * For easier debugging in development mode, you can import the following file

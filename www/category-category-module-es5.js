@@ -207,27 +207,27 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _services_functions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../services/functions.service */
+      "./src/app/services/functions.service.ts");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var _service_shop_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _service_shop_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./../service/shop.service */
       "./src/app/home/service/shop.service.ts");
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-      /* harmony import */
-
-
-      var _functions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./../../functions.service */
-      "./src/app/functions.service.ts");
       /* harmony import */
 
 
@@ -271,7 +271,8 @@
                       _context.next = 2;
                       return this.loadingCtrl.create({
                         cssClass: 'my-custom-class',
-                        message: 'Please wait...'
+                        message: 'Please wait...',
+                        mode: 'ios'
                       });
 
                     case 2:
@@ -290,7 +291,6 @@
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
-                        console.log(JSON.stringify(error));
                       });
 
                     case 6:
@@ -318,13 +318,13 @@
 
       CategoryPage.ctorParameters = function () {
         return [{
-          type: _functions_service__WEBPACK_IMPORTED_MODULE_4__["FunctionsService"]
+          type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"]
         }, {
-          type: _service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"]
+          type: _service_shop_service__WEBPACK_IMPORTED_MODULE_3__["ShopService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
       };
 
