@@ -175,7 +175,7 @@ let OrdersPage = class OrdersPage {
         this.GetOrders(this.sid);
     }
     open(order) {
-        this.fun.setNavigationData(order.id, order);
+        // this.fun.setNavigationData(order.id, order);
         this.router.navigate(['/', 'admininventory', 'tabs', 'orders', 'details', order.id]);
     }
     GetOrders(sid) {
@@ -356,7 +356,6 @@ let OrdersPage = class OrdersPage {
         this.GetOrders(this.sid);
     }
     open(order) {
-        this.fun.setNavigationData(order.id, order);
         this.router.navigate(['/', 'customerorders', 'tabs', 'orders', 'details', order.id]);
     }
     GetOrders(sid) {
@@ -537,7 +536,7 @@ let OrdersPage = class OrdersPage {
         this.GetOrders(this.sid);
     }
     open(order) {
-        this.fun.setNavigationData(order.id, order);
+        // this.fun.setNavigationData(order.id, order);
         this.router.navigate(['/', 'sellersinventory', 'tabs', 'orders', 'details', order.id]);
     }
     GetOrders(sid) {

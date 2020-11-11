@@ -342,12 +342,6 @@ let FunctionsService = class FunctionsService {
             alert.present();
         }));
     }
-    setNavigationData(id, data) {
-        this.navigationData[id] = data;
-    }
-    getNavigationData(id) {
-        return this.navigationData[id];
-    }
     setNavLink(link) {
         this.navlink = link;
     }

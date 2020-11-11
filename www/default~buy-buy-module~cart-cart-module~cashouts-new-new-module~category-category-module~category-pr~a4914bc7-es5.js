@@ -229,6 +229,29 @@
             }
           }
         }, {
+          key: "GetProductDetails",
+          value: function GetProductDetails(productid) {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
+            var type = 'GetProductDetails';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                productid: productid
+              };
+              return this.authService.nativeHttpRequest(url, data);
+            } else {
+              var _data8 = JSON.stringify({
+                type: type,
+                productid: productid
+              });
+
+              return this.http.post(url, _data8).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
           key: "AddOption",
           value: function AddOption(option, productid, price, quantity, action) {
             var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
@@ -247,7 +270,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data8 = JSON.stringify({
+              var _data9 = JSON.stringify({
                 type: type,
                 sid: sid,
                 option: option,
@@ -257,7 +280,7 @@
                 action: action
               });
 
-              return this.http.post(url, _data8).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data9).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -277,13 +300,13 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data9 = JSON.stringify({
+              var _data10 = JSON.stringify({
                 type: type,
                 sid: sid,
                 code: code
               });
 
-              return this.http.post(url, _data9).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data10).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -301,12 +324,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data10 = JSON.stringify({
+              var _data11 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data10).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data11).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -327,7 +350,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data11 = JSON.stringify({
+              var _data12 = JSON.stringify({
                 type: type,
                 sid: sid,
                 paytype: paytype,
@@ -335,7 +358,7 @@
                 addressid: addressid
               });
 
-              return this.http.post(url, _data11).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data12).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -352,11 +375,11 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data12 = JSON.stringify({
+              var _data13 = JSON.stringify({
                 type: type
               });
 
-              return this.http.post(url, _data12).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data13).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -380,7 +403,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data13 = JSON.stringify({
+              var _data14 = JSON.stringify({
                 type: type,
                 sid: sid,
                 option: option,
@@ -390,7 +413,7 @@
                 action: action
               });
 
-              return this.http.post(url, _data13).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data14).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -410,14 +433,14 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data14 = JSON.stringify({
+              var _data15 = JSON.stringify({
                 type: type,
                 option: option,
                 optionid: optionid,
                 productid: productid
               });
 
-              return this.http.post(url, _data14).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data15).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -435,12 +458,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data15 = JSON.stringify({
+              var _data16 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data15).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data16).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -458,12 +481,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data16 = JSON.stringify({
+              var _data17 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data16).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data17).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -487,7 +510,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data17 = JSON.stringify({
+              var _data18 = JSON.stringify({
                 type: type,
                 sid: sid,
                 paytype: paytype,
@@ -498,7 +521,7 @@
                 tcode: tcode
               });
 
-              return this.http.post(url, _data17).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data18).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -520,7 +543,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data18 = JSON.stringify({
+              var _data19 = JSON.stringify({
                 type: type,
                 sid: sid,
                 paytype: paytype,
@@ -529,7 +552,7 @@
                 tcode: tcode
               });
 
-              return this.http.post(url, _data18).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data19).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -547,12 +570,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data19 = JSON.stringify({
+              var _data20 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data19).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data20).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }

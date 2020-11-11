@@ -70,5 +70,22 @@ export class OrderService {
       );
     }
   }
+  GetProductDetails(orderid): Observable<ResponseType> {
+    const url = environment.url + 'MOrderServlet';
+    const type = 'GetOrderDetails';
+    if (this.platform.is('android')) {
+      const data = {
+        type, orderid
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, orderid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
 
 }

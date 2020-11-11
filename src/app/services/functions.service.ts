@@ -168,13 +168,7 @@ export class FunctionsService {
     'Return Policy': "https://fyngram.com/FynGramShop/pages/shop/returned_policy/returned_policy.jsp",
   };
 
-  setNavigationData(id, data) {
-    this.navigationData[id] = data;
-  }
-
-  getNavigationData(id) {
-    return this.navigationData[id];
-  }
+ 
   setNavLink(link) {
     this.navlink = link;
   }

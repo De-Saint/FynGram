@@ -140,6 +140,23 @@ export class ShopService {
       );
     }
   }
+  GetProductDetails(productid): Observable<ResponseType> {
+    const url = environment.url + 'MShopServlet';
+    const type = 'GetProductDetails';
+    if (this.platform.is('android')) {
+      const data = {
+        type, productid
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, productid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
 
 
 
@@ -346,6 +363,23 @@ export class ShopService {
       return this.authService.nativeHttpRequest(url, data);
     } else {
       const data = JSON.stringify({ type, sid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  SearchProducts(searchvalue): Observable<ResponseType> {
+    const url = environment.url + 'MShopServlet';
+    const type = 'SearchProducts';
+    if (this.platform.is('android')) {
+      const data = {
+        type, searchvalue
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, searchvalue });
       return this.http.post<ResponseType>(url, data).pipe(
         map(res => {
           return res;

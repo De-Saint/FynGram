@@ -699,7 +699,6 @@ let AuthServiceService = class AuthServiceService {
             const nativeCall = this.nativeHttp.post(url, data, {});
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
                 const res = JSON.parse(result.data);
-                alert("login res " + JSON.stringify(res));
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
                 this.currentUserDataSubject.next(res.data);
                 return JSON.parse(result.data);
@@ -753,7 +752,6 @@ let AuthServiceService = class AuthServiceService {
             const nativeCall = this.nativeHttp.get(url, data, {});
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(result => {
                 const res = JSON.parse(result.data);
-                alert(JSON.stringify(res));
                 return JSON.parse(result.data);
             }));
         }
@@ -776,9 +774,6 @@ let AuthServiceService = class AuthServiceService {
         }
         catch (error) {
             alert(error);
-            alert(error.status);
-            alert(error.error); // Error message as string
-            alert(error.headers);
         }
     }
     SaveGuest(ipaddress, location) {
@@ -1114,9 +1109,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    // url: "http://localhost:8080/FynGramEngine/",
-    // url: "https://www.fyngram.com/FynGramEngine/",
-    url: "https://396a1d1d2fba.ngrok.io/FynGramEngine/"
+    url: "http://localhost:8080/FynGramEngine/",
 };
 /*
  * For easier debugging in development mode, you can import the following file

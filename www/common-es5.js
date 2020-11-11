@@ -1562,6 +1562,29 @@
               }));
             }
           }
+        }, {
+          key: "GetProductDetails",
+          value: function GetProductDetails(orderid) {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MOrderServlet';
+            var type = 'GetOrderDetails';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                orderid: orderid
+              };
+              return this.authService.nativeHttpRequest(url, data);
+            } else {
+              var _data14 = JSON.stringify({
+                type: type,
+                orderid: orderid
+              });
+
+              return this.http.post(url, _data14).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
         }]);
 
         return OrderService;

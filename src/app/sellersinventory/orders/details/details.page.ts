@@ -37,8 +37,8 @@ export class DetailsPage implements OnInit {
         return false;
       }
       this.orderId = paramMap.get('orderId');
-      this.order = this.fun.getNavigationData(this.orderId);
-      this.products = this.order.HistoryDetails;
+      // this.order = this.fun.getNavigationData(this.orderId);
+      // this.products = this.order.HistoryDetails;
       
     });
   }

@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  // url: "http://localhost:8080/FynGramEngine/",
-  url: "https://www.fyngram.com/FynGramEngine/",
-  // url: "https://396a1d1d2fba.ngrok.io/FynGramEngine/"
+  url: "http://localhost:8080/FynGramEngine/",
+  // url: "https://www.fyngram.com/FynGramEngine/",
+  // url: "https://b5f8555263c9.ngrok.io/FynGramEngine/"
 };
 
 /*

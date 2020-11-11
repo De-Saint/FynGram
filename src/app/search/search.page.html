@@ -3,39 +3,38 @@
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-row ion-align-items-center>
-      <ion-input type="text" ion-padding-left placeholder="I'm shopping for..." class="search-bar"></ion-input>
+    <ion-row class="ion-align-items-center">
+      <ion-input type="text" placeholder="I'm shopping for..." [(ngModel)]="searchTerm" class="search-bar"
+        (ionChange)="onSearch()"></ion-input>
     </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-text><strong>
-      <h5 no-margin>Trending Searches</h5>
-    </strong></ion-text>
-  <ion-row margin-vertical align-items-center class="row">
-    <div class="btn" *ngFor="let b of trending">
-      <ion-text class="filter-btn">{{b}}</ion-text>
-    </div>
-  </ion-row>
-  <div class="sep" margin-bottom></div>
-  <ion-row>
-    <ion-col size="8">
-      <ion-text><strong>
-          <h5 no-margin>Recently Viewed</h5>
-        </strong></ion-text>
-    </ion-col>
-    <ion-col size="4" text-end>
-      <ion-text [routerLink]="['/home', {'id':1}]" routerDirection="forward"><span class="view">View All</span></ion-text>
-    </ion-col>
-  </ion-row>
-  <div>
-    <ion-row>
-      <ion-row class="container-outer">
-        <div *ngFor="let spon of recent" class="container-inner">
-          <img [src]="spon.image[0]" class="spon-img">
-        </div>
-      </ion-row>
+<ion-content class="light">
+  <div class="mid" *ngIf="!show">
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <button class="circle">
+        <ion-icon name="search" size="large"></ion-icon>
+      </button>
+    </ion-row>
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <ion-text><strong>Type in the box above</strong></ion-text>
+    </ion-row>
+    <ion-row size="12" class="ion-justify-content-center" disabled="true">
+      <ion-button fill="clear" color="mytheme" (click)="browse()">Browse Products</ion-button>
     </ion-row>
   </div>
+  <ion-grid *ngIf="show">
+    <ion-row>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let data of products" (click)="open(data)">
+        <div class="img-wrapper" [style.background-image]="'url(data:image/png;base64,' + data.FirstImage">
+        </div>
+        <p class="ion-no-margin text-truncate"><strong>{{data.ProductName}}</strong></p>
+        <p class="ion-no-margin">
+          {{ data.ProductPrice | currency:'₦' }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

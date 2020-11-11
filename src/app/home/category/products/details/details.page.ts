@@ -16,8 +16,6 @@ export class DetailsPage implements OnInit {
   @ViewChild('Slides', { static: true }) slides: IonSlides;
   @ViewChild('Content') content: IonContent;
 
-  Details: any;
-
   index = 0;
   slideOpts = {
     effect: 'flip',
@@ -31,7 +29,7 @@ export class DetailsPage implements OnInit {
     private loadingCtrl: LoadingController,
     private shopService: ShopService,
     private activeRoute: ActivatedRoute,
-    ) {
+  ) {
   }
 
   ngOnInit() {
@@ -40,7 +38,7 @@ export class DetailsPage implements OnInit {
         return false;
       }
       this.productId = paramMap.get('productId');
-      this.product = this.fun.getNavigationData(this.productId);
+      this.GetProductDetails(this.productId);
     })
   }
 
@@ -71,15 +69,33 @@ export class DetailsPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.shopService.AddOption('Cart', product.id, product.PriceDetails.selling_price, String(1), 'Increase')
       .subscribe(res => {
         loading.dismiss().catch(() => { });
         if (res.code === 200) {
-          this.fun.navigate('cart');
           this.fun.presentToast(res.msg);
+        } else {
+          this.fun.presentToast(res.msg);
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
+  }
+  async GetProductDetails(productId) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    await loading.present();
+    this.shopService.GetProductDetails(productId)
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.product = res.data;
         } else {
           this.fun.presentToast(res.msg);
         }

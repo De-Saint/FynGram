@@ -85,7 +85,6 @@ export class WishlistPage implements OnInit {
     });
   }
   details(wishlist) {
-    this.fun.setNavigationData(wishlist.ProductDetails.id, wishlist.ProductDetails);
     this.fun.setNavLink('wishlist');
     this.router.navigate(['/', 'customerorders', 'tabs', 'wishlist', 'products', 'details', wishlist.ProductDetails.id]);
   }

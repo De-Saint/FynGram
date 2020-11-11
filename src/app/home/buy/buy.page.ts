@@ -49,11 +49,8 @@ export class BuyPage {
 
   getIP() {
     this.authService.getIPAddress().subscribe((res: any) => {
-      alert("buy res  " + JSON.stringify(res));
       this.authService.SaveGuest(res.ip, res.city + ' ' + res.country_name)
         .subscribe(res => {
-          console.log(JSON.stringify(res))
-          alert("res save guest" + JSON.stringify(res));
           Storage.set({ key: this.HAS_VISITED, value: 'true' });
           this.fun.navigate('home', false);
           const event = new CustomEvent('user:guest');
@@ -70,9 +67,8 @@ export class BuyPage {
   }
 
   open(product) {
-    this.fun.setNavigationData(product.id, product);
     this.fun.setNavLink('buy');
-    this.router.navigate(['/', 'home', 'tabs', 'buy', 'products', 'details', product.id]);
+    this.router.navigate(['/', 'home', 'tabs', 'buy', 'products', 'details', product.ProductID]);
   }
 
   async getTopSellingProducts() {

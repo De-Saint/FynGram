@@ -34,13 +34,9 @@ export class ProductsPage implements OnInit {
     })
   }
   open(data) {
-    this.fun.setNavigationData(data.id, data);
     this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', data.id]);
   }
 
-  side_open() {
-
-  }
 
   onOpen(link) {
     this.fun.navigate(link);

@@ -142,6 +142,22 @@ let ShopService = class ShopService {
             }));
         }
     }
+    GetProductDetails(productid) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
+        const type = 'GetProductDetails';
+        if (this.platform.is('android')) {
+            const data = {
+                type, productid
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, productid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
     AddOption(option, productid, price, quantity, action) {
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
         const type = 'AddOption';

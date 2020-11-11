@@ -32,7 +32,7 @@ export class OrdersPage implements OnInit {
   }
 
    open(order) {
-    this.fun.setNavigationData(order.id, order);
+    // this.fun.setNavigationData(order.id, order);
      this.router.navigate(['/', 'sellersinventory', 'tabs', 'orders', 'details', order.id]);
   }
 

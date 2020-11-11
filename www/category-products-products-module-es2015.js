@@ -150,7 +150,7 @@ let ProductsPage = class ProductsPage {
         });
     }
     open(data) {
-        this.fun.setNavigationData(data.id, data);
+        // this.fun.setNavigationData(data.id, data);
         this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', data.id]);
     }
     side_open() {

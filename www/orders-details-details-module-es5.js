@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header class=\"mybg\">\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button color=\"light\"></ion-back-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Order Details</ion-title>\n\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"light\">\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Reference</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\"><strong>{{order?.reference}}</strong></h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Status</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order.StatusDetails?.name}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Items</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.product_count}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Order Date</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.booking_date}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Order Time</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.booking_time}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Cart</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.order_amount  | currency:'₦' }}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Shipping</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.delivery_fees | currency:'₦' }}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Discount</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">\n              <ion-text color=\"danger\">{{order?.discount_amount  | currency:'₦' }}</ion-text>\n            </h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Total</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\"><strong>{{order?.total_paid  | currency:'₦' }}</strong></h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Method</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order.PaymentDetails?.payment_method}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Reference</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order.PaymentDetails?.reference_code}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title ion-no-margin\">Address</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingTypeName}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order.ShippingAddressDetails?.addresstypename}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order.ShippingAddressDetails?.phone}},\n          </h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order.ShippingAddressDetails?.address_line}},\n            {{order.ShippingAddressDetails?.close_to}},\n            {{order.ShippingAddressDetails?.streetname}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order.ShippingAddressDetails?.busname}},\n            {{order.ShippingAddressDetails?.townname}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order.ShippingAddressDetails?.lganame}},\n            {{order.ShippingAddressDetails?.statename}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order.ShippingAddressDetails?.postal_code}}</h6>\n        </ion-text>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n\n\n\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title ion-no-margin\">Products</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row *ngFor=\"let item of products\">\n        <ion-col>\n          <ion-row class=\"container-outer\">\n            <ion-col size=\"3\" class=\"ion-text-center container-inner\">\n              <img class=\"spon-img\" [src]=\"'data:image/png;base64,'+item.ProductDetails?.FirstImage\" alt=\"\">\n            </ion-col>\n            <ion-col size=\"9\" auto>\n              <h3 class=\"item-name ion-no-margin\">{{item.ProductDetails.InfoDetails?.name}}</h3>\n              <h5 class=\"item-def ion-no-margin\">Quantity:<strong>\n                  <ion-text color=\"mytheme\">{{item.quantity}}</ion-text>\n                </strong></h5>\n              <h5 class=\"item-def ion-no-margin\">Price:\n                {{ item.ProductDetails.PriceDetails?.selling_price   | currency:'₦' }}</h5>\n              <h5 class=\"item-def ion-no-margin text-truncate\" style=\"max-width: 7.5em;\">\n                {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>\n            </ion-col>\n          </ion-row>\n\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <form [formGroup]=\"reviewForm\">\n    <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n      <ion-col>\n        <ion-row>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">Product Review</h6>\n          </ion-text>\n        </ion-row>\n        <ion-row>\n          <ion-col size=\"4\">\n            <ion-text>\n              <h6 class=\"title gray ion-no-margin\">Product</h6>\n            </ion-text>\n          </ion-col>\n          <ion-col>\n            <ion-select [interfaceOptions]=\"productAlertOptions\" formControlName=\"product\" class=\"select\"\n              placeholder=\"Select\">\n              <ion-select-option *ngFor=\"let product of products\" [(value)]=\"product.productid\">\n                {{product.ProductDetails.InfoDetails?.name}}</ion-select-option>\n            </ion-select>\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col size=\"4\">\n            <ion-text>\n              <h6 class=\"title gray ion-no-margin\">Rate Value</h6>\n            </ion-text>\n          </ion-col>\n          <ion-col>\n            <ion-select placeholder=\"Select\" formControlName=\"ratevalue\" mode=\"ios\" interface=\"popover\"\n              [interfaceOptions]=\"customAlertOptions\" class=\"small-ico select\">\n              <ion-select-option value=\"1\">1 - Worse</ion-select-option>\n              <ion-select-option value=\"2\">2 - Poor</ion-select-option>\n              <ion-select-option value=\"3\">3 - Average </ion-select-option>\n              <ion-select-option value=\"4\">4 - Good</ion-select-option>\n              <ion-select-option value=\"5\">5 - Excellent</ion-select-option>\n            </ion-select>\n          </ion-col>\n        </ion-row>\n        <ion-row size=\"12\" class=\"ion-justify-content-center\">\n          <ion-textarea class=\"select\" rows=\"4\" cols=\"20\" formControlName=\"comment\" maxlength=\"100\"\n            placeholder=\"Enter any notes here...\">\n          </ion-textarea>\n        </ion-row>\n        <ion-row size=\"12\" class=\"ion-justify-content-center\">\n          <ion-button color=\"success\" class=\"ion-margin-top\" (click)=\"onSubmit()\">\n            <span class=\"white\">Rate Product</span>\n          </ion-button>\n        </ion-row>\n      </ion-col>\n\n    </ion-item>\n  </form>\n\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\" *ngIf=\"order.StatusDetails?.name !== 'Cancelled'\">\n    <ion-col>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\">\n        <ion-button color=\"danger\" class=\"ion-margin-top\" (click)=\"onCancel(order)\">\n          <span class=\"white\">Cancel Order</span>\n        </ion-button>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header class=\"mybg\">\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button color=\"light\"></ion-back-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Order Details</ion-title>\n\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"light\">\n<ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Reference</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\"><strong>{{order?.reference}}</strong></h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Status</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.StatusDetails?.name}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Items</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.product_count}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Order Date</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.booking_date}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Order Time</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.booking_time}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Cart</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.order_amount  | currency:'₦' }}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Shipping</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.delivery_fees | currency:'₦' }}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Discount</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">\n              <ion-text color=\"danger\">{{order?.discount_amount  | currency:'₦' }}</ion-text>\n            </h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Total</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\"><strong>{{order?.total_paid  | currency:'₦' }}</strong></h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Method</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.PaymentDetails?.payment_method}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col size=\"4\">\n          <ion-text>\n            <h6 class=\"title gray ion-no-margin\">Reference</h6>\n          </ion-text>\n        </ion-col>\n        <ion-col>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">{{order?.PaymentDetails?.reference_code}}</h6>\n          </ion-text>\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title ion-no-margin\">Address</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingTypeName}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingAddressDetails?.addresstypename}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingAddressDetails?.phone}},\n          </h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingAddressDetails?.address_line}},\n            {{order?.ShippingAddressDetails?.close_to}},\n            {{order?.ShippingAddressDetails?.streetname}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingAddressDetails?.busname}},\n            {{order?.ShippingAddressDetails?.townname}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingAddressDetails?.lganame}},\n            {{order?.ShippingAddressDetails?.statename}}</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title gray ion-no-margin\">{{order?.ShippingAddressDetails?.postal_code}}</h6>\n        </ion-text>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n\n\n\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n    <ion-col>\n      <ion-row>\n        <ion-text>\n          <h6 class=\"title ion-no-margin\">Products</h6>\n        </ion-text>\n      </ion-row>\n      <ion-row *ngFor=\"let item of order?.HistoryDetails\">\n        <ion-col>\n          <ion-row class=\"container-outer\">\n            <ion-col size=\"3\" class=\"ion-text-center container-inner\">\n              <img class=\"spon-img\" [src]=\"'data:image/png;base64,'+item.ProductDetails?.FirstImage\" alt=\"\">\n            </ion-col>\n            <ion-col size=\"9\" auto>\n              <h3 class=\"item-name ion-no-margin\">{{item.ProductDetails.InfoDetails?.name}}</h3>\n              <h5 class=\"item-def ion-no-margin\">Quantity:<strong>\n                  <ion-text color=\"mytheme\">{{item.quantity}}</ion-text>\n                </strong></h5>\n              <h5 class=\"item-def ion-no-margin\">Price:\n                {{ item.ProductDetails.PriceDetails?.selling_price   | currency:'₦' }}</h5>\n              <h5 class=\"item-def ion-no-margin text-truncate\" style=\"max-width: 7.5em;\">\n                {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>\n            </ion-col>\n          </ion-row>\n\n        </ion-col>\n      </ion-row>\n    </ion-col>\n  </ion-item>\n  <form [formGroup]=\"reviewForm\">\n    <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\">\n      <ion-col>\n        <ion-row>\n          <ion-text>\n            <h6 class=\"title ion-no-margin\">Product Review</h6>\n          </ion-text>\n        </ion-row>\n        <ion-row>\n          <ion-col size=\"4\">\n            <ion-text>\n              <h6 class=\"title gray ion-no-margin\">Product</h6>\n            </ion-text>\n          </ion-col>\n          <ion-col>\n            <ion-select [interfaceOptions]=\"productAlertOptions\" formControlName=\"product\" class=\"select\"\n              placeholder=\"Select\">\n              <ion-select-option *ngFor=\"let product of products\" [(value)]=\"product.productid\">\n                {{product.ProductDetails.InfoDetails?.name}}</ion-select-option>\n            </ion-select>\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col size=\"4\">\n            <ion-text>\n              <h6 class=\"title gray ion-no-margin\">Rate Value</h6>\n            </ion-text>\n          </ion-col>\n          <ion-col>\n            <ion-select placeholder=\"Select\" formControlName=\"ratevalue\" mode=\"ios\" interface=\"popover\"\n              [interfaceOptions]=\"customAlertOptions\" class=\"small-ico select\">\n              <ion-select-option value=\"1\">1 - Worse</ion-select-option>\n              <ion-select-option value=\"2\">2 - Poor</ion-select-option>\n              <ion-select-option value=\"3\">3 - Average </ion-select-option>\n              <ion-select-option value=\"4\">4 - Good</ion-select-option>\n              <ion-select-option value=\"5\">5 - Excellent</ion-select-option>\n            </ion-select>\n          </ion-col>\n        </ion-row>\n        <ion-row size=\"12\" class=\"ion-justify-content-center\">\n          <ion-textarea class=\"select\" rows=\"4\" cols=\"20\" formControlName=\"comment\" maxlength=\"100\"\n            placeholder=\"Enter any notes here...\">\n          </ion-textarea>\n        </ion-row>\n        <ion-row size=\"12\" class=\"ion-justify-content-center\">\n          <ion-button color=\"success\" class=\"ion-margin-top\" (click)=\"onSubmit()\">\n            <span class=\"white\">Rate Product</span>\n          </ion-button>\n        </ion-row>\n      </ion-col>\n\n    </ion-item>\n  </form>\n\n  <ion-item lines=\"none\" class=\"card ion-margin-bottom ion-no-padding\" *ngIf=\"order?.StatusDetails?.name !== 'Cancelled'\">\n    <ion-col>\n      <ion-row size=\"12\" class=\"ion-justify-content-center\">\n        <ion-button color=\"danger\" class=\"ion-margin-top\" (click)=\"onCancel(order)\">\n          <span class=\"white\">Cancel Order</span>\n        </ion-button>\n      </ion-row>\n    </ion-col>\n  </ion-item>  \n</ion-content>";
       /***/
     },
 
@@ -311,22 +311,22 @@
               }
 
               _this.orderId = paramMap.get('orderId');
-              _this.order = _this.fun.getNavigationData(_this.orderId);
-              _this.products = _this.order.HistoryDetails;
+
+              _this.GetOrderDetails(_this.orderId);
             });
           }
         }, {
-          key: "onCancel",
-          value: function onCancel(order) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+          key: "GetOrderDetails",
+          value: function GetOrderDetails(orderId) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               var _this2 = this;
 
               var loading;
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
-                  switch (_context2.prev = _context2.next) {
+                  switch (_context.prev = _context.next) {
                     case 0:
-                      _context2.next = 2;
+                      _context.next = 2;
                       return this.loadingCtrl.create({
                         cssClass: 'my-custom-class',
                         message: 'Please wait...',
@@ -334,61 +334,37 @@
                       });
 
                     case 2:
-                      loading = _context2.sent;
-                      this.fun.removeConform('order').then(function (res) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this2, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                          var _this3 = this;
+                      loading = _context.sent;
+                      _context.next = 5;
+                      return loading.present();
 
-                          return regeneratorRuntime.wrap(function _callee$(_context) {
-                            while (1) {
-                              switch (_context.prev = _context.next) {
-                                case 0:
-                                  if (!(res === 'ok')) {
-                                    _context.next = 5;
-                                    break;
-                                  }
+                    case 5:
+                      this.orderService.GetProductDetails(orderId).subscribe(function (res) {
+                        console.log(res);
+                        loading.dismiss()["catch"](function () {});
 
-                                  _context.next = 3;
-                                  return loading.present();
-
-                                case 3:
-                                  this.sid = this.authService.currentUserDataValue.sid;
-                                  this.orderService.UpdateOrderStatus(String(this.sid), String(order.id), String(3)).subscribe(function (res) {
-                                    loading.dismiss()["catch"](function () {});
-
-                                    if (res.code === 200) {
-                                      _this3.fun.presentToast(res.msg);
-
-                                      _this3.reviewForm.value.comment = '';
-                                    }
-                                  }, function (error) {
-                                    loading.dismiss()["catch"](function () {});
-
-                                    _this3.fun.presentToast(error);
-                                  });
-
-                                case 5:
-                                case "end":
-                                  return _context.stop();
-                              }
-                            }
-                          }, _callee, this);
-                        }));
+                        if (res.code === 200) {
+                          _this2.order = res.data;
+                        } else {
+                          _this2.fun.presentToast(res.msg);
+                        }
+                      }, function (error) {
+                        loading.dismiss()["catch"](function () {});
                       });
 
-                    case 4:
+                    case 6:
                     case "end":
-                      return _context2.stop();
+                      return _context.stop();
                   }
                 }
-              }, _callee2, this);
+              }, _callee, this);
             }));
           }
         }, {
-          key: "onSubmit",
-          value: function onSubmit() {
+          key: "onCancel",
+          value: function onCancel(order) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-              var _this4 = this;
+              var _this3 = this;
 
               var loading;
               return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -404,7 +380,76 @@
 
                     case 2:
                       loading = _context3.sent;
-                      _context3.next = 5;
+                      this.fun.removeConform('order').then(function (res) {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this3, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                          var _this4 = this;
+
+                          return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                            while (1) {
+                              switch (_context2.prev = _context2.next) {
+                                case 0:
+                                  if (!(res === 'ok')) {
+                                    _context2.next = 5;
+                                    break;
+                                  }
+
+                                  _context2.next = 3;
+                                  return loading.present();
+
+                                case 3:
+                                  this.sid = this.authService.currentUserDataValue.sid;
+                                  this.orderService.UpdateOrderStatus(String(this.sid), String(order.id), String(3)).subscribe(function (res) {
+                                    loading.dismiss()["catch"](function () {});
+
+                                    if (res.code === 200) {
+                                      _this4.fun.presentToast(res.msg);
+
+                                      _this4.reviewForm.value.comment = '';
+                                    }
+                                  }, function (error) {
+                                    loading.dismiss()["catch"](function () {});
+
+                                    _this4.fun.presentToast(error);
+                                  });
+
+                                case 5:
+                                case "end":
+                                  return _context2.stop();
+                              }
+                            }
+                          }, _callee2, this);
+                        }));
+                      });
+
+                    case 4:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          }
+        }, {
+          key: "onSubmit",
+          value: function onSubmit() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+              var _this5 = this;
+
+              var loading;
+              return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                while (1) {
+                  switch (_context4.prev = _context4.next) {
+                    case 0:
+                      _context4.next = 2;
+                      return this.loadingCtrl.create({
+                        cssClass: 'my-custom-class',
+                        message: 'Please wait...',
+                        mode: 'ios'
+                      });
+
+                    case 2:
+                      loading = _context4.sent;
+                      _context4.next = 5;
                       return loading.present();
 
                     case 5:
@@ -413,22 +458,22 @@
                         loading.dismiss()["catch"](function () {});
 
                         if (res.code === 200) {
-                          _this4.fun.presentToast(res.msg);
+                          _this5.fun.presentToast(res.msg);
 
-                          _this4.reviewForm.value.comment = '';
+                          _this5.reviewForm.value.comment = '';
                         }
                       }, function (error) {
                         loading.dismiss()["catch"](function () {});
 
-                        _this4.fun.presentToast(error);
+                        _this5.fun.presentToast(error);
                       });
 
                     case 7:
                     case "end":
-                      return _context3.stop();
+                      return _context4.stop();
                   }
                 }
-              }, _callee3, this);
+              }, _callee4, this);
             }));
           }
         }]);
@@ -678,16 +723,15 @@
         _createClass(DetailsPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.route.paramMap.subscribe(function (paramMap) {
               if (!paramMap.has('orderId')) {
                 return false;
               }
 
-              _this5.orderId = paramMap.get('orderId');
-              _this5.order = _this5.fun.getNavigationData(_this5.orderId);
-              _this5.products = _this5.order.HistoryDetails;
+              _this6.orderId = paramMap.get('orderId'); // this.order = this.fun.getNavigationData(this.orderId);
+              // this.products = this.order.HistoryDetails;
             });
           }
         }]);

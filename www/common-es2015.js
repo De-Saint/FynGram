@@ -936,6 +936,22 @@ let OrderService = class OrderService {
             }));
         }
     }
+    GetProductDetails(orderid) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MOrderServlet';
+        const type = 'GetOrderDetails';
+        if (this.platform.is('android')) {
+            const data = {
+                type, orderid
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, orderid });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(res => {
+                return res;
+            }));
+        }
+    }
 };
 OrderService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] },

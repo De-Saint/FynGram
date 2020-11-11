@@ -2405,16 +2405,6 @@
             });
           }
         }, {
-          key: "setNavigationData",
-          value: function setNavigationData(id, data) {
-            this.navigationData[id] = data;
-          }
-        }, {
-          key: "getNavigationData",
-          value: function getNavigationData(id) {
-            return this.navigationData[id];
-          }
-        }, {
           key: "setNavLink",
           value: function setNavLink(link) {
             this.navlink = link;
