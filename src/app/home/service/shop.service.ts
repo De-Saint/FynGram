@@ -140,6 +140,7 @@ export class ShopService {
       );
     }
   }
+  
   GetProductDetails(productid): Observable<ResponseType> {
     const url = environment.url + 'MShopServlet';
     const type = 'GetProductDetails';

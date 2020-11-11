@@ -25,7 +25,10 @@ export class DetailsPage implements OnInit {
     header: 'Select Product',
     translucent: true
   };
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private loadingCtrl: LoadingController,
+    private orderService: OrderService,
+    private route: ActivatedRoute,
     private fun: FunctionsService) {
     
 
@@ -37,10 +40,27 @@ export class DetailsPage implements OnInit {
         return false;
       }
       this.orderId = paramMap.get('orderId');
-      // this.order = this.fun.getNavigationData(this.orderId);
-      // this.products = this.order.HistoryDetails;
-      
+      this.GetOrderDetails(this.orderId);
     });
   }
-
+  async GetOrderDetails(orderId) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    await loading.present();
+    this.orderService.GetProductDetails(orderId)
+      .subscribe(res => {
+        console.log(res);
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.order = res.data;
+        } else {
+          this.fun.presentToast(res.msg);
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
+  }
 }

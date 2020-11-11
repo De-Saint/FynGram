@@ -1,12 +1,59 @@
-<ion-header>
+<ion-header class="mybg">
   <ion-toolbar color="mytheme">
-    <ion-buttons slot="start" color="light">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Products</ion-title>
+    <ion-title color="light">Products</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme">
+    <ion-row class="ion-align-items-center">
+      <ion-input type="text" placeholder="Search Product" [(ngModel)]="searchTerm" class="search-bar"
+        (ionChange)="onSearch()"></ion-input>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" color="light">
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="basket" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not added any product yet!</strong></ion-text>
+        <ion-text color="mytheme" class="ion-margin-top">
+          <span class="white">Visit the website to add a product</span>
+        </ion-text>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+
+  <ion-item lines="none" *ngFor="let product of products" class="card ion-margin-bottom ion-no-padding"
+    (click)="open(product)">
+    <ion-row class="container-outer">
+      <ion-col size="2" class="ion-text-center container-inner">
+        <img class="spon-img" [src]="'data:image/png;base64,'+product.FirstImage" alt="">
+      </ion-col>
+      <ion-col size="10">
+        <ion-row>
+          <ion-text>
+            <h5 class="title ion-no-margin"><strong>{{product.ProductName}}</strong></h5>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 class="sub ion-no-margin">{{product.Status}}</h6>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 class="sub ion-no-margin">{{product.ProductPrice | currency:'₦'}}</h6>
+          </ion-text>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item>
 </ion-content>

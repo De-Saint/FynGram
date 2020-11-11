@@ -1,0 +1,70 @@
+.menu {
+    color: white !important;
+}
+.search-bar {
+    background-color: rgba(240, 240, 240, 0.5);
+    border-radius: 3px;
+    font-size: 0.9em !important;
+    margin: 5px;
+    padding-left: 0.5em !important;
+  }
+.card {
+    padding: 6px;
+    border-radius: 3px;
+    border: .3px solid rgb(210, 210, 210);
+    background-color: white;
+}
+.title {
+    font-size: 15px;
+}
+.sub{
+    font-size: 15px;
+}
+.item-icon{
+    font-size: 32px;
+}
+.mid {
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+}
+.circle{
+    border-radius: 40px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
+
+.full{
+    width: 100%;
+}
+.small {
+    margin: 0;
+}
+.bottom {
+    position: absolute;
+    bottom: 0;
+    float: right;
+    right: 0;
+}
+.item-icons{
+    font-size: 24px;
+}
+.container-outer {
+    overflow: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    }
+    .container-inner {
+    min-width: 80px !important;
+    max-width: 80px !important;
+    display: inline;
+    padding: 3px;
+    align-content: center !important;
+    }
+    .spon-img {
+    min-height: 60px !important;
+    max-height: 60px !important;
+    margin: 3px;
+    }

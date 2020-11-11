@@ -1,0 +1,260 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Product Details</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <div>
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngFor="let i of product?.ImageDetails3">
+            <img class="image" [src]="'data:image/png;base64,'+i.image_text">
+            <div class="product-image-overlay"></div>
+          </ion-slide>
+        </ion-slides>
+        <ion-badge class="badge">
+          <ion-icon name="images"></ion-icon>
+          {{product?.ImageDetails3.length}}
+        </ion-badge>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Name</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin"><strong>{{product?.InfoDetails?.name}}</strong></h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Status</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.SellerDetails?.status}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Description</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.InfoDetails?.description}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Date Added</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.date}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Time Added</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.time}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Selling Price</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.PriceDetails?.selling_price | currency:'₦'}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Cost Price</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.PriceDetails?.cost_price | currency:'₦'}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.QuantityDetails?.total_quantity}} (Qty)</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Minimum</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.QuantityDetails?.minimum_quantity}} (Qty)</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Unit Name</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.UnitDetails?.UnitName}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Value</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.UnitDetails?.value}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Seller</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.SellerDetails?.business_name}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Phone</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.SellerDetails?.business_phone}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Email</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.SellerDetails?.business_email}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Ratings</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+
+          <ion-icon name="star" color="mytheme"
+            *ngFor="let i of computeRatings(product?.RatingDetails?.AverageRatings)">
+          </ion-icon>
+          <ion-icon name="star-outline" color="mytheme"
+            *ngFor="let i of computeRatings2(product?.RatingDetails?.AverageRatings)">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Reviews</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{product?.RatingDetails?.NumberOfRatings}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+
+</ion-content>

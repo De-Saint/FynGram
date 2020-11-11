@@ -31,7 +31,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.StatusDetails?.name}}</h6>
+            <h6 class="title ion-no-margin">{{order?.StatusDetails?.name}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -141,7 +141,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.SellerDetails?.business_name}}</h6>
+            <h6 class="title ion-no-margin">{{order?.SellerDetails?.business_name}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -153,8 +153,8 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.SellerDetails?.shipEndDate}}</h6>
-            <h6 class="title ion-no-margin">{{order.SellerDetails?.shipStartDate}}</h6>
+            <h6 class="title ion-no-margin">{{order?.SellerDetails?.shipEndDate}}</h6>
+            <h6 class="title ion-no-margin">{{order?.SellerDetails?.shipStartDate}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -166,7 +166,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.SellerDetails?.business_phone}}</h6>
+            <h6 class="title ion-no-margin">{{order?.SellerDetails?.business_phone}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -178,7 +178,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.SellerDetails?.business_email}}</h6>
+            <h6 class="title ion-no-margin">{{order?.SellerDetails?.business_email}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -194,7 +194,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.CustomerDetails?.CustName}}</h6>
+            <h6 class="title ion-no-margin">{{order?.CustomerDetails?.CustName}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -206,7 +206,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.CustomerDetails?.CustPhone}}</h6>
+            <h6 class="title ion-no-margin">{{order?.CustomerDetails?.CustPhone}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -218,7 +218,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.CustomerDetails?.CustEmail}}</h6>
+            <h6 class="title ion-no-margin">{{order?.CustomerDetails?.CustEmail}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -234,7 +234,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.PaymentDetails?.payment_method}}</h6>
+            <h6 class="title ion-no-margin">{{order?.PaymentDetails?.payment_method}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -246,7 +246,7 @@
         </ion-col>
         <ion-col>
           <ion-text>
-            <h6 class="title ion-no-margin">{{order.PaymentDetails?.reference_code}}</h6>
+            <h6 class="title ion-no-margin">{{order?.PaymentDetails?.reference_code}}</h6>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -266,43 +266,43 @@
       </ion-row>
       <ion-row>
         <ion-text>
-          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.addresstypename}}</h6>
+          <h6 class="title gray ion-no-margin">{{order?.ShippingAddressDetails?.addresstypename}}</h6>
         </ion-text>
       </ion-row>
       <ion-row>
         <ion-text>
-          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.phone}},
+          <h6 class="title gray ion-no-margin">{{order?.ShippingAddressDetails?.phone}},
           </h6>
         </ion-text>
       </ion-row>
       <ion-row>
         <ion-text>
-          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.address_line}},
-            {{order.ShippingAddressDetails?.close_to}},
-            {{order.ShippingAddressDetails?.streetname}}</h6>
+          <h6 class="title gray ion-no-margin">{{order?.ShippingAddressDetails?.address_line}},
+            {{order?.ShippingAddressDetails?.close_to}},
+            {{order?.ShippingAddressDetails?.streetname}}</h6>
         </ion-text>
       </ion-row>
       <ion-row>
         <ion-text>
-          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.busname}},
-            {{order.ShippingAddressDetails?.townname}}</h6>
+          <h6 class="title gray ion-no-margin">{{order?.ShippingAddressDetails?.busname}},
+            {{order?.ShippingAddressDetails?.townname}}</h6>
         </ion-text>
       </ion-row>
       <ion-row>
         <ion-text>
-          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.lganame}},
-            {{order.ShippingAddressDetails?.statename}}</h6>
+          <h6 class="title gray ion-no-margin">{{order?.ShippingAddressDetails?.lganame}},
+            {{order?.ShippingAddressDetails?.statename}}</h6>
         </ion-text>
       </ion-row>
       <ion-row>
         <ion-text>
-          <h6 class="title gray ion-no-margin">{{order.ShippingAddressDetails?.postal_code}}</h6>
+          <h6 class="title gray ion-no-margin">{{order?.ShippingAddressDetails?.postal_code}}</h6>
         </ion-text>
       </ion-row>
     </ion-col>
   </ion-item>
 
-
+ 
 
   <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
     <ion-col>
@@ -311,21 +311,21 @@
           <h6 class="title ion-no-margin">Products</h6>
         </ion-text>
       </ion-row>
-      <ion-row *ngFor="let item of products">
+      <ion-row *ngFor="let item of order?.HistoryDetails">
         <ion-col>
           <ion-row class="container-outer">
             <ion-col size="3" class="ion-text-center container-inner">
               <img class="spon-img" [src]="'data:image/png;base64,'+item.ProductDetails?.FirstImage" alt="">
             </ion-col>
             <ion-col size="9" auto>
-              <h3 class="item-name ion-no-margin">{{item.ProductDetails.InfoDetails?.name}}</h3>
+              <h3 class="item-name ion-no-margin">{{item.ProductDetails?.InfoDetails?.name}}</h3>
               <h5 class="item-def ion-no-margin">Quantity:<strong>
                   <ion-text color="mytheme">{{item.quantity}}</ion-text>
                 </strong></h5>
               <h5 class="item-def ion-no-margin">Price:
-                {{ item.ProductDetails.PriceDetails?.selling_price   | currency:'₦' }}</h5>
+                {{ item.ProductDetails?.PriceDetails?.selling_price   | currency:'₦' }}</h5>
               <h5 class="item-def ion-no-margin text-truncate" style="max-width: 7.5em;">
-                {{item.ProductDetails.SellerDetails?.SellerUserName}}</h5>
+                {{item.ProductDetails?.SellerDetails?.SellerUserName}}</h5>
             </ion-col>
           </ion-row>
 
