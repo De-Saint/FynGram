@@ -48,6 +48,7 @@ export class FynpayPage implements OnInit {
       }, error => {
         loading.dismiss().catch(() => { });
         this.fun.presentToast(error);
+        
       })
   }
 

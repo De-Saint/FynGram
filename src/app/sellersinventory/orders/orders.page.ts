@@ -55,6 +55,7 @@ export class OrdersPage implements OnInit {
         }
       }, error => {
         loading.dismiss().catch(() => { });
+        this.show = false;
       })
   }
   onShop() {

@@ -47,6 +47,7 @@ export class SellersPage implements OnInit {
           this.show = false;
         }
       }, error => {
+        this.show = false;
         loading.dismiss().catch(() => { });
       })
   }

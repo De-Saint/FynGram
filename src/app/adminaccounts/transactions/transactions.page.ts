@@ -42,6 +42,7 @@ export class TransactionsPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
+      this.show = false;
     })
   }
 

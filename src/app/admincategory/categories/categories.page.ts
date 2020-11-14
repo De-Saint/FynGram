@@ -37,6 +37,7 @@ export class CategoriesPage implements OnInit {
         this.show = false;
       }
     }, error => {
+      this.show = false;
       loading.dismiss().catch(() => { });
     });
   }

@@ -36,6 +36,7 @@ export class PropertiesPage implements OnInit {
         this.show = false;
       }
     }, error => {
+      this.show = false;
       loading.dismiss().catch(() => { });
     });
   }

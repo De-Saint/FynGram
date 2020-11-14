@@ -47,6 +47,7 @@ export class BanksPage implements OnInit {
         this.show = false;
       }
     }, error => {
+      this.show = false;
       loading.dismiss().catch(() => { });
     })
   }

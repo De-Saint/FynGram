@@ -38,6 +38,7 @@ export class UnitsPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
+      this.show = false;
     });
   }
 

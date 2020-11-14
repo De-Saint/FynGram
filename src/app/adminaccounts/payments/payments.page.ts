@@ -43,6 +43,7 @@ export class PaymentsPage implements OnInit {
       }
     }, error => {
       loading.dismiss().catch(() => { });
+      this.show = false;
     })
   }
 
