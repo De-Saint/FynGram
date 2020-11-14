@@ -39,6 +39,7 @@ export class CategoryPage implements OnInit {
     await loading.present();
     this.shopService.GetCategories().subscribe(res => {
       loading.dismiss().catch(() => { });
+      console.log(res);
       if (res.code === 200) {
         this.categories = res.data;
       } else {

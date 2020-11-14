@@ -1,6 +1,6 @@
 import { AuthServiceService } from './authenticate/service/auth-service.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,7 +12,6 @@ import {
 } from '@capacitor/core';
 
 const { Storage } = Plugins;
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -21,7 +20,6 @@ const { Storage } = Plugins;
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   loggedIn = false;
-  dark = false;
   userType = 'Guest';
   userName: any;
   HAS_LOGGED_IN = 'hasLoggedIn';
@@ -40,6 +38,7 @@ export class AppComponent implements OnInit {
     { title: 'Inventory', url: '/sellersinventory/tabs/products', icon: 'bag-add' },
 
   ];
+
   public adminPages = [
     // { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
     // { title: 'Search', url: '/search', icon: 'search' },
@@ -62,15 +61,17 @@ export class AppComponent implements OnInit {
     { title: 'Orders', url: '/customerorders/tabs/orders', icon: 'cart' },
     { title: 'WishList', url: '/customerorders/tabs/wishlist', icon: 'heart-circle' },
   ];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
+    private renderer: Renderer2,
     private router: Router,
     private authService: AuthServiceService,
   ) {
     this.initializeApp();
-    this.dark
+
   }
 
   initializeApp() {
@@ -128,21 +129,11 @@ export class AppComponent implements OnInit {
   }
 
   updateDarkMode(event) {
-    let systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-    systemDark.addListener(this.colorTest);
     if (event.detail.checked) {
-      document.body.setAttribute('data-theme', 'dark');
+      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
     }
     else {
-      document.body.setAttribute('data-theme', 'light');
-    }
-  }
-
-  colorTest(systemInitiatedDark) {
-    if (systemInitiatedDark.matches) {
-      document.body.setAttribute('data-theme', 'dark');
-    } else {
-      document.body.setAttribute('data-theme', 'light');
+      this.renderer.setAttribute(document.body, 'color-theme', 'light');
     }
   }
   onRegister() {

@@ -14,7 +14,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./sellers/sellers.module').then(m => m.SellersPageModule)
-          }
+          },
+          {
+            path: 'details/:sellerId',
+            loadChildren: () => import('./sellers/details/details.module').then(m => m.DetailsPageModule)
+          },
         ]
       },
       {
@@ -23,7 +27,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./customers/customers.module').then(m => m.CustomersPageModule)
-          }
+          },
+          {
+            path: 'details/:customerId',
+            loadChildren: () => import('./customers/details/details.module').then(m => m.DetailsPageModule)
+          },
         ]
       },
       {
@@ -32,6 +40,14 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./shipping/shipping.module').then(m => m.ShippingPageModule)
+          },
+          {
+            path: 'details/:shippingId',
+            loadChildren: () => import('./shipping/details/details.module').then(m => m.DetailsPageModule)
+          },
+          {
+            path: 'new',
+            loadChildren: () => import('./shipping/new/new.module').then(m => m.NewPageModule)
           }
         ]
       },

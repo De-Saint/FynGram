@@ -1,0 +1,62 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">New Shipping</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+  <form [formGroup]="shippingForm">
+   
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Name</span></ion-text>
+        <ion-input class="input ion-padding-horizontal" type="text" formControlName="name" ></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Phone</span></ion-text>
+        <ion-input class="input ion-padding-horizontal" type="text" formControlName="phone" ></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Email</span></ion-text>
+        <ion-input class="input ion-padding-horizontal" type="text" formControlName="email" ></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Delivery Interval</span></ion-text>
+        <ion-row size="12" class="ion-justify-content-center">
+          <ion-textarea class="select input" rows="4" cols="20" formControlName="interval" maxlength="100"
+            placeholder="Enter how long it would take to deliver.">
+          </ion-textarea>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Fyngram Fees Percentage</span></ion-text>
+        <ion-input class="input ion-padding-horizontal" type="text" formControlName="fyngramfees" ></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><span class="label">Seller Fees Percentage</span></ion-text>
+        <ion-input class="input ion-padding-horizontal" type="text" formControlName="sellerfees" ></ion-input>
+      </ion-col>
+    </ion-row>
+
+  
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="mytheme"  (click)="onSubmit()"><span
+            class="white"><strong>Save</strong></span></ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

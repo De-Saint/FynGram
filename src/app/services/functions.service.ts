@@ -175,6 +175,12 @@ export class FunctionsService {
   getNavLink() {
     return this.navlink;
   }
+  setNavigationData(id, data) {
+    this.navigationData[id] = data;
+  }
+  getNavigationData(id) {
+    return this.navigationData[id];
+  }
 
   CalculatePercentage(userAmt) {
     let addedPerc = (parseInt(userAmt) * 0.02);

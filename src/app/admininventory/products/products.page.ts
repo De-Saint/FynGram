@@ -45,6 +45,7 @@ export class ProductsPage implements OnInit {
         loading.dismiss().catch(() => { });
         if (res.code === 200) {
           this.products = res.data;
+          this.originalproducts = res.data;
           this.show = true;
         } else {
           this.show = false;
@@ -70,7 +71,6 @@ export class ProductsPage implements OnInit {
           this.sid = this.authService.currentUserDataValue.sid;
           this.productService.GetProductsByName(String(this.sid), searchvalue).subscribe(res => {
             loading.dismiss().catch(() => { });
-            console.log(res);
             if (res.code === 200) {
               this.products = res.data;
               this.show = true;

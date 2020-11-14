@@ -1,12 +1,26 @@
 <ion-header>
   <ion-toolbar color="mytheme">
     <ion-buttons slot="start">
-      <ion-menu-button  color="light"></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title  color="light">Sellers</ion-title>
+    <ion-title color="light">Sellers</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme">
+    <ion-row class="ion-align-items-center">
+      <ion-input type="text" placeholder="Search Sellers" [(ngModel)]="searchTerm" class="search-bar"
+        (ionChange)="onSearch()"></ion-input>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let seller of sellers" (click)="onOpen(seller)">
+      <ion-label>
+        <h2>{{seller.business_name}}</h2>
+        <h3>{{seller.business_phone}}</h3>
+        <p>{{seller.business_email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

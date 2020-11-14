@@ -1,0 +1,159 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Details</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Name</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin"><strong>{{shipping?.name}}</strong></h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Phone</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.phone}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Interval</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.delivery_interval}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Email</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.email}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Date Added</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.date_added}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Fyngram Percentage</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.admin_shipping_percentage}} %</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Shipping Meth Percentage</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.shipping_method_percentage}} %</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Delivery/ies</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.number_of_delivery}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Earnings</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{shipping?.total_earnings | currency:'₦'}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col class="ion-justify-content-center">
+      <ion-row>
+        <ion-col>
+          <ion-button color="mytheme" class="ion-margin-top" (click)="onReset(shipping, 'reset')">
+            <span class="white">Reset Earning</span>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="danger" class="ion-margin-top" (click)="onDelete(shipping)">
+            <span class="white">Delete</span>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </ion-col>
+  </ion-item>
+
+
+</ion-content>

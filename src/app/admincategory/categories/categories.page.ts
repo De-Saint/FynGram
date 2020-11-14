@@ -1,3 +1,5 @@
+import { ShopService } from './../../home/service/shop.service';
+import { LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage implements OnInit {
-
-  constructor() { }
-
+  categories: any;
+  show = true;
+  constructor(
+    private loadingCtrl: LoadingController,
+    private shopService: ShopService) { }
+  ionViewWillEnter() {
+    this.getAllCategories();
+  }
   ngOnInit() {
+  }
+  async getAllCategories() {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      mode: 'ios'
+    });
+    await loading.present();
+    this.shopService.GetCategories().subscribe(res => {
+      loading.dismiss().catch(() => { });
+      if (res.code === 200) {
+        this.categories = res.data;
+        this.show = true;
+      } else {
+        this.show = false;
+      }
+    }, error => {
+      loading.dismiss().catch(() => { });
+    });
   }
 
 }

@@ -7,6 +7,47 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" color="light">
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="apps" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not added any category yet!</strong></ion-text>
+        <ion-text color="mytheme" class="ion-margin-top">
+          <span class="white">Visit the website to a category</span>
+        </ion-text>
+      </ion-row>
 
+    </ion-grid>
+  </div>
+
+ <ion-item lines="none" *ngFor="let category of categories" class="card ion-margin-bottom ion-no-padding"
+   >
+    <ion-row class="container-outer">
+      <ion-col size="2" class="ion-text-center container-inner">
+        <img class="spon-img" [src]="'data:image/png;base64,'+category.ImageText" alt="">
+      </ion-col>
+      <ion-col size="10">
+        <ion-row>
+          <ion-text>
+            <h5 class="title ion-no-margin"><strong>{{category.name}}</strong></h5>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 class="sub ion-no-margin">{{category.description}}</h6>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 class="sub ion-no-margin">Is Root Category: <strong>{{category.IsRoot}}</strong></h6>
+          </ion-text>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item> 
 </ion-content>

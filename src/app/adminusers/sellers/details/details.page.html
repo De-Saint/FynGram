@@ -1,0 +1,340 @@
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDelete(seller)" >
+        <ion-icon name="trash" slot="icon-only"  class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Name</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin"><strong>{{seller?.title}}. {{seller?.UserName}}</strong></h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Email</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.email}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Phone</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.phone}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Business</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin"><strong>{{seller?.business_name}}</strong></h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Email</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.business_email}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Phone</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.business_phone}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">CAC</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.cac_number}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+ 
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Gender</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.gender}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Date Added</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.date}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Shipping Min</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.shipping_days_min}} Days</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Shipping Max</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.shipping_days_max}} Days</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Main Balance</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.WalletDetails?.MainBalance | currency:'₦'}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Pending Balance</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.WalletDetails?.PendingBalance | currency:'₦'}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Number</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.WalletDetails?.wallet_number}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding" *ngIf="seller?.BankDetails?.bankName">
+    <ion-col>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Bank Name</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.BankDetails?.bankName}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Account Number</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.BankDetails?.account_number}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Account Type</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.BankDetails?.account_type}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Order</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.ordercount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Reviews</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.reviewcount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Payments</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.paymentcount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Messages</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.msgcount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total Transactions</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.transactioncount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+
+  <ion-item lines="none" class="card ion-margin-bottom ion-no-padding">
+    <ion-col>
+      <ion-row>
+        <ion-col size="5">
+          <ion-text>
+            <h6 class="title gray ion-no-margin">Total CashOuts</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 class="title ion-no-margin">{{seller?.cashoutcount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      
+
+    </ion-col>
+  </ion-item>
+
+</ion-content>

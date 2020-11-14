@@ -38,6 +38,7 @@ export class ShopService {
       );
     }
   }
+  
   GetTopSellingProducts(): Observable<ResponseType> {
     const url = environment.url + 'MShopServlet';
     const type = 'GetTopSellingProducts';
@@ -389,4 +390,38 @@ export class ShopService {
     }
   }
 
+  GetProperties(): Observable<ResponseType> {
+    const url = environment.url + 'MProductServlet';
+    const type = 'GetProperties';
+    if (this.platform.is('android')) {
+      const data = {
+        type
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  GetUnits(): Observable<ResponseType> {
+    const url = environment.url + 'MProductServlet';
+    const type = 'GetUnits';
+    if (this.platform.is('android')) {
+      const data = {
+        type
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
 }

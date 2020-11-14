@@ -8,5 +8,9 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list *ngFor="let prop of properties">
+    <ion-item>
+      <ion-label>{{prop.name}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

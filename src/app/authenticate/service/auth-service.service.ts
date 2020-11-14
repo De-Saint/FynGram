@@ -457,4 +457,175 @@ export class AuthServiceService {
       );
     }
   }
+  GetShippings(): Observable<ResponseType> {
+    const type = 'GetShippings';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  GetShippingDetails(shippingid): Observable<ResponseType> {
+    const type = 'GetShippingDetails';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, shippingid
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, shippingid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  DeleteShipping(shippingid): Observable<ResponseType> {
+    const type = 'DeleteShipping';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, shippingid
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, shippingid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  DeleteCustomer(userid): Observable<ResponseType> {
+    const type = 'DeleteCustomer';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, userid
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, userid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  ResetShipping(shippingid): Observable<ResponseType> {
+    const type = 'ResetShipping';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, shippingid
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, shippingid });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  NewShippingAddress(shippingid, name, interval, adminpercent, shippingpercent, option, phone, email): Observable<ResponseType> {
+    const type = 'NewShippingAddress';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, shippingid,name, interval, adminpercent, shippingpercent, option, phone, email
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, shippingid,name, interval, adminpercent, shippingpercent, option, phone, email });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+
+  GetCustomers(): Observable<ResponseType> {
+    const type = 'GetAllCustomers';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  SearchCustomers(searchvalue): Observable<ResponseType> {
+    const type = 'SearchCustomers';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, searchvalue
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, searchvalue });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  SearchSellers(searchvalue): Observable<ResponseType> {
+    const type = 'SearchSellers';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, searchvalue
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, searchvalue });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+  GetSellers(): Observable<ResponseType> {
+    const type = 'GetAllSellers';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
 }

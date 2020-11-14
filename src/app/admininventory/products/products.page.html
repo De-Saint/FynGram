@@ -30,7 +30,7 @@
 
     </ion-grid>
   </div>
-
+  <div  *ngIf="show">
   <ion-item lines="none" *ngFor="let product of products" class="card ion-margin-bottom ion-no-padding"
     (click)="open(product)">
     <ion-row class="container-outer">
@@ -56,4 +56,5 @@
       </ion-col>
     </ion-row>
   </ion-item>
+</div>
 </ion-content>

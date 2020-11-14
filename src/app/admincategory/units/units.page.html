@@ -8,5 +8,35 @@
 </ion-header>
 
 <ion-content>
+  <div class="mid" *ngIf="!show">
+    <ion-grid>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <button class="circle">
+          <ion-icon name="mail" size="large"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row size="12" class="ion-justify-content-center" disabled="true">
+        <ion-text class="ion-text-center"><strong>You have not added any product unit yet!</strong></ion-text>
+        
+      </ion-row>
 
+    </ion-grid>
+  </div>
+  <div *ngIf="show">
+    <ion-grid>
+      <ion-row  *ngFor="let unit of units" class="card">
+        <ion-col>
+          <ion-row class="full block">
+            <ion-text class="">
+              <h6 class="ion-text-start ion-no-margin"><strong>{{unit.name}}</strong></h6>
+            </ion-text>
+          </ion-row>
+          <div style="clear: both;"></div>
+          <ion-row class="full block ion-margin-top">
+            <h6 class="cmnt ion-float-left ion-text-start ion-no-margin">{{unit.description}}</h6>
+          </ion-row>
+        </ion-col>
+      </ion-row >
+    </ion-grid> 
+  </div>
 </ion-content>

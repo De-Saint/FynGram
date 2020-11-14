@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light">
+<ion-content >
   <div class="mid" *ngIf="!show">
     <ion-row size="12" class="ion-justify-content-center" disabled="true">
       <button class="circle">
@@ -50,7 +50,7 @@
                   </h3>
                 </ion-row>
                 <ion-row class="ion-justify-content-end">
-                  <ion-text color="mytheme" class="small" (click)="details(item)">Detail</ion-text>
+                  <ion-button fill="clear" color="mytheme" (click)="details(item)">Details</ion-button>
                 </ion-row>
               </ion-col>
             </ion-row>
