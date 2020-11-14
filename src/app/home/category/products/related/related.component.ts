@@ -1,7 +1,7 @@
 import { FunctionsService } from './../../../../services/functions.service';
 import { Router } from '@angular/router';
 import { ShopService } from './../../../service/shop.service';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -16,6 +16,7 @@ export class RelatedComponent implements OnInit {
   navlink: string;
   thatThingHappened = false;
   constructor(
+    private loadingCtrl: LoadingController,
     private fun: FunctionsService,
     private router: Router,
     private shopService: ShopService) {
@@ -26,14 +27,22 @@ export class RelatedComponent implements OnInit {
     this.navlink = this.fun.getNavLink();
   }
 
-  getProductId(productid) {
+  async getProductId(productid) {
     if (!this.thatThingHappened) {
       this.thatThingHappened = true;
+      const loading = await this.loadingCtrl.create({
+        cssClass: 'my-custom-class',
+        message: 'Please wait...',
+        mode: 'ios'
+      });
+      await loading.present();
       this.shopService.GetRelatedProducts(productid).subscribe(res => {
+        loading.dismiss().catch(() => { });
         if (res.code === 200) {
           this.products = res.data;
         }
       }, error => {
+        loading.dismiss().catch(() => { });
       })
     }
   }

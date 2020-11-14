@@ -23,8 +23,10 @@ export class AddressPage implements OnInit {
 
   }
   ionViewWillEnter() {
+    if (!this.addressess) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetUserAddress(this.sid);
+    }
   }
 
   onAdd() {

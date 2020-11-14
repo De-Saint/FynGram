@@ -547,11 +547,11 @@ export class AuthServiceService {
     const url = environment.url + 'MUserServlet';
     if (this.platform.is('android')) {
       const data = {
-        type, shippingid,name, interval, adminpercent, shippingpercent, option, phone, email
+        type, shippingid, name, interval, adminpercent, shippingpercent, option, phone, email
       };
       return this.nativeHttpRequest(url, data);
     } else {
-      const data = JSON.stringify({ type, shippingid,name, interval, adminpercent, shippingpercent, option, phone, email });
+      const data = JSON.stringify({ type, shippingid, name, interval, adminpercent, shippingpercent, option, phone, email });
       return this.http.post<ResponseType>(url, data).pipe(
         map(res => {
           return res;
@@ -621,6 +621,24 @@ export class AuthServiceService {
       return this.nativeHttpRequest(url, data);
     } else {
       const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+
+  GetStatDetails(sid): Observable<ResponseType> {
+    const type = 'GetStats';
+    const url = environment.url + 'MUserServlet';
+    if (this.platform.is('android')) {
+      const data = {
+        type, sid
+      };
+      return this.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type, sid });
       return this.http.post<ResponseType>(url, data).pipe(
         map(res => {
           return res;

@@ -23,8 +23,11 @@ export class CustomersPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter() {
-    this.GetCustomers();
+    if (!this.customers) {
+      this.GetCustomers();
+    }
     this.searchTerm = '';
+
   }
 
   async GetCustomers() {
@@ -39,7 +42,7 @@ export class CustomersPage implements OnInit {
         loading.dismiss().catch(() => { });
         if (res.code === 200) {
           this.customers = res.data;
-          this.originalcustomers  = res.data;
+          this.originalcustomers = res.data;
           this.show = true;
         } else {
           this.show = false;

@@ -14,15 +14,17 @@ export class MessagesPage implements OnInit {
   sid: any;
   messages: any;
   show = true;
-  constructor(private fun: FunctionsService, 
-              private loadingCtrl: LoadingController,
-              private authService: AuthServiceService, 
-              private messagesService: MessagesService
-              ) { }
+  constructor(private fun: FunctionsService,
+    private loadingCtrl: LoadingController,
+    private authService: AuthServiceService,
+    private messagesService: MessagesService
+  ) { }
 
   ngOnInit() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetMessages(this.sid);
+    if (!this.messages) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetMessages(this.sid);
+    }
   }
 
   shop() {
@@ -34,7 +36,7 @@ export class MessagesPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.messagesService.GetMessages(sid, 'All').subscribe(res => {

@@ -14,7 +14,7 @@ export class ProductsPage implements OnInit {
   products: any;
   sid: any;
   searchTerm: string;
-  originalproducts:any;
+  originalproducts: any;
   constructor(
     private router: Router,
     private loadingCtrl: LoadingController,
@@ -25,8 +25,10 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
   }
   ionViewDidEnter() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetProducts(this.sid);
+    if (!this.products) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetProducts(this.sid);
+    }
   }
 
   open(product) {
@@ -76,7 +78,7 @@ export class ProductsPage implements OnInit {
               this.products = res.data;
               this.show = true;
             } else {
-               this.products = this.originalproducts;;
+              this.products = this.originalproducts;;
             }
           }, error => {
             loading.dismiss().catch(() => { });

@@ -15,20 +15,22 @@ export class PaymentsPage implements OnInit {
   payments: any;
   sid: any;
   constructor(
-    private fun: FunctionsService, 
+    private fun: FunctionsService,
     private loadingCtrl: LoadingController,
-    private authService: AuthServiceService, 
+    private authService: AuthServiceService,
     private paymentService: PaymentService) { }
 
   ngOnInit() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetRecentTransactions(this.sid);
+    if (!this.payments) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetRecentTransactions(this.sid);
+    }
   }
   async GetRecentTransactions(sid) {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.paymentService.GetPayments(sid).subscribe(res => {
@@ -44,7 +46,7 @@ export class PaymentsPage implements OnInit {
     })
   }
 
-   shop() {
+  shop() {
     this.fun.navigate('home');
   }
 

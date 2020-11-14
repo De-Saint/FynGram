@@ -21,8 +21,10 @@ export class PaymentsPage implements OnInit {
     private paymentService: PaymentService) { }
 
   ngOnInit() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetRecentTransactions(this.sid);
+    if (!this.payments) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetRecentTransactions(this.sid);
+    }
   }
   async GetRecentTransactions(sid) {
     const loading = await this.loadingCtrl.create({

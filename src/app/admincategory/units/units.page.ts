@@ -16,7 +16,9 @@ export class UnitsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (!this.units) {
     this.GetUnits();
+    }
   }
 
   async GetUnits() {

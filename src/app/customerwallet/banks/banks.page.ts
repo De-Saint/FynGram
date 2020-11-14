@@ -25,8 +25,10 @@ export class BanksPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetBankDetails(this.sid);
+    if (!this.banks) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetBankDetails(this.sid);
+    }
   }
 
   async  GetBankDetails(sid) {

@@ -20,8 +20,10 @@ export class TransactionsPage implements OnInit {
     private transactionService: TransactionService) { }
 
   ngOnInit() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetRecentTransactions(this.sid);
+    if (!this.transactions) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetRecentTransactions(this.sid);
+    }
   }
   async GetRecentTransactions(sid) {
     const loading = await this.loadingCtrl.create({

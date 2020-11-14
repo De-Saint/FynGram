@@ -26,8 +26,10 @@ export class WishlistPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetShopSavedItems(this.sid);
+    if (!this.wishlists) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetShopSavedItems(this.sid);
+    }
   }
 
   async GetShopSavedItems(sid) {

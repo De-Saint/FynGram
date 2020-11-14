@@ -22,8 +22,10 @@ export class CashoutsPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetUserCashoutRequest(this.sid);
+    if (!this.cashouts) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetUserCashoutRequest(this.sid);
+    }
   }
   onAdd() {
     this.router.navigate(['/', 'customerwallet', 'tabs', 'cashouts', 'new']);
@@ -56,7 +58,7 @@ export class CashoutsPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
 
     this.fun.removeConform('cashout request').then(async res => {

@@ -23,7 +23,10 @@ export class CategoryPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.getAllCategories();
+    if (!this.categories) {
+      this.getAllCategories();
+    }
+   
   }
 
   ngOnInit() {

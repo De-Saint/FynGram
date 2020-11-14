@@ -15,23 +15,25 @@ export class DiscountsPage implements OnInit {
   constructor(
     private fun: FunctionsService,
     private loadingCtrl: LoadingController,
-    private authService: AuthServiceService,) { }
+    private authService: AuthServiceService, ) { }
 
   ngOnInit() {
-    
+
   }
-  ionViewWillEnter(){
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetCustomerDiscountCodes(this.sid);
+  ionViewWillEnter() {
+    if (!this.discounts) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetCustomerDiscountCodes(this.sid);
+    }
   }
-  shop(){
+  shop() {
     this.fun.navigate('home');
   }
   async GetCustomerDiscountCodes(sid) {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.authService.GetCustomerDiscountCodes(String(sid)).subscribe(res => {

@@ -19,8 +19,10 @@ export class StockPage implements OnInit {
     private authService: AuthServiceService, ) { }
 
   ngOnInit() {
+    if (!this.returns) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetStockMovement(this.sid);
+    }
   }
 
   shop() {

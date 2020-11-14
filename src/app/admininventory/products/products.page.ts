@@ -25,8 +25,10 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
   }
   ionViewDidEnter() {
+    if (!this.products) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetProducts(this.sid);
+    }
   }
 
   open(product) {

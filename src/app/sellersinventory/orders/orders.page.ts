@@ -20,19 +20,21 @@ export class OrdersPage implements OnInit {
     private loadingCtrl: LoadingController,
     private orderService: OrderService,
     private fun: FunctionsService,
-    ) {
+  ) {
   }
 
   ngOnInit() {
   }
 
   ionViewDidEnter() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetOrders(this.sid);
+    if (!this.orders) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetOrders(this.sid);
+    }
   }
 
-   open(order) {
-     this.router.navigate(['/', 'sellersinventory', 'tabs', 'orders', 'details', order.id]);
+  open(order) {
+    this.router.navigate(['/', 'sellersinventory', 'tabs', 'orders', 'details', order.id]);
   }
 
   async GetOrders(sid) {
@@ -43,19 +45,19 @@ export class OrdersPage implements OnInit {
     });
     await loading.present();
     this.orderService.GetOrders(sid)
-    .subscribe(res => {
-      loading.dismiss().catch(() => { });
-      if (res.code === 200) {
-        this.orders = res.data;
-        this.show = true;
-      } else {
-        this.show = false;
-      }
-    }, error => {
-      loading.dismiss().catch(() => { });
-    })
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.orders = res.data;
+          this.show = true;
+        } else {
+          this.show = false;
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
   }
-  onShop(){
+  onShop() {
     this.fun.navigate('home');
   }
 }

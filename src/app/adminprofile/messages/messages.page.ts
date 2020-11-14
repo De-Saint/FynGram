@@ -18,8 +18,10 @@ export class MessagesPage implements OnInit {
               private authService: AuthServiceService, private messagesService: MessagesService) { }
 
   ngOnInit() {
+    if (!this.messages) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetMessages(this.sid);
+    }
   }
 
   shop() {

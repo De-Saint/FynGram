@@ -14,20 +14,22 @@ export class TransactionsPage implements OnInit {
   transactions: any;
   sid: any;
   constructor(
-    private fun: FunctionsService, 
+    private fun: FunctionsService,
     private loadingCtrl: LoadingController,
-    private authService: AuthServiceService, 
+    private authService: AuthServiceService,
     private transactionService: TransactionService) { }
 
   ngOnInit() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetRecentTransactions(this.sid);
+    if (!this.transactions) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetRecentTransactions(this.sid);
+    }
   }
   async GetRecentTransactions(sid) {
     const loading = await this.loadingCtrl.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
-      mode:'ios'
+      mode: 'ios'
     });
     await loading.present();
     this.transactionService.GetRecentTransactions(sid).subscribe(res => {
@@ -43,7 +45,7 @@ export class TransactionsPage implements OnInit {
     })
   }
 
-   shop() {
+  shop() {
     this.fun.navigate('home');
   }
 

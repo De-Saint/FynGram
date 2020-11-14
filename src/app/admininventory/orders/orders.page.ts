@@ -27,8 +27,10 @@ export class OrdersPage implements OnInit {
   }
 
   ionViewDidEnter() {
+    if (!this.orders) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetOrders(this.sid);
+    }
   }
 
   open(order) {

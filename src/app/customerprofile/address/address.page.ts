@@ -14,7 +14,8 @@ export class AddressPage implements OnInit {
   show = true;
   sid: any;
   addressess: any;
-  constructor(private fun: FunctionsService, private loadingCtrl: LoadingController,
+  constructor(
+    private fun: FunctionsService, private loadingCtrl: LoadingController,
     private authService: AuthServiceService,
     private router: Router,
     private addressService: AddressService) { }
@@ -23,8 +24,10 @@ export class AddressPage implements OnInit {
 
   }
   ionViewWillEnter() {
+    if (!this.addressess) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetUserAddress(this.sid);
+    }
   }
 
   onAdd() {

@@ -1,5 +1,5 @@
 <ion-grid>
-  <ion-text>{{getProductId(productId)}}  </ion-text>
+  <ion-text hidden>{{getProductId(productId)}}  </ion-text>
   <ion-row>
     <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let data of products" (click)="open(data)">
       <div class="img-wrapper" [style.background-image]="'url(data:image/png;base64,' + data?.FirstImage">

@@ -13,8 +13,11 @@ export class CategoriesPage implements OnInit {
   constructor(
     private loadingCtrl: LoadingController,
     private shopService: ShopService) { }
+
   ionViewWillEnter() {
-    this.getAllCategories();
+    if (!this.categories) {
+      this.getAllCategories();
+    }
   }
   ngOnInit() {
   }

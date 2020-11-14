@@ -18,8 +18,10 @@ export class ReviewsPage implements OnInit {
     private reviewsService: ReviewsService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
+    if (!this.reviews) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetUserReviewList(this.sid);
+    }
   }
 
   computeRatings(ratenumber) {

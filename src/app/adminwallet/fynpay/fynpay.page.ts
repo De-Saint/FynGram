@@ -14,15 +14,17 @@ export class FynpayPage implements OnInit {
   sid: any;
   constructor(
     private router: Router, private fun: FunctionsService,
-    private loadingCtrl: LoadingController, private authService: AuthServiceService ) { }
+    private loadingCtrl: LoadingController, private authService: AuthServiceService) { }
 
   ngOnInit() {
-    
+
   }
 
   ionViewWillEnter() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetWalletDetails(this.sid);
+    if (!this.account) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetWalletDetails(this.sid);
+    }
   }
   onFund() {
     this.router.navigate(['/', 'adminwallet', 'tabs', 'fynpay', 'new']);

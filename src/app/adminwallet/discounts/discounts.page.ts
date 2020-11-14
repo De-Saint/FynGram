@@ -20,7 +20,9 @@ export class DiscountsPage implements OnInit {
 
   }
   ionViewWillEnter() {
+    if (!this.discounts) {
     this.GetDiscountCodes();
+    }
   }
   shop() {
     this.fun.navigate('home');

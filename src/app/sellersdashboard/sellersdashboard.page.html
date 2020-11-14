@@ -1,12 +1,74 @@
 <ion-header>
   <ion-toolbar color="mytheme">
-    <ion-buttons slot="start" color="light">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Dashboard</ion-title>
+    <ion-title color="light">Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding" color="light">
+ 
+  <ion-item lines="none" class="card ion-margin-bottom ion-margin-top">
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin">Messages</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-text class="ion-float-right">{{stats?.message_count}}</ion-text>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-margin-top">
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin">Products</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-text class="ion-float-right">{{stats?.product_count}}</ion-text>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-margin-top">
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin">Transactions</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-text class="ion-float-right">{{stats?.transaction_count}}</ion-text>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-margin-top">
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin">Payments</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-text class="ion-float-right">{{stats?.payment_count}}</ion-text>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none" class="card ion-margin-bottom ion-margin-top">
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin">Orders</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-text class="ion-float-right">{{stats?.order_count}}</ion-text>
+    </ion-col>
+  </ion-item>
+  
+  <ion-item lines="none" class="card ion-margin-bottom ion-margin-top">
+    <ion-col>
+      <ion-text>
+        <h5 class="title ion-no-margin">CashOut Requests </h5>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-float-right" size="2">
+      <ion-text class="ion-float-right">{{stats?.cashout_count}}</ion-text>
+    </ion-col>
+  </ion-item>
+ 
 </ion-content>

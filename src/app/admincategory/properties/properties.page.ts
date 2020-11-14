@@ -8,15 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./properties.page.scss'],
 })
 export class PropertiesPage implements OnInit {
-properties:any;
-show = true;
+  properties: any;
+  show = true;
   constructor(
     private shopService: ShopService,
     private loadingCtrl: LoadingController
   ) { }
 
   ngOnInit() {
-    this.GetProperties();
+    if (!this.properties) {
+      this.GetProperties();
+    }
   }
   async GetProperties() {
     const loading = await this.loadingCtrl.create({

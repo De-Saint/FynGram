@@ -23,7 +23,9 @@ export class SellersPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter() {
+    if (!this.sellers) {
     this.GetSellers();
+    }
     this.searchTerm = '';
   }
 

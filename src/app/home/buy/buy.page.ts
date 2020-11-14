@@ -14,7 +14,12 @@ const { Storage } = Plugins;
 export class BuyPage {
   products: any;
   recents: any;
-  topsellingProducts: any;
+
+  slideOptsOne = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true
+  };
   recentProducts: any;
   featuredProducts: any;
   bestsellerProducts: any;
@@ -39,13 +44,13 @@ export class BuyPage {
     if (!value) {
       this.getIP();
     }
-    this.getTopSellingProducts();
-    this.GetRecentlyAddedProducts();
-    this.GetFeaturedProducts();
-    this.GetBestSellersProducts();
+    if (!this.products) {
+      this.getTopSellingProducts();
+      this.GetRecentlyAddedProducts();
+      this.GetFeaturedProducts();
+      this.GetBestSellersProducts();
+    }
   }
-
-
 
   getIP() {
     this.authService.getIPAddress().subscribe((res: any) => {
@@ -60,11 +65,7 @@ export class BuyPage {
     });
   }
 
-  slideOptsOne = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay: true
-  }
+
 
   open(product) {
     this.fun.setNavLink('buy');
@@ -82,8 +83,6 @@ export class BuyPage {
       loading.dismiss().catch(() => { });
       if (res.code === 200) {
         this.products = res.data;
-      } else {
-        this.fun.presentToast(res.msg);
       }
     }, error => {
       loading.dismiss().catch(() => { });
@@ -105,8 +104,6 @@ export class BuyPage {
     this.shopService.GetFeaturedProducts().subscribe(res => {
       if (res.code === 200) {
         this.featuredProducts = res.data;
-      } else {
-        this.fun.presentToast(res.msg);
       }
     }, error => {
     })
@@ -116,8 +113,6 @@ export class BuyPage {
     this.shopService.GetBestSellersProducts().subscribe(res => {
       if (res.code === 200) {
         this.bestsellerProducts = res.data;
-      } else {
-        this.fun.presentToast(res.msg);
       }
     }, error => {
     })

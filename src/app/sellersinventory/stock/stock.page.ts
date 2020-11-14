@@ -19,8 +19,10 @@ export class StockPage implements OnInit {
     private authService: AuthServiceService, ) { }
 
   ngOnInit() {
-    this.sid = this.authService.currentUserDataValue.sid;
-    this.GetStockMovement(this.sid);
+    if (!this.returns) {
+      this.sid = this.authService.currentUserDataValue.sid;
+      this.GetStockMovement(this.sid);
+    }
   }
 
   shop() {
@@ -34,17 +36,17 @@ export class StockPage implements OnInit {
     });
     await loading.present();
     this.shopService.GetStockMovement(sid)
-    .subscribe(res => {
-      loading.dismiss().catch(() => { });
-      if (res.code === 200) {
-        this.returns = res.data;
-        this.show = true;
-      } else {
-        this.show = false;
-      }
-    }, error => {
-      loading.dismiss().catch(() => { });
-    })
+      .subscribe(res => {
+        loading.dismiss().catch(() => { });
+        if (res.code === 200) {
+          this.returns = res.data;
+          this.show = true;
+        } else {
+          this.show = false;
+        }
+      }, error => {
+        loading.dismiss().catch(() => { });
+      })
   }
 
 }

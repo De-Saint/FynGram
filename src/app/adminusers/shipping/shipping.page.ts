@@ -19,7 +19,9 @@ export class ShippingPage implements OnInit {
 
   }
   ionViewWillEnter() {
-    this.GetShippings();
+    if (!this.shippings) {
+      this.GetShippings();
+    }
   }
 
   ngOnInit() {

@@ -30,8 +30,10 @@ export class ProfilePage implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.details) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetUserDetails(this.sid);
+    }
   }
 
   async GetUserDetails(sid) {

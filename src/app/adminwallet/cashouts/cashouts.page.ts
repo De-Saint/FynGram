@@ -22,8 +22,10 @@ export class CashoutsPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter() {
+    if (!this.cashouts) {
     this.sid = this.authService.currentUserDataValue.sid;
     this.GetUserCashoutRequest(this.sid);
+    }
   }
  
 
