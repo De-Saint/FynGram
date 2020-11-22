@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"],{
 
 /***/ "./src/app/services/data.service.ts":
 /*!******************************************!*\
@@ -348,6 +348,12 @@ let FunctionsService = class FunctionsService {
     getNavLink() {
         return this.navlink;
     }
+    setNavigationData(id, data) {
+        this.navigationData[id] = data;
+    }
+    getNavigationData(id) {
+        return this.navigationData[id];
+    }
     CalculatePercentage(userAmt) {
         let addedPerc = (parseInt(userAmt) * 0.02);
         let newAmt = parseInt(userAmt) + addedPerc;
@@ -375,4 +381,4 @@ FunctionsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a-es2015.js.map
+//# sourceMappingURL=default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810-es2015.js.map

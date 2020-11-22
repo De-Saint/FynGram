@@ -41,7 +41,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | categories-categories-module */ "categories-categories-module").then(__webpack_require__.bind(null, /*! ./categories/categories.module */ "./src/app/admincategory/categories/categories.module.ts")).then(m => m.CategoriesPageModule)
+                        loadChildren: () => Promise.all(/*! import() | categories-categories-module */[__webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("categories-categories-module")]).then(__webpack_require__.bind(null, /*! ./categories/categories.module */ "./src/app/admincategory/categories/categories.module.ts")).then(m => m.CategoriesPageModule)
                     }
                 ]
             },
@@ -50,7 +50,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | properties-properties-module */ "properties-properties-module").then(__webpack_require__.bind(null, /*! ./properties/properties.module */ "./src/app/admincategory/properties/properties.module.ts")).then(m => m.PropertiesPageModule)
+                        loadChildren: () => Promise.all(/*! import() | properties-properties-module */[__webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("properties-properties-module")]).then(__webpack_require__.bind(null, /*! ./properties/properties.module */ "./src/app/admincategory/properties/properties.module.ts")).then(m => m.PropertiesPageModule)
                     }
                 ]
             },
@@ -59,7 +59,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | units-units-module */ "units-units-module").then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/admincategory/units/units.module.ts")).then(m => m.UnitsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | units-units-module */[__webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("units-units-module")]).then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/admincategory/units/units.module.ts")).then(m => m.UnitsPageModule)
                     }
                 ]
             },

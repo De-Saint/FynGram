@@ -90,6 +90,26 @@ export class ShopService {
       );
     }
   }
+
+  GetAppVersion(): Observable<ResponseType> {
+    const url = environment.url + 'MShopServlet';
+    const type = 'GetAppVersion';
+    if (this.platform.is('android')) {
+      const data = {
+        type
+      };
+      return this.authService.nativeHttpRequest(url, data);
+    } else {
+      const data = JSON.stringify({ type });
+      return this.http.post<ResponseType>(url, data).pipe(
+        map(res => {
+          return res;
+        })
+      );
+    }
+  }
+
+
   GetBestSellersProducts(): Observable<ResponseType> {
     const url = environment.url + 'MShopServlet';
     const type = 'GetBestSellersProducts';

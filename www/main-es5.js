@@ -133,7 +133,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\n      <ion-header>\n        <ion-toolbar color=\"mytheme\">\n          <ion-row class=\"ion-padding-horizontal ion-align-items-center\">\n            <ion-col size=\"4\" class=\"ion-padding-vertical ion-align-items-center\">\n              <img src=\"/assets/icon/logo.png\">\n            </ion-col>\n            <ion-col class=\"ion-padding-vertical ion-align-items-center\">\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Guest'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>Guest</strong></h4>\n                <ion-menu-toggle autoHide=\"false\">\n                  <a routerLink=\"/support\" class=\"small white ion-no-margin ion-margin-start\" routerLinkActive=\"active\"\n                    routerDirection=\"root\" detail=\"false\">Create An Account</a>\n                </ion-menu-toggle>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Admin'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Admin</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Seller'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Seller</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Customer'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Customer</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">1.0.0</h6>\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content>\n        <ion-list *ngIf=\"loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Shop & Account\n          </ion-list-header>\n          <div *ngIf=\"userType === 'Admin'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of adminPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Customer'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of customerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Seller'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of sellerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <ion-menu-toggle autoHide=\"false\" *ngIf=\"userType !== 'Guest'\">\n            <ion-item button (click)=\"logout()\" detail=\"false\">\n              <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\n              <ion-label>\n                LogOut\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n\n\n        <ion-list *ngIf=\"!loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Account\n          </ion-list-header>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n              detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-list lines=\"none\">\n          <ion-list-header>\n            Theme\n          </ion-list-header>\n          <ion-item>\n            <ion-icon slot=\"start\" name=\"moon-outline\"></ion-icon>\n            <ion-label>\n              Dark Mode\n            </ion-label>\n            <ion-toggle (ionChange)=\"updateDarkMode($event)\" slot=\"end\"></ion-toggle>\n          </ion-item>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n\n\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\n  </ion-split-pane>\n</ion-app>";
+      __webpack_exports__["default"] = "<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\n      <ion-header>\n        <ion-toolbar color=\"mytheme\">\n          <ion-row class=\"ion-padding-horizontal ion-align-items-center\">\n            <ion-col size=\"4\" class=\"ion-padding-vertical ion-align-items-center\">\n              <img src=\"/assets/icon/logo.png\">\n            </ion-col>\n            <ion-col class=\"ion-padding-vertical ion-align-items-center\">\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Guest'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>Guest</strong></h4>\n                <ion-menu-toggle autoHide=\"false\">\n                  <a routerLink=\"/support\" class=\"small white ion-no-margin ion-margin-start\" routerLinkActive=\"active\"\n                    routerDirection=\"root\" detail=\"false\">Create An Account</a>\n                </ion-menu-toggle>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">{{version}}</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Admin'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Admin</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">{{version}}</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Seller'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Seller</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">{{version}}</h6>\n              </div>\n              <div class=\"ion-margin-vertical\" *ngIf=\"userType === 'Customer'\">\n                <h4 class=\"medium white ion-no-margin ion-margin-start\"><strong>{{userName}}</strong></h4>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">Customer</h6>\n                <h6 class=\"small white ion-no-margin ion-margin-start\">{{version}}</h6>\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content>\n        <ion-list *ngIf=\"loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Shop & Account\n          </ion-list-header>\n          <div *ngIf=\"userType === 'Admin'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of adminPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Customer'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of customerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <div *ngIf=\"userType === 'Seller'\">\n            <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of sellerPages; let i = index\">\n              <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n                detail=\"false\" [class.selected]=\"selectedIndex == i\">\n                <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n                <ion-label>{{ p.title }}</ion-label>\n              </ion-item>\n            </ion-menu-toggle>\n          </div>\n          <ion-menu-toggle autoHide=\"false\" *ngIf=\"userType !== 'Guest'\">\n            <ion-item button (click)=\"logout()\" detail=\"false\">\n              <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\n              <ion-label>\n                LogOut\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n\n\n        <ion-list *ngIf=\"!loggedIn\" lines=\"none\">\n          <ion-list-header>\n            Account\n          </ion-list-header>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\"\n              detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-list lines=\"none\">\n          <ion-list-header>\n            Theme\n          </ion-list-header>\n          <ion-item>\n            <ion-icon slot=\"start\" name=\"moon-outline\"></ion-icon>\n            <ion-label>\n              Dark Mode\n            </ion-label>\n            <ion-toggle (ionChange)=\"updateDarkMode($event)\" color=\"mytheme\" slot=\"end\"></ion-toggle>\n          </ion-item>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n\n\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\n  </ion-split-pane>\n</ion-app>";
       /***/
     },
 
@@ -184,7 +184,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | authenticate-authenticate-module */
-          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("authenticate-authenticate-module")]).then(__webpack_require__.bind(null,
           /*! ./authenticate/authenticate.module */
           "./src/app/authenticate/authenticate.module.ts")).then(function (m) {
             return m.AuthenticatePageModule;
@@ -206,7 +206,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | cart-cart-module */
-          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("cart-cart-module")]).then(__webpack_require__.bind(null,
           /*! ./cart/cart.module */
           "./src/app/cart/cart.module.ts")).then(function (m) {
             return m.CartPageModule;
@@ -214,15 +214,32 @@
         }
       }, {
         path: 'search',
-        loadChildren: function loadChildren() {
-          return Promise.all(
-          /*! import() | search-search-module */
-          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null,
-          /*! ./search/search.module */
-          "./src/app/search/search.module.ts")).then(function (m) {
-            return m.SearchPageModule;
-          });
-        }
+        children: [{
+          path: '',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | search-search-module */
+            [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("search-search-module")]).then(__webpack_require__.bind(null,
+            /*! ./search/search.module */
+            "./src/app/search/search.module.ts")).then(function (m) {
+              return m.SearchPageModule;
+            });
+          }
+        }, {
+          path: 'products',
+          children: [{
+            path: 'details/:productId',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | home-category-products-details-details-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
+              /*! ./home/category/products/details/details.module */
+              "./src/app/home/category/products/details/details.module.ts")).then(function (m) {
+                return m.DetailsPageModule;
+              });
+            }
+          }]
+        }]
       }, {
         path: 'customeraccounts',
         loadChildren: function loadChildren() {
@@ -404,7 +421,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | checkout-checkout-module */
-          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("checkout-checkout-module")]).then(__webpack_require__.bind(null,
           /*! ./checkout/checkout.module */
           "./src/app/checkout/checkout.module.ts")).then(function (m) {
             return m.CheckoutPageModule;
@@ -491,44 +508,41 @@
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic-native/app-version/ngx */
+      "./node_modules/@ionic-native/app-version/__ivy_ngcc__/ngx/index.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
       /* harmony import */
 
 
-      var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @ionic-native/splash-screen/ngx */
-      "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
-      /* harmony import */
-
-
-      var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! @ionic-native/status-bar/ngx */
-      "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
-      /* harmony import */
-
-
-      var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _capacitor_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @capacitor/core */
       "./node_modules/@capacitor/core/dist/esm/index.js");
 
-      var Storage = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"].Storage;
+      var _capacitor_core__WEBP = _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["Plugins"],
+          Storage = _capacitor_core__WEBP.Storage,
+          StatusBar = _capacitor_core__WEBP.StatusBar,
+          SplashScreen = _capacitor_core__WEBP.SplashScreen;
 
       var AppComponent = /*#__PURE__*/function () {
-        function AppComponent(platform, splashScreen, statusBar, router, authService) {
+        function AppComponent(platform, renderer, router, appVersion, authService) {
           _classCallCheck(this, AppComponent);
 
           this.platform = platform;
-          this.splashScreen = splashScreen;
-          this.statusBar = statusBar;
+          this.renderer = renderer;
           this.router = router;
+          this.appVersion = appVersion;
           this.authService = authService;
           this.selectedIndex = 0;
           this.loggedIn = false;
-          this.dark = false;
           this.userType = 'Guest';
           this.HAS_LOGGED_IN = 'hasLoggedIn';
+          this.isStatusBarLight = true;
           this.appPages = [{
             title: 'Buy',
             url: '/home/tabs/buy',
@@ -571,10 +585,7 @@
             url: '/sellersinventory/tabs/products',
             icon: 'bag-add'
           }];
-          this.adminPages = [// { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
-          // { title: 'Search', url: '/search', icon: 'search' },
-          // { title: 'Cart', url: '/cart', icon: 'cart' },
-          {
+          this.adminPages = [{
             title: 'Dashboard',
             url: '/admindashboard',
             icon: 'home'
@@ -637,7 +648,6 @@
             icon: 'heart-circle'
           }];
           this.initializeApp();
-          this.dark;
         }
 
         _createClass(AppComponent, [{
@@ -646,10 +656,42 @@
             var _this = this;
 
             this.platform.ready().then(function () {
-              _this.statusBar.styleDefault();
+              _this.updateAppVersion();
 
-              _this.splashScreen.hide();
+              _this.changeStatusBar();
+
+              _this.hideSplash();
             });
+          }
+        }, {
+          key: "updateAppVersion",
+          value: function updateAppVersion() {
+            var _this2 = this;
+
+            this.appVersion.getVersionNumber().then(function (version) {
+              _this2.version = version;
+            })["catch"](function () {});
+          }
+        }, {
+          key: "changeStatusBar",
+          value: function changeStatusBar() {
+            StatusBar.show();
+            StatusBar.setStyle({
+              style: this.isStatusBarLight ? _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["StatusBarStyle"].Dark : _capacitor_core__WEBPACK_IMPORTED_MODULE_6__["StatusBarStyle"].Light
+            });
+            this.isStatusBarLight = !this.isStatusBarLight; // Display content under transparent status bar (Android only)
+
+            StatusBar.setOverlaysWebView({
+              overlay: false
+            });
+            StatusBar.setBackgroundColor({
+              color: "#40A944"
+            });
+          }
+        }, {
+          key: "hideSplash",
+          value: function hideSplash() {
+            SplashScreen.hide();
           }
         }, {
           key: "ngOnInit",
@@ -660,11 +702,11 @@
         }, {
           key: "updateLoggedInStatus",
           value: function updateLoggedInStatus(loggedIn, userType) {
-            var _this2 = this;
+            var _this3 = this;
 
             setTimeout(function () {
-              _this2.loggedIn = loggedIn;
-              _this2.userType = userType;
+              _this3.loggedIn = loggedIn;
+              _this3.userType = userType;
             }, 300);
           }
         }, {
@@ -707,48 +749,36 @@
         }, {
           key: "listenToEvents",
           value: function listenToEvents() {
-            var _this3 = this;
+            var _this4 = this;
 
             window.addEventListener('user:login', function (e) {
-              _this3.userName = e.detail.name;
+              _this4.userName = e.detail.name;
 
-              _this3.updateLoggedInStatus(true, e.detail.type);
+              _this4.updateLoggedInStatus(true, e.detail.type);
             });
             window.addEventListener('user:guest', function (e) {
-              _this3.updateLoggedInStatus(false, 'Guest');
+              _this4.updateLoggedInStatus(false, 'Guest');
             });
             window.addEventListener('user:logout', function () {
-              _this3.updateLoggedInStatus(false, 'Guest');
+              _this4.updateLoggedInStatus(false, 'Guest');
             });
           }
         }, {
           key: "logout",
           value: function logout() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.authService.logout().then(function () {
-              return _this4.router.navigateByUrl('/authenticate');
+              return _this5.router.navigateByUrl('/authenticate');
             });
           }
         }, {
           key: "updateDarkMode",
           value: function updateDarkMode(event) {
-            var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-            systemDark.addListener(this.colorTest);
-
             if (event.detail.checked) {
-              document.body.setAttribute('data-theme', 'dark');
+              this.renderer.setAttribute(document.body, 'color-theme', 'dark');
             } else {
-              document.body.setAttribute('data-theme', 'light');
-            }
-          }
-        }, {
-          key: "colorTest",
-          value: function colorTest(systemInitiatedDark) {
-            if (systemInitiatedDark.matches) {
-              document.body.setAttribute('data-theme', 'dark');
-            } else {
-              document.body.setAttribute('data-theme', 'light');
+              this.renderer.setAttribute(document.body, 'color-theme', 'light');
             }
           }
         }, {
@@ -763,13 +793,13 @@
 
       AppComponent.ctorParameters = function () {
         return [{
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"]
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"]
         }, {
-          type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"]
-        }, {
-          type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"]
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Renderer2"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_4__["AppVersion"]
         }, {
           type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthServiceService"]
         }];
@@ -881,7 +911,13 @@
       /* harmony import */
 
 
-      var angular4_paystack__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! @ionic-native/app-version/ngx */
+      "./node_modules/@ionic-native/app-version/__ivy_ngcc__/ngx/index.js");
+      /* harmony import */
+
+
+      var angular4_paystack__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! angular4-paystack */
       "./node_modules/angular4-paystack/__ivy_ngcc__/fesm2015/angular4-paystack.js");
 
@@ -892,8 +928,8 @@
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], angular4_paystack__WEBPACK_IMPORTED_MODULE_12__["Angular4PaystackModule"].forRoot(''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
-        providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"], _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_8__["HTTP"], {
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], angular4_paystack__WEBPACK_IMPORTED_MODULE_13__["Angular4PaystackModule"].forRoot(''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
+        providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"], _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_8__["HTTP"], _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_12__["AppVersion"], {
           provide: _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouteReuseStrategy"],
           useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"]
         }],
@@ -993,7 +1029,7 @@
         _createClass(AuthServiceService, [{
           key: "login",
           value: function login(emailphone, password, oldsid) {
-            var _this5 = this;
+            var _this6 = this;
 
             var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
             var type = 'Login';
@@ -1015,7 +1051,7 @@
                 var res = JSON.parse(result.data);
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
 
-                _this5.currentUserDataSubject.next(res.data);
+                _this6.currentUserDataSubject.next(res.data);
 
                 return JSON.parse(result.data);
               }));
@@ -1031,7 +1067,7 @@
                 if (res.code === 200) {
                   sessionStorage.setItem('userData', JSON.stringify(res.data));
 
-                  _this5.currentUserDataSubject.next(res.data);
+                  _this6.currentUserDataSubject.next(res.data);
                 }
 
                 return res;
@@ -1041,7 +1077,7 @@
         }, {
           key: "logout",
           value: function logout() {
-            var _this6 = this;
+            var _this7 = this;
 
             return Storage.remove({
               key: 'hasLoggedIn'
@@ -1051,14 +1087,14 @@
               });
               window.dispatchEvent(new CustomEvent('user:logout'));
 
-              _this6.currentUserDataSubject.next(null);
+              _this7.currentUserDataSubject.next(null);
 
               sessionStorage.removeItem('userData');
 
-              _this6.getIPAddress().subscribe(function (res) {
-                _this6.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(function (res) {
+              _this7.getIPAddress().subscribe(function (res) {
+                _this7.SaveGuest(res.ip, res.city + ' ' + res.country_name).subscribe(function (res) {
                   Storage.set({
-                    key: _this6.HAS_VISITED,
+                    key: _this7.HAS_VISITED,
                     value: 'true'
                   });
                   var event = new CustomEvent('user:guest');
@@ -1070,27 +1106,24 @@
         }, {
           key: "getIPAddress",
           value: function getIPAddress() {
-            if (this.platform.is('android')) {
-              var url = 'https://ipapi.co/json/'; // const url = 'https://ip.seeip.org/geoip';
-
-              return this.setHttpRequest(url, '');
-            } else {
-              return this.http.get("https://ipapi.co/json/");
-            }
+            return this.http.get("https://ipapi.co/json/"); // const url = 'https://ip.seeip.org/geoip';
           }
         }, {
           key: "setHttpRequest",
           value: function setHttpRequest(link, data) {
             try {
               var url = link;
-              this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
-              this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
-              this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
-              this.nativeHttp.setDataSerializer('json');
-              this.nativeHttp.setServerTrustMode('nocheck');
+              alert(url); // this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+              // this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+              // this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+              // this.nativeHttp.setDataSerializer('json');
+              // this.nativeHttp.setServerTrustMode('nocheck');
+
               var nativeCall = this.nativeHttp.get(url, data, {});
+              alert(JSON.stringify(nativeCall));
               return Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["from"])(nativeCall).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (result) {
                 var res = JSON.parse(result.data);
+                alert('res ' + JSON.stringify(res));
                 return JSON.parse(result.data);
               }));
             } catch (error) {
@@ -1118,7 +1151,7 @@
         }, {
           key: "SaveGuest",
           value: function SaveGuest(ipaddress, location) {
-            var _this7 = this;
+            var _this8 = this;
 
             var type = 'SaveGuest';
             var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
@@ -1139,7 +1172,7 @@
                 var res = JSON.parse(result.data);
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
 
-                _this7.currentUserDataSubject.next(res.data);
+                _this8.currentUserDataSubject.next(res.data);
 
                 return JSON.parse(result.data);
               }));
@@ -1147,7 +1180,7 @@
               return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
 
-                _this7.currentUserDataSubject.next(res.data);
+                _this8.currentUserDataSubject.next(res.data);
 
                 return res;
               }));
@@ -1578,6 +1611,267 @@
             }
           }
         }, {
+          key: "GetShippings",
+          value: function GetShippings() {
+            var type = 'GetShippings';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data19 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data19).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetShippingDetails",
+          value: function GetShippingDetails(shippingid) {
+            var type = 'GetShippingDetails';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                shippingid: shippingid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data20 = JSON.stringify({
+                type: type,
+                shippingid: shippingid
+              });
+
+              return this.http.post(url, _data20).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "DeleteShipping",
+          value: function DeleteShipping(shippingid) {
+            var type = 'DeleteShipping';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                shippingid: shippingid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data21 = JSON.stringify({
+                type: type,
+                shippingid: shippingid
+              });
+
+              return this.http.post(url, _data21).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "DeleteCustomer",
+          value: function DeleteCustomer(userid) {
+            var type = 'DeleteCustomer';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                userid: userid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data22 = JSON.stringify({
+                type: type,
+                userid: userid
+              });
+
+              return this.http.post(url, _data22).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "ResetShipping",
+          value: function ResetShipping(shippingid) {
+            var type = 'ResetShipping';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                shippingid: shippingid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data23 = JSON.stringify({
+                type: type,
+                shippingid: shippingid
+              });
+
+              return this.http.post(url, _data23).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "NewShippingAddress",
+          value: function NewShippingAddress(shippingid, name, interval, adminpercent, shippingpercent, option, phone, email) {
+            var type = 'NewShippingAddress';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                shippingid: shippingid,
+                name: name,
+                interval: interval,
+                adminpercent: adminpercent,
+                shippingpercent: shippingpercent,
+                option: option,
+                phone: phone,
+                email: email
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data24 = JSON.stringify({
+                type: type,
+                shippingid: shippingid,
+                name: name,
+                interval: interval,
+                adminpercent: adminpercent,
+                shippingpercent: shippingpercent,
+                option: option,
+                phone: phone,
+                email: email
+              });
+
+              return this.http.post(url, _data24).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetCustomers",
+          value: function GetCustomers() {
+            var type = 'GetAllCustomers';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data25 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data25).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "SearchCustomers",
+          value: function SearchCustomers(searchvalue) {
+            var type = 'SearchCustomers';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                searchvalue: searchvalue
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data26 = JSON.stringify({
+                type: type,
+                searchvalue: searchvalue
+              });
+
+              return this.http.post(url, _data26).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "SearchSellers",
+          value: function SearchSellers(searchvalue) {
+            var type = 'SearchSellers';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                searchvalue: searchvalue
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data27 = JSON.stringify({
+                type: type,
+                searchvalue: searchvalue
+              });
+
+              return this.http.post(url, _data27).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetSellers",
+          value: function GetSellers() {
+            var type = 'GetAllSellers';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data28 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data28).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetStatDetails",
+          value: function GetStatDetails(sid) {
+            var type = 'GetStats';
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + 'MUserServlet';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                sid: sid
+              };
+              return this.nativeHttpRequest(url, data);
+            } else {
+              var _data29 = JSON.stringify({
+                type: type,
+                sid: sid
+              });
+
+              return this.http.post(url, _data29).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
           key: "currentUserDataValue",
           get: function get() {
             return this.currentUserDataSubject.value;
@@ -1628,7 +1922,9 @@
 
       var environment = {
         production: false,
-        url: "http://localhost:8080/FynGramEngine/"
+        // url: "http://localhost:8080/FynGramEngine/",
+        // url: "https://www.fyngram.com/FynGramEngine/",
+        url: "https://b7c2f3e67daa.ngrok.io/FynGramEngine/"
       };
       /*
        * For easier debugging in development mode, you can import the following file
@@ -1701,7 +1997,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! /Users/mac/Dropbox/GIDPSoftware/MacBook/Mobile/FynGram/src/main.ts */
+      /*! /Users/mac/Dropbox/GIDPSoftware/MacBook/Mobile/Fyngram/src/main.ts */
       "./src/main.ts");
       /***/
     }

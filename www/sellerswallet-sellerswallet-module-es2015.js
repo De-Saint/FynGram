@@ -41,11 +41,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | fynpay-fynpay-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("fynpay-fynpay-module")]).then(__webpack_require__.bind(null, /*! ./fynpay/fynpay.module */ "./src/app/sellerswallet/fynpay/fynpay.module.ts")).then(m => m.FynpayPageModule)
+                        loadChildren: () => Promise.all(/*! import() | fynpay-fynpay-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("fynpay-fynpay-module")]).then(__webpack_require__.bind(null, /*! ./fynpay/fynpay.module */ "./src/app/sellerswallet/fynpay/fynpay.module.ts")).then(m => m.FynpayPageModule)
                     },
                     {
                         path: 'new',
-                        loadChildren: () => Promise.all(/*! import() | fynpay-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("fynpay-new-new-module")]).then(__webpack_require__.bind(null, /*! ./fynpay/new/new.module */ "./src/app/sellerswallet/fynpay/new/new.module.ts")).then(m => m.NewPageModule)
+                        loadChildren: () => Promise.all(/*! import() | fynpay-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("default~checkout-checkout-module~fynpay-new-new-module"), __webpack_require__.e("fynpay-new-new-module")]).then(__webpack_require__.bind(null, /*! ./fynpay/new/new.module */ "./src/app/sellerswallet/fynpay/new/new.module.ts")).then(m => m.NewPageModule)
                     }
                 ]
             },
@@ -54,11 +54,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | cashouts-cashouts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("cashouts-cashouts-module")]).then(__webpack_require__.bind(null, /*! ./cashouts/cashouts.module */ "./src/app/sellerswallet/cashouts/cashouts.module.ts")).then(m => m.CashoutsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | cashouts-cashouts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("cashouts-cashouts-module")]).then(__webpack_require__.bind(null, /*! ./cashouts/cashouts.module */ "./src/app/sellerswallet/cashouts/cashouts.module.ts")).then(m => m.CashoutsPageModule)
                     },
                     {
                         path: 'new',
-                        loadChildren: () => Promise.all(/*! import() | cashouts-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("cashouts-new-new-module")]).then(__webpack_require__.bind(null, /*! ./cashouts/new/new.module */ "./src/app/sellerswallet/cashouts/new/new.module.ts")).then(m => m.NewPageModule)
+                        loadChildren: () => Promise.all(/*! import() | cashouts-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("cashouts-new-new-module")]).then(__webpack_require__.bind(null, /*! ./cashouts/new/new.module */ "./src/app/sellerswallet/cashouts/new/new.module.ts")).then(m => m.NewPageModule)
                     }
                 ]
             },
@@ -67,11 +67,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | banks-banks-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("banks-banks-module")]).then(__webpack_require__.bind(null, /*! ./banks/banks.module */ "./src/app/sellerswallet/banks/banks.module.ts")).then(m => m.BanksPageModule)
+                        loadChildren: () => Promise.all(/*! import() | banks-banks-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("banks-banks-module")]).then(__webpack_require__.bind(null, /*! ./banks/banks.module */ "./src/app/sellerswallet/banks/banks.module.ts")).then(m => m.BanksPageModule)
                     },
                     {
                         path: 'new',
-                        loadChildren: () => Promise.all(/*! import() | banks-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("banks-new-new-module")]).then(__webpack_require__.bind(null, /*! ./banks/new/new.module */ "./src/app/sellerswallet/banks/new/new.module.ts")).then(m => m.NewPageModule)
+                        loadChildren: () => Promise.all(/*! import() | banks-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("common"), __webpack_require__.e("banks-new-new-module")]).then(__webpack_require__.bind(null, /*! ./banks/new/new.module */ "./src/app/sellerswallet/banks/new/new.module.ts")).then(m => m.NewPageModule)
                     }
                 ]
             },

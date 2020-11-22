@@ -80,7 +80,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | orders-orders-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("orders-orders-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("common"), __webpack_require__.e("orders-orders-module")]).then(__webpack_require__.bind(null,
               /*! ./orders/orders.module */
               "./src/app/customerorders/orders/orders.module.ts")).then(function (m) {
                 return m.OrdersPageModule;
@@ -91,7 +91,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | orders-details-details-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~details-details-module~orders-details-details-module"), __webpack_require__.e("common"), __webpack_require__.e("orders-details-details-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("common"), __webpack_require__.e("orders-details-details-module")]).then(__webpack_require__.bind(null,
               /*! ./orders/details/details.module */
               "./src/app/customerorders/orders/details/details.module.ts")).then(function (m) {
                 return m.DetailsPageModule;
@@ -105,7 +105,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | wishlist-wishlist-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("wishlist-wishlist-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("wishlist-wishlist-module")]).then(__webpack_require__.bind(null,
               /*! ./wishlist/wishlist.module */
               "./src/app/customerorders/wishlist/wishlist.module.ts")).then(function (m) {
                 return m.WishlistPageModule;
@@ -118,7 +118,7 @@
               loadChildren: function loadChildren() {
                 return Promise.all(
                 /*! import() | home-category-products-details-details-module */
-                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
+                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
                 /*! ../home/category/products/details/details.module */
                 "./src/app/home/category/products/details/details.module.ts")).then(function (m) {
                   return m.DetailsPageModule;
@@ -133,7 +133,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | returned-returned-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("returned-returned-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("returned-returned-module")]).then(__webpack_require__.bind(null,
               /*! ./returned/returned.module */
               "./src/app/customerorders/returned/returned.module.ts")).then(function (m) {
                 return m.ReturnedPageModule;

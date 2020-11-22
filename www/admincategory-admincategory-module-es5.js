@@ -78,9 +78,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | categories-categories-module */
-              "categories-categories-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("categories-categories-module")]).then(__webpack_require__.bind(null,
               /*! ./categories/categories.module */
               "./src/app/admincategory/categories/categories.module.ts")).then(function (m) {
                 return m.CategoriesPageModule;
@@ -92,9 +92,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | properties-properties-module */
-              "properties-properties-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("properties-properties-module")]).then(__webpack_require__.bind(null,
               /*! ./properties/properties.module */
               "./src/app/admincategory/properties/properties.module.ts")).then(function (m) {
                 return m.PropertiesPageModule;
@@ -106,9 +106,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | units-units-module */
-              "units-units-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("units-units-module")]).then(__webpack_require__.bind(null,
               /*! ./units/units.module */
               "./src/app/admincategory/units/units.module.ts")).then(function (m) {
                 return m.UnitsPageModule;

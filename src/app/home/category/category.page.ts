@@ -15,7 +15,8 @@ export class CategoryPage implements OnInit {
     effect: 'flip',
     zoom: false
   };
-  constructor(private fun: FunctionsService,
+  constructor(
+    private fun: FunctionsService,
     private loadingCtrl: LoadingController,
     private shopService: ShopService,
     private router: Router) {
@@ -26,7 +27,6 @@ export class CategoryPage implements OnInit {
     if (!this.categories) {
       this.getAllCategories();
     }
-   
   }
 
   ngOnInit() {

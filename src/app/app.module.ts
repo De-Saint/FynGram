@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppVersion } from '@ionic-native/app-version/ngx';
+
 import { Angular4PaystackModule } from 'angular4-paystack';
 
 @NgModule({
@@ -29,6 +31,7 @@ import { Angular4PaystackModule } from 'angular4-paystack';
     StatusBar,
     SplashScreen,
     HTTP,
+    AppVersion,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

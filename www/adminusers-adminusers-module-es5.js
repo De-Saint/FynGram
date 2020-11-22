@@ -78,12 +78,23 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | sellers-sellers-module */
-              "sellers-sellers-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("sellers-sellers-module")]).then(__webpack_require__.bind(null,
               /*! ./sellers/sellers.module */
               "./src/app/adminusers/sellers/sellers.module.ts")).then(function (m) {
                 return m.SellersPageModule;
+              });
+            }
+          }, {
+            path: 'details/:sellerId',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | sellers-details-details-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("sellers-details-details-module")]).then(__webpack_require__.bind(null,
+              /*! ./sellers/details/details.module */
+              "./src/app/adminusers/sellers/details/details.module.ts")).then(function (m) {
+                return m.DetailsPageModule;
               });
             }
           }]
@@ -92,12 +103,23 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | customers-customers-module */
-              "customers-customers-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("customers-customers-module")]).then(__webpack_require__.bind(null,
               /*! ./customers/customers.module */
               "./src/app/adminusers/customers/customers.module.ts")).then(function (m) {
                 return m.CustomersPageModule;
+              });
+            }
+          }, {
+            path: 'details/:customerId',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | customers-details-details-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("customers-details-details-module")]).then(__webpack_require__.bind(null,
+              /*! ./customers/details/details.module */
+              "./src/app/adminusers/customers/details/details.module.ts")).then(function (m) {
+                return m.DetailsPageModule;
               });
             }
           }]
@@ -112,6 +134,28 @@
               /*! ./shipping/shipping.module */
               "./src/app/adminusers/shipping/shipping.module.ts")).then(function (m) {
                 return m.ShippingPageModule;
+              });
+            }
+          }, {
+            path: 'details/:shippingId',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | shipping-details-details-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("shipping-details-details-module")]).then(__webpack_require__.bind(null,
+              /*! ./shipping/details/details.module */
+              "./src/app/adminusers/shipping/details/details.module.ts")).then(function (m) {
+                return m.DetailsPageModule;
+              });
+            }
+          }, {
+            path: 'new',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | shipping-new-new-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("shipping-new-new-module")]).then(__webpack_require__.bind(null,
+              /*! ./shipping/new/new.module */
+              "./src/app/adminusers/shipping/new/new.module.ts")).then(function (m) {
+                return m.NewPageModule;
               });
             }
           }]

@@ -154,8 +154,10 @@ let AddressPage = class AddressPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetUserAddress(this.sid);
+        if (!this.addressess) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetUserAddress(this.sid);
+        }
     }
     onAdd() {
         this.router.navigate(['/', 'customerprofile', 'tabs', 'address', 'new']);
@@ -178,6 +180,7 @@ let AddressPage = class AddressPage {
                     this.show = false;
                 }
             }, error => {
+                this.show = false;
                 loading.dismiss().catch(() => { });
             });
         });
@@ -391,8 +394,10 @@ let AddressPage = class AddressPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetUserAddress(this.sid);
+        if (!this.addressess) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetUserAddress(this.sid);
+        }
     }
     onAdd() {
         this.router.navigate(['/', 'sellersprofile', 'tabs', 'address', 'new']);
@@ -415,6 +420,7 @@ let AddressPage = class AddressPage {
                     this.show = false;
                 }
             }, error => {
+                this.show = false;
                 loading.dismiss().catch(() => { });
             });
         });

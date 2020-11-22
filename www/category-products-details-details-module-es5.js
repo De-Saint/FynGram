@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = " <div>\n  <ion-row class=\"ion-no-padding\">\n    <ion-col class=\"ion-no-padding\">\n      <ion-slides pager=\"true\" [options]=\"slideOpts\">\n        <ion-slide *ngFor=\"let i of product?.ImageDetails3\">\n          <img class=\"image\" [src]=\"'data:image/png;base64,'+i.image_text\">\n          <div class=\"product-image-overlay\"></div>\n        </ion-slide>\n      </ion-slides>\n      <ion-badge class=\"badge\">\n        <ion-icon name=\"images\"></ion-icon>\n        {{product?.ImageDetails3.length}}\n      </ion-badge>\n      <ion-row class=\"hover-buttons ion-justify-content-end\">\n        <ion-icon *ngIf=\"!liked\" size=\"small\" name=\"heart-empty\" class=\"fab ion-float-right\" (click)=\"like(product)\">\n        </ion-icon>\n        <ion-icon *ngIf=\"liked\" size=\"small\" name=\"heart\" class=\"fab red ion-float-right\" (click)=\"like(product)\"></ion-icon>\n      </ion-row>\n    </ion-col>\n  </ion-row>\n  <div class=\"ion-padding\">\n    <ion-row lines=\"none\" class=\"row\">\n      <ion-text class=\"name\">{{product?.InfoDetails?.name}}</ion-text>\n    </ion-row>\n    <ion-row class=\"ion-float-left\">\n      <ion-icon name=\"star\" color=\"mytheme\" *ngFor=\"let i of computeRatings(product?.RatingDetails?.AverageRatings)\">\n      </ion-icon>\n      <ion-icon name=\"star-outline\" color=\"mytheme\"\n        *ngFor=\"let i of computeRatings2(product?.RatingDetails?.AverageRatings)\"></ion-icon>\n      <h6 class=\"rate ion-no-margin ion-padding-start\" (click)=\"goToReviews()\">\n        ({{product?.RatingDetails?.NumberOfRatings}} Reviews) </h6>\n    </ion-row>\n    <ion-row class=\"ion-float-right\">\n      <small class=\"ion-float-right ion-no-margin\"><strong>{{product?.RootCatName}}</strong></small>\n    </ion-row>\n    <div style=\"clear: both;\"></div>\n    <div class=\"sep\"></div>\n    <div>\n      <ion-text>\n        <span class=\"ion-float-left ion-no-margin\"><strong>Sold By</strong></span>\n      </ion-text>\n      <br>\n      <ion-text>\n        <span class=\"ion-float-left ion-no-margin\">{{product?.SellerDetails?.SellerUserName}}</span>\n      </ion-text>\n      <br>\n      <ion-text>\n        <h6 class=\"ion-float-left ion-no-margin\">{{product?.SellerDetails?.business_email}}</h6>\n      </ion-text><br>\n      <ion-text>\n        <h6 class=\"ion-float-left ion-no-margin\">{{product?.SellerDetails?.cac_number}}</h6>\n      </ion-text><br>\n    </div>\n    <div class=\"sep\"></div>\n    <ion-list lines=\"none\">\n      <ion-row class=\"full info\" (click)=\"toggle(0)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Item Specification</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[0]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[0]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-margin-top\" *ngIf=\"open[0]\">\n        <ion-col>\n          <span class=\"ion-float-left\">{{product?.UnitDetails?.UnitName}}:   <span>{{product?.UnitDetails?.value}}</span></span>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row class=\"full info\" (click)=\"toggle(1)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Description</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[1]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[1]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"ion-margin-top\" *ngIf=\"open[1]\">\n        <ion-col>\n          <span class=\"ion-float-left\">{{product?.InfoDetails?.description}}</span>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row class=\"full info\" (click)=\"toggle(2)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Buyer Guarantee</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[2]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[2]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"ion-margin-top\" *ngIf=\"open[2]\">\n        <ion-col >\n          <span class=\"ion-text-left\">You can return this product within 7 working days for an exchange but return does\n            not cover perishable goods.</span>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row class=\"full info\" (click)=\"toggle(3)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Shipping Information</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[3]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[3]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-no-margin-top\" *ngIf=\"open[3]\">\n        <ion-col>\n          <span class=\"ion-float-left\">Standard Shipping: <strong> {{product?.SellerDetails?.shipStartDate}} -\n              {{product?.SellerDetails?.shipEndDate}}</strong></span>\n        </ion-col>\n        <br>\n        <ion-col>\n          <small ion-text color=\"mytheme\">If the product is bought today - {{computeDate()}}</small>\n        </ion-col>\n      </ion-row>\n\n    </ion-list>\n  </div>\n</div> ";
+      __webpack_exports__["default"] = " <div>\n  <ion-row class=\"ion-no-padding\">\n    <ion-col class=\"ion-no-padding\">\n      <ion-slides pager=\"true\" [options]=\"slideOpts\">\n        <ion-slide *ngFor=\"let i of product?.ImageDetails3\">\n          <img class=\"image\" [src]=\"'data:image/png;base64,'+i.image_text\">\n          <div class=\"product-image-overlay\"></div>\n        </ion-slide>\n      </ion-slides>\n      <ion-badge class=\"badge\">\n        <ion-icon name=\"images\"></ion-icon>\n        {{product?.ImageDetails3.length}}\n      </ion-badge>\n      <ion-row class=\"hover-buttons ion-justify-content-end\">\n        <ion-icon *ngIf=\"!liked\" size=\"small\" name=\"heart-empty\" class=\"fab ion-float-right\" (click)=\"like(product)\">\n        </ion-icon>\n        <ion-icon *ngIf=\"liked\" size=\"small\" name=\"heart\" class=\"fab red ion-float-right\" (click)=\"like(product)\"></ion-icon>\n      </ion-row>\n    </ion-col> \n  </ion-row>\n  <div class=\"ion-padding\">\n    <ion-row lines=\"none\" class=\"row\">\n      <ion-text class=\"name\">{{product?.InfoDetails?.name}}</ion-text>\n    </ion-row>\n    <ion-row class=\"ion-float-left\">\n      <ion-icon name=\"star\" color=\"mytheme\" *ngFor=\"let i of computeRatings(product?.RatingDetails?.AverageRatings)\">\n      </ion-icon>\n      <ion-icon name=\"star-outline\" color=\"mytheme\"\n        *ngFor=\"let i of computeRatings2(product?.RatingDetails?.AverageRatings)\"></ion-icon>\n      <h6 class=\"rate ion-no-margin ion-padding-start\" (click)=\"goToReviews()\">\n        ({{product?.RatingDetails?.NumberOfRatings}} Reviews) </h6>\n    </ion-row>\n    <ion-row class=\"ion-float-right\">\n      <small class=\"ion-float-right ion-no-margin\"><strong>{{product?.RootCatName}}</strong></small>\n    </ion-row>\n    <div style=\"clear: both;\"></div>\n    <div class=\"sep\"></div>\n    <div>\n      <ion-text>\n        <span class=\"ion-float-left ion-no-margin\"><strong>Sold By</strong></span>\n      </ion-text>\n      <br>\n      <ion-text>\n        <span class=\"ion-float-left ion-no-margin\">{{product?.SellerDetails?.SellerUserName}}</span>\n      </ion-text>\n      <br>\n      <ion-text>\n        <h6 class=\"ion-float-left ion-no-margin\">{{product?.SellerDetails?.business_email}}</h6>\n      </ion-text><br>\n      <ion-text>\n        <h6 class=\"ion-float-left ion-no-margin\">{{product?.SellerDetails?.cac_number}}</h6>\n      </ion-text><br>\n    </div>\n    <div class=\"sep\"></div>\n    <ion-list lines=\"none\">\n      <ion-row class=\"full info\" (click)=\"toggle(0)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Item Specification</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[0]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[0]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-margin-top\" *ngIf=\"open[0]\">\n        <ion-col>\n          <span class=\"ion-float-left\">{{product?.UnitDetails?.UnitName}}:   <span>{{product?.UnitDetails?.value}}</span></span>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row class=\"full info\" (click)=\"toggle(1)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Description</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[1]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[1]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"ion-margin-top\" *ngIf=\"open[1]\">\n        <ion-col>\n          <span class=\"ion-float-left\">{{product?.InfoDetails?.description}}</span>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row class=\"full info\" (click)=\"toggle(2)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Buyer Guarantee</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[2]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[2]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"ion-margin-top\" *ngIf=\"open[2]\">\n        <ion-col >\n          <span class=\"ion-text-left\">You can return this product within 7 working days for an exchange but return does\n            not cover perishable goods.</span>\n        </ion-col>\n      </ion-row>\n      <div class=\"sep\"></div>\n      <ion-row class=\"full info\" (click)=\"toggle(3)\">\n        <ion-col size=\"9\">\n          <strong class=\"ion-float-left\">Shipping Information</strong>\n        </ion-col>\n        <ion-col>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-down-circle-outline\" *ngIf=\"!open[3]\"></ion-icon>\n          <ion-icon class=\"ion-float-right\" name=\"chevron-up-circle-outline\" *ngIf=\"open[3]\"></ion-icon>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"full ion-no-margin-top\" *ngIf=\"open[3]\">\n        <ion-col>\n          <span class=\"ion-float-left\">Standard Shipping: <strong> {{product?.SellerDetails?.shipStartDate}} -\n              {{product?.SellerDetails?.shipEndDate}}</strong></span>\n        </ion-col>\n        <br>\n        <ion-col>\n          <small ion-text color=\"mytheme\">If the product is bought today - {{computeDate()}}</small>\n        </ion-col>\n      </ion-row>\n\n    </ion-list>\n  </div>\n</div> ";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-grid>\n  <ion-text>{{getProductId(productId)}}  </ion-text>\n  <ion-row>\n    <ion-col sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\" *ngFor=\"let data of products\" (click)=\"open(data)\">\n      <div class=\"img-wrapper\" [style.background-image]=\"'url(data:image/png;base64,' + data?.FirstImage\">\n      </div>\n      <p class=\"ion-no-margin text-truncate\"><strong>{{data?.InfoDetails?.name}}</strong></p>\n      <p class=\"ion-no-margin\">\n        {{ data?.PriceDetails?.selling_price | currency:'₦' }}\n      </p>\n    </ion-col>\n  </ion-row>\n</ion-grid>";
+      __webpack_exports__["default"] = "<ion-grid>\n  <ion-text hidden>{{getProductId(productId)}}  </ion-text>\n  <ion-row>\n    <ion-col sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\" *ngFor=\"let data of products\" (click)=\"open(data)\">\n      <div class=\"img-wrapper\" [style.background-image]=\"'url(data:image/png;base64,' + data?.FirstImage\">\n      </div>\n      <p class=\"ion-no-margin text-truncate\"><strong>{{data?.InfoDetails?.name}}</strong></p>\n      <p class=\"ion-no-margin\">\n        {{ data?.PriceDetails?.selling_price | currency:'₦' }}\n      </p>\n    </ion-col>\n  </ion-row>\n</ion-grid>";
       /***/
     },
 
@@ -898,14 +898,21 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
       var RelatedComponent = /*#__PURE__*/function () {
-        function RelatedComponent(fun, router, shopService) {
+        function RelatedComponent(loadingCtrl, fun, router, shopService) {
           _classCallCheck(this, RelatedComponent);
 
+          this.loadingCtrl = loadingCtrl;
           this.fun = fun;
           this.router = router;
           this.shopService = shopService;
@@ -920,16 +927,50 @@
         }, {
           key: "getProductId",
           value: function getProductId(productid) {
-            var _this6 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
+              var _this6 = this;
 
-            if (!this.thatThingHappened) {
-              this.thatThingHappened = true;
-              this.shopService.GetRelatedProducts(productid).subscribe(function (res) {
-                if (res.code === 200) {
-                  _this6.products = res.data;
+              var loading;
+              return regeneratorRuntime.wrap(function _callee8$(_context8) {
+                while (1) {
+                  switch (_context8.prev = _context8.next) {
+                    case 0:
+                      if (this.thatThingHappened) {
+                        _context8.next = 8;
+                        break;
+                      }
+
+                      this.thatThingHappened = true;
+                      _context8.next = 4;
+                      return this.loadingCtrl.create({
+                        cssClass: 'my-custom-class',
+                        message: 'Please wait...',
+                        mode: 'ios'
+                      });
+
+                    case 4:
+                      loading = _context8.sent;
+                      _context8.next = 7;
+                      return loading.present();
+
+                    case 7:
+                      this.shopService.GetRelatedProducts(productid).subscribe(function (res) {
+                        loading.dismiss()["catch"](function () {});
+
+                        if (res.code === 200) {
+                          _this6.products = res.data;
+                        }
+                      }, function (error) {
+                        loading.dismiss()["catch"](function () {});
+                      });
+
+                    case 8:
+                    case "end":
+                      return _context8.stop();
+                  }
                 }
-              }, function (error) {});
-            }
+              }, _callee8, this);
+            }));
           }
         }, {
           key: "open",
@@ -940,6 +981,8 @@
               this.router.navigate(['/', 'home', 'tabs', 'buy', 'products', 'details', product.id]);
             } else if (this.navlink === 'wishlist') {
               this.router.navigate(['/', 'customerorders', 'tabs', 'wishlist', 'products', 'details', product.id]);
+            } else if (this.navlink === 'search') {
+              this.router.navigate(['/', 'search', 'products', 'details', product.id]);
             } else {
               this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', product.id]);
             }
@@ -951,6 +994,8 @@
 
       RelatedComponent.ctorParameters = function () {
         return [{
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"]
+        }, {
           type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
@@ -961,10 +1006,10 @@
 
       RelatedComponent.propDecorators = {
         productId: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Input"]
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Input"]
         }]
       };
-      RelatedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+      RelatedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-related',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./related.component.html */

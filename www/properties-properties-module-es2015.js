@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button  color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Properties</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button  color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Properties</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list *ngFor=\"let prop of properties\">\n    <ion-item>\n      <ion-label>{{prop.name}}</ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>");
 
 /***/ }),
 
@@ -116,17 +116,54 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertiesPage", function() { return PropertiesPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _home_service_shop_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../home/service/shop.service */ "./src/app/home/service/shop.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
 
 
 let PropertiesPage = class PropertiesPage {
-    constructor() { }
+    constructor(shopService, loadingCtrl) {
+        this.shopService = shopService;
+        this.loadingCtrl = loadingCtrl;
+        this.show = true;
+    }
     ngOnInit() {
+        if (!this.properties) {
+            this.GetProperties();
+        }
+    }
+    GetProperties() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const loading = yield this.loadingCtrl.create({
+                cssClass: 'my-custom-class',
+                message: 'Please wait...',
+                mode: 'ios'
+            });
+            yield loading.present();
+            this.shopService.GetProperties().subscribe(res => {
+                loading.dismiss().catch(() => { });
+                if (res.code === 200) {
+                    this.properties = res.data;
+                    this.show = true;
+                }
+                else {
+                    this.show = false;
+                }
+            }, error => {
+                this.show = false;
+                loading.dismiss().catch(() => { });
+            });
+        });
     }
 };
-PropertiesPage.ctorParameters = () => [];
+PropertiesPage.ctorParameters = () => [
+    { type: _home_service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"] }
+];
 PropertiesPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-properties',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./properties.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admincategory/properties/properties.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./properties.page.scss */ "./src/app/admincategory/properties/properties.page.scss")).default]

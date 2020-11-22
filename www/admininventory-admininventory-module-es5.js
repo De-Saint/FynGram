@@ -86,6 +86,17 @@
                 return m.ProductsPageModule;
               });
             }
+          }, {
+            path: 'details/:productId',
+            loadChildren: function loadChildren() {
+              return Promise.all(
+              /*! import() | products-details-details-module */
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("products-details-details-module")]).then(__webpack_require__.bind(null,
+              /*! ./products/details/details.module */
+              "./src/app/admininventory/products/details/details.module.ts")).then(function (m) {
+                return m.DetailsPageModule;
+              });
+            }
           }]
         }, {
           path: 'orders',
@@ -94,7 +105,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | orders-orders-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("common"), __webpack_require__.e("orders-orders-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("common"), __webpack_require__.e("orders-orders-module")]).then(__webpack_require__.bind(null,
               /*! ./orders/orders.module */
               "./src/app/admininventory/orders/orders.module.ts")).then(function (m) {
                 return m.OrdersPageModule;
@@ -105,7 +116,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | orders-details-details-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~details-details-module~orders-details-details-module"), __webpack_require__.e("common"), __webpack_require__.e("orders-details-details-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("common"), __webpack_require__.e("orders-details-details-module")]).then(__webpack_require__.bind(null,
               /*! ./orders/details/details.module */
               "./src/app/admininventory/orders/details/details.module.ts")).then(function (m) {
                 return m.DetailsPageModule;
@@ -117,9 +128,9 @@
           children: [{
             path: '',
             loadChildren: function loadChildren() {
-              return __webpack_require__.e(
+              return Promise.all(
               /*! import() | stock-stock-module */
-              "stock-stock-module").then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("stock-stock-module")]).then(__webpack_require__.bind(null,
               /*! ./stock/stock.module */
               "./src/app/admininventory/stock/stock.module.ts")).then(function (m) {
                 return m.StockPageModule;

@@ -5,7 +5,7 @@
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"], {
     /***/
     "./src/app/services/data.service.ts":
     /*!******************************************!*\
@@ -2415,6 +2415,16 @@
             return this.navlink;
           }
         }, {
+          key: "setNavigationData",
+          value: function setNavigationData(id, data) {
+            this.navigationData[id] = data;
+          }
+        }, {
+          key: "getNavigationData",
+          value: function getNavigationData(id) {
+            return this.navigationData[id];
+          }
+        }, {
           key: "CalculatePercentage",
           value: function CalculatePercentage(userAmt) {
             var addedPerc = parseInt(userAmt) * 0.02;
@@ -2452,4 +2462,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a-es5.js.map
+//# sourceMappingURL=default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810-es5.js.map

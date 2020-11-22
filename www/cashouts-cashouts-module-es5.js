@@ -292,8 +292,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetUserCashoutRequest(this.sid);
+            if (!this.cashouts) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserCashoutRequest(this.sid);
+            }
           }
         }, {
           key: "GetUserCashoutRequest",
@@ -736,8 +738,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetUserCashoutRequest(this.sid);
+            if (!this.cashouts) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserCashoutRequest(this.sid);
+            }
           }
         }, {
           key: "onAdd",
@@ -1118,8 +1122,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetUserCashoutRequest(this.sid);
+            if (!this.cashouts) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserCashoutRequest(this.sid);
+            }
           }
         }, {
           key: "onAdd",

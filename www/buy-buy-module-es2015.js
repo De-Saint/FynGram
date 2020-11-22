@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"mybg\">\n  <ion-toolbar  color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-buttons>\n        <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n    </ion-buttons>\n    <ion-title class=\"white\">Fyngram</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"onOpen('cart')\" >\n        <ion-icon name=\"cart\" slot=\"icon-only\"  class=\"white top-btn ion-no-margin\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n\n  <ion-toolbar  color=\"mytheme\">\n    <ion-searchbar color=\"light\" (click)=\"onOpen('search')\"  placeholder=\"I'm shopping for...\"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Top Selling Products</ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of products\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.ProductName}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.ProductPrice | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-slides [options]=\"slideOptsOne\">\n    <ion-slide>\n      <ion-card  class=\"ion-no-padding ion-no-margin\">\n        <ion-img src=\"/assets/images/slider7.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide>\n      <ion-card  class=\"ion-no-padding ion-no-margin\">\n        <ion-img src=\"/assets/images/slider12.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide>\n      <ion-card  class=\"ion-no-padding ion-no-margin\">\n        <ion-img src=\"/assets/images/slider10.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n   </ion-slides>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Featured Products</ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of featuredProducts\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.InfoDetails?.name}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-card class=\"ion-no-padding ion-no-margin\">\n    <img src=\"/assets/images/slider7.jpg\" />\n  </ion-card>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Recently Added Products </ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of recentProducts\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.InfoDetails?.name}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-card class=\"ion-no-padding ion-no-margin\">\n    <img src=\"/assets/images/slider10.jpg\" />\n  </ion-card>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Best Sellers' Products</ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of bestsellerProducts\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.InfoDetails?.name}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.PriceDetails?.selling_price | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-slides [options]=\"slideOptsOne\">\n    <ion-slide>\n      <ion-card >\n        <ion-img src=\"/assets/images/slider7.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide>\n      <ion-card >\n        <ion-img src=\"/assets/images/slider12.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide> \n      <ion-card >\n        <ion-img src=\"/assets/images/slider10.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n   </ion-slides>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"mybg\">\n  <ion-toolbar  color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-buttons>\n        <ion-menu-button color=\"light\"></ion-menu-button>\n      </ion-buttons>\n    </ion-buttons>\n    <ion-title class=\"white\">Fyngram</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"onOpen('cart')\" >\n        <ion-icon name=\"cart\" slot=\"icon-only\"  class=\"white top-btn ion-no-margin\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n\n  <ion-toolbar  color=\"mytheme\">\n    <ion-searchbar color=\"light\" (click)=\"onOpen('search')\"  placeholder=\"Search Fyngram\"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Top Selling Products</ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of products\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.ProductName}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.ProductPrice | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-slides [options]=\"slideOptsOne\">\n    <ion-slide>\n      <ion-card  class=\"ion-no-padding ion-no-margin\">\n        <ion-img src=\"/assets/images/slider7.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide>\n      <ion-card  class=\"ion-no-padding ion-no-margin\">\n        <ion-img src=\"/assets/images/slider12.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide>\n      <ion-card  class=\"ion-no-padding ion-no-margin\">\n        <ion-img src=\"/assets/images/slider10.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n   </ion-slides>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Featured Products</ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of featuredProducts\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.ProductName}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.ProductPrice | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-card class=\"ion-no-padding ion-no-margin\">\n    <img src=\"/assets/images/slider7.jpg\" />\n  </ion-card>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Recently Added Products </ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of recentProducts\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.ProductName}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.ProductPrice | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-card class=\"ion-no-padding ion-no-margin\">\n    <img src=\"/assets/images/slider10.jpg\" />\n  </ion-card>\n  <ion-list-header>\n    <ion-label style=\"font-size: smaller;\" class=\"ion-no-margin ion-text-center \">Best Sellers' Products</ion-label>\n  </ion-list-header>\n  <ion-row>\n    <ion-row class=\"container-outer\">\n      <div *ngFor=\"let product of bestsellerProducts\" class=\"container-inner\" (click)=\"open(product)\">\n        <img [src]=\"'data:image/png;base64,'+product.FirstImage\" class=\"spon-img\">\n        <p class=\"ion-no-margin text-truncate\">{{product.ProductName}}</p>\n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-text ion-text-left><span class=\"price\"><small class=\"inline\"> {{ product.ProductPrice | currency:'₦' }}</small>\n              </span></ion-text>\n          </ion-col>\n        </ion-row>\n      </div>\n    </ion-row>\n  </ion-row>\n  <ion-slides [options]=\"slideOptsOne\">\n    <ion-slide>\n      <ion-card >\n        <ion-img src=\"/assets/images/slider7.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide>\n      <ion-card >\n        <ion-img src=\"/assets/images/slider12.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n    <ion-slide> \n      <ion-card >\n        <ion-img src=\"/assets/images/slider10.jpg\"></ion-img>\n      </ion-card>\n    </ion-slide>\n   </ion-slides>\n</ion-content>");
 
 /***/ }),
 
@@ -122,7 +122,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../authenticate/service/auth-service.service */ "./src/app/authenticate/service/auth-service.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+/* harmony import */ var _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/app-version/ngx */ "./node_modules/@ionic-native/app-version/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
 
 
 
@@ -131,21 +132,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const { Storage } = _capacitor_core__WEBPACK_IMPORTED_MODULE_7__["Plugins"];
+
+const { Storage, Browser } = _capacitor_core__WEBPACK_IMPORTED_MODULE_8__["Plugins"];
 let BuyPage = class BuyPage {
-    constructor(fun, router, shopService, loadingCtrl, authService) {
+    constructor(fun, router, appVersion, platform, alertCtrl, shopService, loadingCtrl, authService) {
         this.fun = fun;
         this.router = router;
+        this.appVersion = appVersion;
+        this.platform = platform;
+        this.alertCtrl = alertCtrl;
         this.shopService = shopService;
         this.loadingCtrl = loadingCtrl;
         this.authService = authService;
-        this.HAS_LOGGED_IN = 'hasLoggedIn';
-        this.HAS_VISITED = 'hasVisited';
         this.slideOptsOne = {
             initialSlide: 0,
             slidesPerView: 1,
             autoplay: true
         };
+        this.HAS_LOGGED_IN = 'hasLoggedIn';
+        this.HAS_VISITED = 'hasVisited';
+        this.getVersionNumber();
     }
     onOpen(link) {
         this.fun.navigate(link);
@@ -156,10 +162,12 @@ let BuyPage = class BuyPage {
             if (!value) {
                 this.getIP();
             }
-            this.getTopSellingProducts();
-            this.GetRecentlyAddedProducts();
-            this.GetFeaturedProducts();
-            this.GetBestSellersProducts();
+            if (!this.products) {
+                this.getTopSellingProducts();
+                this.GetRecentlyAddedProducts();
+                this.GetFeaturedProducts();
+                this.GetBestSellersProducts();
+            }
         });
     }
     getIP() {
@@ -191,9 +199,6 @@ let BuyPage = class BuyPage {
                 if (res.code === 200) {
                     this.products = res.data;
                 }
-                else {
-                    this.fun.presentToast(res.msg);
-                }
             }, error => {
                 loading.dismiss().catch(() => { });
             });
@@ -215,9 +220,6 @@ let BuyPage = class BuyPage {
             if (res.code === 200) {
                 this.featuredProducts = res.data;
             }
-            else {
-                this.fun.presentToast(res.msg);
-            }
         }, error => {
         });
     }
@@ -226,16 +228,88 @@ let BuyPage = class BuyPage {
             if (res.code === 200) {
                 this.bestsellerProducts = res.data;
             }
-            else {
-                this.fun.presentToast(res.msg);
-            }
         }, error => {
+        });
+    }
+    getVersionNumber() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.platform.ready().then(() => {
+                if (this.platform.is('android')) {
+                    this.appVersion.getVersionNumber()
+                        .then((version) => {
+                        alert(version);
+                        this.CheckAppVersion(version);
+                    }).catch(() => {
+                    });
+                }
+            });
+        });
+    }
+    CheckAppVersion(appversion) {
+        this.platform.ready().then(() => {
+            this.shopService.GetAppVersion()
+                .subscribe(result => {
+                console.log(result);
+                if (result.code === 200) {
+                    const serverAppVersion = result.data;
+                    if (this.platform.is('android')) {
+                        if (String(appversion) !== String(serverAppVersion)) {
+                            this.UpdateVersion();
+                        }
+                    }
+                }
+            }, error => {
+            });
+        });
+    }
+    UpdateVersion() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const alert = yield this.alertCtrl.create({
+                header: 'Update Available!!',
+                mode: 'ios',
+                message: 'A new version of Fyngram App is available. Please update to the new version now!!!',
+                buttons: [
+                    {
+                        text: 'Update Later',
+                        role: 'cancel',
+                        cssClass: 'secondary',
+                        handler: (cancel) => {
+                            console.log('Confirm Cancel: blah');
+                        }
+                    }, {
+                        text: 'Update Now',
+                        handler: (ok) => {
+                            console.log('Confirm Okay');
+                            this.onUpdateNow();
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        });
+    }
+    onUpdateNow() {
+        this.openInAppStore('https://play.google.com/store/apps/details?id=com.fyngram.fynapp').then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+    openInAppStore(link) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield Browser.open({
+                url: link,
+                toolbarColor: "#0f5656"
+            });
         });
     }
 };
 BuyPage.ctorParameters = () => [
     { type: _services_functions_service__WEBPACK_IMPORTED_MODULE_1__["FunctionsService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _ionic_native_app_version_ngx__WEBPACK_IMPORTED_MODULE_7__["AppVersion"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["Platform"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"] },
     { type: _service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] },
     { type: _authenticate_service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthServiceService"] }

@@ -41,7 +41,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/adminprofile/profile/profile.module.ts")).then(m => m.ProfilePageModule)
+                        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/adminprofile/profile/profile.module.ts")).then(m => m.ProfilePageModule)
                     }
                 ]
             },
@@ -50,7 +50,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | messages-messages-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null, /*! ./messages/messages.module */ "./src/app/adminprofile/messages/messages.module.ts")).then(m => m.MessagesPageModule)
+                        loadChildren: () => Promise.all(/*! import() | messages-messages-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null, /*! ./messages/messages.module */ "./src/app/adminprofile/messages/messages.module.ts")).then(m => m.MessagesPageModule)
                     }
                 ]
             },
@@ -59,7 +59,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | reviews-reviews-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("reviews-reviews-module")]).then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/adminprofile/reviews/reviews.module.ts")).then(m => m.ReviewsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | reviews-reviews-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("reviews-reviews-module")]).then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/adminprofile/reviews/reviews.module.ts")).then(m => m.ReviewsPageModule)
                     }
                 ]
             },

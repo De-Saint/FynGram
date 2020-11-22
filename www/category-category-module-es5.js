@@ -252,7 +252,9 @@
         _createClass(CategoryPage, [{
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.getAllCategories();
+            if (!this.categories) {
+              this.getAllCategories();
+            }
           }
         }, {
           key: "ngOnInit",
@@ -283,6 +285,7 @@
                     case 5:
                       this.shopService.GetCategories().subscribe(function (res) {
                         loading.dismiss()["catch"](function () {});
+                        console.log(res);
 
                         if (res.code === 200) {
                           _this.categories = res.data;

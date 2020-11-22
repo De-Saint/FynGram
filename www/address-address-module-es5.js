@@ -279,8 +279,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetUserAddress(this.sid);
+            if (!this.addressess) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserAddress(this.sid);
+            }
           }
         }, {
           key: "onAdd",
@@ -321,6 +323,7 @@
                           _this.show = false;
                         }
                       }, function (error) {
+                        _this.show = false;
                         loading.dismiss()["catch"](function () {});
                       });
 
@@ -743,8 +746,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetUserAddress(this.sid);
+            if (!this.addressess) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetUserAddress(this.sid);
+            }
           }
         }, {
           key: "onAdd",
@@ -785,6 +790,7 @@
                           _this6.show = false;
                         }
                       }, function (error) {
+                        _this6.show = false;
                         loading.dismiss()["catch"](function () {});
                       });
 

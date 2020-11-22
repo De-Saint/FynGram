@@ -272,8 +272,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetBankDetails(this.sid);
+            if (!this.banks) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetBankDetails(this.sid);
+            }
           }
         }, {
           key: "GetBankDetails",
@@ -309,6 +311,7 @@
                           _this.show = false;
                         }
                       }, function (error) {
+                        _this.show = false;
                         loading.dismiss()["catch"](function () {});
                       });
 
@@ -664,8 +667,10 @@
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            this.sid = this.authService.currentUserDataValue.sid;
-            this.GetBankDetails(this.sid);
+            if (!this.banks) {
+              this.sid = this.authService.currentUserDataValue.sid;
+              this.GetBankDetails(this.sid);
+            }
           }
         }, {
           key: "GetBankDetails",
@@ -701,6 +706,7 @@
                           _this4.show = false;
                         }
                       }, function (error) {
+                        _this4.show = false;
                         loading.dismiss()["catch"](function () {});
                       });
 

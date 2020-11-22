@@ -164,8 +164,10 @@ let CashoutsPage = class CashoutsPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetUserCashoutRequest(this.sid);
+        if (!this.cashouts) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetUserCashoutRequest(this.sid);
+        }
     }
     GetUserCashoutRequest(sid) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -391,8 +393,10 @@ let CashoutsPage = class CashoutsPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetUserCashoutRequest(this.sid);
+        if (!this.cashouts) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetUserCashoutRequest(this.sid);
+        }
     }
     onAdd() {
         this.router.navigate(['/', 'customerwallet', 'tabs', 'cashouts', 'new']);
@@ -594,8 +598,10 @@ let CashoutsPage = class CashoutsPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetUserCashoutRequest(this.sid);
+        if (!this.cashouts) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetUserCashoutRequest(this.sid);
+        }
     }
     onAdd() {
         this.router.navigate(['/', 'sellerswallet', 'tabs', 'cashouts', 'new']);

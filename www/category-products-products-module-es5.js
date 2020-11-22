@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header class=\"mybg\">\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button color=\"light\"></ion-back-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Products</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"onOpen('cart')\" class=\"ion-no-margin ion-no-padding\">\n        <ion-icon name=\"cart\" slot=\"icon-only\" class=\"white top-btn \"></ion-icon>\n      </ion-button>\n      <ion-button (click)=\"onOpen('search')\" class=\"ion-no-margin\">\n        <ion-icon name=\"search\" slot=\"icon-only\" class=\"white top-btn\"></ion-icon>\n      </ion-button>\n      <ion-button (click)=\"side_open()\" class=\"ion-no-margin\">\n        <ion-icon name=\"funnel-outline\" slot=\"icon-only\" class=\"white top-btn\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content color=\"light\">\n   <ion-grid>\n    <ion-row>\n      <ion-col sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\" *ngFor=\"let data of products\" (click)=\"open(data)\">\n        <div class=\"img-wrapper\" [style.background-image]=\"'url(data:image/png;base64,' + data.FirstImage\">\n        </div>\n        <p class=\"ion-no-margin text-truncate\"><strong>{{data.InfoDetails?.name}}</strong></p>\n        <p class=\"ion-no-margin\">\n          {{ data.PriceDetails?.selling_price | currency:'₦' }}\n        </p>\n      </ion-col>\n    </ion-row>\n  </ion-grid> \n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header class=\"mybg\">\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button color=\"light\"></ion-back-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Products</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"onOpen('cart')\" class=\"ion-no-margin ion-no-padding\">\n        <ion-icon name=\"cart\" slot=\"icon-only\" class=\"white top-btn \"></ion-icon>\n      </ion-button>\n      <ion-button (click)=\"onOpen('search')\" class=\"ion-no-margin\">\n        <ion-icon name=\"search\" slot=\"icon-only\" class=\"white top-btn\"></ion-icon>\n      </ion-button>\n      <!-- <ion-button (click)=\"side_open()\" class=\"ion-no-margin\">\n        <ion-icon name=\"funnel-outline\" slot=\"icon-only\" class=\"white top-btn\"></ion-icon>\n      </ion-button> -->\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content color=\"light\">\n   <ion-grid>\n    <ion-row>\n      <ion-col sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\" *ngFor=\"let data of products\" (click)=\"open(data)\">\n        <div class=\"img-wrapper\" [style.background-image]=\"'url(data:image/png;base64,' + data.FirstImage\">\n        </div>\n        <p class=\"ion-no-margin text-truncate\"><strong>{{data.InfoDetails?.name}}</strong></p>\n        <p class=\"ion-no-margin\">\n          {{ data.PriceDetails?.selling_price | currency:'₦' }}\n        </p>\n      </ion-col>\n    </ion-row>\n  </ion-grid> \n</ion-content>";
       /***/
     },
 
@@ -270,12 +270,8 @@
         }, {
           key: "open",
           value: function open(data) {
-            // this.fun.setNavigationData(data.id, data);
             this.router.navigate(['/', 'home', 'tabs', 'category', 'products', 'details', data.id]);
           }
-        }, {
-          key: "side_open",
-          value: function side_open() {}
         }, {
           key: "onOpen",
           value: function onOpen(link) {

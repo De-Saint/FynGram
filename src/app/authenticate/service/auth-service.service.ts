@@ -89,26 +89,24 @@ export class AuthServiceService {
 
 
   getIPAddress() {
-    if (this.platform.is('android')) {
-      const url = 'https://ipapi.co/json/';
-      // const url = 'https://ip.seeip.org/geoip';
-      return this.setHttpRequest(url, '');
-    } else {
-      return this.http.get("https://ipapi.co/json/");
-    }
+    return this.http.get("https://ipapi.co/json/");
+    // const url = 'https://ip.seeip.org/geoip';
   }
 
   setHttpRequest(link, data) {
     try {
       const url = link;
-      this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
-      this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
-      this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
-      this.nativeHttp.setDataSerializer('json');
-      this.nativeHttp.setServerTrustMode('nocheck');
+      alert(url);
+      // this.nativeHttp.setHeader('*', String('Content-Type'), String('application/json'));
+      // this.nativeHttp.setHeader('*', String('Accept'), String('application/json'));
+      // this.nativeHttp.setHeader('*', String('Access-Control-Allow-Origin'), String('*'));
+      // this.nativeHttp.setDataSerializer('json');
+      // this.nativeHttp.setServerTrustMode('nocheck');
       const nativeCall = this.nativeHttp.get(url, data, {});
+      alert(JSON.stringify(nativeCall))
       return from(nativeCall).pipe(map(result => {
         const res = JSON.parse(result.data);
+        alert('res ' + JSON.stringify(res));
         return JSON.parse(result.data);
       }));
     } catch (error) {

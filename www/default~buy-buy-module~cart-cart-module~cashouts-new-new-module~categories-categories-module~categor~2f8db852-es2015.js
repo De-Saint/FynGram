@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"],{
 
 /***/ "./src/app/home/service/shop.service.ts":
 /*!**********************************************!*\
@@ -81,6 +81,22 @@ let ShopService = class ShopService {
     GetFeaturedProducts() {
         const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
         const type = 'GetFeaturedProducts';
+        if (this.platform.is('android')) {
+            const data = {
+                type
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetAppVersion() {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
+        const type = 'GetAppVersion';
         if (this.platform.is('android')) {
             const data = {
                 type
@@ -353,6 +369,54 @@ let ShopService = class ShopService {
             }));
         }
     }
+    SearchProducts(searchvalue) {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
+        const type = 'SearchProducts';
+        if (this.platform.is('android')) {
+            const data = {
+                type, searchvalue
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type, searchvalue });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetProperties() {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MProductServlet';
+        const type = 'GetProperties';
+        if (this.platform.is('android')) {
+            const data = {
+                type
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
+    GetUnits() {
+        const url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MProductServlet';
+        const type = 'GetUnits';
+        if (this.platform.is('android')) {
+            const data = {
+                type
+            };
+            return this.authService.nativeHttpRequest(url, data);
+        }
+        else {
+            const data = JSON.stringify({ type });
+            return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(res => {
+                return res;
+            }));
+        }
+    }
 };
 ShopService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
@@ -370,4 +434,4 @@ ShopService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7-es2015.js.map
+//# sourceMappingURL=default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852-es2015.js.map

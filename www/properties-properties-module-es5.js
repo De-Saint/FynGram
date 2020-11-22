@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button  color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Properties</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"mytheme\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button  color=\"light\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title color=\"light\">Properties</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list *ngFor=\"let prop of properties\">\n    <ion-item>\n      <ion-label>{{prop.name}}</ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>";
       /***/
     },
 
@@ -207,28 +207,98 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _home_service_shop_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./../../home/service/shop.service */
+      "./src/app/home/service/shop.service.ts");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
       var PropertiesPage = /*#__PURE__*/function () {
-        function PropertiesPage() {
+        function PropertiesPage(shopService, loadingCtrl) {
           _classCallCheck(this, PropertiesPage);
+
+          this.shopService = shopService;
+          this.loadingCtrl = loadingCtrl;
+          this.show = true;
         }
 
         _createClass(PropertiesPage, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            if (!this.properties) {
+              this.GetProperties();
+            }
+          }
+        }, {
+          key: "GetProperties",
+          value: function GetProperties() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this = this;
+
+              var loading;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.loadingCtrl.create({
+                        cssClass: 'my-custom-class',
+                        message: 'Please wait...',
+                        mode: 'ios'
+                      });
+
+                    case 2:
+                      loading = _context.sent;
+                      _context.next = 5;
+                      return loading.present();
+
+                    case 5:
+                      this.shopService.GetProperties().subscribe(function (res) {
+                        loading.dismiss()["catch"](function () {});
+
+                        if (res.code === 200) {
+                          _this.properties = res.data;
+                          _this.show = true;
+                        } else {
+                          _this.show = false;
+                        }
+                      }, function (error) {
+                        _this.show = false;
+                        loading.dismiss()["catch"](function () {});
+                      });
+
+                    case 6:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
         }]);
 
         return PropertiesPage;
       }();
 
       PropertiesPage.ctorParameters = function () {
-        return [];
+        return [{
+          type: _home_service_shop_service__WEBPACK_IMPORTED_MODULE_2__["ShopService"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
+        }];
       };
 
-      PropertiesPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      PropertiesPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-properties',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./properties.page.html */

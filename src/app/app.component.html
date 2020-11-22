@@ -14,22 +14,22 @@
                   <a routerLink="/support" class="small white ion-no-margin ion-margin-start" routerLinkActive="active"
                     routerDirection="root" detail="false">Create An Account</a>
                 </ion-menu-toggle>
-                <h6 class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+                <h6 class="small white ion-no-margin ion-margin-start">{{version}}</h6>
               </div>
               <div class="ion-margin-vertical" *ngIf="userType === 'Admin'">
                 <h4 class="medium white ion-no-margin ion-margin-start"><strong>{{userName}}</strong></h4>
                 <h6 class="small white ion-no-margin ion-margin-start">Admin</h6>
-                <h6 class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+                <h6 class="small white ion-no-margin ion-margin-start">{{version}}</h6>
               </div>
               <div class="ion-margin-vertical" *ngIf="userType === 'Seller'">
                 <h4 class="medium white ion-no-margin ion-margin-start"><strong>{{userName}}</strong></h4>
                 <h6 class="small white ion-no-margin ion-margin-start">Seller</h6>
-                <h6 class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+                <h6 class="small white ion-no-margin ion-margin-start">{{version}}</h6>
               </div>
               <div class="ion-margin-vertical" *ngIf="userType === 'Customer'">
                 <h4 class="medium white ion-no-margin ion-margin-start"><strong>{{userName}}</strong></h4>
                 <h6 class="small white ion-no-margin ion-margin-start">Customer</h6>
-                <h6 class="small white ion-no-margin ion-margin-start">1.0.0</h6>
+                <h6 class="small white ion-no-margin ion-margin-start">{{version}}</h6>
               </div>
             </ion-col>
           </ion-row>

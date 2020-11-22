@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-tabs>\n  <ion-tab-bar mode=\"ios\" slot=\"bottom\" class=\"ion-text-xl-center\">\n    <ion-tab-button tab=\"buy\">\n      <ion-label>Buy</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"category\">\n      <ion-label>Categories</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"sell\">\n      <ion-label>Sell</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"help\">\n      <ion-label>Help</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n</ion-tabs>\n";
+      __webpack_exports__["default"] = "<ion-tabs>\n  <ion-tab-bar mode=\"ios\" slot=\"bottom\" class=\"ion-text-xl-center\">\n    <ion-tab-button tab=\"buy\">\n      <ion-icon name=\"basket\"></ion-icon>\n      <ion-label style=\"font-size:medium !important;\">Buy</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"category\">\n      <ion-icon name=\"apps\"></ion-icon>\n      <ion-label style=\"font-size:medium !important;\">Categories</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"sell\">\n      <ion-icon name=\"repeat\"></ion-icon>\n      <ion-label style=\"font-size:medium !important;\">Sell</ion-label>\n    </ion-tab-button>\n    <ion-tab-button tab=\"help\">\n      <ion-icon name=\"help-circle\"></ion-icon>\n      <ion-label style=\"font-size:medium !important;\">Help</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n</ion-tabs>\n";
       /***/
     },
 
@@ -80,7 +80,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | buy-buy-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("buy-buy-module")]).then(__webpack_require__.bind(null,
               /*! ./buy/buy.module */
               "./src/app/home/buy/buy.module.ts")).then(function (m) {
                 return m.BuyPageModule;
@@ -93,7 +93,7 @@
               loadChildren: function loadChildren() {
                 return Promise.all(
                 /*! import() | category-products-details-details-module */
-                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
+                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
                 /*! ./category/products/details/details.module */
                 "./src/app/home/category/products/details/details.module.ts")).then(function (m) {
                   return m.DetailsPageModule;
@@ -108,7 +108,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | category-category-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null,
               /*! ./category/category.module */
               "./src/app/home/category/category.module.ts")).then(function (m) {
                 return m.CategoryPageModule;
@@ -121,7 +121,7 @@
               loadChildren: function loadChildren() {
                 return Promise.all(
                 /*! import() | category-products-details-details-module */
-                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
+                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("category-products-details-details-module")]).then(__webpack_require__.bind(null,
                 /*! ./category/products/details/details.module */
                 "./src/app/home/category/products/details/details.module.ts")).then(function (m) {
                   return m.DetailsPageModule;
@@ -132,7 +132,7 @@
               loadChildren: function loadChildren() {
                 return Promise.all(
                 /*! import() | category-products-products-module */
-                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null,
+                [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"), __webpack_require__.e("category-products-products-module")]).then(__webpack_require__.bind(null,
                 /*! ./category/products/products.module */
                 "./src/app/home/category/products/products.module.ts")).then(function (m) {
                   return m.ProductsPageModule;
@@ -147,7 +147,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | sell-sell-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("sell-sell-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("sell-sell-module")]).then(__webpack_require__.bind(null,
               /*! ./sell/sell.module */
               "./src/app/home/sell/sell.module.ts")).then(function (m) {
                 return m.SellPageModule;
@@ -161,7 +161,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | help-help-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("help-help-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("help-help-module")]).then(__webpack_require__.bind(null,
               /*! ./help/help.module */
               "./src/app/home/help/help.module.ts")).then(function (m) {
                 return m.HelpPageModule;

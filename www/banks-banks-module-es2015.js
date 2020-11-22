@@ -151,8 +151,10 @@ let BanksPage = class BanksPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetBankDetails(this.sid);
+        if (!this.banks) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetBankDetails(this.sid);
+        }
     }
     GetBankDetails(sid) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -172,6 +174,7 @@ let BanksPage = class BanksPage {
                     this.show = false;
                 }
             }, error => {
+                this.show = false;
                 loading.dismiss().catch(() => { });
             });
         });
@@ -357,8 +360,10 @@ let BanksPage = class BanksPage {
     ngOnInit() {
     }
     ionViewWillEnter() {
-        this.sid = this.authService.currentUserDataValue.sid;
-        this.GetBankDetails(this.sid);
+        if (!this.banks) {
+            this.sid = this.authService.currentUserDataValue.sid;
+            this.GetBankDetails(this.sid);
+        }
     }
     GetBankDetails(sid) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -378,6 +383,7 @@ let BanksPage = class BanksPage {
                     this.show = false;
                 }
             }, error => {
+                this.show = false;
                 loading.dismiss().catch(() => { });
             });
         });

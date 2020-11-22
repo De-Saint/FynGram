@@ -3,9 +3,10 @@ import { ShopService } from './../service/shop.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from './../../authenticate/service/auth-service.service';
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Platform, AlertController } from '@ionic/angular';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Plugins } from '@capacitor/core';
-const { Storage } = Plugins;
+const { Storage, Browser } = Plugins;
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.page.html',
@@ -28,11 +29,14 @@ export class BuyPage {
   constructor(
     private fun: FunctionsService,
     private router: Router,
+    private appVersion: AppVersion,
+    private platform: Platform,
+    private alertCtrl: AlertController,
     private shopService: ShopService,
     private loadingCtrl: LoadingController,
     private authService: AuthServiceService,
   ) {
-
+    this.getVersionNumber();
   }
 
   onOpen(link) {
@@ -118,4 +122,76 @@ export class BuyPage {
     })
   }
 
+
+  async getVersionNumber() {
+    this.platform.ready().then(() => {
+      if (this.platform.is('android')) {
+        this.appVersion.getVersionNumber()
+          .then((version) => {
+            alert(version)
+            this.CheckAppVersion(version);
+          }).catch(() => {
+          });
+      }
+    })
+  }
+
+  CheckAppVersion(appversion) {
+    this.platform.ready().then(() => {
+      this.shopService.GetAppVersion()
+        .subscribe(result => {
+          console.log(result);
+          if (result.code === 200) {
+            const serverAppVersion = result.data;
+            if (this.platform.is('android')) {
+              if (String(appversion) !== String(serverAppVersion)) {
+                this.UpdateVersion();
+              }
+            }
+          }
+        }, error => {
+        });
+    });
+  }
+  async UpdateVersion() {
+    const alert = await this.alertCtrl.create({
+      header: 'Update Available!!',
+      mode: 'ios',
+      message: 'A new version of Fyngram App is available. Please update to the new version now!!!',
+      buttons: [
+        {
+          text: 'Update Later',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (cancel) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Update Now',
+          handler: (ok) => {
+            console.log('Confirm Okay');
+            this.onUpdateNow();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  onUpdateNow() {
+    this.openInAppStore('https://play.google.com/store/apps/details?id=com.fyngram.fynapp').then(response => {
+      console.log(response);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
+  async openInAppStore(link) {
+    await Browser.open(
+      {
+        url: link,
+        toolbarColor: "#0f5656"
+      }
+    );
+  }
 }

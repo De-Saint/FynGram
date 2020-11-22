@@ -1,17 +1,14 @@
 import { AuthServiceService } from './authenticate/service/auth-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Renderer2 } from '@angular/core';
-
+import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-
 import {
   Plugins,
-  // StatusBarStyle
+  StatusBarStyle
 } from '@capacitor/core';
 
-const { Storage } = Plugins;
+const { Storage, StatusBar, SplashScreen } = Plugins;
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -21,8 +18,10 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   loggedIn = false;
   userType = 'Guest';
+  version: string;
   userName: any;
   HAS_LOGGED_IN = 'hasLoggedIn';
+  isStatusBarLight = true;
   public appPages = [
     { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
     { title: 'Search', url: '/search', icon: 'search' },
@@ -30,6 +29,7 @@ export class AppComponent implements OnInit {
     { title: 'Login', url: '/authenticate', icon: 'log-in' },
     { title: 'Register', url: '/authenticate/register', icon: 'person-add' }
   ];
+
   public sellerPages = [
     { title: 'Dashboard', url: '/sellersdashboard', icon: 'home' },
     { title: 'Profile', url: '/sellersprofile/tabs/profile', icon: 'person-circle' },
@@ -40,9 +40,6 @@ export class AppComponent implements OnInit {
   ];
 
   public adminPages = [
-    // { title: 'Buy', url: '/home/tabs/buy', icon: 'basket' },
-    // { title: 'Search', url: '/search', icon: 'search' },
-    // { title: 'Cart', url: '/cart', icon: 'cart' },
     { title: 'Dashboard', url: '/admindashboard', icon: 'home' },
     { title: 'Profile', url: '/adminprofile/tabs/profile', icon: 'person-circle' },
     { title: 'FynPay', url: '/adminwallet/tabs/fynpay', icon: 'wallet' },
@@ -64,10 +61,9 @@ export class AppComponent implements OnInit {
 
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private renderer: Renderer2,
     private router: Router,
+    private appVersion: AppVersion,
     private authService: AuthServiceService,
   ) {
     this.initializeApp();
@@ -76,12 +72,40 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.updateAppVersion();
+      this.changeStatusBar();
+      this.hideSplash();
     });
 
   }
+  updateAppVersion() {
+    this.appVersion.getVersionNumber()
+      .then((version) => {
+        this.version = version;
+      }).catch(() => {
+      });
+  }
 
+  changeStatusBar() {
+    StatusBar.show();
+    StatusBar.setStyle({
+      style: this.isStatusBarLight ? StatusBarStyle.Dark : StatusBarStyle.Light
+    });
+    this.isStatusBarLight = !this.isStatusBarLight;
+
+    // Display content under transparent status bar (Android only)
+    StatusBar.setOverlaysWebView({
+      overlay: false
+    });
+
+    StatusBar.setBackgroundColor({
+      color: "#40A944"
+    });
+  }
+
+  hideSplash() {
+    SplashScreen.hide();
+  }
   ngOnInit() {
     this.checkLoginStatus();
     this.listenToEvents();

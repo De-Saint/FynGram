@@ -80,7 +80,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | profile-profile-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
               /*! ./profile/profile.module */
               "./src/app/adminprofile/profile/profile.module.ts")).then(function (m) {
                 return m.ProfilePageModule;
@@ -94,7 +94,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | messages-messages-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("messages-messages-module")]).then(__webpack_require__.bind(null,
               /*! ./messages/messages.module */
               "./src/app/adminprofile/messages/messages.module.ts")).then(function (m) {
                 return m.MessagesPageModule;
@@ -108,7 +108,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | reviews-reviews-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("reviews-reviews-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("reviews-reviews-module")]).then(__webpack_require__.bind(null,
               /*! ./reviews/reviews.module */
               "./src/app/adminprofile/reviews/reviews.module.ts")).then(function (m) {
                 return m.ReviewsPageModule;

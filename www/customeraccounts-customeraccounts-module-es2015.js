@@ -41,7 +41,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | transactions-transactions-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("transactions-transactions-module")]).then(__webpack_require__.bind(null, /*! ./transactions/transactions.module */ "./src/app/customeraccounts/transactions/transactions.module.ts")).then(m => m.TransactionsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | transactions-transactions-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("transactions-transactions-module")]).then(__webpack_require__.bind(null, /*! ./transactions/transactions.module */ "./src/app/customeraccounts/transactions/transactions.module.ts")).then(m => m.TransactionsPageModule)
                     }
                 ]
             },
@@ -50,7 +50,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | payments-payments-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("payments-payments-module")]).then(__webpack_require__.bind(null, /*! ./payments/payments.module */ "./src/app/customeraccounts/payments/payments.module.ts")).then(m => m.PaymentsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | payments-payments-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("payments-payments-module")]).then(__webpack_require__.bind(null, /*! ./payments/payments.module */ "./src/app/customeraccounts/payments/payments.module.ts")).then(m => m.PaymentsPageModule)
                     }
                 ]
             },
@@ -59,7 +59,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | discounts-discounts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("discounts-discounts-module")]).then(__webpack_require__.bind(null, /*! ./discounts/discounts.module */ "./src/app/customeraccounts/discounts/discounts.module.ts")).then(m => m.DiscountsPageModule)
+                        loadChildren: () => Promise.all(/*! import() | discounts-discounts-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("discounts-discounts-module")]).then(__webpack_require__.bind(null, /*! ./discounts/discounts.module */ "./src/app/customeraccounts/discounts/discounts.module.ts")).then(m => m.DiscountsPageModule)
                     }
                 ]
             },

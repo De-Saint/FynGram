@@ -5,7 +5,7 @@
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852"], {
     /***/
     "./src/app/home/service/shop.service.ts":
     /*!**********************************************!*\
@@ -162,10 +162,10 @@
             }
           }
         }, {
-          key: "GetBestSellersProducts",
-          value: function GetBestSellersProducts() {
+          key: "GetAppVersion",
+          value: function GetAppVersion() {
             var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
-            var type = 'GetBestSellersProducts';
+            var type = 'GetAppVersion';
 
             if (this.platform.is('android')) {
               var data = {
@@ -183,6 +183,27 @@
             }
           }
         }, {
+          key: "GetBestSellersProducts",
+          value: function GetBestSellersProducts() {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
+            var type = 'GetBestSellersProducts';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.authService.nativeHttpRequest(url, data);
+            } else {
+              var _data6 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data6).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
           key: "GetCategoryProducts",
           value: function GetCategoryProducts(catid) {
             var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
@@ -195,12 +216,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data6 = JSON.stringify({
+              var _data7 = JSON.stringify({
                 type: type,
                 catid: catid
               });
 
-              return this.http.post(url, _data6).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data7).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -218,12 +239,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data7 = JSON.stringify({
+              var _data8 = JSON.stringify({
                 type: type,
                 productid: productid
               });
 
-              return this.http.post(url, _data7).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data8).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -241,12 +262,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data8 = JSON.stringify({
+              var _data9 = JSON.stringify({
                 type: type,
                 productid: productid
               });
 
-              return this.http.post(url, _data8).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data9).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -270,7 +291,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data9 = JSON.stringify({
+              var _data10 = JSON.stringify({
                 type: type,
                 sid: sid,
                 option: option,
@@ -280,7 +301,7 @@
                 action: action
               });
 
-              return this.http.post(url, _data9).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data10).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -300,13 +321,13 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data10 = JSON.stringify({
+              var _data11 = JSON.stringify({
                 type: type,
                 sid: sid,
                 code: code
               });
 
-              return this.http.post(url, _data10).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data11).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -324,12 +345,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data11 = JSON.stringify({
+              var _data12 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data11).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data12).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -350,7 +371,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data12 = JSON.stringify({
+              var _data13 = JSON.stringify({
                 type: type,
                 sid: sid,
                 paytype: paytype,
@@ -358,7 +379,7 @@
                 addressid: addressid
               });
 
-              return this.http.post(url, _data12).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data13).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -375,11 +396,11 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data13 = JSON.stringify({
+              var _data14 = JSON.stringify({
                 type: type
               });
 
-              return this.http.post(url, _data13).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data14).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -403,7 +424,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data14 = JSON.stringify({
+              var _data15 = JSON.stringify({
                 type: type,
                 sid: sid,
                 option: option,
@@ -413,7 +434,7 @@
                 action: action
               });
 
-              return this.http.post(url, _data14).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data15).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -433,14 +454,14 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data15 = JSON.stringify({
+              var _data16 = JSON.stringify({
                 type: type,
                 option: option,
                 optionid: optionid,
                 productid: productid
               });
 
-              return this.http.post(url, _data15).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data16).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -458,12 +479,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data16 = JSON.stringify({
+              var _data17 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data16).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data17).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -481,12 +502,12 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data17 = JSON.stringify({
+              var _data18 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data17).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data18).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -510,7 +531,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data18 = JSON.stringify({
+              var _data19 = JSON.stringify({
                 type: type,
                 sid: sid,
                 paytype: paytype,
@@ -521,7 +542,7 @@
                 tcode: tcode
               });
 
-              return this.http.post(url, _data18).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data19).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -543,7 +564,7 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data19 = JSON.stringify({
+              var _data20 = JSON.stringify({
                 type: type,
                 sid: sid,
                 paytype: paytype,
@@ -552,7 +573,7 @@
                 tcode: tcode
               });
 
-              return this.http.post(url, _data19).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data20).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -570,12 +591,77 @@
               };
               return this.authService.nativeHttpRequest(url, data);
             } else {
-              var _data20 = JSON.stringify({
+              var _data21 = JSON.stringify({
                 type: type,
                 sid: sid
               });
 
-              return this.http.post(url, _data20).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+              return this.http.post(url, _data21).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "SearchProducts",
+          value: function SearchProducts(searchvalue) {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MShopServlet';
+            var type = 'SearchProducts';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type,
+                searchvalue: searchvalue
+              };
+              return this.authService.nativeHttpRequest(url, data);
+            } else {
+              var _data22 = JSON.stringify({
+                type: type,
+                searchvalue: searchvalue
+              });
+
+              return this.http.post(url, _data22).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetProperties",
+          value: function GetProperties() {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MProductServlet';
+            var type = 'GetProperties';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.authService.nativeHttpRequest(url, data);
+            } else {
+              var _data23 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data23).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
+                return res;
+              }));
+            }
+          }
+        }, {
+          key: "GetUnits",
+          value: function GetUnits() {
+            var url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].url + 'MProductServlet';
+            var type = 'GetUnits';
+
+            if (this.platform.is('android')) {
+              var data = {
+                type: type
+              };
+              return this.authService.nativeHttpRequest(url, data);
+            } else {
+              var _data24 = JSON.stringify({
+                type: type
+              });
+
+              return this.http.post(url, _data24).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (res) {
                 return res;
               }));
             }
@@ -602,4 +688,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=default~buy-buy-module~cart-cart-module~cashouts-new-new-module~category-category-module~category-pr~a4914bc7-es5.js.map
+//# sourceMappingURL=default~buy-buy-module~cart-cart-module~cashouts-new-new-module~categories-categories-module~categor~2f8db852-es5.js.map

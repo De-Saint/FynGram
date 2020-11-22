@@ -80,7 +80,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | transactions-transactions-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("transactions-transactions-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("transactions-transactions-module")]).then(__webpack_require__.bind(null,
               /*! ./transactions/transactions.module */
               "./src/app/adminaccounts/transactions/transactions.module.ts")).then(function (m) {
                 return m.TransactionsPageModule;
@@ -94,7 +94,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | payments-payments-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("payments-payments-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("payments-payments-module")]).then(__webpack_require__.bind(null,
               /*! ./payments/payments.module */
               "./src/app/adminaccounts/payments/payments.module.ts")).then(function (m) {
                 return m.PaymentsPageModule;
@@ -108,7 +108,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | subscriptions-subscriptions-module */
-              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~be8d2e4a"), __webpack_require__.e("subscriptions-subscriptions-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("subscriptions-subscriptions-module")]).then(__webpack_require__.bind(null,
               /*! ./subscriptions/subscriptions.module */
               "./src/app/adminaccounts/subscriptions/subscriptions.module.ts")).then(function (m) {
                 return m.SubscriptionsPageModule;

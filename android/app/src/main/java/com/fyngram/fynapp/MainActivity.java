@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.fyngram.fynapp;
 
 import android.os.Bundle;
 

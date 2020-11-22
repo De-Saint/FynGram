@@ -1,12 +1,16 @@
 {
   "appId": "com.fyngram.fynapp",
-  "appName": "FynGram",
+  "appName": "Fyngram",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchShowDuration": 3000,
+      "launchAutoHide": false,
+      "androidScaleType": "CENTER_CROP",
+      "FadeSplashScreen": false,
+      "androidSplashResourceName": "splash"
     }
   },
   "cordova": {}

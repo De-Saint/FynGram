@@ -139,7 +139,9 @@ let CategoryPage = class CategoryPage {
         };
     }
     ionViewWillEnter() {
-        this.getAllCategories();
+        if (!this.categories) {
+            this.getAllCategories();
+        }
     }
     ngOnInit() {
     }
@@ -153,6 +155,7 @@ let CategoryPage = class CategoryPage {
             yield loading.present();
             this.shopService.GetCategories().subscribe(res => {
                 loading.dismiss().catch(() => { });
+                console.log(res);
                 if (res.code === 200) {
                     this.categories = res.data;
                 }

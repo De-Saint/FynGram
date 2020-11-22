@@ -41,8 +41,12 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | sellers-sellers-module */ "sellers-sellers-module").then(__webpack_require__.bind(null, /*! ./sellers/sellers.module */ "./src/app/adminusers/sellers/sellers.module.ts")).then(m => m.SellersPageModule)
-                    }
+                        loadChildren: () => Promise.all(/*! import() | sellers-sellers-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("sellers-sellers-module")]).then(__webpack_require__.bind(null, /*! ./sellers/sellers.module */ "./src/app/adminusers/sellers/sellers.module.ts")).then(m => m.SellersPageModule)
+                    },
+                    {
+                        path: 'details/:sellerId',
+                        loadChildren: () => Promise.all(/*! import() | sellers-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("sellers-details-details-module")]).then(__webpack_require__.bind(null, /*! ./sellers/details/details.module */ "./src/app/adminusers/sellers/details/details.module.ts")).then(m => m.DetailsPageModule)
+                    },
                 ]
             },
             {
@@ -50,8 +54,12 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | customers-customers-module */ "customers-customers-module").then(__webpack_require__.bind(null, /*! ./customers/customers.module */ "./src/app/adminusers/customers/customers.module.ts")).then(m => m.CustomersPageModule)
-                    }
+                        loadChildren: () => Promise.all(/*! import() | customers-customers-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("customers-customers-module")]).then(__webpack_require__.bind(null, /*! ./customers/customers.module */ "./src/app/adminusers/customers/customers.module.ts")).then(m => m.CustomersPageModule)
+                    },
+                    {
+                        path: 'details/:customerId',
+                        loadChildren: () => Promise.all(/*! import() | customers-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("customers-details-details-module")]).then(__webpack_require__.bind(null, /*! ./customers/details/details.module */ "./src/app/adminusers/customers/details/details.module.ts")).then(m => m.DetailsPageModule)
+                    },
                 ]
             },
             {
@@ -60,6 +68,14 @@ const routes = [
                     {
                         path: '',
                         loadChildren: () => __webpack_require__.e(/*! import() | shipping-shipping-module */ "shipping-shipping-module").then(__webpack_require__.bind(null, /*! ./shipping/shipping.module */ "./src/app/adminusers/shipping/shipping.module.ts")).then(m => m.ShippingPageModule)
+                    },
+                    {
+                        path: 'details/:shippingId',
+                        loadChildren: () => Promise.all(/*! import() | shipping-details-details-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("shipping-details-details-module")]).then(__webpack_require__.bind(null, /*! ./shipping/details/details.module */ "./src/app/adminusers/shipping/details/details.module.ts")).then(m => m.DetailsPageModule)
+                    },
+                    {
+                        path: 'new',
+                        loadChildren: () => Promise.all(/*! import() | shipping-new-new-module */[__webpack_require__.e("default~address-address-module~address-new-new-module~authenticate-authenticate-module~banks-banks-m~dca64810"), __webpack_require__.e("shipping-new-new-module")]).then(__webpack_require__.bind(null, /*! ./shipping/new/new.module */ "./src/app/adminusers/shipping/new/new.module.ts")).then(m => m.NewPageModule)
                     }
                 ]
             },
